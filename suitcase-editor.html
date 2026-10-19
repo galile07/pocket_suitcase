@@ -218,6 +218,7 @@ const BANNER_COLORS = ['bg-amber-800 text-parchment-50','bg-parchment-800 text-a
    ============================================================ */
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function matName(m){ return typeof m === 'string' ? m : (m && m.name) || ''; }
 
 function getPath(p){ const parts = p.split('.'); let o = DOC; for (const k of parts){ if (o == null) return undefined; o = o[k]; } return o; }
 function setPath(p, v){
@@ -554,6 +555,13 @@ function validate(){
         (b.recommendedIds || []).forEach(id => { if (!ids.has(id)) errs.push(`Mane's boss #${i + 1} (${b.name}) references unknown id "${id}".`); });
     });
     const manifests = new Set((DOC.mythManifests || []).map(m => m.name));
+    const matSeen = new Set();
+    (DOC.materialsList || []).forEach((m, i) => {
+        const nm = matName(m).trim();
+        if (!nm) warns.push(`Material #${i + 1} has no name.`);
+        else if (matSeen.has(nm)) warns.push(`Duplicate material name: "${nm}".`);
+        else matSeen.add(nm);
+    });
     const manifestIds = new Set((DOC.mythManifests || []).map(m => m.id));
     (DOC.teamTierData || []).forEach(t => {
         (t.members || []).forEach(m => { if (!names.has(m)) warns.push(`Team "${t.name}": member "${m}" not found in character roster (check spelling).`); });
@@ -788,19 +796,25 @@ const SECTIONS = {
         list(){
             const arr = DOC.materialsList || [];
             const q = Q.trim().toLowerCase();
-            return arr.map((m, i) => ({ m, i }))
-                .filter(({ m }) => !q || String(m).toLowerCase().includes(q))
-                .map(({ m, i }) => `<button class="list-item ${i === sel.materials ? 'on' : ''}" data-act="sel-material" data-idx="${i}">
-                    <span class="font-bold">${esc(m || '(unnamed)')}</span></button>`).join('') || '<p class="text-xs text-parchment-500 italic p-2">No materials yet — click New.</p>';
+            return arr.map((m, i) => ({ name: matName(m), i }))
+                .filter(({ name }) => !q || name.toLowerCase().includes(q))
+                .map(({ name, i }) => `<button class="list-item ${i === sel.materials ? 'on' : ''}" data-act="sel-material" data-idx="${i}">
+                    <span class="font-bold">${esc(name || '(unnamed)')}</span></button>`).join('') || '<p class="text-xs text-parchment-500 italic p-2">No materials yet — click New.</p>';
         },
         form(){
             clampSel();
             const arr = DOC.materialsList || [];
-            if (!arr.length) return '<div class="card p-6 text-sm text-parchment-600">No materials yet — click <b>New Material</b>. Every Material dropdown in <b>Characters → Material Plan</b> pulls from this list.</div>';
+            if (!arr.length) return '<div class="card p-6 text-sm text-parchment-600">No materials yet — click <b>New Material</b>. You will be asked for the name, a picture and the area where it drops the most. Every Material dropdown in <b>Characters → Material Plan</b> pulls from this list.</div>';
+            let m = arr[sel.materials];
+            if (typeof m === 'string'){ arr[sel.materials] = { name: m, image:'', area:'' }; m = arr[sel.materials]; markDirty(); }
             const p = 'materialsList.' + sel.materials;
+            const img = m.image || '';
             return `<div class="card p-5 space-y-4">${grid(
-                fInput('Material name', p, { wide:true, ph:'e.g. Fine Fireworks' }) +
-                `<div class="sm:col-span-2 text-[11px] text-parchment-600">Used by the Material Plan inputs in <b>Characters → Material Plan</b> (type-ahead suggestions). Keep names unique for clean suggestions.</div>`
+                fInput('Material name', p + '.name', { wide:true, ph:'e.g. Fine Fireworks' }) +
+                fInput('Picture (image URL)', p + '.image', { wide:true, ph:'https://…' }) +
+                (img ? `<div class="sm:col-span-2"><img src="${esc(img)}" alt="" class="h-24 rounded-xl border border-parchment-300 bg-parchment-100 object-contain" onerror="this.style.display='none'"></div>` : '') +
+                fArea('Where to get it the most', p + '.area', { rows:2, ph:'e.g. A Heavy Blow — Stage 3 (best drop rate)' }) +
+                `<div class="sm:col-span-2 text-[11px] text-parchment-600">Used by the Material Plan inputs in <b>Characters → Material Plan</b> (type-ahead suggests the name). Keep names unique for clean suggestions.</div>`
             )}</div>`;
         }
     },
@@ -1089,7 +1103,7 @@ function render(){
     const lp = document.getElementById('list-pane');
     if (lp) lp.scrollTop = scroll;
     const dl = document.getElementById('mat-list');
-    if (dl) dl.innerHTML = ((DOC && DOC.materialsList) || []).map(m => `<option value="${esc(m)}">`).join('');
+    if (dl) dl.innerHTML = ((DOC && DOC.materialsList) || []).map(m => `<option value="${esc(matName(m))}">`).join('');
     lucide.createIcons();
 }
 function refreshList(){
@@ -1218,11 +1232,20 @@ document.addEventListener('click', async e => {
         case act === 'wf-mode': wfMode = b.dataset.mode; sel.wfboss = 0; render(); break;
         case act === 'sel-material': sel.materials = idx; render(); break;
 
-        case act === 'add-material': (DOC.materialsList = DOC.materialsList || []).push('New Material'); sel.materials = DOC.materialsList.length - 1; markDirty(); render(); break;
+        case act === 'add-material': {
+            const arr = DOC.materialsList = DOC.materialsList || [];
+            const name = prompt('Material name:');
+            if (name === null || !name.trim()) break;
+            const image = prompt('Picture URL (leave blank if none):', '') || '';
+            const area = prompt('Where to get it the most? (area / stage / boss — leave blank if unknown):', '') || '';
+            arr.push({ name: name.trim(), image: image.trim(), area: area.trim() });
+            sel.materials = arr.length - 1;
+            markDirty(); render(); break;
+        }
         case act === 'del-material': {
             const arr = DOC.materialsList || [];
             if (!arr.length) break;
-            if (!confirm(`Delete "${arr[sel.materials]}"?`)) break;
+            if (!confirm(`Delete "${matName(arr[sel.materials])}"?`)) break;
             arr.splice(sel.materials, 1); markDirty(); render(); break;
         }
 
