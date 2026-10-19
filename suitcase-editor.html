@@ -189,7 +189,7 @@ const AFFLATUS = ['Star','Plant','Mineral','Beast','Spirit','Intellect'];
 const TIERS = ['T0','T0.5','T1','T2'];
 const ARCHETYPES = ['Lingering Glow','Dynamo','Conduit','Bloodtithe','Impromptu','Ultimate/Bullet','Extra Action / Universal']; // team tierlist section only
 const SUFFIXES = ['DPS','Support','Sustain','Sub-DPS'];
-const DMG_TYPES = ['Mental','Physical'];
+const DMG_TYPES = ['Mental','Reality'];
 const TAGS = ['General','Dynamo','Ritual','Follow Up','Poison','Lingering Glow','Bloodtithe','Rank Up','Inspiration','Conduit','Bullet','Shift','Full Pursuit','Counter Assassination','Negative Status','Burn','Halo','Counter','Eureka','HP Sacrifice','All Rounder'];
 const TAG_REL = {
     'burn': ['Lingering Glow'],
@@ -538,7 +538,7 @@ function validate(){
         if (c.name) names.add(c.name);
         if (!TIERS.includes(c.tier)) warns.push(`${c.name || c.id}: tier "${c.tier}" is not one of T0/T0.5/T1/T2.`);
         if (!AFFLATUS.includes(c.afflatus)) warns.push(`${c.name || c.id}: afflatus "${c.afflatus}" is not a standard value.`);
-        if (c.dmgType && !DMG_TYPES.includes(c.dmgType)) warns.push(`${c.name || c.id}: damage type "${c.dmgType}" is not Mental/Physical.`);
+        if (c.dmgType && !DMG_TYPES.includes(c.dmgType)) warns.push(`${c.name || c.id}: damage type "${c.dmgType}" is not Mental/Reality.`);
         (c.suffix || []).forEach(s => { if (!SUFFIXES.includes(s)) warns.push(`${c.name || c.id}: suffix "${s}" is not one of ${SUFFIXES.join('/')}.`); });
         if (c.hasEuphoria && !((c.euphoria && c.euphoria.tag) || '')) warns.push(`${c.name || c.id}: Euphoria on but euphoria tag is empty.`);
         if (!c.tier) warns.push(`${c.name || c.id}: no tier.`);
