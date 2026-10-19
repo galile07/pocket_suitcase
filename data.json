@@ -1,0 +1,956 @@
+{
+  "materialNodes": [
+    {
+      "name": "Keys of Thought & Sprouts",
+      "tier": "Euphoria (T5)",
+      "stage": "Reveries Trance",
+      "rate": "4 Weekly Trance (Cap 8)",
+      "usage": "Euphoria Unlock & Epiphany I–IV"
+    },
+    {
+      "name": "Golden Beetle & Caskets",
+      "tier": "Orange (T5)",
+      "stage": "Ch. 8-18 Hard",
+      "rate": "28% Drop + T3 Sub-mats",
+      "usage": "3.x Insight III & Res 13–15"
+    },
+    {
+      "name": "Biting Box",
+      "tier": "Purple (T4)",
+      "stage": "Ch. 4-21 Hard",
+      "rate": "36% Drop + Sharpodonty",
+      "usage": "Star / Spirit Insight III"
+    },
+    {
+      "name": "Salted Mandrake",
+      "tier": "Purple (T4)",
+      "stage": "Ch. 3-13 Hard",
+      "rate": "34% Drop + Liquefied Terror",
+      "usage": "Plant / Beast Insight III"
+    },
+    {
+      "name": "Prophetic Bird",
+      "tier": "Purple (T4)",
+      "stage": "Ch. 7-19 Hard",
+      "rate": "38% Drop + Esoteric Bones",
+      "usage": "Intellect / Mineral Insight III"
+    },
+    {
+      "name": "Clawed Pendulum",
+      "tier": "Purple (T4)",
+      "stage": "Ch. 6-14 Hard",
+      "rate": "39% Drop + Trembling Tooth",
+      "usage": "Resonance 10–15 Polarization"
+    }
+  ],
+  "mythManifests": [
+    {
+      "id": "operatic",
+      "name": "Operatic Reflection",
+      "element": "Beast / Burn / Glow",
+      "bonus": "Amplifies Lingering Glow & Burn detonation DMG by +35% and inflicts Halo stacks."
+    },
+    {
+      "id": "star_misfortune",
+      "name": "Star of Misfortune",
+      "element": "Star / Impromptu / Crit",
+      "bonus": "Boosts Impromptu Inspiration & Conduit Crit DMG while generating +2 Eureka per round."
+    },
+    {
+      "id": "mountain_ghost",
+      "name": "Mountain Ghost",
+      "element": "Mineral / Bloodtithe",
+      "bonus": "Converts allied HP drain into thicker Bloodtithe Pool charges and grants teamwide Leech."
+    },
+    {
+      "id": "ashen_beast",
+      "name": "Ashen Beast",
+      "element": "Intellect / Dynamo",
+      "bonus": "Accelerates Pulsing Electric Field to Level 3 and triggers chain electromagnetic follow-ups."
+    },
+    {
+      "id": "primitive_urge",
+      "name": "Primitive Urge",
+      "element": "Plant / Universal",
+      "bonus": "Provides teamwide cleanse, Genesis DMG amplification, and +1 Moxie to Slot 1 Carry."
+    }
+  ],
+  "characters": [
+    {
+      "id": "beryl",
+      "name": "Beryl",
+      "rarity": 6,
+      "afflatus": "Intellect",
+      "role": "Main DPS",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Lingering Glow",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Refracted Prism (6★)",
+      "altPsychube": "Advancing Footsteps (6★)",
+      "resPattern": "Res 15 • Genuineness (Crit Rate / DMG)",
+      "euphoriaPriority": "Native 3.x True Limited Apex — No Euphoria required.",
+      "partners": "Lorentz Butterfly, Isolde [E1], Marsha",
+      "summary": "True Limited Lingering Glow hypercarry. Refracts enemy Burn & Glow stacks into multi-hit prismatic beams that ignore 40% Mental DEF."
+    },
+    {
+      "id": "brume",
+      "name": "Brume",
+      "rarity": 6,
+      "afflatus": "Beast",
+      "role": "Main DPS",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Dynamo",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Surge of the Dynamo (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "resPattern": "Res 15 • Genuineness (Crit Rate / ATK)",
+      "euphoriaPriority": "Native 3.x Apex — No Euphoria required.",
+      "partners": "Charon, Ulrich, Enigma",
+      "summary": "Core driver of the 'Dynamo Wheelchair' engine. Turns Pulsing Electric Field Lv. 3 into relentless AoE and single-target electromagnetic sweeps."
+    },
+    {
+      "id": "charon",
+      "name": "Charon",
+      "rarity": 6,
+      "afflatus": "Spirit",
+      "role": "Amplifier / Buffer",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Dynamo",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Ferryman's Lantern (6★)",
+      "altPsychube": "Cracks in the Shell (6★)",
+      "resPattern": "Res 10 • Placidity (ATK / Survivability)",
+      "euphoriaPriority": "Native 3.x Support — Complete at P0.",
+      "partners": "Brume, Ulrich, Enigma, Lucy",
+      "summary": "AP+1 generator, incantation shuffler, and Dynamo battery. Keeps Electric Field permanently at max charge without consuming carry AP."
+    },
+    {
+      "id": "lorentz",
+      "name": "Lorentz Butterfly",
+      "rarity": 6,
+      "afflatus": "Star",
+      "role": "Amplifier / Buffer",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Lingering Glow",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Butterfly Effect (6★)",
+      "altPsychube": "The Third Commitment (6★)",
+      "resPattern": "Res 10 • Placidity (HP / Crit DEF)",
+      "euphoriaPriority": "Native 3.7 Apex Support — P0 Complete.",
+      "partners": "Beryl, Isolde [E1], Marsha",
+      "summary": "Rewrites incantation ranks in hand and multiplies Lingering Glow stack caps by 1.5x while providing massive teamwide DMG Bonus."
+    },
+    {
+      "id": "rhiannon",
+      "name": "Rhiannon",
+      "rarity": 6,
+      "afflatus": "Star",
+      "role": "Amplifier / Buffer",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Conduit",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Celestial Cadence (6★)",
+      "altPsychube": "Balance, Please (6★)",
+      "resPattern": "Res 10 • Placidity (ATK / HP)",
+      "euphoriaPriority": "Native 3.x Universal Buffer — P0 Complete.",
+      "partners": "The Twins, Coppélia, Hedone, Beryl",
+      "summary": "Grants Slot-1 Carry an Extra Turn window and massive Crit DMG / Incantation Might, slotting seamlessly into Conduit and hypercarry teams."
+    },
+    {
+      "id": "flutterpage",
+      "name": "Flutterpage",
+      "rarity": 6,
+      "afflatus": "Star",
+      "role": "Amplifier / Buffer",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Extra Action / Universal",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Cracks in the Shell (6★)",
+      "altPsychube": "Long Night Talk (6★)",
+      "resPattern": "Res 10 • Genuineness (Crit / ATK)",
+      "euphoriaPriority": "Native Extra Action Anchor — P0 Complete.",
+      "partners": "The Twins, Brume, Windsong [E1], Lucy",
+      "summary": "Converts surplus AP and card movement into Gust Force stacks, remaining the premier Extra Action amplifier across all endgame modes."
+    },
+    {
+      "id": "enigma",
+      "name": "Enigma",
+      "rarity": 6,
+      "afflatus": "Intellect",
+      "role": "Sustain / Shielder",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Dynamo",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Bastion of Logic (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "resPattern": "Res 10 • Stupor (HP / Heal / DEF)",
+      "euphoriaPriority": "Native 3.7 Sustain — P0 Complete.",
+      "partners": "Brume, Charon, Ulrich",
+      "summary": "Dedicated Dynamo Bastion sustainer. Automatically cleanses control debuffs, generates Electric Field charge when allies are hit, and grants thick barriers."
+    },
+    {
+      "id": "marsha",
+      "name": "Marsha",
+      "rarity": 6,
+      "afflatus": "Beast",
+      "role": "Sustain / Shielder",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Lingering Glow",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Hearthfire's Embrace (6★)",
+      "altPsychube": "Beyond Wonderland (6★)",
+      "resPattern": "Res 10 • Stupor (HP / DEF)",
+      "euphoriaPriority": "Native 3.x Sustain — P0 Complete.",
+      "partners": "Beryl, Lorentz Butterfly, Isolde [E1]",
+      "summary": "Impenetrable Lingering Glow shielder and cleanser who inflicts passive Burn/Glow on attackers and boosts allied Penetration Rate."
+    },
+    {
+      "id": "thetwins",
+      "name": "The Twins",
+      "rarity": 6,
+      "afflatus": "Star",
+      "role": "Main DPS",
+      "tier": "T0",
+      "baseTier": "T0",
+      "archetype": "Conduit",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Mirrored Echoes (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "resPattern": "Res 15 • Genuineness (Crit Rate / DMG)",
+      "euphoriaPriority": "Native 3.x Conduit Carry — P0 Complete.",
+      "partners": "Coppélia, Hedone, Rhiannon, Everecho",
+      "summary": "Dual-stance Star Conduit carry whose single-target strikes echo across all Conduit-linked enemies with 100% splash efficiency."
+    },
+    {
+      "id": "isolde",
+      "name": "Isolde",
+      "rarity": 6,
+      "afflatus": "Spirit",
+      "role": "Sub-DPS / Enabler",
+      "tier": "T0",
+      "baseTier": "T1",
+      "archetype": "Lingering Glow",
+      "hasEuphoria": true,
+      "eTag": "E1",
+      "psychube": "Knock on the Door (6★)",
+      "altPsychube": "Refracted Prism (6★)",
+      "resPattern": "Res 10 • Genuineness (Crit / ATK)",
+      "euphoriaPriority": "Euphoria E1 Rank IV (Top Priority — Converts Heat/Burn directly into Lingering Glow).",
+      "partners": "Beryl, Lorentz Butterfly, Marsha",
+      "summary": "With her E1 Euphoria awakening, Isolde's Finale state automatically converts excess Burn into Lingering Glow and shreds 35% Reality & Mental DEF."
+    },
+    {
+      "id": "igor",
+      "name": "Igor",
+      "rarity": 6,
+      "afflatus": "Beast",
+      "role": "Main DPS",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Ultimate/Bullet",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Iron Salute (6★)",
+      "altPsychube": "The Third Commitment (6★)",
+      "resPattern": "Res 13 • Placidity (ATK / Might)",
+      "euphoriaPriority": "Native 3.x Artillery Carry — P0 Complete.",
+      "partners": "Moldir [E1], Lopera [E1], Narcissus",
+      "summary": "Heavy Bullet & Ultimate artillery commander who loads Armor-Piercing shells and fires zero-AP Ultimate follow-ups."
+    },
+    {
+      "id": "nautika",
+      "name": "Nautika",
+      "rarity": 6,
+      "afflatus": "Mineral",
+      "role": "Main DPS",
+      "tier": "T0.5",
+      "baseTier": "T1",
+      "archetype": "Bloodtithe",
+      "hasEuphoria": true,
+      "eTag": "E1",
+      "psychube": "Abyssal Tide (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "resPattern": "Res 15 • Stupor (Max HP / Crit DMG)",
+      "euphoriaPriority": "Euphoria E1 Rank IV (Essential — Doubles Bloodtithe Pool consumption multiplier).",
+      "partners": "Semmelweis [E1], Sentinel, Rubuska",
+      "summary": "Flagship Bloodtithe hypercarry. Consumes accumulated team HP loss from the Bloodtithe Pool to unleash screen-clearing Mineral anchors."
+    },
+    {
+      "id": "semmelweis",
+      "name": "Semmelweis",
+      "rarity": 6,
+      "afflatus": "Mineral",
+      "role": "Amplifier / Buffer",
+      "tier": "T0.5",
+      "baseTier": "T2",
+      "archetype": "Bloodtithe",
+      "hasEuphoria": true,
+      "eTag": "E1",
+      "psychube": "The Third Commitment (6★)",
+      "altPsychube": "Brave New World (6★)",
+      "resPattern": "Res 10 • Stupor (HP / Crit)",
+      "euphoriaPriority": "Euphoria E1 Rank IV (Mandatory for Bloodtithe teams).",
+      "partners": "Nautika [E1], Sentinel, Rubuska",
+      "summary": "Euphoria E1 transforms her Blood Domain Array into the core engine of Bloodtithe, safely draining and refunding allied HP while granting +60% DMG."
+    },
+    {
+      "id": "barcarola",
+      "name": "Barcarola",
+      "rarity": 6,
+      "afflatus": "Star",
+      "role": "Main DPS",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Impromptu",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Gondola Serenade (6★)",
+      "altPsychube": "Long Night Talk (6★)",
+      "resPattern": "Res 13 • Genuineness (Crit Rate / ATK)",
+      "euphoriaPriority": "Native Impromptu Leader — P0 Complete.",
+      "partners": "Paper Heron, Aleph, Matilda [E2], Kiperina",
+      "summary": "Conducts the Impromptu Quartet, converting allied Eureka into high-hit Inspiration crescendos at the end of every round."
+    },
+    {
+      "id": "paperheron",
+      "name": "Paper Heron",
+      "rarity": 6,
+      "afflatus": "Intellect",
+      "role": "Sub-DPS / Enabler",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Impromptu",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Origami Flight (6★)",
+      "altPsychube": "Cracks in the Shell (6★)",
+      "resPattern": "Res 10 • Genuineness (Crit / ATK)",
+      "euphoriaPriority": "Native 3.x Enabler — P0 Complete.",
+      "partners": "Barcarola, Matilda [E2], Regulus [E1], Kiperina",
+      "summary": "Deploys the Paper Wing Array, doubling Eureka generation speed and allowing Impromptu hits to bounce an extra 3 times."
+    },
+    {
+      "id": "ulrich",
+      "name": "Ulrich",
+      "rarity": 6,
+      "afflatus": "Intellect",
+      "role": "Sub-DPS / Enabler",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Dynamo",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Surge of the Dynamo (6★)",
+      "altPsychube": "Balance, Please (6★)",
+      "resPattern": "Res 10 • Genuineness (Crit / ATK)",
+      "euphoriaPriority": "Native Dynamo Enabler — P0 Complete.",
+      "partners": "Brume, Charon, Enigma",
+      "summary": "High-frequency Dynamo sub-carry whose Laplace coil turrets fire automatically whenever the Pulsing Electric Field shifts level."
+    },
+    {
+      "id": "kiperina",
+      "name": "Kiperina",
+      "rarity": 6,
+      "afflatus": "Star",
+      "role": "Sustain / Shielder",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Impromptu",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Dawn Is Coming (6★)",
+      "altPsychube": "That Inquisitive Dear (6★)",
+      "resPattern": "Res 10 • Stupor (HP / Heal)",
+      "euphoriaPriority": "Native Impromptu Sustain — P0 Complete.",
+      "partners": "Barcarola, Paper Heron, Aleph, Matilda [E2]",
+      "summary": "Provides zero-AP Eureka-fueled shields, teamwide cleanse, and +25% Impromptu Crit DMG."
+    },
+    {
+      "id": "rubuska",
+      "name": "Rubuska",
+      "rarity": 6,
+      "afflatus": "Beast",
+      "role": "Sustain / Shielder",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Bloodtithe",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Crimson Chalice (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "resPattern": "Res 10 • Stupor (Max HP / Heal)",
+      "euphoriaPriority": "Native Slot-4 Bloodtithe Healer — P0 Complete.",
+      "partners": "Nautika [E1], Semmelweis [E1], Sentinel",
+      "summary": "Slot-4 specialist healer who prevents fatal damage during deep HP drains and overfills the Bloodtithe Pool every turn."
+    },
+    {
+      "id": "everecho",
+      "name": "Everecho",
+      "rarity": 6,
+      "afflatus": "Spirit",
+      "role": "Sustain / Shielder",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Conduit",
+      "hasEuphoria": false,
+      "eTag": "",
+      "isNewDebut": true,
+      "debutPatch": "Ver 3.8 Debut",
+      "psychube": "Resonant Bell (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "resPattern": "Res 10 • Stupor (HP / ATK)",
+      "euphoriaPriority": "Native 3.8 Conduit Sustain — P0 Complete.",
+      "partners": "The Twins, Coppélia, Hedone, Rhiannon",
+      "summary": "Links all 4 allies into a protective Conduit harmony, healing the entire team whenever a linked enemy takes Conduit splash damage."
+    },
+    {
+      "id": "cornerstone",
+      "name": "Cornerstone",
+      "rarity": 6,
+      "afflatus": "Mineral",
+      "role": "Sustain / Shielder",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Dynamo",
+      "hasEuphoria": false,
+      "eTag": "",
+      "isNewDebut": true,
+      "debutPatch": "Ver 3.8 Debut",
+      "psychube": "Bastion of Logic (6★)",
+      "altPsychube": "Beyond Wonderland (6★)",
+      "resPattern": "Res 10 • Stupor (DEF / Max HP)",
+      "euphoriaPriority": "Native 3.8 Mineral Bastion — P0 Complete.",
+      "partners": "Brume, Charon, Ulrich, Recoleta",
+      "summary": "Fortifies the team with crystalline Mineral bulwarks that convert incoming boss AoE strikes into bonus Dynamo Field charge and Counter Penetration."
+    },
+    {
+      "id": "hedone",
+      "name": "Hedone",
+      "rarity": 6,
+      "afflatus": "Mineral",
+      "role": "Sub-DPS / Enabler",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Conduit",
+      "hasEuphoria": false,
+      "eTag": "",
+      "isNewDebut": true,
+      "debutPatch": "Ver 3.9 Debut",
+      "psychube": "Golden Nectar (6★)",
+      "altPsychube": "Cracks in the Shell (6★)",
+      "resPattern": "Res 11 • Genuineness (Crit / ATK)",
+      "euphoriaPriority": "Native 3.9 Conduit Enabler — P0 Complete.",
+      "partners": "The Twins, Coppélia, Rhiannon, Everecho",
+      "summary": "Inflicts permanent Conduit Vulnerability on bosses so single-target Conduit carries can trigger double echo splashes even against solo raid bosses."
+    },
+    {
+      "id": "coppelia",
+      "name": "Coppélia",
+      "rarity": 6,
+      "afflatus": "Mineral",
+      "role": "Sub-DPS / Enabler",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Conduit",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Clockwork Waltz (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "resPattern": "Res 11 • Genuineness (Crit / ATK)",
+      "euphoriaPriority": "Native Conduit Sub-DPS — P0 Complete.",
+      "partners": "The Twins, Hedone, Rhiannon, Everecho",
+      "summary": "Mechanical dancer who pirouettes with automatic follow-up strikes every time an allied Conduit link pulses."
+    },
+    {
+      "id": "fatutu",
+      "name": "Fatutu",
+      "rarity": 6,
+      "afflatus": "Mineral",
+      "role": "Sustain / Shielder",
+      "tier": "T0.5",
+      "baseTier": "T0.5",
+      "archetype": "Extra Action / Universal",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Shells of the Atoll (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "resPattern": "Res 10 • Stupor (HP / Heal)",
+      "euphoriaPriority": "Native Universal Sustain — P0 Complete.",
+      "partners": "Jiu Niangzi, Lucy, Windsong [E1], Anjo Nala [E1]",
+      "summary": "Distributes Spirit Shells that cleanse debuffs on contact, redistribute single-target damage, and buff Extra Action Crit DMG."
+    },
+    {
+      "id": "recoleta",
+      "name": "Recoleta",
+      "rarity": 6,
+      "afflatus": "Mineral",
+      "role": "Main DPS",
+      "tier": "T1",
+      "baseTier": "T1",
+      "archetype": "Ultimate/Bullet",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Final Manuscript (6★)",
+      "altPsychube": "Luxurious Leisure (6★)",
+      "resPattern": "Res 12 • Placidity (ATK / Ultimate Might)",
+      "euphoriaPriority": "Native Ultimate Carry — P0 Complete.",
+      "partners": "Moldir [E1], Lopera [E1], Narcissus",
+      "summary": "High-cycling Mineral Ultimate carry who refunds her own Moxie and scales Ultimate Might with every incantation cast."
+    },
+    {
+      "id": "lucy",
+      "name": "Lucy",
+      "rarity": 6,
+      "afflatus": "Intellect",
+      "role": "Main DPS",
+      "tier": "T1",
+      "baseTier": "T1",
+      "archetype": "Dynamo",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Advancing Footsteps (6★)",
+      "altPsychube": "Surge of the Dynamo (6★)",
+      "resPattern": "Res 13 • Genuineness (Crit / ATK)",
+      "euphoriaPriority": "True Limited Veteran — Pairs strongly with Charon & Enigma.",
+      "partners": "Charon, Ulrich, Flutterpage, Enigma",
+      "summary": "Classic Dynamo & Extra Action sweeper who excels in multi-wave Limbo and Reveries stages thanks to her Data Iteration upgrades."
+    },
+    {
+      "id": "windsong",
+      "name": "Windsong",
+      "rarity": 6,
+      "afflatus": "Star",
+      "role": "Main DPS",
+      "tier": "T1",
+      "baseTier": "T2",
+      "archetype": "Extra Action / Universal",
+      "hasEuphoria": true,
+      "eTag": "E1",
+      "psychube": "For Rehabilitation (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "resPattern": "Res 13 • Genuineness (Crit Rate / DMG)",
+      "euphoriaPriority": "Euphoria E1 Rank IV (Auto-merges Proof of Ley Lines without AP loss).",
+      "partners": "Flutterpage, Rhiannon, Vila [E1]",
+      "summary": "Euphoria E1 removes her multi-turn ramp penalty, allowing her Ultimate turn to unleash a devastating single-target card barrage."
+    },
+    {
+      "id": "anjonala",
+      "name": "Anjo Nala",
+      "rarity": 6,
+      "afflatus": "Beast",
+      "role": "Sub-DPS / Enabler",
+      "tier": "T1",
+      "baseTier": "T2",
+      "archetype": "Extra Action / Universal",
+      "hasEuphoria": true,
+      "eTag": "E1",
+      "psychube": "Crimson Contract (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "resPattern": "Res 11 • Genuineness (Crit / ATK)",
+      "euphoriaPriority": "Euphoria E1 Rank IV (Boosts Contract follow-up frequency).",
+      "partners": "Flutterpage, Fatutu, Lopera [E1]",
+      "summary": "Binds to an ally to share Afflatus rhythms, firing joint Extra Action attacks and crowd-controlling dangerous Hadal elites."
+    },
+    {
+      "id": "lopera",
+      "name": "Lopera",
+      "rarity": 6,
+      "afflatus": "Beast",
+      "role": "Amplifier / Buffer",
+      "tier": "T1",
+      "baseTier": "T2",
+      "archetype": "Ultimate/Bullet",
+      "hasEuphoria": true,
+      "eTag": "E1",
+      "psychube": "The Third Commitment (6★)",
+      "altPsychube": "Cracks in the Shell (6★)",
+      "resPattern": "Res 10 • Genuineness (Crit)",
+      "euphoriaPriority": "Euphoria E1 Rank IV (Makes Crucible Bullet Array permanent).",
+      "partners": "Igor, Moldir [E1], Sentinel, Narcissus",
+      "summary": "Core Bullet Array buffer who converts excess Crit Rate into Crit DMG while providing passive teamwide healing."
+    },
+    {
+      "id": "moldir",
+      "name": "Moldir",
+      "rarity": 6,
+      "afflatus": "Mineral",
+      "role": "Sub-DPS / Enabler",
+      "tier": "T1",
+      "baseTier": "T2",
+      "archetype": "Ultimate/Bullet",
+      "hasEuphoria": true,
+      "eTag": "E1",
+      "psychube": "Iron Salute (6★)",
+      "altPsychube": "Brave New World (6★)",
+      "resPattern": "Res 10 • Placidity (ATK / Might)",
+      "euphoriaPriority": "Euphoria E1 Rank IV (Grants +2 Moxie per round to Ultimate carries).",
+      "partners": "Igor, Recoleta, Lopera [E1], Narcissus",
+      "summary": "Tactical Ultimate battery and sub-DPS who supercharges Igor and Recoleta rotations."
+    },
+    {
+      "id": "sentinel",
+      "name": "Sentinel",
+      "rarity": 6,
+      "afflatus": "Beast",
+      "role": "Sub-DPS / Enabler",
+      "tier": "T1",
+      "baseTier": "T1",
+      "archetype": "Bloodtithe",
+      "hasEuphoria": false,
+      "eTag": "",
+      "psychube": "Abyssal Tide (6★)",
+      "altPsychube": "The Third Commitment (6★)",
+      "resPattern": "Res 11 • Stupor (HP / Crit)",
+      "euphoriaPriority": "Native Bloodtithe Sub-Carry — P0 Complete.",
+      "partners": "Nautika [E1], Semmelweis [E1], Rubuska",
+      "summary": "Bridges Bloodtithe and Bullet mechanics, firing crimson counter-shots every time the team's HP fluctuates."
+    },
+    {
+      "id": "narcissus",
+      "name": "Narcissus",
+      "rarity": 6,
+      "afflatus": "Plant",
+      "role": "Sustain / Shielder",
+      "tier": "T1",
+      "baseTier": "T1",
+      "archetype": "Ultimate/Bullet",
+      "hasEuphoria": false,
+      "eTag": "",
+      "isNewDebut": true,
+      "debutPatch": "Ver 3.9 Debut",
+      "psychube": "Mirrored Pool (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "resPattern": "Res 10 • Stupor (HP / Heal)",
+      "euphoriaPriority": "Native 3.9 Ultimate Sustain — P0 Complete.",
+      "partners": "Igor, Recoleta, Moldir [E1], Lopera [E1]",
+      "summary": "Reflects enemy debuffs and grants +35% Ultimate Might & burst healing whenever an ally casts an Ultimate."
+    },
+    {
+      "id": "vila",
+      "name": "Vila",
+      "rarity": 6,
+      "afflatus": "Plant",
+      "role": "Sustain / Shielder",
+      "tier": "T1",
+      "baseTier": "T2",
+      "archetype": "Extra Action / Universal",
+      "hasEuphoria": true,
+      "eTag": "E1",
+      "psychube": "Dawn Is Coming (6★)",
+      "altPsychube": "That Inquisitive Dear (6★)",
+      "resPattern": "Res 10 • Stupor (Heal / HP)",
+      "euphoriaPriority": "Euphoria E1 Rank IV (Rusalka state never expires + teamwideEureka/Moxie).",
+      "partners": "Windsong [E1], Marcus [E1], The Twins",
+      "summary": "AP-generous Mental & Crit healer whose E1 Euphoria keeps Song of Passion active permanently."
+    },
+    {
+      "id": "matilda",
+      "name": "Matilda",
+      "rarity": 5,
+      "afflatus": "Star",
+      "role": "Amplifier / Buffer",
+      "tier": "T1",
+      "baseTier": "T2",
+      "archetype": "Impromptu",
+      "hasEuphoria": true,
+      "eTag": "E2",
+      "psychube": "Gondola Serenade (6★)",
+      "altPsychube": "The Third Commitment (6★)",
+      "resPattern": "Res 10 • Genuineness (Crit Rate)",
+      "euphoriaPriority": "Euphoria E2 Rank IV (Best budget Impromptu Crit support in the game!).",
+      "partners": "Barcarola, Paper Heron, Kiperina",
+      "summary": "The Genius Monitor shines at Euphoria E2, granting the entire Impromptu Quartet guaranteed Critical Strikes and huge Crit DMG."
+    }
+  ],
+  "teamTierData": [
+    {
+      "tier": "T0",
+      "name": "Lingering Glow Prismatic Engine",
+      "archetype": "Lingering Glow",
+      "manifest": "Operatic Reflection",
+      "members": [
+        "Beryl",
+        "Lorentz Butterfly",
+        "Isolde",
+        "Marsha"
+      ],
+      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 10/10",
+      "rotation": "Marsha and Isolde [E1] rapidly stack Burn & Lingering Glow on all enemies. Lorentz Butterfly rewrites Beryl's incantations to Rank 2/3 and raises the Glow cap, allowing Beryl to detonate multi-million prismatic beams."
+    },
+    {
+      "tier": "T0",
+      "name": "Dynamo Electric Array ('Dynamo Wheelchair')",
+      "archetype": "Dynamo",
+      "manifest": "Ashen Beast",
+      "members": [
+        "Brume",
+        "Charon",
+        "Ulrich",
+        "Enigma"
+      ],
+      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 10/10",
+      "rotation": "Charon & Enigma accelerate the Pulsing Electric Field straight to Level 3 while granting +1 AP and card shuffles. Ulrich's turrets and Brume's electromagnetic sweeps trigger automatically every turn."
+    },
+    {
+      "tier": "T0",
+      "name": "Conduit Resonance Core",
+      "archetype": "Conduit",
+      "manifest": "Star of Misfortune",
+      "members": [
+        "The Twins",
+        "Hedone",
+        "Rhiannon",
+        "Everecho"
+      ],
+      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 9.8/10",
+      "rotation": "Hedone and Everecho link enemies and allies into a Conduit network. Rhiannon grants The Twins an Extra Turn burst window, causing every single-target strike to echo twice across linked bosses."
+    },
+    {
+      "tier": "T0.5",
+      "name": "Bloodtithe Crimson Domain",
+      "archetype": "Bloodtithe",
+      "manifest": "Mountain Ghost",
+      "members": [
+        "Nautika",
+        "Semmelweis",
+        "Sentinel",
+        "Rubuska"
+      ],
+      "modeRating": "Hadal Reveries: 9.8/10 • Mane's SSS+: 9.5/10",
+      "rotation": "Place Rubuska in Slot 4. Semmelweis [E1] opens the Blood Domain to drain allied HP into the Bloodtithe Pool while Sentinel fires counter-volleys, setting up Nautika [E1] for massive HP-scaling finishers."
+    },
+    {
+      "tier": "T0.5",
+      "name": "Impromptu Inspiration Quartet",
+      "archetype": "Impromptu",
+      "manifest": "Star of Misfortune",
+      "members": [
+        "Barcarola",
+        "Paper Heron",
+        "Matilda",
+        "Kiperina"
+      ],
+      "modeRating": "Hadal Reveries: 9.5/10 • Mane's SSS+: 9.5/10",
+      "rotation": "Paper Heron deploys her Eureka Array while Kiperina shields the crew. Matilda [E2] guarantees every end-of-round Impromptu musical barrage conducted by Barcarola critically strikes."
+    },
+    {
+      "tier": "T1",
+      "name": "Bullet & Ultimate Artillery",
+      "archetype": "Ultimate/Bullet",
+      "manifest": "Primitive Urge",
+      "members": [
+        "Igor",
+        "Moldir",
+        "Lopera",
+        "Narcissus"
+      ],
+      "modeRating": "Hadal Reveries: 9.2/10 • Mane's SSS+: 9.4/10",
+      "rotation": "Lopera [E1] maintains permanent Crucible Bullets while Moldir [E1] and Narcissus feed endless Moxie and Ultimate Might into Igor's zero-AP artillery Ultimates."
+    }
+  ],
+  "pullBanners": [
+    {
+      "patch": "Version 3.8 Featured Rate-Up",
+      "title": "Everecho (6★ Spirit) & Cornerstone",
+      "rating": "CORE CONDUIT SUSTAIN — HIGH VALUE",
+      "ratingColor": "bg-amber-800 text-parchment-50",
+      "unitFocus": "Everecho (Conduit Healer/Buffer) • P0 Complete",
+      "verdict": "If you run The Twins or Coppélia, Everecho is the dedicated Slot-4 sustainer that completes the T0 Conduit Core. Safe to stop at Portray 0 (P0)."
+    },
+    {
+      "patch": "Version 3.9 Upcoming Debut (Foresight)",
+      "title": "Hedone (6★ Mineral) & Narcissus (6★ Plant)",
+      "rating": "META DEFINING ENABLERS",
+      "ratingColor": "bg-parchment-800 text-amber-300",
+      "unitFocus": "Hedone (Conduit Sub-DPS) & Narcissus (Ultimate Sustain)",
+      "verdict": "Hedone solves single-target boss encounters for Conduit teams by inflicting artificial Conduit echo nodes. Narcissus is the premier healer/buffer for Igor and Recoleta Ultimate teams."
+    },
+    {
+      "patch": "High-Priority Reruns & True Limited Targets",
+      "title": "Beryl • Brume • Lorentz Butterfly • Charon • Rhiannon",
+      "rating": "T0 ENGINE ANCHORS — MUST PULL",
+      "ratingColor": "bg-amber-700 text-parchment-50",
+      "unitFocus": "Lingering Glow & Dynamo Core Pieces",
+      "verdict": "New and returning Timekeepers should prioritize assembling either the Lingering Glow engine (Beryl + Lorentz Butterfly + Marsha) or the Dynamo Wheelchair (Brume + Charon + Enigma)."
+    },
+    {
+      "patch": "Ripples on the Water (Euphoria Custom Banner)",
+      "title": "Isolde [E1] • Semmelweis [E1] • Nautika [E1] • Lopera [E1]",
+      "rating": "100% GUARANTEED FIRST 6★ ON RIPPLES",
+      "ratingColor": "bg-parchment-700 text-parchment-50",
+      "unitFocus": "Select 1 Euphoria-Eligible Veteran",
+      "verdict": "Unlike dual 'Yearning of the Water' banners (which should be avoided), the Euphoria 'Ripples on the Water' banner guarantees your selected 6★ on the first 6★ pull! Pick Isolde (for Glow) or Semmelweis (for Bloodtithe)."
+    }
+  ],
+  "walkthroughData": {
+    "reveries": {
+      "title": "Reveries in the Rain — Permanent Endgame (Hadal & Wailing Whirl)",
+      "reward": "Keys of Thought, Sprouts of Fantasy, Seeds of Inspiration & Clear Drops",
+      "tips": [
+        "Depths of Myth spans Euphotic (10m–100m), Mesopelagic (110m–200m), Bathypelagic (210m–300m), Abyssal (310m–400m), Hadal (410m–500m), and Wailing Whirl (600m–1000m).",
+        "Transition Zones require 3 to 4 fully built, non-overlapping teams! Level your Myth Manifests in 'Isle of Echoes' to Level 30 before attempting 400m+.",
+        "Never let your weekly Trance cap hit 8/8! Every Monday at 05:00 server time you receive +4 Trance to sweep for Euphoria materials."
+      ],
+      "bosses": [
+        {
+          "stage": "Hadal Zone 450m–500m & Wailing Whirl",
+          "boss": "The Abyssal Leviathan & Multi-Phase Arbiters",
+          "recommended": "Team 1: Lingering Glow (Beryl) • Team 2: Dynamo (Brume) • Team 3: Conduit or Bloodtithe",
+          "mechanic": "High-depth bosses gain 'Abyssal Hardening' against off-archetype chip damage. Pair your Myth Manifest's active skill with your Carry's burst turn to break their poise gauge."
+        },
+        {
+          "stage": "Vibrations of Volatility (Bi-Weekly / Seasonal Scoring)",
+          "boss": "3-Team Locked Boss Gauntlet",
+          "recommended": "Lock 12 Distinct Arcanists + 3 Myth Manifests",
+          "mechanic": "Equipment (Psychubes) and characters are locked per stage. Spread your 3 strongest sustains (Marsha, Enigma, Everecho/Rubuska) across the 3 nodes."
+        }
+      ]
+    },
+    "manes": {
+      "title": "Mane's Bulletin — SSS+ Boss Raids (30-Turn Endurance)",
+      "reward": "Gluttony (6★ Psychube Amplifier), Crystal Caskets, Sonorous Knells & Polarizers",
+      "tips": [
+        "With 3.x powerhouses, hitting 1,500,000+ (Red SSS+) takes only 12–15 turns if you match the boss's favored mechanic.",
+        "Save burst Ultimates and Rhiannon Extra Turns for the phase-break stun window when the boss takes +50% amplified damage.",
+        "Always buy the monthly Gluttony and Crystal Casket from the Mane's Bulletin exchange first."
+      ],
+      "bosses": [
+        {
+          "stage": "SSS+ Raid Boss I",
+          "boss": "Refracted Sun-Eater (Spirit Boss)",
+          "recommended": "Lingering Glow Engine (Beryl, Lorentz Butterfly, Isolde E1, Marsha)",
+          "mechanic": "Absorbs direct Physical hits, but takes +120% increased damage from Lingering Glow and Halo detonations. Beryl melts each health bar in 2 turns."
+        },
+        {
+          "stage": "SSS+ Raid Boss II",
+          "boss": "Overloaded Automaton Core (Star Boss)",
+          "recommended": "Dynamo Wheelchair (Brume, Charon, Ulrich, Enigma) or Bloodtithe",
+          "mechanic": "Discharges paralyzing static every 3 rounds. Enigma's Bastion cleanses the paralysis while Brume & Ulrich siphon its charge to stay at Electric Field Lv. 3."
+        }
+      ]
+    },
+    "dusk": {
+      "title": "A Series of Dusks — Roguelike Expansion",
+      "reward": "Free 6★/5★ Garments, Wilderness Monuments, Gluttony & Clear Drops",
+      "tips": [
+        "Choose the 'Harmonic Catalyst' or 'Catalyst of Artefacts' horn at the start of high-difficulty Delirium runs.",
+        "Collect 'Acoustica' relics for your main carry—Acoustica artefacts grant special rule-breaking passives to specific 6★ Arcanists.",
+        "If you lack a 3.x unit, use the 'Assist Recruitment' nodes on Floor 1 to borrow a max-portray Beryl or Brume!"
+      ],
+      "bosses": [
+        {
+          "stage": "Delirium 20 Final Ending",
+          "boss": "The Sovereign of Dusks",
+          "recommended": "Dynamo or Lingering Glow + Medication/Dagger Artefact Synergies",
+          "mechanic": "Strips buffs from Slot 1 at the start of Phase 2. Place your primary carry in Slot 2 or carry a 'Silver Pendant' artefact for permanent Immunity."
+        },
+        {
+          "stage": "Hidden Boss Route",
+          "boss": "Echo of the First Storm",
+          "recommended": "Bloodtithe (Nautika E1 + Semmelweis E1) + Vitality Relics",
+          "mechanic": "Scales damage with your max HP artefacts; Bloodtithe teams reach 40,000+ HP in Dusk runs and one-shot the boss."
+        }
+      ]
+    },
+    "limbo": {
+      "title": "Artificial Somnambulism / Lucidscape (Bi-Weekly Clear Drops)",
+      "reward": "600+ Clear Drops & Oneiric Fluid every 1st and 16th of the month",
+      "tips": [
+        "Use the Express Clear feature to skip straight to the final stages if you 3-starred the previous cycle.",
+        "Clear within 12 rounds on both halves for full stars; AoE engines like Dynamo (Brume/Lucy) and Conduit (The Twins) clear most waves in 2–3 rounds.",
+        "Spend your Oneiric Fluid in the Somnambulism shop on Sinister Shadows and Thoughts in Entirety."
+      ],
+      "bosses": [
+        {
+          "stage": "Final Stage — Upper Half",
+          "boss": "Dual Elite Afflatus Vanguard",
+          "recommended": "Conduit Core (The Twins, Coppélia, Hedone, Everecho)",
+          "mechanic": "Two linked bosses revive each other unless defeated on the same round. Conduit splash damage guarantees both HP bars drop simultaneously."
+        },
+        {
+          "stage": "Final Stage — Lower Half",
+          "boss": "Fortified Crimson Colossus",
+          "recommended": "Lingering Glow (Beryl) or Impromptu Quartet (Barcarola)",
+          "mechanic": "High Reality DEF shield; bypass with Mental/Genesis damage or multi-hit Impromptu Inspiration barrages."
+        }
+      ]
+    }
+  },
+  "homePatchNewCharIds": [
+    "everecho",
+    "cornerstone",
+    "hedone",
+    "narcissus"
+  ],
+  "homePatchEuphoriaIds": [
+    "isolde",
+    "nautika",
+    "semmelweis",
+    "lopera",
+    "moldir",
+    "matilda"
+  ],
+  "homeManesBulletinBosses": [
+    {
+      "code": "RAID I • SPIRIT AFFLATUS",
+      "name": "Refracted Sun-Eater",
+      "favoredEngine": "Lingering Glow & Burn Detonation",
+      "weakness": "Takes +120% amplified damage from Lingering Glow beams and loses 15% Mental DEF per Halo stack.",
+      "dangerMechanic": "Solar Carapace absorbs direct Physical chip hits until broken by 5+ stacks of Burn or Lingering Glow.",
+      "recommendedIds": [
+        "beryl",
+        "lorentz",
+        "isolde",
+        "marsha"
+      ]
+    },
+    {
+      "code": "RAID II • STAR AFFLATUS",
+      "name": "Overloaded Automaton Core",
+      "favoredEngine": "Dynamo Electric Array & Conduit",
+      "weakness": "Pulsing Electric Field Lv. 3 siphons the boss's static barrier and stuns its auxiliary turrets for 2 rounds.",
+      "dangerMechanic": "Inflicts AoE Paralyzing Static every 3 turns; bring a cleanser or Bastion shielder to negate control.",
+      "recommendedIds": [
+        "brume",
+        "charon",
+        "ulrich",
+        "enigma"
+      ]
+    },
+    {
+      "code": "RAID III • MINERAL AFFLATUS",
+      "name": "The Crimson Sovereign",
+      "favoredEngine": "Bloodtithe Domain & Conduit Splash",
+      "weakness": "Entering the phase-break window multiplies HP-sacrifice Bloodtithe finishers and Conduit echo splashes by 1.8x.",
+      "dangerMechanic": "Applies Bleed & Max HP corrosion to Slot 1; counter with Slot-4 Rubuska or Everecho's teamwide link heal.",
+      "recommendedIds": [
+        "nautika",
+        "semmelweis",
+        "thetwins",
+        "everecho"
+      ]
+    }
+  ],
+  "pageText": {
+    "title": "POCKET SUITCASE | Ver 3.8–3.9 Timekeeper's Companion & Guide",
+    "heroHeading": "Welcome to <span class=\"text-parchment-200 underline decoration-parchment-400 decoration-2 underline-offset-4\">POCKET SUITCASE</span>",
+    "heroQuote": "\"Welcome to POCKET SUITCASE, a website buit to guide fellow timekeepers by helping them to build/suggests characters and team, preparing them from early to late game contents.\""
+  }
+}

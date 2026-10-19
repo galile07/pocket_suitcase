@@ -1,0 +1,9 @@
+{
+  "name": "pocketsuitcase",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pocket Suitcase — Timekeeper's Companion & Guide (local server + shared data API)",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

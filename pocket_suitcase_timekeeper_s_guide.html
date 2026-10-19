@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POCKET SUITCASE | Ver 3.8–3.9 Timekeeper's Companion & Guide</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display, EB Garamond (Classic Serif Fallbacks) & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: {
+                            50: '#f6f0e6',
+                            100: '#ede2d0',
+                            200: '#dfd0b8',
+                            300: '#cbb494',
+                            400: '#b3956f',
+                            500: '#8c6d4e',
+                            600: '#72563b',
+                            700: '#5c432b',
+                            800: '#3b2a1a',
+                            900: '#24180e',
+                        },
+                        vintageGold: '#c59b27',
+                        afflatus: {
+                            mineral: '#8c6239',
+                            star: '#3d6b88',
+                            plant: '#4b6e4b',
+                            beast: '#983e3e',
+                            spirit: '#6b4c7e',
+                            intellect: '#a88025'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', '"Playfair Display"', '"EB Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Times New Roman"', 'Times', '"EB Garamond"', 'Georgia', 'serif'],
+                        mono: ['"Times New Roman"', 'Times', '"JetBrains Mono"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body, button, input, select, textarea {
+            font-family: 'Times New Roman', Times, 'EB Garamond', 'Playfair Display', Georgia, serif;
+            letter-spacing: 0.012em;
+        }
+
+        h1, h2, h3, h4, .literary-heading {
+            font-family: 'Times New Roman', Times, 'Playfair Display', Georgia, serif;
+            font-variant-numeric: oldstyle-nums;
+            letter-spacing: 0.03em;
+        }
+
+        .small-caps {
+            font-variant: small-caps;
+            letter-spacing: 0.08em;
+        }
+
+        .almanac-num {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-variant-numeric: lining-nums tabular-nums;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ede2d0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8c6d4e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5c432b;
+        }
+        
+        .bg-vintage-pattern {
+            background-color: #f6f0e6;
+            background-image: radial-gradient(#cbb494 0.65px, transparent 0.65px), radial-gradient(#cbb494 0.65px, #f6f0e6 0.65px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+
+        .suitcase-border {
+            border: 1px solid #cbb494;
+            box-shadow: 0 4px 20px -2px rgba(36, 24, 14, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-vintage-pattern text-parchment-900 font-serif antialiased selection:bg-parchment-700 selection:text-parchment-50 min-h-screen flex flex-col lg:flex-row overflow-x-hidden">
+
+    <!-- MOBILE HEADER -->
+    <header class="lg:hidden sticky top-0 z-40 bg-parchment-900 text-parchment-50 px-4 py-3.5 flex items-center justify-between border-b border-parchment-700 shadow-md">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-parchment-700 border border-parchment-500 flex items-center justify-center text-parchment-100">
+                <i data-lucide="briefcase" class="w-5 h-5"></i>
+            </div>
+            <div>
+                <span class="font-serif font-bold tracking-wider text-base text-parchment-50 block leading-none">POCKET SUITCASE</span>
+                <span class="text-[11px] text-parchment-300 tracking-widest italic font-serif">St. Pavlov Almanac • Ver 3.8 / 3.9</span>
+            </div>
+        </div>
+        <button id="mobile-menu-btn" onclick="toggleMobileSidebar()" class="p-2 rounded-lg bg-parchment-800 text-parchment-100 hover:bg-parchment-700 focus:outline-none">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+    <div id="sidebar-backdrop" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-parchment-900/60 backdrop-blur-xs z-40 hidden lg:hidden transition-opacity"></div>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-parchment-900 text-parchment-50 flex flex-col justify-between border-r border-parchment-700 shadow-2xl transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shrink-0">
+        <!-- Top Brand Header -->
+        <div class="overflow-y-auto">
+            <div class="p-6 border-b border-parchment-800 flex items-center justify-between">
+                <div class="flex items-center gap-3.5 cursor-pointer" onclick="switchTab('home')">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-parchment-500 to-parchment-800 border border-parchment-300 flex items-center justify-center shadow-inner text-parchment-50">
+                        <i data-lucide="briefcase" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-serif font-bold text-lg tracking-wider text-parchment-50 leading-tight">POCKET SUITCASE</h1>
+                        <p class="text-xs text-parchment-300 italic font-serif flex items-center gap-1.5 mt-0.5">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 inline-block animate-pulse"></span>
+                            Ver 3.8 / 3.9 Meta Almanac
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleMobileSidebar()" class="lg:hidden text-parchment-300 hover:text-parchment-50 p-1">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+                <!-- Navigation Links -->
+            <div class="px-3 py-4">
+                <p class="px-3 text-xs font-bold uppercase tracking-widest text-parchment-300 mb-2 small-caps">Suitcase Compartments</p>
+                <nav class="space-y-1" id="sidebar-nav">
+                    <button onclick="switchTab('home')" data-tab="home" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-parchment-700 text-parchment-50 shadow-xs border border-parchment-500 cursor-pointer">
+                        <i data-lucide="compass" class="w-4 h-4 text-parchment-200"></i>
+                        <span>Home (Patch Spotlight)</span>
+                    </button>
+                    <button onclick="switchTab('team-tierlist')" data-tab="team-tierlist" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-parchment-200 hover:bg-parchment-800 hover:text-parchment-50 transition-all duration-150 cursor-pointer">
+                        <i data-lucide="crown" class="w-4 h-4 text-parchment-300"></i>
+                        <span>Team Tierlists</span>
+                    </button>
+                    <button onclick="switchTab('char-tierlist')" data-tab="char-tierlist" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-parchment-200 hover:bg-parchment-800 hover:text-parchment-50 transition-all duration-150 cursor-pointer">
+                        <i data-lucide="users" class="w-4 h-4 text-parchment-300"></i>
+                        <span>Character Tierlists</span>
+                    </button>
+                    <button onclick="switchTab('team-building')" data-tab="team-building" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-parchment-200 hover:bg-parchment-800 hover:text-parchment-50 transition-all duration-150 cursor-pointer">
+                        <i data-lucide="puzzle" class="w-4 h-4 text-parchment-300"></i>
+                        <span>Team Building</span>
+                    </button>
+                    <button onclick="switchTab('pull-guide')" data-tab="pull-guide" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-parchment-200 hover:bg-parchment-800 hover:text-parchment-50 transition-all duration-150 cursor-pointer">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-parchment-300"></i>
+                        <span>Pull Guide</span>
+                    </button>
+                    <button onclick="switchTab('walkthrough')" data-tab="walkthrough" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-parchment-200 hover:bg-parchment-800 hover:text-parchment-50 transition-all duration-150 cursor-pointer">
+                        <i data-lucide="map" class="w-4 h-4 text-parchment-300"></i>
+                        <span>Gamemode Walkthrough</span>
+                    </button>
+                    <button onclick="switchTab('guidebook')" data-tab="guidebook" class="nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-parchment-200 hover:bg-parchment-800 hover:text-parchment-50 transition-all duration-150 cursor-pointer">
+                        <i data-lucide="book-open" class="w-4 h-4 text-parchment-300"></i>
+                        <span>Timekeeper Guidebook</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Bottom Section: Daily Reset Timer & Support the Dev Button -->
+        <div class="p-4 border-t border-parchment-800 bg-parchment-900 space-y-3">
+            <div class="bg-parchment-800 border border-parchment-700 rounded-xl p-3 text-xs">
+                <div class="flex items-center justify-between text-parchment-200 mb-1">
+                    <span class="flex items-center gap-1.5 font-medium"><i data-lucide="clock" class="w-3.5 h-3.5 text-parchment-300"></i> Daily Server Reset</span>
+                    <span id="reset-timer" class="font-mono font-semibold text-parchment-50">06:18:45</span>
+                </div>
+                <div class="w-full bg-parchment-900 rounded-full h-1.5 overflow-hidden">
+                    <div class="bg-parchment-400 h-1.5 rounded-full w-3/4"></div>
+                </div>
+                <div class="flex items-center justify-between text-[10px] text-parchment-300 mt-1.5 font-mono">
+                    <span>Trance Reset: Mon 05:00</span>
+                    <span class="text-amber-300">+4 / Week</span>
+                </div>
+            </div>
+
+            <button onclick="openSupportModal()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-parchment-600 via-parchment-500 to-parchment-600 hover:from-parchment-500 hover:to-parchment-500 text-parchment-50 font-semibold text-sm shadow-lg border border-parchment-300/40 flex items-center justify-center gap-2.5 transition-all transform active:scale-95 cursor-pointer">
+                <i data-lucide="coffee" class="w-4 h-4"></i>
+                <span>Support the Dev</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+
+        <!-- ==========================================
+             1. HOME SECTION (HERO, NEW CHARACTERS, NEW EUPHORIA & MANE'S BULLETIN BOSSES)
+             ========================================== -->
+        <section id="tab-home" class="tab-content fade-in space-y-8">
+            <!-- Hero Banner -->
+            <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-parchment-800 via-parchment-900 to-parchment-800 text-parchment-50 border border-parchment-600 shadow-xl">
+                <div class="absolute inset-0 opacity-10 pointer-events-none">
+                    <svg class="w-full h-full" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="700" cy="200" r="180" stroke="#ede2d0" stroke-width="2" stroke-dasharray="8 8"/>
+                        <circle cx="700" cy="200" r="140" stroke="#ede2d0" stroke-width="1"/>
+                        <circle cx="700" cy="200" r="220" stroke="#ede2d0" stroke-width="1"/>
+                        <path d="M0 350 L800 350" stroke="#ede2d0" stroke-width="1"/>
+                        <path d="M100 0 L100 400" stroke="#ede2d0" stroke-width="0.5"/>
+                    </svg>
+                </div>
+
+                <div class="relative z-10 p-6 sm:p-10 lg:p-12 flex flex-col lg:items-center lg:flex-row items-start justify-between gap-8">
+                    <div class="max-w-3xl space-y-4">
+                        <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1 rounded-full bg-parchment-700/90 border border-parchment-400 text-parchment-100 text-xs font-serif italic tracking-wide">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+                            St. Pavlov Archival Edition • Version 3.8 / 3.9 Patch Dispatch
+                        </div>
+                        <h2 id="hero-heading" class="font-serif text-2xl sm:text-4xl font-bold text-parchment-50 tracking-wide leading-snug">
+                            Welcome to <span class="text-parchment-200 underline decoration-parchment-400 decoration-2 underline-offset-4">POCKET SUITCASE</span>
+                        </h2>
+                        <p id="hero-quote" class="text-parchment-100 text-base sm:text-xl leading-relaxed font-serif italic bg-parchment-900/70 p-4 sm:p-5 rounded-xl border border-parchment-600 shadow-inner">
+                            "Welcome to POCKET SUITCASE, a website buit to guide fellow timekeepers by helping them to build/suggests characters and team, preparing them from early to late game contents."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1. NEW DEBUT ARCANISTS THIS PATCH -->
+            <div class="bg-parchment-50 rounded-2xl p-6 suitcase-border space-y-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-parchment-200 pb-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-parchment-600 font-mono font-semibold">Patch Debut Registry • Ver 3.8 & 3.9</span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-parchment-900 flex items-center gap-2 mt-0.5">
+                            <i data-lucide="user-plus" class="w-5 h-5 text-parchment-700"></i>
+                            Newly Added Arcanists
+                        </h3>
+                    </div>
+                    <span class="text-xs text-parchment-700 italic">Click any character card to transfer to their full build & dossier</span>
+                </div>
+
+                <div id="home-new-chars-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- 2. NEW EUPHORIA (EPIPHANY) AWAKENINGS THIS PATCH -->
+            <div class="bg-parchment-50 rounded-2xl p-6 suitcase-border space-y-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-parchment-200 pb-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-amber-800 font-mono font-semibold">Reveries Epiphany System • Ranks I–IV</span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-parchment-900 flex items-center gap-2 mt-0.5">
+                            <i data-lucide="flame" class="w-5 h-5 text-amber-700"></i>
+                            New Euphoria Characters Added This Patch
+                        </h3>
+                    </div>
+                    <span class="text-xs text-parchment-700 italic">Click any Euphoria unit to inspect their awakened kit & build</span>
+                </div>
+
+                <div id="home-euphoria-chars-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- 3. THIS VERSION'S MANE'S BULLETIN BOSSES -->
+            <div class="bg-parchment-50 rounded-2xl p-6 suitcase-border space-y-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-parchment-200 pb-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-parchment-600 font-mono font-semibold">Current Version Raid Lineup • SSS+ Target: 1,500,000 Pts</span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-parchment-900 flex items-center gap-2 mt-0.5">
+                            <i data-lucide="swords" class="w-5 h-5 text-parchment-700"></i>
+                            Mane's Bulletin — Version Bosses
+                        </h3>
+                    </div>
+                    <button onclick="openManesWalkthrough()" class="px-4 py-2 rounded-xl bg-parchment-800 hover:bg-parchment-700 text-parchment-50 text-xs font-semibold transition flex items-center gap-2 self-start sm:self-auto cursor-pointer">
+                        <i data-lucide="map" class="w-4 h-4"></i>
+                        <span>Full Raid Walkthrough</span>
+                    </button>
+                </div>
+
+                <div id="home-manes-bosses-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             2. TEAM TIERLISTS SECTION (VER 3.x ARCHETYPES)
+             ========================================== -->
+        <section id="tab-team-tierlist" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border space-y-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-parchment-600">Ver 3.8 / 3.9 Archetype Rankings</span>
+                        <h2 class="font-serif text-2xl font-bold text-parchment-900 mt-1">Meta Team Tierlist (Hadal Reveries & SSS+ Raids)</h2>
+                        <p class="text-sm text-parchment-700 mt-1">Modern endgame revolves around full-team engine synergies rather than standalone attackers. Click any Arcanist in a lineup to view their build.</p>
+                    </div>
+                </div>
+
+                <!-- Archetype Filter Pills -->
+                <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-parchment-200">
+                    <span class="text-xs font-bold text-parchment-700 mr-1">Filter Archetype:</span>
+                    <button onclick="filterTeamArchetype('All')" data-arch="All" class="team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-800 text-parchment-50 transition cursor-pointer">All</button>
+                    <button onclick="filterTeamArchetype('Lingering Glow')" data-arch="Lingering Glow" class="team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">☀ Lingering Glow</button>
+                    <button onclick="filterTeamArchetype('Dynamo')" data-arch="Dynamo" class="team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">⚡ Dynamo</button>
+                    <button onclick="filterTeamArchetype('Conduit')" data-arch="Conduit" class="team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">🔗 Conduit</button>
+                    <button onclick="filterTeamArchetype('Bloodtithe')" data-arch="Bloodtithe" class="team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">🩸 Bloodtithe</button>
+                    <button onclick="filterTeamArchetype('Impromptu')" data-arch="Impromptu" class="team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">🎼 Impromptu</button>
+                    <button onclick="filterTeamArchetype('Ultimate/Bullet')" data-arch="Ultimate/Bullet" class="team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">🎯 Ultimate/Bullet</button>
+                </div>
+            </div>
+
+            <div id="team-tier-container" class="space-y-4">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- ==========================================
+             3. CHARACTER TIERLISTS & BUILDS (WITH EUPHORIA TOGGLE)
+             ========================================== -->
+        <section id="tab-char-tierlist" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border space-y-4">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-parchment-600">Ver 3.8 / 3.9 Arcanist Registry</span>
+                        <h2 class="font-serif text-2xl font-bold text-parchment-900 mt-1">Character Tierlist & Euphoria Build Archive</h2>
+                        <p class="text-sm text-parchment-700 mt-1">Toggle Euphoria (Epiphany) evaluations to see how upgraded veterans compare against native 3.x powerhouses.</p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <!-- Euphoria Interactive Toggle -->
+                        <label class="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-parchment-100 border border-parchment-300 cursor-pointer select-none">
+                            <input type="checkbox" id="euphoria-toggle" checked onchange="renderCharacters()" class="w-4 h-4 accent-parchment-800 rounded cursor-pointer">
+                            <span class="text-xs font-bold text-parchment-900">Include Euphoria (Epiphany) Upgrades</span>
+                        </label>
+
+                        <!-- Search input -->
+                        <div class="relative w-full sm:w-60">
+                            <i data-lucide="search" class="w-4 h-4 text-parchment-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                            <input id="char-search" oninput="renderCharacters()" type="text" placeholder="Search Beryl, Brume, Glow..." class="w-full pl-9 pr-4 py-2 bg-parchment-100 border border-parchment-300 rounded-xl text-xs text-parchment-900 placeholder-parchment-500 focus:outline-none focus:border-parchment-700">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters Row -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-parchment-200">
+                    <div class="flex flex-wrap items-center gap-1.5" id="afflatus-filters">
+                        <span class="text-xs font-semibold text-parchment-700 mr-1">Afflatus:</span>
+                        <button onclick="setCharFilter('afflatus', 'all')" data-aff="all" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-800 text-parchment-50 cursor-pointer">All</button>
+                        <button onclick="setCharFilter('afflatus', 'Star')" data-aff="Star" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">✦ Star</button>
+                        <button onclick="setCharFilter('afflatus', 'Plant')" data-aff="Plant" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">☘ Plant</button>
+                        <button onclick="setCharFilter('afflatus', 'Mineral')" data-aff="Mineral" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">◆ Mineral</button>
+                        <button onclick="setCharFilter('afflatus', 'Beast')" data-aff="Beast" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">🐾 Beast</button>
+                        <button onclick="setCharFilter('afflatus', 'Spirit')" data-aff="Spirit" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">☾ Spirit</button>
+                        <button onclick="setCharFilter('afflatus', 'Intellect')" data-aff="Intellect" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">✧ Intellect</button>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="text-xs font-semibold text-parchment-700">Tier:</span>
+                        <select id="tier-select" onchange="setCharFilter('tier', this.value)" class="bg-parchment-100 border border-parchment-300 text-parchment-900 rounded-lg px-2.5 py-1.5 text-xs font-semibold focus:outline-none">
+                            <option value="all">All Tiers</option>
+                            <option value="T0">T0 (Apex Meta)</option>
+                            <option value="T0.5">T0.5 (Meta Core)</option>
+                            <option value="T1">T1 (Strong / Euphoria)</option>
+                            <option value="T2">T2 (Niche / Starter)</option>
+                        </select>
+
+                        <span class="text-xs font-semibold text-parchment-700 ml-1">Role:</span>
+                        <select id="role-select" onchange="setCharFilter('role', this.value)" class="bg-parchment-100 border border-parchment-300 text-parchment-900 rounded-lg px-2.5 py-1.5 text-xs font-semibold focus:outline-none">
+                            <option value="all">All Roles</option>
+                            <option value="Main DPS">Main DPS</option>
+                            <option value="Sub-DPS / Enabler">Sub-DPS / Enabler</option>
+                            <option value="Amplifier / Buffer">Amplifier / Buffer</option>
+                            <option value="Sustain / Shielder">Sustain / Shielder</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Character Grid -->
+            <div id="char-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- ==========================================
+             4. TEAM BUILDING (4-SLOT + MYTH MANIFEST WORKBENCH)
+             ========================================== -->
+        <section id="tab-team-building" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-parchment-600">4-Slot Crew + Myth Manifest Companion</span>
+                        <h2 class="font-serif text-2xl font-bold text-parchment-900 mt-1">Interactive Team Building Workbench</h2>
+                        <p class="text-sm text-parchment-700 mt-1">Assemble your 4 Arcanists and pair them with a Reveries Myth Manifest to analyze 3.x engine synergies and role coverage.</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="loadPresetTeam('glow')" class="px-3 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-parchment-900 text-xs font-semibold transition cursor-pointer">☀ Glow Preset</button>
+                        <button onclick="loadPresetTeam('dynamo')" class="px-3 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-parchment-900 text-xs font-semibold transition cursor-pointer">⚡ Dynamo Preset</button>
+                        <button onclick="loadPresetTeam('conduit')" class="px-3 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-parchment-900 text-xs font-semibold transition cursor-pointer">🔗 Conduit Preset</button>
+                        <button onclick="loadPresetTeam('bloodtithe')" class="px-3 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-parchment-900 text-xs font-semibold transition cursor-pointer">🩸 Bloodtithe Preset</button>
+                        <button onclick="loadPresetTeam('impromptu')" class="px-3 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-parchment-900 text-xs font-semibold transition cursor-pointer">🎼 Impromptu Preset</button>
+                        <button onclick="clearTeamBuilder()" class="px-3 py-2 rounded-xl bg-parchment-800 hover:bg-parchment-700 text-parchment-50 text-xs font-semibold transition cursor-pointer">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Team Slots + 5th Myth Manifest Slot -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4" id="builder-slots">
+                <!-- Rendered by JS -->
+            </div>
+
+            <!-- Team Analysis Panel + Picker -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Synergy Report -->
+                <div class="bg-parchment-50 p-5 rounded-2xl suitcase-border flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="font-serif font-bold text-base text-parchment-900 border-b border-parchment-200 pb-2.5 mb-4 flex items-center gap-2">
+                            <i data-lucide="activity" class="w-4 h-4 text-parchment-600"></i>
+                            3.x Archetype & Synergy Analysis
+                        </h3>
+                        <div id="team-analysis-content" class="space-y-3 text-xs">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300">
+                        <h4 class="font-bold text-xs text-parchment-900 mb-1 flex items-center gap-1.5">
+                            <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-amber-700"></i>
+                            Positioning & Slot-4 Rule
+                        </h4>
+                        <p class="text-[11px] text-parchment-700 leading-relaxed">
+                            Some Arcanists and Psychubes trigger positional effects (e.g., <strong>Rubuska</strong> & <strong>Kakania</strong> prefer specific slots or front/back placement in Reveries). Always verify your Myth Manifest Mind Map passive before locking into Vibrations of Volatility!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Roster & Myth Manifest Selector -->
+                <div class="lg:col-span-2 bg-parchment-50 p-5 rounded-2xl suitcase-border space-y-5">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-parchment-200 pb-2.5 mb-3">
+                            <h3 class="font-serif font-bold text-base text-parchment-900">1. Assign Arcanist to <span id="active-slot-label" class="text-parchment-600 underline">Slot 1 (Primary Carry)</span></h3>
+                            <span class="text-xs text-parchment-600 font-mono">Click unit to assign</span>
+                        </div>
+                        <div id="builder-roster-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-h-60 overflow-y-auto pr-1">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-parchment-200">
+                        <div class="flex items-center justify-between mb-2.5">
+                            <h3 class="font-serif font-bold text-sm text-parchment-900">2. Select Myth Manifest Companion (Reveries in the Rain)</h3>
+                            <span class="text-[11px] font-mono text-parchment-600">Isle of Echoes Lvl 30 Mind Map</span>
+                        </div>
+                        <div id="manifest-picker-grid" class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-2">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             5. PULL GUIDE SECTION (VER 3.7 – 3.9 + PITY CALCULATOR)
+             ========================================== -->
+        <section id="tab-pull-guide" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border">
+                <span class="text-xs font-mono font-semibold uppercase tracking-widest text-parchment-600">Ver 3.7 – 3.9 Banner Roadmap & Pity Planner</span>
+                <h2 class="font-serif text-2xl font-bold text-parchment-900 mt-1">Timekeeper's Pull Guide & Unilog Calculator</h2>
+                <p class="text-sm text-parchment-700 mt-1">Plan your Unilogs across 3.8/3.9 debuts, True Limited reruns, and Euphoria-Ripples on the Water custom banners.</p>
+            </div>
+
+            <!-- Interactive Unilog & Clear Drop Pity Calculator -->
+            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border">
+                <div class="flex items-center justify-between border-b border-parchment-200 pb-3 mb-4">
+                    <h3 class="font-serif font-bold text-lg text-parchment-900 flex items-center gap-2">
+                        <i data-lucide="calculator" class="w-5 h-5 text-parchment-700"></i>
+                        Interactive Unilog & Pity Guarantee Calculator
+                    </h3>
+                    <span class="text-xs font-mono text-parchment-600">Soft Pity: 60 • Hard Pity: 70 (180 Clear Drops = 1 Pull)</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                    <div class="bg-parchment-100 p-3.5 rounded-xl border border-parchment-300">
+                        <label class="block text-[11px] font-bold uppercase text-parchment-700 mb-1">Current Clear Drops</label>
+                        <input id="pity-drops" type="number" value="12600" min="0" oninput="calculatePullBudget()" class="w-full bg-parchment-50 border border-parchment-300 rounded-lg px-3 py-1.5 font-mono text-sm font-bold text-parchment-900 focus:outline-none">
+                    </div>
+                    <div class="bg-parchment-100 p-3.5 rounded-xl border border-parchment-300">
+                        <label class="block text-[11px] font-bold uppercase text-parchment-700 mb-1">Owned Unilogs</label>
+                        <input id="pity-unilogs" type="number" value="25" min="0" oninput="calculatePullBudget()" class="w-full bg-parchment-50 border border-parchment-300 rounded-lg px-3 py-1.5 font-mono text-sm font-bold text-parchment-900 focus:outline-none">
+                    </div>
+                    <div class="bg-parchment-100 p-3.5 rounded-xl border border-parchment-300">
+                        <label class="block text-[11px] font-bold uppercase text-parchment-700 mb-1">Current Banner Pity (0–69)</label>
+                        <input id="pity-current" type="number" value="15" min="0" max="69" oninput="calculatePullBudget()" class="w-full bg-parchment-50 border border-parchment-300 rounded-lg px-3 py-1.5 font-mono text-sm font-bold text-parchment-900 focus:outline-none">
+                    </div>
+                    <div class="bg-parchment-100 p-3.5 rounded-xl border border-parchment-300 flex flex-col justify-center">
+                        <label class="block text-[11px] font-bold uppercase text-parchment-700 mb-1">Next 6★ Guarantee</label>
+                        <label class="flex items-center gap-2 cursor-pointer mt-1">
+                            <input id="pity-guaranteed" type="checkbox" onchange="calculatePullBudget()" class="w-4 h-4 accent-parchment-800 rounded">
+                            <span class="text-xs font-semibold text-parchment-900">Won/Lost 50/50? (Checked = Guaranteed)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="pity-result-bar" class="p-4 rounded-xl bg-parchment-800 text-parchment-50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Banner Schedule List -->
+            <div class="space-y-4" id="pull-banners-list">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- ==========================================
+             6. GAMEMODE WALKTHROUGH SECTION (REVERIES, MANE'S, DUSKS, LIMBO)
+             ========================================== -->
+        <section id="tab-walkthrough" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-parchment-600">Ver 3.x Endgame Combat Manuals</span>
+                        <h2 class="font-serif text-2xl font-bold text-parchment-900 mt-1">Gamemode Walkthroughs & Boss Strategies</h2>
+                        <p class="text-sm text-parchment-700 mt-1">Tactical breakdowns for Reveries in the Rain (Hadal 500m / Wailing Whirl 1000m), Mane's Bulletin SSS+ Raids, A Series of Dusks, and Limbo.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="switchWalkthroughMode('reveries')" id="wm-btn-reveries" class="wm-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-parchment-800 text-parchment-50 transition cursor-pointer">Reveries in the Rain</button>
+                        <button onclick="switchWalkthroughMode('manes')" id="wm-btn-manes" class="wm-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">Mane's Bulletin (SSS+)</button>
+                        <button onclick="switchWalkthroughMode('dusk')" id="wm-btn-dusk" class="wm-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">A Series of Dusks</button>
+                        <button onclick="switchWalkthroughMode('limbo')" id="wm-btn-limbo" class="wm-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer">Limbo / Somnambulism</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="walkthrough-content-area">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- ==========================================
+             7. TIMEKEEPER GUIDEBOOK SECTION (3.x MECHANICS & EUPHORIA)
+             ========================================== -->
+        <section id="tab-guidebook" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border">
+                <span class="text-xs font-mono font-semibold uppercase tracking-widest text-parchment-600">Euphoria System • Resonance Polarization • 3.x Archetype Glossary</span>
+                <h2 class="font-serif text-2xl font-bold text-parchment-900 mt-1">The Timekeeper's Encyclopedia & Progression Guidebook</h2>
+                <p class="text-sm text-parchment-700 mt-1">Everything you need to master Version 3.x mechanics, Euphoria Ranks I–IV, and Psychube Gluttony investments.</p>
+            </div>
+
+            <!-- 3.x Archetype Mechanics Glossary -->
+            <div class="bg-parchment-50 rounded-2xl p-6 suitcase-border space-y-4">
+                <h3 class="font-serif text-lg font-bold text-parchment-900 flex items-center gap-2">
+                    <i data-lucide="Flame" class="w-5 h-5 text-parchment-700"></i>
+                    Version 3.x Core Archetype Glossary
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                    <div class="p-4 rounded-xl bg-parchment-100 border border-parchment-300 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif font-bold text-sm text-parchment-900">☀ Lingering Glow</span>
+                            <span class="px-2 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px]">T0 Apex</span>
+                        </div>
+                        <p class="text-parchment-700 leading-relaxed">
+                            Evolution of the Burn mechanic. Enemy Burn/Halo stacks are converted into <strong>Lingering Glow</strong>, triggering massive refracted follow-up beams and defense ignore when detonated by <strong>Beryl</strong>, <strong>Lorentz Butterfly</strong>, <strong>Isolde [E1]</strong>, and <strong>Marsha</strong>.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-parchment-100 border border-parchment-300 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif font-bold text-sm text-parchment-900">⚡ Dynamo Electric Array</span>
+                            <span class="px-2 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px]">T0 Apex</span>
+                        </div>
+                        <p class="text-parchment-700 leading-relaxed">
+                            Nicknamed the "Dynamo Wheelchair." Infuses the battlefield with a <strong>Pulsing Electric Field (Lv 1–3)</strong> via <strong>Brume</strong>, <strong>Charon</strong>, <strong>Ulrich</strong>, and <strong>Enigma</strong>, granting AP+1, incantation shuffling, and surging electromagnetic bursts.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-parchment-100 border border-parchment-300 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif font-bold text-sm text-parchment-900">🔗 Conduit Resonance</span>
+                            <span class="px-2 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px]">T0 Apex</span>
+                        </div>
+                        <p class="text-parchment-700 leading-relaxed">
+                            Links allied and enemy nodes together so single-target incantations echo across linked targets with multiplied Crit DMG. Anchored by <strong>The Twins</strong>, <strong>Coppélia</strong>, <strong>Hedone</strong>, and <strong>Everecho</strong>.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-parchment-100 border border-parchment-300 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif font-bold text-sm text-parchment-900">🩸 Bloodtithe Domain</span>
+                            <span class="px-2 py-0.5 rounded bg-parchment-700 text-parchment-50 font-mono text-[10px]">T0.5 Meta</span>
+                        </div>
+                        <p class="text-parchment-700 leading-relaxed">
+                            High-risk, high-reward HP-fluctuation pool. Allies sacrifice HP into a shared <strong>Bloodtithe Pool</strong> via <strong>Semmelweis [E1]</strong> and <strong>Rubuska</strong> so <strong>Nautika [E1]</strong> and <strong>Sentinel</strong> can unleash devastating crimson finishers.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-parchment-100 border border-parchment-300 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif font-bold text-sm text-parchment-900">🎼 Impromptu Incantation</span>
+                            <span class="px-2 py-0.5 rounded bg-parchment-700 text-parchment-50 font-mono text-[10px]">T0.5 Meta</span>
+                        </div>
+                        <p class="text-parchment-700 leading-relaxed">
+                            Consumes allied Eureka to build <strong>Inspiration</strong> points, automatically firing multi-hit musical barrages at the end of the round. Core crew: <strong>Barcarola</strong>, <strong>Paper Heron / Aleph</strong>, <strong>Matilda [E2] / Regulus [E1]</strong>, and <strong>Kiperina</strong>.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-parchment-100 border border-parchment-300 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif font-bold text-sm text-parchment-900">🎯 Bullet & Ultimate Artillery</span>
+                            <span class="px-2 py-0.5 rounded bg-parchment-600 text-parchment-50 font-mono text-[10px]">T1 Strong</span>
+                        </div>
+                        <p class="text-parchment-700 leading-relaxed">
+                            Combines special Bullet arrays from <strong>Lopera [E1]</strong> with rapid Moxie battery support from <strong>Moldir [E1]</strong> and <strong>Narcissus</strong> to fuel relentless Ultimate salvos from <strong>Igor</strong> or <strong>Recoleta</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Accordion Reference Cards -->
+            <div class="space-y-3">
+                <div class="bg-parchment-50 rounded-2xl suitcase-border overflow-hidden">
+                    <button onclick="toggleAccordion('acc-euphoria')" class="w-full p-5 text-left flex items-center justify-between hover:bg-parchment-100 transition cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-parchment-800 text-parchment-50 font-mono text-xs font-bold flex items-center justify-center">01</span>
+                            <div>
+                                <h4 class="font-serif font-bold text-base text-parchment-900">Euphoria & Epiphany System (Ranks I–IV)</h4>
+                                <p class="text-xs text-parchment-600">How to awaken Insight III Lv. 30 veterans into T0/T0.5 powerhouses</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-parchment-700"></i>
+                    </button>
+                    <div id="acc-euphoria" class="px-5 pb-5 pt-2 border-t border-parchment-200 text-xs text-parchment-800 space-y-2 leading-relaxed">
+                        <p>• <strong>Unlock Requirement:</strong> 6★ Arcanists require <strong>Insight III Level 30</strong> (5★ units require Insight III Level 1). Unlocking the base Euphoria node grants massive flat stats and unlocks the Epiphany skill tree.</p>
+                        <p>• <strong>Epiphany Ranks I–IV:</strong> Using <em>Keys of Thought</em>, <em>Sprouts of Fantasy</em>, and <em>Seeds of Inspiration</em> (farmed weekly via Trance in Reveries in the Rain), you awaken 4 sequential passive upgrades that completely modernize the unit's kit (e.g., <strong>Isolde E1</strong> enabling Lingering Glow, <strong>Semmelweis E1</strong> supercharging Bloodtithe, or <strong>Matilda E2</strong> granting huge Impromptu Crit conversion).</p>
+                        <p>• <strong>Multiple Euphoria Paths (E1 vs E2):</strong> Certain Arcanists have two distinct Euphoria specializations—always check the Character Build Modal before spending Keys of Thought!</p>
+                    </div>
+                </div>
+
+                <div class="bg-parchment-50 rounded-2xl suitcase-border overflow-hidden">
+                    <button onclick="toggleAccordion('acc-polarize')" class="w-full p-5 text-left flex items-center justify-between hover:bg-parchment-100 transition cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-parchment-800 text-parchment-50 font-mono text-xs font-bold flex items-center justify-center">02</span>
+                            <div>
+                                <h4 class="font-serif font-bold text-base text-parchment-900">Resonance 10–15 & Frequency Polarization</h4>
+                                <p class="text-xs text-parchment-600">Customizing Resonance main-stat patterns for Crit vs Attack scalers</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-parchment-700"></i>
+                    </button>
+                    <div id="acc-polarize" class="px-5 pb-5 pt-2 border-t border-parchment-200 text-xs text-parchment-800 space-y-2 leading-relaxed">
+                        <p>• <strong>Once at Resonance 10:</strong> You unlock <strong>Resonance Pattern Polarization</strong> (using Sinister Shadow / Crystal Casket materials). This shifts your character's base Resonance frame toward specialized stat distributions (such as <em>Placidity</em>, <em>Genuineness</em>, or <em>Stupor</em>) to maximize Crit Rate, Attack, or HP.</p>
+                        <p>• <strong>Resonance 10 vs 15:</strong> Keep Supports and Sustainers at <strong>Resonance 9 or 10</strong>. Only push <strong>Resonance 13–15</strong> on your favorite T0 Main Carries (Beryl, Brume, The Twins, Nautika) once you have surplus Caskets from Mane's Bulletin and Reveries.</p>
+                    </div>
+                </div>
+
+                <div class="bg-parchment-50 rounded-2xl suitcase-border overflow-hidden">
+                    <button onclick="toggleAccordion('acc-gluttony')" class="w-full p-5 text-left flex items-center justify-between hover:bg-parchment-100 transition cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-parchment-800 text-parchment-50 font-mono text-xs font-bold flex items-center justify-center">03</span>
+                            <div>
+                                <h4 class="font-serif font-bold text-base text-parchment-900">Psychube Gluttony Amplification Priority</h4>
+                                <p class="text-xs text-parchment-600">Where to spend your monthly Mane's Bulletin & Pneuma Analysis Gluttonies</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-parchment-700"></i>
+                    </button>
+                    <div id="acc-gluttony" class="px-5 pb-5 pt-2 border-t border-parchment-200 text-xs text-parchment-800 space-y-2 leading-relaxed">
+                        <p>• <strong>Never buy duplicate 6★ Psychubes</strong> from the shop just to amplify! Event signature Psychubes are only sold once; always buy <strong>Gluttony</strong> using Thoughts in Entirety (Pneuma Shop) or Mane's Bulletin currency.</p>
+                        <p>• <strong>Top Amplification Targets (A1 → A5):</strong> Prioritize universal or hypercarry Psychubes like <em>Refracted Prism</em> (Lingering Glow), <em>Surge of the Dynamo</em> (Dynamo), <em>Cracks in the Shell</em> (Extra Action Support), and <em>The Third Commitment</em> (Array Support).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         MODAL 1: CHARACTER BUILD INSPECTOR
+         ========================================== -->
+    <div id="char-modal" class="fixed inset-0 z-50 bg-parchment-900/75 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div class="bg-parchment-50 border-2 border-parchment-400 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative fade-in max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCharModal()" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-parchment-200 hover:bg-parchment-300 text-parchment-800 flex items-center justify-center cursor-pointer">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <div id="char-modal-body">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 2: SUPPORT THE DEV MODAL
+         ========================================== -->
+    <div id="support-modal" class="fixed inset-0 z-50 bg-parchment-900/75 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div class="bg-parchment-50 border-2 border-parchment-500 rounded-2xl max-w-md w-full p-6 shadow-2xl relative fade-in">
+            <button onclick="closeSupportModal()" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-parchment-200 hover:bg-parchment-300 text-parchment-800 flex items-center justify-center cursor-pointer">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-parchment-800 text-parchment-50 flex items-center justify-center shadow-md">
+                    <i data-lucide="coffee" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-parchment-600">Keep the Suitcase Open</span>
+                    <h3 class="font-serif text-xl font-bold text-parchment-900">Support the Developer</h3>
+                </div>
+            </div>
+
+            <p class="text-xs text-parchment-700 leading-relaxed mb-4">
+                <strong>POCKET SUITCASE</strong> is an ad-free community companion built for fellow Timekeepers. Your support keeps our Version 3.x tierlists, Euphoria E1/E2 builds, and Hadal Reveries guides updated every patch!
+            </p>
+
+            <div class="space-y-2.5 mb-5">
+                <button onclick="triggerSupportToast('Jar of Picrasma Candy ($3)')" class="w-full p-3 rounded-xl bg-parchment-100 hover:bg-parchment-200 border border-parchment-300 flex items-center justify-between transition cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <span class="text-lg">🍬</span>
+                        <div class="text-left">
+                            <p class="text-xs font-bold text-parchment-900">Gift a Jar of Picrasma Candy</p>
+                            <p class="text-[11px] text-parchment-600">Refills dev stamina during 3.x patch maintenance</p>
+                        </div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-lg bg-parchment-700 text-parchment-50 font-mono text-xs font-bold">$3</span>
+                </button>
+
+                <button onclick="triggerSupportToast('Roaring Month Black Tea ($5)')" class="w-full p-3 rounded-xl bg-parchment-100 hover:bg-parchment-200 border border-parchment-300 flex items-center justify-between transition cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <span class="text-lg">☕</span>
+                        <div class="text-left">
+                            <p class="text-xs font-bold text-parchment-900">Roaring Month Afternoon Tea</p>
+                            <p class="text-[11px] text-parchment-600">Supports server hosting & Resonance database</p>
+                        </div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-lg bg-parchment-800 text-parchment-50 font-mono text-xs font-bold">$5</span>
+                </button>
+
+                <button onclick="copyShareUrl()" class="w-full p-3 rounded-xl bg-parchment-200/80 hover:bg-parchment-200 border border-parchment-300 flex items-center justify-between transition cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="share-2" class="w-4 h-4 text-parchment-700 ml-1"></i>
+                        <div class="text-left">
+                            <p class="text-xs font-bold text-parchment-900">Share Pocket Suitcase with Friends</p>
+                            <p class="text-[11px] text-parchment-600">Copy archive link for fellow Timekeepers</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-semibold text-parchment-800 underline">Copy Link</span>
+                </button>
+            </div>
+
+            <div class="text-center">
+                <p class="text-[11px] text-parchment-600 italic">"May the peace be with us, and may every 10-pull shine golden."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 3: PULL GUIDE — FEATURE NOT AVAILABLE
+         ========================================== -->
+    <div id="pull-guide-modal" class="fixed inset-0 z-50 bg-parchment-900/75 backdrop-blur-xs hidden items-center justify-center p-4">
+        <div class="bg-parchment-50 border-2 border-parchment-500 rounded-2xl max-w-md w-full p-6 shadow-2xl relative fade-in">
+            <button onclick="closePullGuideModal()" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-parchment-200 hover:bg-parchment-300 text-parchment-800 flex items-center justify-center cursor-pointer">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-parchment-800 text-parchment-50 flex items-center justify-center shadow-md">
+                    <i data-lucide="construction" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-parchment-600">Under Maintenance</span>
+                    <h3 class="font-serif text-xl font-bold text-parchment-900">Pull Guide</h3>
+                </div>
+            </div>
+
+            <p class="text-sm text-parchment-700 leading-relaxed mb-5">
+                This feature is not available for now.
+            </p>
+
+            <div class="text-center">
+                <button onclick="closePullGuideModal()" class="px-6 py-2.5 rounded-xl bg-parchment-800 hover:bg-parchment-700 text-parchment-50 text-xs font-semibold transition cursor-pointer">
+                    Got it
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-parchment-900 text-parchment-50 px-4 py-3 rounded-xl shadow-xl border border-parchment-500 text-xs font-medium flex items-center gap-2.5 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i>
+        <span id="toast-msg">Copied to clipboard!</span>
+    </div>
+
+    <!-- ==========================================
+         VER 3.8 / 3.9 DATA & INTERACTIVE SCRIPTS
+         ========================================== -->
+    <script src="config.js"></script>
+    <script src="cloud-store.js"></script>
+    <script>
+        // ============================================================
+        // ALL GAME DATA LIVES IN THE DATABASE (data.json).
+        // config.js + cloud-store.js decide where it comes from:
+        // cloud (Supabase/JSONBin) first, then the local server
+        // (GET /api/data). The blocks below are empty placeholders —
+        // on page load the site fetches the real data and fills them
+        // in. Do not add data back into this file.
+        // ============================================================
+        let materialNodes = [];
+
+        // 2. MYTH MANIFESTS (REVERIES IN THE RAIN COMPANIONS)
+        let mythManifests = [];
+
+        // 3. VER 3.8 / 3.9 CHARACTER DATABASE
+        let characters = [];
+
+        // 4. VER 3.x TEAM TIERLIST DATA
+        let teamTierData = [];
+
+        // 5. VER 3.7 – 3.9 PULL BANNERS DATA
+        let pullBanners = [];
+
+        // 6. GAMEMODE WALKTHROUGHS (3.x UPDATED)
+        let walkthroughData = {};
+
+        // ==========================================
+        // STATE & INITIALIZATION
+        // ==========================================
+        let homePatchNewCharIds = [];
+        let homePatchEuphoriaIds = [];
+        let homeManesBulletinBosses = [];
+        let pageText = { title: '', heroHeading: '', heroQuote: '' };
+
+        let currentCharFilters = { afflatus: 'all', role: 'all', tier: 'all' };
+        let activeBuilderSlot = 0;
+        let builderSlots = ["beryl", "lorentz", "isolde", "marsha"];
+        let selectedManifest = "operatic";
+
+        // ==========================================
+        // SHARED DATA LOADER (cloud database → local server)
+        // ==========================================
+        async function loadSharedData() {
+            // 1. Cloud database from config.js (works on GitHub Pages)
+            // 2. Same-origin API (works when served by server.js)
+            // 3. Absolute localhost (works from file:// or another port)
+            const sources = [];
+            if (window.PSStore && PSStore.isConfigured()) {
+                sources.push({ name: PSStore.label(), get: () => PSStore.load() });
+            }
+            const httpGet = endpoint => async () => {
+                const res = await fetch(endpoint, { cache: 'no-store' });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return res.json();
+            };
+            sources.push(
+                { name: '/api/data', get: httpGet('/api/data') },
+                { name: 'http://localhost:3000/api/data', get: httpGet('http://localhost:3000/api/data') }
+            );
+            for (const source of sources) {
+                try {
+                    const data = await source.get();
+                    if (!data || typeof data !== 'object' || Object.keys(data).length === 0) continue;
+                    if (data.materialNodes) materialNodes = data.materialNodes;
+                    if (data.mythManifests) mythManifests = data.mythManifests;
+                    if (data.characters) characters = data.characters;
+                    if (data.teamTierData) teamTierData = data.teamTierData;
+                    if (data.pullBanners) pullBanners = data.pullBanners;
+                    if (data.walkthroughData) walkthroughData = data.walkthroughData;
+                    if (data.homePatchNewCharIds) homePatchNewCharIds = data.homePatchNewCharIds;
+                    if (data.homePatchEuphoriaIds) homePatchEuphoriaIds = data.homePatchEuphoriaIds;
+                    if (data.homeManesBulletinBosses) homeManesBulletinBosses = data.homeManesBulletinBosses;
+                    if (data.pageText) {
+                        pageText = data.pageText;
+                        applyPageText();
+                    }
+                    console.log('[Pocket Suitcase] Live data loaded from ' + source.name);
+                    return true;
+                } catch (err) {
+                    // Network/CORS failure — try next source
+                }
+            }
+            return false;
+        }
+
+        function applyPageText() {
+            if (pageText.title) document.title = pageText.title;
+            const h = document.getElementById('hero-heading');
+            if (h && pageText.heroHeading) h.innerHTML = pageText.heroHeading;
+            const q = document.getElementById('hero-quote');
+            if (q && pageText.heroQuote) q.textContent = pageText.heroQuote;
+        }
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            lucide.createIcons();
+            const liveLoaded = await loadSharedData();
+            if (!liveLoaded) {
+                showToast('No data source reachable — check config.js (cloud) or start "node server.js", then refresh.');
+            }
+            renderHomeSpotlight();
+            renderTeamTierlist('All');
+            renderCharacters();
+            renderTeamBuilder();
+            calculatePullBudget();
+            renderPullBanners();
+            switchWalkthroughMode('reveries');
+            startResetClock();
+        });
+
+        // ==========================================
+        // NAVIGATION LOGIC
+        // ==========================================
+        function switchTab(tabId) {
+            if (tabId === 'pull-guide') {
+                openPullGuideModal();
+                return;
+            }
+
+            document.querySelectorAll('.tab-content').forEach(sec => sec.classList.add('hidden'));
+            const target = document.getElementById('tab-' + tabId);
+            if (target) target.classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-tab') === tabId) {
+                    btn.className = "nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 bg-parchment-700 text-parchment-50 shadow-xs border border-parchment-500 cursor-pointer";
+                } else {
+                    btn.className = "nav-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-parchment-200 hover:bg-parchment-800 hover:text-parchment-50 transition-all duration-150 cursor-pointer";
+                }
+            });
+
+            const sidebar = document.getElementById('sidebar');
+            if (!sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
+                toggleMobileSidebar();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        }
+
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            sidebar.classList.toggle('-translate-x-full');
+            backdrop.classList.toggle('hidden');
+        }
+
+        // ==========================================
+        // HOME: NEW CHARACTERS, NEW EUPHORIA & MANE'S BULLETIN BOSSES
+        // ==========================================
+        function inspectCharacterFromHome(charId) {
+            // Reset filters so the selected character is visible in the Character Tierlist tab
+            currentCharFilters = { afflatus: 'all', role: 'all', tier: 'all' };
+            const searchEl = document.getElementById('char-search');
+            if (searchEl) searchEl.value = '';
+            const tierSel = document.getElementById('tier-select');
+            if (tierSel) tierSel.value = 'all';
+            const roleSel = document.getElementById('role-select');
+            if (roleSel) roleSel.value = 'all';
+
+            switchTab('char-tierlist');
+            renderCharacters();
+            openCharModal(charId);
+
+            setTimeout(() => {
+                const cardEl = document.getElementById('char-card-' + charId);
+                if (cardEl) {
+                    cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 150);
+        }
+
+        function openManesWalkthrough() {
+            switchTab('walkthrough');
+            switchWalkthroughMode('manes');
+        }
+
+        function renderHomeSpotlight() {
+            // 1. Render New Debut Characters
+            const newCharsGrid = document.getElementById('home-new-chars-grid');
+            if (newCharsGrid) {
+                const newChars = homePatchNewCharIds.map(id => characters.find(c => c.id === id)).filter(Boolean);
+                newCharsGrid.innerHTML = newChars.map(c => `
+                    <div onclick="inspectCharacterFromHome('${c.id}')" class="bg-parchment-100 hover:bg-parchment-200/80 rounded-2xl p-5 border border-parchment-300 shadow-xs cursor-pointer transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-3">
+                                <span class="px-2.5 py-0.5 rounded-full bg-parchment-800 text-amber-300 font-mono text-[10px] font-bold uppercase tracking-wider">${c.debutPatch || 'New Debut'}</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
+                            </div>
+                            <div class="flex items-baseline justify-between mb-1">
+                                <h4 class="font-serif font-bold text-lg text-parchment-900 group-hover:text-parchment-700 transition">${c.name}</h4>
+                                <span class="font-serif font-bold text-xs px-2 py-0.5 rounded bg-parchment-300 text-parchment-900">${c.tier}</span>
+                            </div>
+                            <p class="text-xs font-semibold text-parchment-700 mb-2.5">${c.rarity}★ • ${c.role} • ${c.archetype}</p>
+                            <p class="text-xs text-parchment-800 leading-relaxed line-clamp-3 mb-4">${c.summary}</p>
+                        </div>
+                        <div class="pt-3 border-t border-parchment-300 flex items-center justify-between text-xs font-semibold text-parchment-800 group-hover:text-parchment-900">
+                            <span>View Character Info</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // 2. Render New Euphoria Characters Added This Patch
+            const euphGrid = document.getElementById('home-euphoria-chars-grid');
+            if (euphGrid) {
+                const euphChars = homePatchEuphoriaIds.map(id => characters.find(c => c.id === id)).filter(Boolean);
+                euphGrid.innerHTML = euphChars.map(c => `
+                    <div onclick="inspectCharacterFromHome('${c.id}')" class="bg-parchment-100 hover:bg-parchment-200/80 rounded-2xl p-5 border border-parchment-300 shadow-xs cursor-pointer transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-2.5">
+                                <span class="px-2.5 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px] font-bold">EUPHORIA ${c.eTag}</span>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
+                                    <span class="px-2 py-0.5 rounded bg-parchment-800 text-parchment-50 font-serif font-bold text-[11px]">${c.baseTier} → ${c.tier}</span>
+                                </div>
+                            </div>
+                            <h4 class="font-serif font-bold text-lg text-parchment-900 group-hover:text-parchment-700 transition">${c.name}</h4>
+                            <p class="text-xs font-semibold text-parchment-700 mt-0.5 mb-2">${c.archetype} Engine • ${c.role}</p>
+                            <p class="text-xs text-parchment-800 leading-relaxed mb-3">${c.euphoriaPriority}</p>
+                        </div>
+                        <div class="pt-3 border-t border-parchment-300 flex items-center justify-between text-xs font-semibold text-amber-900 group-hover:text-parchment-900">
+                            <span>Inspect Euphoria Kit & Build</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // 3. Render Mane's Bulletin Version Bosses
+            const bossesGrid = document.getElementById('home-manes-bosses-grid');
+            if (bossesGrid) {
+                bossesGrid.innerHTML = homeManesBulletinBosses.map(b => `
+                    <div class="bg-parchment-100 rounded-2xl p-5 border border-parchment-300 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-parchment-800 text-amber-300">${b.code}</span>
+                                <span class="text-[11px] font-mono font-semibold text-parchment-700">SSS+ Raid</span>
+                            </div>
+                            <h4 class="font-serif font-bold text-lg text-parchment-900">${b.name}</h4>
+                            <p class="text-xs font-semibold text-amber-900 bg-parchment-200/80 px-2.5 py-1 rounded-lg border border-parchment-300">
+                                Favored Meta: ${b.favoredEngine}
+                            </p>
+                            <p class="text-xs text-parchment-800 leading-relaxed">
+                                <strong>Boss Vulnerability:</strong> ${b.weakness}
+                            </p>
+                            <p class="text-xs text-parchment-700 leading-relaxed">
+                                <strong>Threat Mechanic:</strong> ${b.dangerMechanic}
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-parchment-300">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-parchment-600 font-bold block mb-2">Recommended Crew (Click to Inspect):</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                ${b.recommendedIds.map(cid => {
+                                    const charObj = characters.find(x => x.id === cid);
+                                    if (!charObj) return '';
+                                    return `
+                                        <button onclick="inspectCharacterFromHome('${charObj.id}')" class="px-2.5 py-1 rounded-lg bg-parchment-50 hover:bg-parchment-800 text-parchment-900 hover:text-parchment-50 border border-parchment-300 text-xs font-semibold transition cursor-pointer">
+                                            ${charObj.name}${charObj.hasEuphoria ? ` [${charObj.eTag}]` : ''}
+                                        </button>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // ==========================================
+        // TEAM TIERLIST RENDERER
+        // ==========================================
+        function filterTeamArchetype(arch) {
+            document.querySelectorAll('.team-arch-btn').forEach(btn => {
+                if (btn.getAttribute('data-arch') === arch) {
+                    btn.className = "team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-800 text-parchment-50 transition cursor-pointer";
+                } else {
+                    btn.className = "team-arch-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer";
+                }
+            });
+            renderTeamTierlist(arch);
+        }
+
+        function renderTeamTierlist(filterArch) {
+            const container = document.getElementById('team-tier-container');
+            const list = filterArch === 'All' ? teamTierData : teamTierData.filter(t => t.archetype === filterArch);
+
+            container.innerHTML = list.map(team => {
+                const badgeColor = team.tier === 'T0'   ? 'bg-amber-800 text-parchment-50 border-amber-500' :
+                                   team.tier === 'T0.5' ? 'bg-parchment-800 text-parchment-50 border-parchment-500' :
+                                                          'bg-parchment-600 text-parchment-50 border-parchment-400';
+                return `
+                    <div class="bg-parchment-50 rounded-2xl p-5 suitcase-border flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                        <div class="flex items-start gap-4 max-w-xl">
+                            <div class="w-14 h-14 rounded-2xl ${badgeColor} border-2 flex flex-col items-center justify-center shrink-0 shadow-md">
+                                <span class="text-[10px] font-mono uppercase tracking-wider opacity-80">Tier</span>
+                                <span class="font-serif font-extrabold text-lg leading-none">${team.tier}</span>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <h3 class="font-serif font-bold text-lg text-parchment-900">${team.name}</h3>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-parchment-200 text-parchment-900 text-xs font-semibold">${team.archetype}</span>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-parchment-800 text-amber-300 font-mono text-[11px]">Manifest: ${team.manifest}</span>
+                                </div>
+                                <p class="text-xs font-mono font-semibold text-parchment-600 mt-1">${team.modeRating}</p>
+                                <p class="text-xs text-parchment-700 mt-2 leading-relaxed">${team.rotation}</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-auto grid grid-cols-2 sm:grid-cols-4 gap-2.5 shrink-0">
+                            ${team.members.map((mName, idx) => {
+                                const charObj = characters.find(c => c.name === mName);
+                                const roleLabel = idx === 0 ? 'Main Carry' : idx === 1 ? 'Core Support' : idx === 2 ? 'Sub-Carry' : 'Sustain';
+                                return `
+                                    <div onclick="${charObj ? `openCharModal('${charObj.id}')` : ''}" class="p-3 rounded-xl bg-parchment-100 hover:bg-parchment-200 border border-parchment-300 text-center cursor-pointer transition">
+                                        <span class="text-[10px] font-mono uppercase tracking-wider text-parchment-600 block">${roleLabel}</span>
+                                        <span class="font-serif font-bold text-xs text-parchment-900 mt-0.5 block">${mName} ${charObj && charObj.hasEuphoria ? `<span class="text-[10px] px-1 rounded bg-amber-800 text-parchment-50 font-mono">${charObj.eTag}</span>` : ''}</span>
+                                        <span class="text-[10px] text-parchment-700 mt-0.5 block">${charObj ? charObj.afflatus : 'Arcanist'}</span>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ==========================================
+        // CHARACTER TIERLIST & EUPHORIA TOGGLE
+        // ==========================================
+        function setCharFilter(type, value) {
+            currentCharFilters[type] = value;
+            if (type === 'afflatus') {
+                document.querySelectorAll('.aff-btn').forEach(btn => {
+                    if (btn.getAttribute('data-aff') === value) {
+                        btn.className = "aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-800 text-parchment-50 cursor-pointer";
+                    } else {
+                        btn.className = "aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer";
+                    }
+                });
+            }
+            renderCharacters();
+        }
+
+        function getAfflatusBadge(aff) {
+            const map = {
+                Star: "bg-[#3d6b88] text-white",
+                Plant: "bg-[#4b6e4b] text-white",
+                Mineral: "bg-[#8c6239] text-white",
+                Beast: "bg-[#983e3e] text-white",
+                Spirit: "bg-[#6b4c7e] text-white",
+                Intellect: "bg-[#a88025] text-white"
+            };
+            return map[aff] || "bg-parchment-700 text-white";
+        }
+
+        function renderCharacters() {
+            const search = (document.getElementById('char-search')?.value || '').toLowerCase();
+            const includeEuphoria = document.getElementById('euphoria-toggle')?.checked ?? true;
+            const grid = document.getElementById('char-grid');
+
+            const filtered = characters.filter(c => {
+                const activeTier = includeEuphoria ? c.tier : c.baseTier;
+                const matchAff = currentCharFilters.afflatus === 'all' || c.afflatus === currentCharFilters.afflatus;
+                const matchRole = currentCharFilters.role === 'all' || c.role === currentCharFilters.role;
+                const matchTier = currentCharFilters.tier === 'all' || activeTier === currentCharFilters.tier;
+                const matchSearch = c.name.toLowerCase().includes(search) || c.archetype.toLowerCase().includes(search) || c.role.toLowerCase().includes(search);
+                return matchAff && matchRole && matchTier && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full p-8 text-center bg-parchment-50 rounded-2xl suitcase-border text-sm text-parchment-700">No Arcanists match your current filters. Try resetting the Tier, Afflatus, or Role filter.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(c => {
+                const activeTier = includeEuphoria ? c.tier : c.baseTier;
+                const tierColor = activeTier === 'T0' ? 'bg-amber-800 text-parchment-50 border-amber-500' :
+                                  activeTier === 'T0.5' ? 'bg-parchment-800 text-parchment-50 border-parchment-500' :
+                                  'bg-parchment-600 text-parchment-50 border-parchment-400';
+                return `
+                    <div id="char-card-${c.id}" onclick="openCharModal('${c.id}')" class="bg-parchment-50 hover:bg-parchment-100 rounded-2xl p-5 suitcase-border cursor-pointer transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-start justify-between gap-2 mb-3">
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-1.5">
+                                        <h3 class="font-serif font-bold text-lg text-parchment-900 group-hover:text-parchment-700 transition">${c.name}</h3>
+                                        ${c.hasEuphoria && includeEuphoria ? `<span class="px-1.5 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px] font-bold">Euphoria ${c.eTag}</span>` : ''}
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-1.5 mt-1">
+                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
+                                        <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-parchment-200 text-parchment-800">${c.role}</span>
+                                    </div>
+                                </div>
+                                <div class="w-11 h-11 rounded-xl ${tierColor} font-serif font-bold text-xs flex items-center justify-center shrink-0 border shadow-xs">
+                                    ${activeTier}
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-parchment-700 leading-relaxed line-clamp-2 mb-4">${c.summary}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-parchment-200 space-y-1.5 text-xs">
+                            <div class="flex items-center justify-between">
+                                <span class="text-parchment-600">3.x Engine:</span>
+                                <span class="font-bold text-parchment-900">${c.archetype}</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-parchment-600">BiS Psychube:</span>
+                                <span class="font-medium text-parchment-800">${c.psychube}</span>
+                            </div>
+                            <div class="pt-1.5 flex items-center justify-end text-[11px] font-semibold text-parchment-600 group-hover:text-parchment-900">
+                                <span>Inspect Build, Euphoria & Partners →</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openCharModal(charId) {
+            const c = characters.find(item => item.id === charId);
+            if (!c) return;
+            const modal = document.getElementById('char-modal');
+            const body = document.getElementById('char-modal-body');
+
+            body.innerHTML = `
+                <div class="flex flex-wrap items-center gap-3 border-b border-parchment-300 pb-4 mb-4">
+                    <div class="w-14 h-14 rounded-2xl bg-parchment-800 text-parchment-50 flex flex-col items-center justify-center font-serif font-bold border border-parchment-500">
+                        <span class="text-[10px] font-mono uppercase opacity-75">Tier</span>
+                        <span class="text-lg leading-none">${c.tier}</span>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <h3 class="font-serif text-2xl font-bold text-parchment-900">${c.name}</h3>
+                            <span class="px-2.5 py-0.5 rounded text-xs font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
+                            ${c.hasEuphoria ? `<span class="px-2 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-xs font-bold">Euphoria ${c.eTag}</span>` : ''}
+                        </div>
+                        <p class="text-xs text-parchment-700 mt-0.5">${c.rarity}★ Arcanist • ${c.role} • ${c.archetype} Engine</p>
+                    </div>
+                </div>
+
+                <p class="text-xs sm:text-sm text-parchment-800 leading-relaxed bg-parchment-100 p-3.5 rounded-xl border border-parchment-300 mb-4">
+                    ${c.summary}
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 text-xs">
+                    <div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-parchment-600 font-bold block mb-1">Best-in-Slot Psychube</span>
+                        <p class="font-bold text-parchment-900 text-sm">${c.psychube}</p>
+                        <p class="text-parchment-700 mt-1">Alternative: <strong>${c.altPsychube}</strong></p>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-parchment-600 font-bold block mb-1">Resonance Polarization Pattern</span>
+                        <p class="font-bold text-parchment-900 text-sm">${c.resPattern}</p>
+                        <p class="text-parchment-700 mt-1">Core Partners: <strong>${c.partners}</strong></p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-parchment-800 text-parchment-50 space-y-1 text-xs">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 block font-bold">Euphoria & Epiphany Rank Guidance</span>
+                    <p class="text-parchment-100 leading-relaxed">${c.euphoriaPriority}</p>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeCharModal() {
+            const modal = document.getElementById('char-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ==========================================
+        // TEAM BUILDER + MYTH MANIFEST WORKBENCH
+        // ==========================================
+        function selectBuilderSlot(index) {
+            activeBuilderSlot = index;
+            renderTeamBuilder();
+        }
+
+        function assignCharToSlot(charId) {
+            const existingIndex = builderSlots.indexOf(charId);
+            if (existingIndex !== -1 && existingIndex !== activeBuilderSlot) {
+                builderSlots[existingIndex] = null;
+            }
+            builderSlots[activeBuilderSlot] = charId;
+            activeBuilderSlot = (activeBuilderSlot + 1) % 4;
+            renderTeamBuilder();
+        }
+
+        function selectMythManifest(manifestId) {
+            selectedManifest = manifestId;
+            renderTeamBuilder();
+            showToast("Assigned Myth Manifest companion!");
+        }
+
+        function clearTeamBuilder() {
+            builderSlots = [null, null, null, null];
+            activeBuilderSlot = 0;
+            renderTeamBuilder();
+        }
+
+        function loadPresetTeam(type) {
+            if (type === 'glow') {
+                builderSlots = ["beryl", "lorentz", "isolde", "marsha"];
+                selectedManifest = "operatic";
+            } else if (type === 'dynamo') {
+                builderSlots = ["brume", "charon", "ulrich", "enigma"];
+                selectedManifest = "ashen_beast";
+            } else if (type === 'conduit') {
+                builderSlots = ["thetwins", "hedone", "rhiannon", "everecho"];
+                selectedManifest = "star_misfortune";
+            } else if (type === 'bloodtithe') {
+                builderSlots = ["nautika", "semmelweis", "sentinel", "rubuska"];
+                selectedManifest = "mountain_ghost";
+            } else if (type === 'impromptu') {
+                builderSlots = ["barcarola", "paperheron", "matilda", "kiperina"];
+                selectedManifest = "star_misfortune";
+            }
+            renderTeamBuilder();
+            showToast("Loaded 3.x Meta Team + Myth Manifest preset!");
+        }
+
+        function renderTeamBuilder() {
+            const slotTitles = ["Slot 1 • Primary Carry", "Slot 2 • Core Enabler", "Slot 3 • Sub-DPS / Buffer", "Slot 4 • Sustain / Anchor"];
+            document.getElementById('active-slot-label').textContent = slotTitles[activeBuilderSlot];
+
+            const slotsContainer = document.getElementById('builder-slots');
+            const charCardsHtml = builderSlots.map((cId, idx) => {
+                const c = characters.find(item => item.id === cId);
+                const isSelected = idx === activeBuilderSlot;
+                const borderStyle = isSelected ? 'border-2 border-parchment-800 ring-2 ring-parchment-400' : 'suitcase-border';
+
+                if (!c) {
+                    return `
+                        <div onclick="selectBuilderSlot(${idx})" class="bg-parchment-100/80 hover:bg-parchment-100 rounded-2xl p-4 ${borderStyle} cursor-pointer transition flex flex-col items-center justify-center min-h-[145px] text-center">
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-parchment-600 mb-2">${slotTitles[idx]}</span>
+                            <div class="w-9 h-9 rounded-full bg-parchment-200 text-parchment-700 flex items-center justify-center mb-1">
+                                <i data-lucide="plus" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-xs text-parchment-600">Assign Arcanist</span>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div onclick="selectBuilderSlot(${idx})" class="bg-parchment-50 rounded-2xl p-4 ${borderStyle} cursor-pointer transition flex flex-col justify-between min-h-[145px]">
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] font-mono font-bold uppercase tracking-wider text-parchment-600 mb-1.5">
+                                <span>${slotTitles[idx]}</span>
+                                ${isSelected ? '<span class="px-1.5 py-0.5 rounded bg-parchment-800 text-parchment-50">Active</span>' : ''}
+                            </div>
+                            <h4 class="font-serif font-bold text-base text-parchment-900">${c.name} ${c.hasEuphoria ? `<span class="text-[10px] font-mono px-1 rounded bg-amber-800 text-parchment-50">${c.eTag}</span>` : ''}</h4>
+                            <div class="flex items-center gap-1.5 mt-1">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
+                                <span class="text-[11px] text-parchment-700">${c.role}</span>
+                            </div>
+                        </div>
+                        <div class="pt-2.5 mt-2.5 border-t border-parchment-200 flex items-center justify-between text-[11px]">
+                            <span class="text-parchment-600">Engine:</span>
+                            <span class="text-parchment-900 font-bold">${c.archetype}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // 5th Slot: Myth Manifest Card
+            const mObj = mythManifests.find(m => m.id === selectedManifest) || mythManifests[0];
+            const manifestCardHtml = mObj ? `
+                <div class="bg-parchment-800 text-parchment-50 rounded-2xl p-4 border-2 border-parchment-500 flex flex-col justify-between min-h-[145px] shadow-md">
+                    <div>
+                        <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-amber-300 mb-1.5">
+                            <span>5th Slot • Myth Manifest</span>
+                            <span>Lvl 30</span>
+                        </div>
+                        <h4 class="font-serif font-bold text-base text-parchment-50">${mObj.name}</h4>
+                        <span class="inline-block mt-1 px-2 py-0.5 rounded bg-parchment-700 text-parchment-200 text-[10px] font-mono">${mObj.element}</span>
+                    </div>
+                    <p class="text-[11px] text-parchment-200 leading-snug pt-2 border-t border-parchment-700 mt-2">
+                        ${mObj.bonus}
+                    </p>
+                </div>
+            ` : `
+                <div class="bg-parchment-100/80 rounded-2xl p-4 suitcase-border flex flex-col items-center justify-center min-h-[145px] text-center">
+                    <i data-lucide="orbit" class="w-7 h-7 text-parchment-500 mb-1.5"></i>
+                    <span class="text-xs text-parchment-600">No Myth Manifests loaded</span>
+                </div>
+            `;
+
+            slotsContainer.innerHTML = charCardsHtml + manifestCardHtml;
+
+            // Roster Picker
+            const rosterGrid = document.getElementById('builder-roster-grid');
+            rosterGrid.innerHTML = characters.map(c => {
+                const inTeam = builderSlots.includes(c.id);
+                return `
+                    <div onclick="assignCharToSlot('${c.id}')" class="p-2.5 rounded-xl border ${inTeam ? 'bg-parchment-200 border-parchment-700' : 'bg-parchment-100/80 hover:bg-parchment-200/70 border-parchment-300'} cursor-pointer transition">
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif font-bold text-xs text-parchment-900">${c.name} ${c.hasEuphoria ? `[${c.eTag}]` : ''}</span>
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
+                        </div>
+                        <p class="text-[10px] text-parchment-800 font-semibold mt-1">${c.archetype}</p>
+                        <p class="text-[10px] text-parchment-600">${inTeam ? '✓ Assigned' : c.role}</p>
+                    </div>
+                `;
+            }).join('');
+
+            // Manifest Picker
+            const manifestGrid = document.getElementById('manifest-picker-grid');
+            manifestGrid.innerHTML = mythManifests.map(m => {
+                const active = m.id === selectedManifest;
+                return `
+                    <div onclick="selectMythManifest('${m.id}')" class="p-2.5 rounded-xl border ${active ? 'bg-parchment-800 text-parchment-50 border-parchment-600' : 'bg-parchment-100 hover:bg-parchment-200 text-parchment-900 border-parchment-300'} cursor-pointer transition">
+                        <p class="font-serif font-bold text-xs">${m.name}</p>
+                        <p class="text-[10px] font-mono ${active ? 'text-amber-300' : 'text-parchment-600'} mt-0.5">${m.element}</p>
+                    </div>
+                `;
+            }).join('');
+
+            evaluateTeamSynergy();
+            lucide.createIcons();
+        }
+
+        function evaluateTeamSynergy() {
+            const picked = builderSlots.map(id => characters.find(c => c.id === id)).filter(Boolean);
+            const container = document.getElementById('team-analysis-content');
+            const mObj = mythManifests.find(m => m.id === selectedManifest);
+
+            if (picked.length === 0) {
+                container.innerHTML = `<p class="text-parchment-700 italic">Assign Arcanists to inspect 3.x archetype synergy.</p>`;
+                return;
+            }
+
+            const counts = {};
+            picked.forEach(c => { counts[c.archetype] = (counts[c.archetype] || 0) + 1; });
+
+            let dominantArch = "Mixed Flex Lineup";
+            let archScore = "Standard Synergy";
+            for (const [arch, num] of Object.entries(counts)) {
+                if (num >= 3) { dominantArch = `${arch} Full Engine (${num}/4)`; archScore = "T0 Apex Synergy"; }
+                else if (num === 2 && dominantArch === "Mixed Flex Lineup") { dominantArch = `${arch} Dual Core (2/4)`; archScore = "Strong Hybrid Synergy"; }
+            }
+
+            const hasSustain = picked.some(c => c.role.includes("Sustain"));
+            const hasCarry = picked.some(c => c.role === "Main DPS");
+
+            container.innerHTML = `
+                <div class="p-3 rounded-xl bg-parchment-100 border border-parchment-300">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-parchment-600 font-bold block">Detected 3.x Engine</span>
+                    <span class="font-serif font-bold text-sm text-parchment-900">${dominantArch}</span>
+                    <span class="block text-[11px] text-amber-800 font-semibold mt-0.5">${archScore}</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-parchment-100 border border-parchment-200">
+                    <span class="text-parchment-700">Primary Carry Check:</span>
+                    <span class="font-bold ${hasCarry ? 'text-emerald-800' : 'text-amber-700'}">${hasCarry ? '✓ Main DPS Active' : '⚠ Add a Main Carry'}</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-parchment-100 border border-parchment-200">
+                    <span class="text-parchment-700">Hadal Sustain Coverage:</span>
+                    <span class="font-bold ${hasSustain ? 'text-emerald-800' : 'text-amber-700'}">${hasSustain ? '✓ Sustain Covered' : '⚠ Missing Shielder/Healer'}</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-parchment-100 border border-parchment-200">
+                    <span class="text-parchment-700">Myth Manifest Pairing:</span>
+                    <span class="font-bold text-parchment-900">${mObj ? mObj.name : 'None'}</span>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // PULL GUIDE & PITY CALCULATOR
+        // ==========================================
+        function calculatePullBudget() {
+            const drops = parseInt(document.getElementById('pity-drops')?.value || 0, 10);
+            const unilogs = parseInt(document.getElementById('pity-unilogs')?.value || 0, 10);
+            const currentPity = parseInt(document.getElementById('pity-current')?.value || 0, 10);
+            const isGuaranteed = document.getElementById('pity-guaranteed')?.checked || false;
+
+            const pullsFromDrops = Math.floor(drops / 180);
+            const totalPulls = pullsFromDrops + unilogs;
+            const pullsToNextSixStar = Math.max(0, 70 - currentPity);
+            const pullsToHardGuarantee = isGuaranteed ? pullsToNextSixStar : (70 - currentPity) + 70;
+
+            const bar = document.getElementById('pity-result-bar');
+            const canGuarantee = totalPulls >= pullsToHardGuarantee;
+
+            bar.innerHTML = `
+                <div class="space-y-0.5">
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-parchment-300">Total Available Pulls</span>
+                    <p class="font-mono text-lg font-bold text-amber-300">${totalPulls} Pulls <span class="text-xs font-normal text-parchment-200">(${pullsFromDrops} from Drops + ${unilogs} Unilogs)</span></p>
+                </div>
+                <div class="space-y-0.5">
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-parchment-300">Hard Pity Distance</span>
+                    <p class="font-mono text-sm font-bold text-parchment-50">Next 6★ in ≤${pullsToNextSixStar} pulls • Featured Guarantee in ≤${pullsToHardGuarantee} pulls</p>
+                </div>
+                <div class="shrink-0">
+                    <span class="px-3 py-1.5 rounded-lg font-mono text-xs font-bold ${canGuarantee ? 'bg-emerald-800 text-parchment-50' : 'bg-amber-700 text-parchment-50'}">
+                        ${canGuarantee ? '✓ Featured 6★ Guaranteed!' : `Need ${pullsToHardGuarantee - totalPulls} More Pulls for 100%`}
+                    </span>
+                </div>
+            `;
+        }
+
+        function renderPullBanners() {
+            const container = document.getElementById('pull-banners-list');
+            container.innerHTML = pullBanners.map(b => `
+                <div class="bg-parchment-50 rounded-2xl p-6 suitcase-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    <div class="space-y-1.5 max-w-3xl">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-xs font-mono font-bold uppercase tracking-wider text-parchment-600">${b.patch}</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold ${b.ratingColor}">${b.rating}</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-parchment-900">${b.title}</h3>
+                        <p class="text-xs font-semibold text-parchment-700">Focus: ${b.unitFocus}</p>
+                        <p class="text-xs text-parchment-800 leading-relaxed pt-1">${b.verdict}</p>
+                    </div>
+                    <div class="shrink-0">
+                        <button onclick="switchTab('char-tierlist')" class="px-4 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-parchment-900 text-xs font-semibold transition cursor-pointer">
+                            Inspect 3.x Builds →
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==========================================
+        // WALKTHROUGH MODE SWITCHER
+        // ==========================================
+        function switchWalkthroughMode(modeKey) {
+            document.querySelectorAll('.wm-btn').forEach(btn => {
+                btn.className = "wm-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 transition cursor-pointer";
+            });
+            const activeBtn = document.getElementById('wm-btn-' + modeKey);
+            if (activeBtn) {
+                activeBtn.className = "wm-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-parchment-800 text-parchment-50 transition cursor-pointer";
+            }
+
+            const data = walkthroughData[modeKey];
+            const area = document.getElementById('walkthrough-content-area');
+
+            if (!data) {
+                area.innerHTML = `
+                    <div class="bg-parchment-50 rounded-2xl p-8 suitcase-border text-center fade-in">
+                        <i data-lucide="cloud-off" class="w-8 h-8 text-parchment-500 mx-auto mb-3"></i>
+                        <p class="font-serif font-bold text-lg text-parchment-900">Walkthrough data unavailable</p>
+                        <p class="text-xs text-parchment-600 mt-1.5">Start the local server (<span class="font-mono bg-parchment-100 px-1.5 py-0.5 rounded border border-parchment-300">node server.js</span>) and refresh this page.</p>
+                    </div>`;
+                lucide.createIcons();
+                return;
+            }
+
+            area.innerHTML = `
+                <div class="bg-parchment-50 rounded-2xl p-6 suitcase-border space-y-6 fade-in">
+                    <div class="border-b border-parchment-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <h3 class="font-serif text-xl font-bold text-parchment-900">${data.title}</h3>
+                        <span class="px-3 py-1 rounded-lg bg-parchment-200 text-parchment-900 font-mono text-xs font-semibold">Rewards: ${data.reward}</span>
+                    </div>
+
+                    <div>
+                        <h4 class="font-serif font-bold text-sm uppercase tracking-wider text-parchment-700 mb-3">Key Timekeeper Tactical Notes</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            ${data.tips.map((tip, i) => `
+                                <div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-parchment-800 leading-relaxed">
+                                    <span class="font-mono font-bold text-parchment-900 block mb-1">Directive 0${i + 1}</span>
+                                    ${tip}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-serif font-bold text-sm uppercase tracking-wider text-parchment-700 mb-3">Boss Mechanics & Recommended 3.x Lineups</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${data.bosses.map(b => `
+                                <div class="p-4 rounded-xl bg-parchment-100 border border-parchment-300 space-y-2">
+                                    <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-parchment-600">${b.stage}</span>
+                                    <h5 class="font-serif font-bold text-base text-parchment-900">${b.boss}</h5>
+                                    <p class="text-xs text-parchment-900"><strong>Recommended Meta Lineup:</strong> ${b.recommended}</p>
+                                    <p class="text-xs text-parchment-700 leading-relaxed">${b.mechanic}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // ACCORDION, MODAL & CLIPBOARD UTILITIES
+        // ==========================================
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.toggle('hidden');
+        }
+
+        function openSupportModal() {
+            const modal = document.getElementById('support-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeSupportModal() {
+            const modal = document.getElementById('support-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openPullGuideModal() {
+            const modal = document.getElementById('pull-guide-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closePullGuideModal() {
+            const modal = document.getElementById('pull-guide-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function triggerSupportToast(tierName) {
+            closeSupportModal();
+            showToast(`Thank you, Timekeeper! Selected support tier: ${tierName}`);
+        }
+
+        function copyShareUrl() {
+            copyText("https://pocketsuitcase.timekeeper.guide");
+            closeSupportModal();
+        }
+
+        function copyText(text) {
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            showToast(`Copied "${text}" to clipboard!`);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-msg');
+            msg.textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-2');
+            }, 2800);
+        }
+
+        function startResetClock() {
+            const timerEl = document.getElementById('reset-timer');
+            let secondsLeft = 6 * 3600 + 18 * 60 + 45;
+            setInterval(() => {
+                secondsLeft = secondsLeft > 0 ? secondsLeft - 1 : 86400;
+                const h = String(Math.floor(secondsLeft / 3600)).padStart(2, '0');
+                const m = String(Math.floor((secondsLeft % 3600) / 60)).padStart(2, '0');
+                const s = String(secondsLeft % 60).padStart(2, '0');
+                if (timerEl) timerEl.textContent = `${h}:${m}:${s}`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
