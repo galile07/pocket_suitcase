@@ -103,6 +103,7 @@
         <div class="flex flex-wrap items-center gap-2">
             <span id="dirty-badge" class="hidden text-[11px] font-mono px-2.5 py-1 rounded-lg bg-amber-700/30 text-amber-300 border border-amber-600/50">0 unsaved</span>
             <button id="btn-reload" class="btn btn-ghost hidden"><i data-lucide="refresh-cw" class="w-4 h-4"></i> Reload Data</button>
+            <button id="btn-logout" class="btn btn-ghost hidden"><i data-lucide="log-out" class="w-4 h-4"></i> Log out</button>
             <button id="btn-open" class="btn btn-ghost"><i data-lucide="folder-open" class="w-4 h-4"></i> Open Site</button>
             <button id="btn-validate" class="btn btn-ghost"><i data-lucide="shield-check" class="w-4 h-4"></i> Validate</button>
             <button id="btn-download" class="btn btn-ghost"><i data-lucide="download" class="w-4 h-4"></i> Download</button>
@@ -136,6 +137,21 @@
         <button id="val-close" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-parchment-200 hover:bg-parchment-300 flex items-center justify-center cursor-pointer"><i data-lucide="x" class="w-4 h-4"></i></button>
         <h3 class="font-bold text-xl mb-1">Validation Report</h3>
         <div id="val-body" class="mt-4 space-y-2 text-sm"></div>
+    </div>
+</div>
+
+<!-- LOGIN MODAL (Supabase Auth) -->
+<div id="login-modal" class="fixed inset-0 z-[60] bg-parchment-900/75 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-parchment-50 border-2 border-parchment-400 rounded-2xl max-w-sm w-full p-6 shadow-2xl fade-in">
+        <div class="w-10 h-10 rounded-xl bg-parchment-900 flex items-center justify-center mb-3"><i data-lucide="lock" class="w-5 h-5 text-parchment-50"></i></div>
+        <h3 class="font-bold text-xl mb-1">Editor Login</h3>
+        <p class="text-xs text-parchment-600 mb-4 leading-relaxed">The public guide needs no login — this only protects editing the data.</p>
+        <label class="lbl" for="login-email">Email</label>
+        <input id="login-email" type="email" class="inp mb-3" autocomplete="username" placeholder="you@example.com">
+        <label class="lbl" for="login-pass">Password</label>
+        <input id="login-pass" type="password" class="inp" autocomplete="current-password" placeholder="Password">
+        <p id="login-error" class="hidden text-xs text-red-700 mt-3"></p>
+        <button id="btn-login" class="btn btn-gold w-full justify-center mt-4"><i data-lucide="log-in" class="w-4 h-4"></i> Sign in</button>
     </div>
 </div>
 
@@ -327,6 +343,7 @@ async function loadFromApi(){
             $('#file-status').textContent = FILENAME + ' · ' + (empty ? 'empty — first save creates it' : PRESENT.length + '/' + VARS.length + ' data blocks') + ' · live';
             $('#btn-reload').classList.remove('hidden');
             $('#save-label').textContent = src.cloud ? 'Save to Cloud' : 'Save to Server';
+            $('#btn-logout').classList.toggle('hidden', !(window.PSAuth && PSAuth.isEnabled()));
             persist();
             render();
             toast(empty ? src.id + ' is empty — saving will create the data' : 'Loaded live data from ' + src.id);
@@ -1145,9 +1162,59 @@ document.addEventListener('keydown', e => {
 });
 
 /* ============================================================
+   LOGIN (Supabase Auth — active when provider === 'supabase')
+   ============================================================ */
+function showLogin(errMsg){
+    $('#login-modal').classList.remove('hidden');
+    $('#login-modal').classList.add('flex');
+    if (errMsg){ const b = $('#login-error'); b.textContent = errMsg; b.classList.remove('hidden'); }
+    lucide.createIcons();
+    setTimeout(() => { const el = $('#login-email'); if (el) el.focus(); }, 60);
+}
+function hideLogin(){
+    $('#login-modal').classList.add('hidden');
+    $('#login-modal').classList.remove('flex');
+    $('#login-error').classList.add('hidden');
+}
+async function doLogin(){
+    const email = $('#login-email').value.trim();
+    const pass = $('#login-pass').value;
+    const errBox = $('#login-error');
+    errBox.classList.add('hidden');
+    if (!email || !pass){ showLogin('Enter your email and password.'); return; }
+    const btn = $('#btn-login');
+    btn.disabled = true; btn.textContent = 'Signing in…';
+    try {
+        await PSAuth.login(email, pass);
+        hideLogin();
+        const ok = await loadFromApi();
+        if (!ok) toast('Signed in, but data could not be loaded');
+    } catch (err){
+        showLogin('Sign-in failed: ' + ((err && err.message) || 'unknown error'));
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="log-in" class="w-4 h-4"></i> Sign in';
+        lucide.createIcons();
+    }
+}
+$('#btn-login').addEventListener('click', doLogin);
+$('#login-pass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+$('#login-email').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+$('#btn-logout').addEventListener('click', () => {
+    PSAuth.logout();
+    location.reload();
+});
+
+/* ============================================================
    BOOT
    ============================================================ */
 (async function boot(){
+    // 0. Cloud login gate — only when Supabase is the data source
+    if (window.PSAuth && PSAuth.isEnabled()){
+        let authed = false;
+        try { authed = await PSAuth.restore(); } catch (e){ authed = false; }
+        if (!authed){ showLogin(); return; }
+    }
     // 1. Prefer live data (cloud database from config.js, then local server)
     const apiOk = await loadFromApi();
     if (apiOk){
