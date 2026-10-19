@@ -82,7 +82,7 @@
       "dmgType": "",
       "afflatus": "Intellect",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/beryl.webp",
       "tier": "T0",
       "suffix": [
         "DPS"
@@ -136,7 +136,7 @@
       "dmgType": "",
       "afflatus": "Beast",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/brume.webp",
       "tier": "T0",
       "suffix": [
         "DPS"
@@ -190,7 +190,7 @@
       "dmgType": "",
       "afflatus": "Spirit",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/charon.webp",
       "tier": "T0",
       "suffix": [
         "Support"
@@ -244,7 +244,7 @@
       "dmgType": "",
       "afflatus": "Star",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/lorentz.webp",
       "tier": "T0",
       "suffix": [
         "Support"
@@ -298,7 +298,7 @@
       "dmgType": "",
       "afflatus": "Star",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/rhiannon.webp",
       "tier": "T0",
       "suffix": [
         "Support"
@@ -352,7 +352,7 @@
       "dmgType": "",
       "afflatus": "Star",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/flutterpage.webp",
       "tier": "T0",
       "suffix": [
         "Support"
@@ -406,7 +406,7 @@
       "dmgType": "",
       "afflatus": "Intellect",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/enigma.webp",
       "tier": "T0",
       "suffix": [
         "Sustain"
@@ -460,7 +460,7 @@
       "dmgType": "",
       "afflatus": "Beast",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/marsha.webp",
       "tier": "T0",
       "suffix": [
         "Sustain"
@@ -514,7 +514,7 @@
       "dmgType": "",
       "afflatus": "Star",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/thetwins.webp",
       "tier": "T0",
       "suffix": [
         "DPS"
@@ -568,7 +568,7 @@
       "dmgType": "",
       "afflatus": "Spirit",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/isolde.webp",
       "tier": "T0",
       "suffix": [
         "Sub-DPS"
@@ -622,7 +622,7 @@
       "dmgType": "",
       "afflatus": "Beast",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/igor.webp",
       "tier": "T0.5",
       "suffix": [
         "DPS"
@@ -676,7 +676,7 @@
       "dmgType": "",
       "afflatus": "Mineral",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/nautika.webp",
       "tier": "T0.5",
       "suffix": [
         "DPS"
@@ -730,7 +730,7 @@
       "dmgType": "",
       "afflatus": "Mineral",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/semmelweis.webp",
       "tier": "T0.5",
       "suffix": [
         "Support"
@@ -784,7 +784,7 @@
       "dmgType": "",
       "afflatus": "Star",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/barcarola.webp",
       "tier": "T0.5",
       "suffix": [
         "DPS"
@@ -838,7 +838,7 @@
       "dmgType": "",
       "afflatus": "Intellect",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/paperheron.webp",
       "tier": "T0.5",
       "suffix": [
         "Sub-DPS"
@@ -892,7 +892,7 @@
       "dmgType": "",
       "afflatus": "Intellect",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/ulrich.webp",
       "tier": "T0.5",
       "suffix": [
         "Sub-DPS"
@@ -946,7 +946,7 @@
       "dmgType": "",
       "afflatus": "Star",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/kiperina.webp",
       "tier": "T0.5",
       "suffix": [
         "Sustain"
@@ -1000,7 +1000,7 @@
       "dmgType": "",
       "afflatus": "Beast",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/rubuska.webp",
       "tier": "T0.5",
       "suffix": [
         "Sustain"
@@ -1054,7 +1054,7 @@
       "dmgType": "",
       "afflatus": "Spirit",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/everecho.webp",
       "tier": "T0.5",
       "suffix": [
         "Sustain"
@@ -1108,7 +1108,7 @@
       "dmgType": "",
       "afflatus": "Mineral",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/cornerstone.webp",
       "tier": "T0.5",
       "suffix": [
         "Sustain"
@@ -1162,7 +1162,7 @@
       "dmgType": "",
       "afflatus": "Mineral",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/hedone.webp",
       "tier": "T0.5",
       "suffix": [
         "Sub-DPS"
@@ -1216,7 +1216,7 @@
       "dmgType": "",
       "afflatus": "Mineral",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/coppelia.webp",
       "tier": "T0.5",
       "suffix": [
         "Sub-DPS"
@@ -1270,7 +1270,7 @@
       "dmgType": "",
       "afflatus": "Mineral",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/fatutu.webp",
       "tier": "T0.5",
       "suffix": [
         "Sustain"
@@ -1324,7 +1324,7 @@
       "dmgType": "",
       "afflatus": "Mineral",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/recoleta.webp",
       "tier": "T1",
       "suffix": [
         "DPS"
@@ -1378,7 +1378,7 @@
       "dmgType": "",
       "afflatus": "Intellect",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/lucy.webp",
       "tier": "T1",
       "suffix": [
         "DPS"
@@ -1432,7 +1432,7 @@
       "dmgType": "",
       "afflatus": "Star",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/windsong.webp",
       "tier": "T1",
       "suffix": [
         "DPS"
@@ -1486,7 +1486,7 @@
       "dmgType": "",
       "afflatus": "Beast",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/anjonala.webp",
       "tier": "T1",
       "suffix": [
         "Sub-DPS"
@@ -1540,7 +1540,7 @@
       "dmgType": "",
       "afflatus": "Beast",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/lopera.webp",
       "tier": "T1",
       "suffix": [
         "Support"
@@ -1594,7 +1594,7 @@
       "dmgType": "",
       "afflatus": "Mineral",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/moldir.webp",
       "tier": "T1",
       "suffix": [
         "Sub-DPS"
@@ -1648,7 +1648,7 @@
       "dmgType": "",
       "afflatus": "Beast",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/sentinel.webp",
       "tier": "T1",
       "suffix": [
         "Sub-DPS"
@@ -1702,7 +1702,7 @@
       "dmgType": "",
       "afflatus": "Plant",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/narcissus.webp",
       "tier": "T1",
       "suffix": [
         "Sustain"
@@ -1756,7 +1756,7 @@
       "dmgType": "",
       "afflatus": "Plant",
       "rarity": 6,
-      "image": "",
+      "image": "images/chars/vila.webp",
       "tier": "T1",
       "suffix": [
         "Sustain"
@@ -1810,7 +1810,7 @@
       "dmgType": "",
       "afflatus": "Star",
       "rarity": 5,
-      "image": "",
+      "image": "images/chars/matilda.webp",
       "tier": "T1",
       "suffix": [
         "Support"

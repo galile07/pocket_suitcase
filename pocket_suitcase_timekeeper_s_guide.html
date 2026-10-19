@@ -1233,27 +1233,32 @@
                                   'bg-parchment-600 text-parchment-50 border-parchment-400';
                 return `
                     <div id="char-card-${c.id}" onclick="openCharModal('${c.id}')" class="bg-parchment-50 hover:bg-parchment-100 rounded-2xl p-5 suitcase-border cursor-pointer transition-all flex flex-col justify-between group">
-                        <div>
-                            <div class="flex items-start justify-between gap-2 mb-3">
-                                <div>
-                                    <div class="flex flex-wrap items-center gap-1.5">
-                                        <h3 class="font-serif font-bold text-lg text-parchment-900 group-hover:text-parchment-700 transition">${c.name}</h3>
-                                        ${c.hasEuphoria && includeEuphoria && charEuphTag(c) ? `<span class="px-1.5 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px] font-bold">Euphoria ${charEuphTag(c)}</span>` : ''}
-                                    </div>
-                                    <div class="flex flex-wrap items-center gap-1.5 mt-1">
-                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
-                                        ${(c.suffix || []).map(s => `<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-parchment-200 text-parchment-800">${s}</span>`).join('')}
-                                    </div>
-                                </div>
-                                <div class="w-11 h-11 rounded-xl ${tierColor} font-serif font-bold text-xs flex items-center justify-center shrink-0 border shadow-xs">
-                                    ${activeTier}
-                                </div>
+                        <div class="flex gap-4">
+                            <div class="w-20 h-24 sm:w-24 sm:h-28 rounded-xl bg-parchment-200 border border-parchment-300 shrink-0 overflow-hidden flex items-center justify-center font-serif font-bold text-2xl text-parchment-400">
+                                ${c.image ? `<img src="${c.image}" alt="${c.name}" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" onerror="this.remove()">` : c.name.charAt(0)}
                             </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-start justify-between gap-2 mb-3">
+                                    <div>
+                                        <div class="flex flex-wrap items-center gap-1.5">
+                                            <h3 class="font-serif font-bold text-lg text-parchment-900 group-hover:text-parchment-700 transition">${c.name}</h3>
+                                            ${c.hasEuphoria && includeEuphoria && charEuphTag(c) ? `<span class="px-1.5 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px] font-bold">Euphoria ${charEuphTag(c)}</span>` : ''}
+                                        </div>
+                                        <div class="flex flex-wrap items-center gap-1.5 mt-1">
+                                            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
+                                            ${(c.suffix || []).map(s => `<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-parchment-200 text-parchment-800">${s}</span>`).join('')}
+                                        </div>
+                                    </div>
+                                    <div class="w-11 h-11 rounded-xl ${tierColor} font-serif font-bold text-xs flex items-center justify-center shrink-0 border shadow-xs">
+                                        ${activeTier}
+                                    </div>
+                                </div>
 
-                            <div class="flex flex-wrap gap-1.5 mb-4">${charTags(c).map(t => `<span class="px-2 py-0.5 rounded bg-parchment-200 border border-parchment-300 text-[10px] font-semibold text-parchment-800">${t.name}${tagStarsHtml(t)}</span>`).join('') || '<span class="text-[11px] text-parchment-600 italic">No tags yet</span>'}</div>
+                                <div class="flex flex-wrap gap-1.5">${charTags(c).map(t => `<span class="px-2 py-0.5 rounded bg-parchment-200 border border-parchment-300 text-[10px] font-semibold text-parchment-800">${t.name}${tagStarsHtml(t)}</span>`).join('') || '<span class="text-[11px] text-parchment-600 italic">No tags yet</span>'}</div>
+                            </div>
                         </div>
 
-                        <div class="pt-3 border-t border-parchment-200 space-y-1.5 text-xs">
+                        <div class="pt-3 mt-4 border-t border-parchment-200 space-y-1.5 text-xs">
                             <div class="flex items-center justify-between">
                                 <span class="text-parchment-600">Damage Type:</span>
                                 <span class="font-bold text-parchment-900">${c.dmgType || '—'}</span>
