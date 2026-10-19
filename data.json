@@ -79,606 +79,1787 @@
     {
       "id": "beryl",
       "name": "Beryl",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Intellect",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Lingering Glow",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "Refracted Prism (6★)",
       "altPsychube": "Advancing Footsteps (6★)",
-      "resPattern": "Res 15 • Genuineness (Crit Rate / DMG)",
-      "euphoriaPriority": "Native 3.x True Limited Apex — No Euphoria required.",
-      "partners": "Lorentz Butterfly, Isolde [E1], Marsha",
-      "summary": "True Limited Lingering Glow hypercarry. Refracts enemy Burn & Glow stacks into multi-hit prismatic beams that ignore 40% Mental DEF."
+      "tags": [
+        {
+          "name": "Lingering Glow"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "brume",
       "name": "Brume",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Beast",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Dynamo",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "Surge of the Dynamo (6★)",
       "altPsychube": "Outside the City (6★)",
-      "resPattern": "Res 15 • Genuineness (Crit Rate / ATK)",
-      "euphoriaPriority": "Native 3.x Apex — No Euphoria required.",
-      "partners": "Charon, Ulrich, Enigma",
-      "summary": "Core driver of the 'Dynamo Wheelchair' engine. Turns Pulsing Electric Field Lv. 3 into relentless AoE and single-target electromagnetic sweeps."
+      "tags": [
+        {
+          "name": "Dynamo"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "charon",
       "name": "Charon",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Spirit",
-      "role": "Amplifier / Buffer",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Dynamo",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Support"
+      ],
       "psychube": "Ferryman's Lantern (6★)",
       "altPsychube": "Cracks in the Shell (6★)",
-      "resPattern": "Res 10 • Placidity (ATK / Survivability)",
-      "euphoriaPriority": "Native 3.x Support — Complete at P0.",
-      "partners": "Brume, Ulrich, Enigma, Lucy",
-      "summary": "AP+1 generator, incantation shuffler, and Dynamo battery. Keeps Electric Field permanently at max charge without consuming carry AP."
+      "tags": [
+        {
+          "name": "Dynamo"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "lorentz",
       "name": "Lorentz Butterfly",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Star",
-      "role": "Amplifier / Buffer",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Lingering Glow",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Support"
+      ],
       "psychube": "Butterfly Effect (6★)",
       "altPsychube": "The Third Commitment (6★)",
-      "resPattern": "Res 10 • Placidity (HP / Crit DEF)",
-      "euphoriaPriority": "Native 3.7 Apex Support — P0 Complete.",
-      "partners": "Beryl, Isolde [E1], Marsha",
-      "summary": "Rewrites incantation ranks in hand and multiplies Lingering Glow stack caps by 1.5x while providing massive teamwide DMG Bonus."
+      "tags": [
+        {
+          "name": "Lingering Glow"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "rhiannon",
       "name": "Rhiannon",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Star",
-      "role": "Amplifier / Buffer",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Conduit",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Support"
+      ],
       "psychube": "Celestial Cadence (6★)",
       "altPsychube": "Balance, Please (6★)",
-      "resPattern": "Res 10 • Placidity (ATK / HP)",
-      "euphoriaPriority": "Native 3.x Universal Buffer — P0 Complete.",
-      "partners": "The Twins, Coppélia, Hedone, Beryl",
-      "summary": "Grants Slot-1 Carry an Extra Turn window and massive Crit DMG / Incantation Might, slotting seamlessly into Conduit and hypercarry teams."
+      "tags": [
+        {
+          "name": "Conduit"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "flutterpage",
       "name": "Flutterpage",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Star",
-      "role": "Amplifier / Buffer",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Extra Action / Universal",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Support"
+      ],
       "psychube": "Cracks in the Shell (6★)",
       "altPsychube": "Long Night Talk (6★)",
-      "resPattern": "Res 10 • Genuineness (Crit / ATK)",
-      "euphoriaPriority": "Native Extra Action Anchor — P0 Complete.",
-      "partners": "The Twins, Brume, Windsong [E1], Lucy",
-      "summary": "Converts surplus AP and card movement into Gust Force stacks, remaining the premier Extra Action amplifier across all endgame modes."
+      "tags": [
+        {
+          "name": "Extra Action / Universal"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "enigma",
       "name": "Enigma",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Intellect",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Dynamo",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Bastion of Logic (6★)",
       "altPsychube": "Dawn Is Coming (6★)",
-      "resPattern": "Res 10 • Stupor (HP / Heal / DEF)",
-      "euphoriaPriority": "Native 3.7 Sustain — P0 Complete.",
-      "partners": "Brume, Charon, Ulrich",
-      "summary": "Dedicated Dynamo Bastion sustainer. Automatically cleanses control debuffs, generates Electric Field charge when allies are hit, and grants thick barriers."
+      "tags": [
+        {
+          "name": "Dynamo"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "marsha",
       "name": "Marsha",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Beast",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Lingering Glow",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Hearthfire's Embrace (6★)",
       "altPsychube": "Beyond Wonderland (6★)",
-      "resPattern": "Res 10 • Stupor (HP / DEF)",
-      "euphoriaPriority": "Native 3.x Sustain — P0 Complete.",
-      "partners": "Beryl, Lorentz Butterfly, Isolde [E1]",
-      "summary": "Impenetrable Lingering Glow shielder and cleanser who inflicts passive Burn/Glow on attackers and boosts allied Penetration Rate."
+      "tags": [
+        {
+          "name": "Lingering Glow"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "thetwins",
       "name": "The Twins",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Star",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T0",
-      "archetype": "Conduit",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "Mirrored Echoes (6★)",
       "altPsychube": "Outside the City (6★)",
-      "resPattern": "Res 15 • Genuineness (Crit Rate / DMG)",
-      "euphoriaPriority": "Native 3.x Conduit Carry — P0 Complete.",
-      "partners": "Coppélia, Hedone, Rhiannon, Everecho",
-      "summary": "Dual-stance Star Conduit carry whose single-target strikes echo across all Conduit-linked enemies with 100% splash efficiency."
+      "tags": [
+        {
+          "name": "Conduit"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "isolde",
       "name": "Isolde",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Spirit",
-      "role": "Sub-DPS / Enabler",
+      "rarity": 6,
+      "image": "",
       "tier": "T0",
-      "baseTier": "T1",
-      "archetype": "Lingering Glow",
-      "hasEuphoria": true,
-      "eTag": "E1",
+      "suffix": [
+        "Sub-DPS"
+      ],
       "psychube": "Knock on the Door (6★)",
       "altPsychube": "Refracted Prism (6★)",
-      "resPattern": "Res 10 • Genuineness (Crit / ATK)",
-      "euphoriaPriority": "Euphoria E1 Rank IV (Top Priority — Converts Heat/Burn directly into Lingering Glow).",
-      "partners": "Beryl, Lorentz Butterfly, Marsha",
-      "summary": "With her E1 Euphoria awakening, Isolde's Finale state automatically converts excess Burn into Lingering Glow and shreds 35% Reality & Mental DEF."
+      "tags": [
+        {
+          "name": "Lingering Glow"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E1",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "igor",
       "name": "Igor",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Beast",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Ultimate/Bullet",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "Iron Salute (6★)",
       "altPsychube": "The Third Commitment (6★)",
-      "resPattern": "Res 13 • Placidity (ATK / Might)",
-      "euphoriaPriority": "Native 3.x Artillery Carry — P0 Complete.",
-      "partners": "Moldir [E1], Lopera [E1], Narcissus",
-      "summary": "Heavy Bullet & Ultimate artillery commander who loads Armor-Piercing shells and fires zero-AP Ultimate follow-ups."
+      "tags": [
+        {
+          "name": "Ultimate/Bullet"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "nautika",
       "name": "Nautika",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Mineral",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T1",
-      "archetype": "Bloodtithe",
-      "hasEuphoria": true,
-      "eTag": "E1",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "Abyssal Tide (6★)",
       "altPsychube": "Outside the City (6★)",
-      "resPattern": "Res 15 • Stupor (Max HP / Crit DMG)",
-      "euphoriaPriority": "Euphoria E1 Rank IV (Essential — Doubles Bloodtithe Pool consumption multiplier).",
-      "partners": "Semmelweis [E1], Sentinel, Rubuska",
-      "summary": "Flagship Bloodtithe hypercarry. Consumes accumulated team HP loss from the Bloodtithe Pool to unleash screen-clearing Mineral anchors."
+      "tags": [
+        {
+          "name": "Bloodtithe"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E1",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "semmelweis",
       "name": "Semmelweis",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Mineral",
-      "role": "Amplifier / Buffer",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T2",
-      "archetype": "Bloodtithe",
-      "hasEuphoria": true,
-      "eTag": "E1",
+      "suffix": [
+        "Support"
+      ],
       "psychube": "The Third Commitment (6★)",
       "altPsychube": "Brave New World (6★)",
-      "resPattern": "Res 10 • Stupor (HP / Crit)",
-      "euphoriaPriority": "Euphoria E1 Rank IV (Mandatory for Bloodtithe teams).",
-      "partners": "Nautika [E1], Sentinel, Rubuska",
-      "summary": "Euphoria E1 transforms her Blood Domain Array into the core engine of Bloodtithe, safely draining and refunding allied HP while granting +60% DMG."
+      "tags": [
+        {
+          "name": "Bloodtithe"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E1",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "barcarola",
       "name": "Barcarola",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Star",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Impromptu",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "Gondola Serenade (6★)",
       "altPsychube": "Long Night Talk (6★)",
-      "resPattern": "Res 13 • Genuineness (Crit Rate / ATK)",
-      "euphoriaPriority": "Native Impromptu Leader — P0 Complete.",
-      "partners": "Paper Heron, Aleph, Matilda [E2], Kiperina",
-      "summary": "Conducts the Impromptu Quartet, converting allied Eureka into high-hit Inspiration crescendos at the end of every round."
+      "tags": [
+        {
+          "name": "Impromptu"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "paperheron",
       "name": "Paper Heron",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Intellect",
-      "role": "Sub-DPS / Enabler",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Impromptu",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sub-DPS"
+      ],
       "psychube": "Origami Flight (6★)",
       "altPsychube": "Cracks in the Shell (6★)",
-      "resPattern": "Res 10 • Genuineness (Crit / ATK)",
-      "euphoriaPriority": "Native 3.x Enabler — P0 Complete.",
-      "partners": "Barcarola, Matilda [E2], Regulus [E1], Kiperina",
-      "summary": "Deploys the Paper Wing Array, doubling Eureka generation speed and allowing Impromptu hits to bounce an extra 3 times."
+      "tags": [
+        {
+          "name": "Impromptu"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "ulrich",
       "name": "Ulrich",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Intellect",
-      "role": "Sub-DPS / Enabler",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Dynamo",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sub-DPS"
+      ],
       "psychube": "Surge of the Dynamo (6★)",
       "altPsychube": "Balance, Please (6★)",
-      "resPattern": "Res 10 • Genuineness (Crit / ATK)",
-      "euphoriaPriority": "Native Dynamo Enabler — P0 Complete.",
-      "partners": "Brume, Charon, Enigma",
-      "summary": "High-frequency Dynamo sub-carry whose Laplace coil turrets fire automatically whenever the Pulsing Electric Field shifts level."
+      "tags": [
+        {
+          "name": "Dynamo"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "kiperina",
       "name": "Kiperina",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Star",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Impromptu",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Dawn Is Coming (6★)",
       "altPsychube": "That Inquisitive Dear (6★)",
-      "resPattern": "Res 10 • Stupor (HP / Heal)",
-      "euphoriaPriority": "Native Impromptu Sustain — P0 Complete.",
-      "partners": "Barcarola, Paper Heron, Aleph, Matilda [E2]",
-      "summary": "Provides zero-AP Eureka-fueled shields, teamwide cleanse, and +25% Impromptu Crit DMG."
+      "tags": [
+        {
+          "name": "Impromptu"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "rubuska",
       "name": "Rubuska",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Beast",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Bloodtithe",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Crimson Chalice (6★)",
       "altPsychube": "Dawn Is Coming (6★)",
-      "resPattern": "Res 10 • Stupor (Max HP / Heal)",
-      "euphoriaPriority": "Native Slot-4 Bloodtithe Healer — P0 Complete.",
-      "partners": "Nautika [E1], Semmelweis [E1], Sentinel",
-      "summary": "Slot-4 specialist healer who prevents fatal damage during deep HP drains and overfills the Bloodtithe Pool every turn."
+      "tags": [
+        {
+          "name": "Bloodtithe"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "everecho",
       "name": "Everecho",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Spirit",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Conduit",
-      "hasEuphoria": false,
-      "eTag": "",
-      "isNewDebut": true,
-      "debutPatch": "Ver 3.8 Debut",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Resonant Bell (6★)",
       "altPsychube": "Dawn Is Coming (6★)",
-      "resPattern": "Res 10 • Stupor (HP / ATK)",
-      "euphoriaPriority": "Native 3.8 Conduit Sustain — P0 Complete.",
-      "partners": "The Twins, Coppélia, Hedone, Rhiannon",
-      "summary": "Links all 4 allies into a protective Conduit harmony, healing the entire team whenever a linked enemy takes Conduit splash damage."
+      "tags": [
+        {
+          "name": "Conduit"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "cornerstone",
       "name": "Cornerstone",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Mineral",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Dynamo",
-      "hasEuphoria": false,
-      "eTag": "",
-      "isNewDebut": true,
-      "debutPatch": "Ver 3.8 Debut",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Bastion of Logic (6★)",
       "altPsychube": "Beyond Wonderland (6★)",
-      "resPattern": "Res 10 • Stupor (DEF / Max HP)",
-      "euphoriaPriority": "Native 3.8 Mineral Bastion — P0 Complete.",
-      "partners": "Brume, Charon, Ulrich, Recoleta",
-      "summary": "Fortifies the team with crystalline Mineral bulwarks that convert incoming boss AoE strikes into bonus Dynamo Field charge and Counter Penetration."
+      "tags": [
+        {
+          "name": "Dynamo"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "hedone",
       "name": "Hedone",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Mineral",
-      "role": "Sub-DPS / Enabler",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Conduit",
-      "hasEuphoria": false,
-      "eTag": "",
-      "isNewDebut": true,
-      "debutPatch": "Ver 3.9 Debut",
+      "suffix": [
+        "Sub-DPS"
+      ],
       "psychube": "Golden Nectar (6★)",
       "altPsychube": "Cracks in the Shell (6★)",
-      "resPattern": "Res 11 • Genuineness (Crit / ATK)",
-      "euphoriaPriority": "Native 3.9 Conduit Enabler — P0 Complete.",
-      "partners": "The Twins, Coppélia, Rhiannon, Everecho",
-      "summary": "Inflicts permanent Conduit Vulnerability on bosses so single-target Conduit carries can trigger double echo splashes even against solo raid bosses."
+      "tags": [
+        {
+          "name": "Conduit"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "coppelia",
       "name": "Coppélia",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Mineral",
-      "role": "Sub-DPS / Enabler",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Conduit",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sub-DPS"
+      ],
       "psychube": "Clockwork Waltz (6★)",
       "altPsychube": "Outside the City (6★)",
-      "resPattern": "Res 11 • Genuineness (Crit / ATK)",
-      "euphoriaPriority": "Native Conduit Sub-DPS — P0 Complete.",
-      "partners": "The Twins, Hedone, Rhiannon, Everecho",
-      "summary": "Mechanical dancer who pirouettes with automatic follow-up strikes every time an allied Conduit link pulses."
+      "tags": [
+        {
+          "name": "Conduit"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "fatutu",
       "name": "Fatutu",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Mineral",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T0.5",
-      "baseTier": "T0.5",
-      "archetype": "Extra Action / Universal",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Shells of the Atoll (6★)",
       "altPsychube": "Dawn Is Coming (6★)",
-      "resPattern": "Res 10 • Stupor (HP / Heal)",
-      "euphoriaPriority": "Native Universal Sustain — P0 Complete.",
-      "partners": "Jiu Niangzi, Lucy, Windsong [E1], Anjo Nala [E1]",
-      "summary": "Distributes Spirit Shells that cleanse debuffs on contact, redistribute single-target damage, and buff Extra Action Crit DMG."
+      "tags": [
+        {
+          "name": "Extra Action / Universal"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "recoleta",
       "name": "Recoleta",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Mineral",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T1",
-      "archetype": "Ultimate/Bullet",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "Final Manuscript (6★)",
       "altPsychube": "Luxurious Leisure (6★)",
-      "resPattern": "Res 12 • Placidity (ATK / Ultimate Might)",
-      "euphoriaPriority": "Native Ultimate Carry — P0 Complete.",
-      "partners": "Moldir [E1], Lopera [E1], Narcissus",
-      "summary": "High-cycling Mineral Ultimate carry who refunds her own Moxie and scales Ultimate Might with every incantation cast."
+      "tags": [
+        {
+          "name": "Ultimate/Bullet"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "lucy",
       "name": "Lucy",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Intellect",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T1",
-      "archetype": "Dynamo",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "Advancing Footsteps (6★)",
       "altPsychube": "Surge of the Dynamo (6★)",
-      "resPattern": "Res 13 • Genuineness (Crit / ATK)",
-      "euphoriaPriority": "True Limited Veteran — Pairs strongly with Charon & Enigma.",
-      "partners": "Charon, Ulrich, Flutterpage, Enigma",
-      "summary": "Classic Dynamo & Extra Action sweeper who excels in multi-wave Limbo and Reveries stages thanks to her Data Iteration upgrades."
+      "tags": [
+        {
+          "name": "Dynamo"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "windsong",
       "name": "Windsong",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Star",
-      "role": "Main DPS",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T2",
-      "archetype": "Extra Action / Universal",
-      "hasEuphoria": true,
-      "eTag": "E1",
+      "suffix": [
+        "DPS"
+      ],
       "psychube": "For Rehabilitation (6★)",
       "altPsychube": "Outside the City (6★)",
-      "resPattern": "Res 13 • Genuineness (Crit Rate / DMG)",
-      "euphoriaPriority": "Euphoria E1 Rank IV (Auto-merges Proof of Ley Lines without AP loss).",
-      "partners": "Flutterpage, Rhiannon, Vila [E1]",
-      "summary": "Euphoria E1 removes her multi-turn ramp penalty, allowing her Ultimate turn to unleash a devastating single-target card barrage."
+      "tags": [
+        {
+          "name": "Extra Action / Universal"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E1",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "anjonala",
       "name": "Anjo Nala",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Beast",
-      "role": "Sub-DPS / Enabler",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T2",
-      "archetype": "Extra Action / Universal",
-      "hasEuphoria": true,
-      "eTag": "E1",
+      "suffix": [
+        "Sub-DPS"
+      ],
       "psychube": "Crimson Contract (6★)",
       "altPsychube": "Outside the City (6★)",
-      "resPattern": "Res 11 • Genuineness (Crit / ATK)",
-      "euphoriaPriority": "Euphoria E1 Rank IV (Boosts Contract follow-up frequency).",
-      "partners": "Flutterpage, Fatutu, Lopera [E1]",
-      "summary": "Binds to an ally to share Afflatus rhythms, firing joint Extra Action attacks and crowd-controlling dangerous Hadal elites."
+      "tags": [
+        {
+          "name": "Extra Action / Universal"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E1",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "lopera",
       "name": "Lopera",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Beast",
-      "role": "Amplifier / Buffer",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T2",
-      "archetype": "Ultimate/Bullet",
-      "hasEuphoria": true,
-      "eTag": "E1",
+      "suffix": [
+        "Support"
+      ],
       "psychube": "The Third Commitment (6★)",
       "altPsychube": "Cracks in the Shell (6★)",
-      "resPattern": "Res 10 • Genuineness (Crit)",
-      "euphoriaPriority": "Euphoria E1 Rank IV (Makes Crucible Bullet Array permanent).",
-      "partners": "Igor, Moldir [E1], Sentinel, Narcissus",
-      "summary": "Core Bullet Array buffer who converts excess Crit Rate into Crit DMG while providing passive teamwide healing."
+      "tags": [
+        {
+          "name": "Ultimate/Bullet"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E1",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "moldir",
       "name": "Moldir",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Mineral",
-      "role": "Sub-DPS / Enabler",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T2",
-      "archetype": "Ultimate/Bullet",
-      "hasEuphoria": true,
-      "eTag": "E1",
+      "suffix": [
+        "Sub-DPS"
+      ],
       "psychube": "Iron Salute (6★)",
       "altPsychube": "Brave New World (6★)",
-      "resPattern": "Res 10 • Placidity (ATK / Might)",
-      "euphoriaPriority": "Euphoria E1 Rank IV (Grants +2 Moxie per round to Ultimate carries).",
-      "partners": "Igor, Recoleta, Lopera [E1], Narcissus",
-      "summary": "Tactical Ultimate battery and sub-DPS who supercharges Igor and Recoleta rotations."
+      "tags": [
+        {
+          "name": "Ultimate/Bullet"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E1",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "sentinel",
       "name": "Sentinel",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Beast",
-      "role": "Sub-DPS / Enabler",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T1",
-      "archetype": "Bloodtithe",
-      "hasEuphoria": false,
-      "eTag": "",
+      "suffix": [
+        "Sub-DPS"
+      ],
       "psychube": "Abyssal Tide (6★)",
       "altPsychube": "The Third Commitment (6★)",
-      "resPattern": "Res 11 • Stupor (HP / Crit)",
-      "euphoriaPriority": "Native Bloodtithe Sub-Carry — P0 Complete.",
-      "partners": "Nautika [E1], Semmelweis [E1], Rubuska",
-      "summary": "Bridges Bloodtithe and Bullet mechanics, firing crimson counter-shots every time the team's HP fluctuates."
+      "tags": [
+        {
+          "name": "Bloodtithe"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "narcissus",
       "name": "Narcissus",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Plant",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T1",
-      "archetype": "Ultimate/Bullet",
-      "hasEuphoria": false,
-      "eTag": "",
-      "isNewDebut": true,
-      "debutPatch": "Ver 3.9 Debut",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Mirrored Pool (6★)",
       "altPsychube": "Dawn Is Coming (6★)",
-      "resPattern": "Res 10 • Stupor (HP / Heal)",
-      "euphoriaPriority": "Native 3.9 Ultimate Sustain — P0 Complete.",
-      "partners": "Igor, Recoleta, Moldir [E1], Lopera [E1]",
-      "summary": "Reflects enemy debuffs and grants +35% Ultimate Might & burst healing whenever an ally casts an Ultimate."
+      "tags": [
+        {
+          "name": "Ultimate/Bullet"
+        }
+      ],
+      "hasEuphoria": false,
+      "euphoria": {
+        "image": "",
+        "tag": "",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "vila",
       "name": "Vila",
-      "rarity": 6,
+      "dmgType": "",
       "afflatus": "Plant",
-      "role": "Sustain / Shielder",
+      "rarity": 6,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T2",
-      "archetype": "Extra Action / Universal",
-      "hasEuphoria": true,
-      "eTag": "E1",
+      "suffix": [
+        "Sustain"
+      ],
       "psychube": "Dawn Is Coming (6★)",
       "altPsychube": "That Inquisitive Dear (6★)",
-      "resPattern": "Res 10 • Stupor (Heal / HP)",
-      "euphoriaPriority": "Euphoria E1 Rank IV (Rusalka state never expires + teamwideEureka/Moxie).",
-      "partners": "Windsong [E1], Marcus [E1], The Twins",
-      "summary": "AP-generous Mental & Crit healer whose E1 Euphoria keeps Song of Passion active permanently."
+      "tags": [
+        {
+          "name": "Extra Action / Universal"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E1",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     },
     {
       "id": "matilda",
       "name": "Matilda",
-      "rarity": 5,
+      "dmgType": "",
       "afflatus": "Star",
-      "role": "Amplifier / Buffer",
+      "rarity": 5,
+      "image": "",
       "tier": "T1",
-      "baseTier": "T2",
-      "archetype": "Impromptu",
-      "hasEuphoria": true,
-      "eTag": "E2",
+      "suffix": [
+        "Support"
+      ],
       "psychube": "Gondola Serenade (6★)",
       "altPsychube": "The Third Commitment (6★)",
-      "resPattern": "Res 10 • Genuineness (Crit Rate)",
-      "euphoriaPriority": "Euphoria E2 Rank IV (Best budget Impromptu Crit support in the game!).",
-      "partners": "Barcarola, Paper Heron, Kiperina",
-      "summary": "The Genius Monitor shines at Euphoria E2, granting the entire Impromptu Quartet guaranteed Critical Strikes and huge Crit DMG."
+      "tags": [
+        {
+          "name": "Impromptu"
+        }
+      ],
+      "hasEuphoria": true,
+      "euphoria": {
+        "image": "",
+        "tag": "E2",
+        "suffix": "",
+        "rank1": "",
+        "rank2": "",
+        "rank3": "",
+        "rank4": ""
+      },
+      "bound": [],
+      "materialPlan": {
+        "currency": {
+          "dust": "",
+          "sharpodonty": ""
+        },
+        "insights": [],
+        "resL5": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL10": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resL15": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "resPattern": {
+          "sharpodonty": "",
+          "mats": []
+        },
+        "euphoriaMats": []
+      }
     }
   ],
+  "materialsList": [],
   "teamTierData": [
     {
       "tier": "T0",

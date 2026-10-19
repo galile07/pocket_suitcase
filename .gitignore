@@ -1,2 +1,5 @@
 # Rolling backup created by server.js — git tracks data.json history instead
 data.backup.json
+
+# One-time Supabase reseed statement (duplicates data.json content)
+reseed-supabase.sql

@@ -130,6 +130,7 @@
 </div>
 
 <input type="file" id="file-input" accept=".html,.htm,text/html" class="hidden">
+<datalist id="mat-list"></datalist>
 
 <!-- VALIDATION MODAL -->
 <div id="val-modal" class="fixed inset-0 z-50 bg-parchment-900/75 backdrop-blur-sm hidden items-center justify-center p-4">
@@ -181,13 +182,35 @@ let DIRTY = false, CHANGES = 0;
 let SECTION = 'characters';
 let Q = '';
 let API_MODE = false;     // true = loaded from server API; false = opened local HTML file
-const sel = { characters:0, teams:0, banners:0, manifests:0, nodes:0, bosses:0, wfboss:0 };
+const sel = { characters:0, teams:0, banners:0, manifests:0, nodes:0, bosses:0, wfboss:0, materials:0 };
 let wfMode = 'reveries';
 
 const AFFLATUS = ['Star','Plant','Mineral','Beast','Spirit','Intellect'];
-const ROLES = ['Main DPS','Sub-DPS / Enabler','Amplifier / Buffer','Sustain / Shielder'];
 const TIERS = ['T0','T0.5','T1','T2'];
-const ARCHETYPES = ['Lingering Glow','Dynamo','Conduit','Bloodtithe','Impromptu','Ultimate/Bullet','Extra Action / Universal'];
+const ARCHETYPES = ['Lingering Glow','Dynamo','Conduit','Bloodtithe','Impromptu','Ultimate/Bullet','Extra Action / Universal']; // team tierlist section only
+const SUFFIXES = ['DPS','Support','Sustain','Sub-DPS'];
+const DMG_TYPES = ['Mental','Physical'];
+const TAGS = ['General','Dynamo','Ritual','Follow Up','Poison','Lingering Glow','Bloodtithe','Rank Up','Inspiration','Conduit','Bullet','Shift','Full Pursuit','Counter Assassination','Negative Status','Burn','Halo','Counter','Eureka','HP Sacrifice','All Rounder'];
+const TAG_REL = {
+    'burn': ['Lingering Glow'],
+    'halo': ['Lingering Glow'],
+    'counter': ['Follow Up'],
+    'eureka': ['Inspiration'],
+    'dynamo': ['Ritual'],
+    'hp sacrifice': ['Bloodtithe'],
+    'poison': ['Negative Status']
+};
+function relativeTags(tags){
+    const manual = new Set((tags || []).map(t => String(t.name || '').toLowerCase()));
+    const out = [];
+    const add = n => { if (!manual.has(n.toLowerCase()) && !out.includes(n)) out.push(n); };
+    for (const t of (tags || [])){
+        const k = String(t.name || '').toLowerCase();
+        if (k === 'all rounder'){ TAGS.forEach(add); continue; }
+        (TAG_REL[k] || []).forEach(add);
+    }
+    return out;
+}
 const BANNER_COLORS = ['bg-amber-800 text-parchment-50','bg-parchment-800 text-amber-300','bg-amber-700 text-parchment-50','bg-parchment-700 text-parchment-50','bg-parchment-800 text-parchment-50'];
 
 /* ============================================================
@@ -204,7 +227,7 @@ function setPath(p, v){
     o[parts[parts.length - 1]] = v;
 }
 function clampSel(){
-    const lens = { characters:'characters', teams:'teamTierData', banners:'pullBanners', manifests:'mythManifests', nodes:'materialNodes', bosses:'homeManesBulletinBosses' };
+    const lens = { characters:'characters', teams:'teamTierData', banners:'pullBanners', manifests:'mythManifests', nodes:'materialNodes', bosses:'homeManesBulletinBosses', materials:'materialsList' };
     for (const k in lens){
         const len = (DOC[lens[k]] || []).length;
         if (len === 0) sel[k] = 0;
@@ -515,9 +538,15 @@ function validate(){
         if (c.name) names.add(c.name);
         if (!TIERS.includes(c.tier)) warns.push(`${c.name || c.id}: tier "${c.tier}" is not one of T0/T0.5/T1/T2.`);
         if (!AFFLATUS.includes(c.afflatus)) warns.push(`${c.name || c.id}: afflatus "${c.afflatus}" is not a standard value.`);
-        if (!ROLES.includes(c.role)) warns.push(`${c.name || c.id}: role "${c.role}" is not a standard value.`);
-        if (c.hasEuphoria && !c.eTag) warns.push(`${c.name || c.id}: has Euphoria but no eTag (e.g. "E1").`);
-        if (!c.tier && !c.baseTier) warns.push(`${c.name || c.id}: no tier/baseTier.`);
+        if (c.dmgType && !DMG_TYPES.includes(c.dmgType)) warns.push(`${c.name || c.id}: damage type "${c.dmgType}" is not Mental/Physical.`);
+        (c.suffix || []).forEach(s => { if (!SUFFIXES.includes(s)) warns.push(`${c.name || c.id}: suffix "${s}" is not one of ${SUFFIXES.join('/')}.`); });
+        if (c.hasEuphoria && !((c.euphoria && c.euphoria.tag) || '')) warns.push(`${c.name || c.id}: Euphoria on but euphoria tag is empty.`);
+        if (!c.tier) warns.push(`${c.name || c.id}: no tier.`);
+    });
+    chars.forEach(c => {
+        (c.bound || []).forEach(b => {
+            if (b.id && b.id !== c.id && !ids.has(b.id)) warns.push(`${c.name || c.id}: bound unit "${b.id}" references an unknown character id.`);
+        });
     });
     (DOC.homePatchNewCharIds || []).forEach(id => { if (!ids.has(id)) errs.push(`Home "New Debut" references unknown character id "${id}".`); });
     (DOC.homePatchEuphoriaIds || []).forEach(id => { if (!ids.has(id)) errs.push(`Home "Euphoria" references unknown character id "${id}".`); });
@@ -617,7 +646,7 @@ const SECTIONS = {
     characters: {
         label:'Characters', icon:'users', sub:'Ver 3.8 / 3.9 Arcanist Registry', title:'Character Database',
         controls(){
-            return `<input data-search="1" value="${esc(Q)}" placeholder="Search name / archetype…" class="inp !w-52">
+            return `<input data-search="1" value="${esc(Q)}" placeholder="Search name / tag / suffix…" class="inp !w-52">
                 <button class="btn btn-dark" data-act="add-char"><i data-lucide="plus" class="w-4 h-4"></i> New</button>
                 <button class="btn btn-ghost" data-act="dup-char"><i data-lucide="copy" class="w-4 h-4"></i> Duplicate</button>
                 <button class="btn btn-red" data-act="del-char"><i data-lucide="trash-2" class="w-4 h-4"></i></button>`;
@@ -626,44 +655,153 @@ const SECTIONS = {
             const arr = DOC.characters || [];
             const q = Q.trim().toLowerCase();
             return arr.map((c, i) => ({ c, i }))
-                .filter(({ c }) => !q || (c.name + ' ' + c.archetype + ' ' + c.role + ' ' + c.id).toLowerCase().includes(q))
+                .filter(({ c }) => !q || ((c.name || '') + ' ' + (c.id || '') + ' ' + (c.suffix || []).join(' ') + ' ' + (c.tags || []).map(t => t.name).join(' ')).toLowerCase().includes(q))
                 .map(({ c, i }) => `<button class="list-item ${i === sel.characters ? 'on' : ''}" data-act="sel-char" data-idx="${i}">
                     <div class="flex items-center justify-between gap-2"><span class="font-bold">${esc(c.name)}</span>${badgeTier(c.tier)}</div>
-                    <div class="sub text-[11px] opacity-80 mt-0.5">${esc(c.afflatus)} · ${esc(c.role)}${c.hasEuphoria ? ' · ' + esc(c.eTag || 'Euphoria') : ''}</div>
+                    <div class="sub text-[11px] opacity-80 mt-0.5">${esc(c.afflatus)} · ${esc((c.suffix || []).join(' / ') || '—')}${c.hasEuphoria ? ' · ' + esc((c.euphoria && c.euphoria.tag) || 'Euphoria') : ''}</div>
                 </button>`).join('') || '<p class="text-xs text-parchment-500 italic p-2">No matches.</p>';
         },
         form(){
             clampSel();
             const arr = DOC.characters || [];
             if (!arr.length) return '<div class="card p-6 text-sm text-parchment-600">No characters yet — click <b>New</b> to add one.</div>';
+            const c = ensureCharShape(arr[sel.characters]);
             const p = 'characters.' + sel.characters;
-            const euphRow = `<div class="flex flex-wrap gap-3 items-start">${fCheck('Euphoria (Epiphany) Upgrade', p + '.hasEuphoria')}
-                ${fInput('E-Tag (E1 / E2)', p + '.eTag', { ph:'E1' })}</div>`;
-            const debutRow = `<div class="sm:col-span-2 border-t border-parchment-200 pt-4">
-                <label class="lbl">Patch Debut</label>
-                <div class="flex flex-wrap items-center gap-3">
-                    <label class="flex items-center gap-2 text-xs font-semibold"><input type="checkbox" data-path="${p}.isNewDebut" ${getPath(p + '.isNewDebut') ? 'checked' : ''} class="w-4 h-4 accent-parchment-800 rounded"> Newly debuted this patch</label>
-                    <input data-path="${p}.debutPatch" value="${esc(getPath(p + '.debutPatch') || '')}" class="inp !w-64" placeholder="Ver 3.9 Debut">
-                </div></div>`;
-            return `<div class="card p-5 space-y-4">
+            const sub = t => `<p class="text-[11px] font-mono font-bold uppercase tracking-widest text-parchment-600 mb-2.5">${t}</p>`;
+
+            const imgVal = getPath(p + '.image') || '';
+            const infoCard = `<div class="card p-5 space-y-4">${sub('Character Info')}
                 ${grid(
                     fInput('Display Name', p + '.name') +
                     fInput('ID (slug)', p + '.id', { ph:'beryl' }) +
-                    fSelect('Rarity', p + '.rarity', ['6','5'], { num:true, blank:'—' }) +
+                    fSelect('Damage Type', p + '.dmgType', DMG_TYPES, { blank:'— not set —' }) +
                     fSelect('Afflatus', p + '.afflatus', AFFLATUS) +
-                    fSelect('Role', p + '.role', ROLES) +
-                    fSelect('Archetype', p + '.archetype', ARCHETYPES) +
-                    fSelect('Euphoria Tier', p + '.tier', TIERS) +
-                    fSelect('Base Tier (no Euphoria)', p + '.baseTier', TIERS) +
-                    fInput('Primary Psychube', p + '.psychube', { ph:'Refracted Prism (6★)' }) +
-                    fInput('Alternative Psychube', p + '.altPsychube') +
-                    fInput('Resonance Pattern', p + '.resPattern', { wide:true, ph:'Res 15 • Genuineness (Crit Rate / DMG)' }) +
-                    fArea('Euphoria / Investment Priority', p + '.euphoriaPriority', { rows:2 }) +
-                    fArea('Recommended Partners', p + '.partners', { rows:2, ph:'Comma-separated names' }) +
-                    fArea('Summary / Kit Blurb', p + '.summary', { rows:4 }) +
-                    euphRow + debutRow
+                    fSelect('Rarity', p + '.rarity', ['6','5','4','3'], { num:true, blank:'—' }) +
+                    fSelect('Tier', p + '.tier', TIERS) +
+                    fInput('Image Portray (URL)', p + '.image', { wide:true, ph:'https://…' }) +
+                    (imgVal ? `<div class="sm:col-span-2"><img src="${esc(imgVal)}" alt="" class="h-24 rounded-xl border border-parchment-300 bg-parchment-100 object-contain" onerror="this.style.display='none'"></div>` : '') +
+                    fInput('Psychube (main)', p + '.psychube', { ph:'Refracted Prism (6★)' }) +
+                    fInput('Psychube (alt)', p + '.altPsychube')
                 )}
+                <div><label class="lbl">Suffix (pick one or more)</label>
+                    <div class="flex flex-wrap gap-2">${SUFFIXES.map(s => `<button type="button" class="chip ${(getPath(p + '.suffix') || []).includes(s) ? 'on' : ''}" data-chip="${s}" data-chippath="${p}.suffix">${s}</button>`).join('')}</div></div>
             </div>`;
+
+            const tags = getPath(p + '.tags') || [];
+            const tagRows = tags.map((t, i) => `
+                <div class="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-parchment-100 border border-parchment-300">
+                    <span class="text-xs font-bold text-parchment-900">${esc(t.name)}</span>
+                    <span class="flex gap-0.5 text-sm leading-none">${[1,2,3,4,5].map(n =>
+                        `<button type="button" data-act="tag-star" data-idx="${i}" data-star="${n}" class="cursor-pointer leading-none ${(t.rating || 0) >= n ? 'text-amber-500' : 'text-parchment-300 hover:text-amber-400'}">${(t.rating || 0) >= n ? '★' : '☆'}</button>`).join('')}</span>
+                    <button type="button" data-act="tag-del" data-idx="${i}" class="ml-auto text-parchment-500 hover:text-red-600 cursor-pointer text-xs">✕</button>
+                </div>`).join('') || '<p class="text-xs text-parchment-500 italic">No tags yet — pick them below.</p>';
+            const rel = relativeTags(tags);
+            const tagsCard = `<div class="card p-5 space-y-3.5">${sub('Tags')}
+                <div class="flex flex-wrap gap-2">${tagRows}</div>
+                <div class="flex flex-wrap gap-2 items-center">
+                    <select id="tag-picker" class="inp !w-auto min-w-[11rem]">${TAGS.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join('')}</select>
+                    <button type="button" class="btn btn-dark" data-act="tag-add"><i data-lucide="plus" class="w-4 h-4"></i> Add tag</button>
+                </div>
+                <div><label class="lbl">Relative tags (auto)</label>
+                    <div class="flex flex-wrap gap-2">${rel.map(n => `<span class="chip !cursor-default !bg-amber-50 !border-amber-300 !text-amber-800">${esc(n)}</span>`).join('') || '<span class="text-xs text-parchment-500 italic">Derived from your picks — e.g. Burn adds Lingering Glow, Counter adds Follow Up, All Rounder adds everything.</span>'}</div></div>
+            </div>`;
+
+            const euphOn = !!getPath(p + '.hasEuphoria');
+            const ep = p + '.euphoria';
+            const euphCard = `<div class="card p-5 space-y-3.5">${sub('Euphoria')}
+                ${fCheck('Euphoria available', p + '.hasEuphoria')}
+                ${euphOn ? `<div class="grid sm:grid-cols-2 gap-4">
+                    ${fInput('Euphoria Image (URL)', ep + '.image', { wide:true, ph:'https://…' })}
+                    ${fInput('Euphoria Tag', ep + '.tag', { ph:'E1' })}
+                    ${fInput('Euphoria Suffix', ep + '.suffix', { ph:'e.g. Euphoria DPS' })}
+                    ${fArea('Rank 1', ep + '.rank1', { wide:false, rows:2, ph:'What this rank unlocks…' })}
+                    ${fArea('Rank 2', ep + '.rank2', { wide:false, rows:2 })}
+                    ${fArea('Rank 3', ep + '.rank3', { wide:false, rows:2 })}
+                    ${fArea('Rank 4', ep + '.rank4', { wide:false, rows:2 })}
+                </div>` : `<div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-parchment-600">Euphoria is <b>off</b> — the public site shows <span class="font-mono text-parchment-800">"no euphoria. stay tuned."</span> for this character.</div>`}
+            </div>`;
+
+            const bound = getPath(p + '.bound') || [];
+            const boundRows = bound.map((b, i) => {
+                const bp = p + '.bound.' + i;
+                const ampOpts = (TAGS.includes(b.tagAmp) || !b.tagAmp ? TAGS : [b.tagAmp, ...TAGS])
+                    .map(t => `<option value="${esc(t)}" ${b.tagAmp === t ? 'selected' : ''}>${esc(t)}</option>`).join('');
+                return `<div class="flex gap-2 items-end">
+                    <div class="flex-1 min-w-0"><label class="lbl">Character</label>
+                        <select data-path="${bp}.id" class="inp"><option value="">— choose —</option>
+                            ${arr.map((cc, ci) => ci === sel.characters ? '' : `<option value="${esc(cc.id)}" ${b.id === cc.id ? 'selected' : ''}>${esc(cc.name)}</option>`).join('')}
+                        </select></div>
+                    <div class="flex-1 min-w-0"><label class="lbl">Tag Amp</label>
+                        <select data-path="${bp}.tagAmp" class="inp"><option value="">— choose —</option>${ampOpts}</select></div>
+                    <button type="button" class="btn btn-red" data-act="bound-del" data-idx="${i}"><i data-lucide="x" class="w-4 h-4"></i></button>
+                </div>`;
+            }).join('') || '<p class="text-xs text-parchment-500 italic">No bound units — add up to 3 partners this unit relies on.</p>';
+            const boundCard = `<div class="card p-5 space-y-3.5">${sub('Bound')}
+                ${boundRows}
+                ${bound.length < 3 ? `<button type="button" class="btn btn-ghost" data-act="bound-add"><i data-lucide="plus" class="w-4 h-4"></i> Add bound unit (${bound.length}/3)</button>` : '<p class="text-[11px] text-parchment-500 italic">Maximum 3 bound units.</p>'}
+            </div>`;
+
+            const mp = p + '.materialPlan';
+            const planRows = (base, list, target, kind) => (list || []).map((r, i) => `
+                <div class="flex gap-2 items-center">
+                    <input data-path="${base}.${i}.mat" list="mat-list" value="${esc(r.mat || '')}" class="inp flex-1" placeholder="Material">
+                    <input data-path="${base}.${i}.qty" value="${esc(r.qty || '')}" class="inp !w-24" placeholder="Qty">
+                    <button type="button" class="btn btn-red" data-act="plan-del" data-target="${target}" data-kind="${kind}" data-idx="${i}"><i data-lucide="x" class="w-4 h-4"></i></button>
+                </div>`).join('') || '<p class="text-xs text-parchment-500 italic">No materials listed.</p>';
+            const resBlock = (label, target) => `<div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300 space-y-2.5">
+                <div class="flex items-center justify-between gap-3">
+                    <span class="lbl !mb-0">${label}</span>
+                    <label class="flex items-center gap-2 text-[11px] font-semibold text-parchment-700">Sharpodonty
+                        <input data-path="${mp}.${target}.sharpodonty" value="${esc(getPath(mp + '.' + target + '.sharpodonty') || '')}" class="inp !w-28" placeholder="0"></label>
+                </div>
+                ${planRows(mp + '.' + target + '.mats', getPath(mp + '.' + target + '.mats') || [], target, 'group')}
+                <button type="button" class="btn btn-ghost" data-act="plan-add" data-target="${target}" data-kind="group"><i data-lucide="plus" class="w-4 h-4"></i> Add material</button>
+            </div>`;
+            const planCard = `<div class="card p-5 space-y-4">${sub('Material Plan')}
+                <div>${sub('Currency')}
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        ${fInput('Dust', mp + '.currency.dust', { ph:'0' })}
+                        ${fInput('Sharpodonty', mp + '.currency.sharpodonty', { ph:'0' })}
+                    </div></div>
+                <div>${sub('Insight Materials')}
+                    ${planRows(mp + '.insights', getPath(mp + '.insights') || [], 'insights', 'list')}
+                    <button type="button" class="btn btn-ghost mt-2" data-act="plan-add" data-target="insights" data-kind="list"><i data-lucide="plus" class="w-4 h-4"></i> Add material</button></div>
+                ${resBlock('Resonance L5', 'resL5')}
+                ${resBlock('Resonance L10', 'resL10')}
+                ${resBlock('Resonance L15', 'resL15')}
+                ${resBlock('Resonance Pattern', 'resPattern')}
+                ${euphOn ? `<div>${sub('Euphoria Materials')}
+                    ${planRows(mp + '.euphoriaMats', getPath(mp + '.euphoriaMats') || [], 'euphoriaMats', 'list')}
+                    <button type="button" class="btn btn-ghost mt-2" data-act="plan-add" data-target="euphoriaMats" data-kind="list"><i data-lucide="plus" class="w-4 h-4"></i> Add material</button></div>` : ''}
+            </div>`;
+
+            return `<div class="space-y-5">${infoCard}${tagsCard}${euphCard}${boundCard}${planCard}</div>`;
+        }
+    },
+
+    materials: {
+        label:'Materials', icon:'package', sub:'Master Material List', title:'Materials Database',
+        controls(){
+            return `<button class="btn btn-dark" data-act="add-material"><i data-lucide="plus" class="w-4 h-4"></i> New Material</button>
+                <button class="btn btn-red" data-act="del-material"><i data-lucide="trash-2" class="w-4 h-4"></i></button>`;
+        },
+        list(){
+            const arr = DOC.materialsList || [];
+            const q = Q.trim().toLowerCase();
+            return arr.map((m, i) => ({ m, i }))
+                .filter(({ m }) => !q || String(m).toLowerCase().includes(q))
+                .map(({ m, i }) => `<button class="list-item ${i === sel.materials ? 'on' : ''}" data-act="sel-material" data-idx="${i}">
+                    <span class="font-bold">${esc(m || '(unnamed)')}</span></button>`).join('') || '<p class="text-xs text-parchment-500 italic p-2">No materials yet — click New.</p>';
+        },
+        form(){
+            clampSel();
+            const arr = DOC.materialsList || [];
+            if (!arr.length) return '<div class="card p-6 text-sm text-parchment-600">No materials yet — click <b>New Material</b>. Every Material dropdown in <b>Characters → Material Plan</b> pulls from this list.</div>';
+            const p = 'materialsList.' + sel.materials;
+            return `<div class="card p-5 space-y-4">${grid(
+                fInput('Material name', p, { wide:true, ph:'e.g. Fine Fireworks' }) +
+                `<div class="sm:col-span-2 text-[11px] text-parchment-600">Used by the Material Plan inputs in <b>Characters → Material Plan</b> (type-ahead suggestions). Keep names unique for clean suggestions.</div>`
+            )}</div>`;
         }
     },
 
@@ -927,7 +1065,7 @@ const SECTIONS = {
 /* ============================================================
    RENDER
    ============================================================ */
-const ORDER = ['characters','teams','banners','walkthrough','home','manifests','nodes','text','raw'];
+const ORDER = ['characters','materials','teams','banners','walkthrough','home','manifests','nodes','text','raw'];
 
 function renderNav(){
     $('#nav').innerHTML = ORDER.map(k => {
@@ -950,6 +1088,8 @@ function render(){
         </div></div>`;
     const lp = document.getElementById('list-pane');
     if (lp) lp.scrollTop = scroll;
+    const dl = document.getElementById('mat-list');
+    if (dl) dl.innerHTML = ((DOC && DOC.materialsList) || []).map(m => `<option value="${esc(m)}">`).join('');
     lucide.createIcons();
 }
 function refreshList(){
@@ -977,11 +1117,42 @@ function newCharacter(){
     const name = 'New Arcanist';
     return {
         id: uniqueId(slugify(name), arr, 'id'),
-        name, rarity: 6, afflatus: 'Star', role: 'Main DPS',
-        tier: 'T1', baseTier: 'T1', archetype: 'Lingering Glow', hasEuphoria: false, eTag: '',
-        psychube: '', altPsychube: '', resPattern: '',
-        euphoriaPriority: '', partners: '', summary: ''
+        name, rarity: 6, afflatus: 'Star', dmgType: 'Mental',
+        image: '', tier: 'T1',
+        suffix: [], psychube: '', altPsychube: '',
+        tags: [], hasEuphoria: false,
+        euphoria: { image:'', tag:'', suffix:'', rank1:'', rank2:'', rank3:'', rank4:'' },
+        bound: [],
+        materialPlan: {
+            currency: { dust:'', sharpodonty:'' },
+            insights: [],
+            resL5: { sharpodonty:'', mats:[] },
+            resL10: { sharpodonty:'', mats:[] },
+            resL15: { sharpodonty:'', mats:[] },
+            resPattern: { sharpodonty:'', mats:[] },
+            euphoriaMats: []
+        }
     };
+}
+function ensureCharShape(c){
+    const d = {
+        dmgType:'', image:'', suffix:[], tags:[], bound:[], hasEuphoria:false,
+        euphoria:{ image:'', tag:'', suffix:'', rank1:'', rank2:'', rank3:'', rank4:'' },
+        materialPlan:{
+            currency:{ dust:'', sharpodonty:'' }, insights:[],
+            resL5:{ sharpodonty:'', mats:[] }, resL10:{ sharpodonty:'', mats:[] },
+            resL15:{ sharpodonty:'', mats:[] }, resPattern:{ sharpodonty:'', mats:[] },
+            euphoriaMats:[]
+        }
+    };
+    for (const k in d){
+        if (c[k] === undefined || c[k] === null) c[k] = d[k];
+        else if (d[k] && typeof d[k] === 'object' && !Array.isArray(d[k]) && typeof c[k] === 'object' && !Array.isArray(c[k])){
+            for (const kk in d[k]) if (c[k][kk] === undefined || c[k][kk] === null) c[k][kk] = d[k][kk];
+        }
+    }
+    ['suffix','tags','bound'].forEach(k => { if (!Array.isArray(c[k])) c[k] = []; });
+    return c;
 }
 function clone(o){ return JSON.parse(JSON.stringify(o)); }
 
@@ -1005,6 +1176,7 @@ document.addEventListener('input', e => {
     else v = el.value;
     setPath(el.dataset.path, v);
     markDirty();
+    if (el.type === 'checkbox' && /hasEuphoria$/.test(el.dataset.path)){ render(); return; }
     refreshList();
 });
 document.addEventListener('change', e => {
@@ -1022,6 +1194,7 @@ document.addEventListener('click', async e => {
         if (i >= 0) arr.splice(i, 1); else arr.push(id);
         chip.classList.toggle('on', i < 0);
         markDirty();
+        refreshList();
         return;
     }
     const secBtn = e.target.closest('[data-sec]');
@@ -1043,6 +1216,69 @@ document.addEventListener('click', async e => {
         case act === 'sel-boss': if (idx >= 0 && idx < (DOC.homeManesBulletinBosses || []).length){ sel.bosses = idx; render(); } break;
         case act === 'sel-wfboss': sel.wfboss = idx; render(); break;
         case act === 'wf-mode': wfMode = b.dataset.mode; sel.wfboss = 0; render(); break;
+        case act === 'sel-material': sel.materials = idx; render(); break;
+
+        case act === 'add-material': (DOC.materialsList = DOC.materialsList || []).push('New Material'); sel.materials = DOC.materialsList.length - 1; markDirty(); render(); break;
+        case act === 'del-material': {
+            const arr = DOC.materialsList || [];
+            if (!arr.length) break;
+            if (!confirm(`Delete "${arr[sel.materials]}"?`)) break;
+            arr.splice(sel.materials, 1); markDirty(); render(); break;
+        }
+
+        case act === 'tag-add': {
+            const pick = document.getElementById('tag-picker');
+            const name = pick && pick.value;
+            const tags = getPath('characters.' + sel.characters + '.tags');
+            if (!name || !tags) break;
+            if (tags.some(t => String(t.name || '').toLowerCase() === name.toLowerCase())){ toast('Tag already added'); break; }
+            tags.push({ name });
+            markDirty(); render(); break;
+        }
+        case act === 'tag-del': {
+            const tags = getPath('characters.' + sel.characters + '.tags');
+            if (tags && idx !== null){ tags.splice(idx, 1); markDirty(); render(); }
+            break;
+        }
+        case act === 'tag-star': {
+            const tags = getPath('characters.' + sel.characters + '.tags');
+            const t = tags && tags[idx];
+            if (t){
+                const n = Number(b.dataset.star);
+                t.rating = (t.rating === n ? 0 : n);
+                markDirty(); render();
+            }
+            break;
+        }
+
+        case act === 'bound-add': {
+            const arr = getPath('characters.' + sel.characters + '.bound');
+            if (!arr) break;
+            if (arr.length >= 3){ toast('Up to 3 bound characters'); break; }
+            arr.push({ id:'', tagAmp:'' });
+            markDirty(); render(); break;
+        }
+        case act === 'bound-del': {
+            const arr = getPath('characters.' + sel.characters + '.bound');
+            if (arr && idx !== null){ arr.splice(idx, 1); markDirty(); render(); }
+            break;
+        }
+
+        case act === 'plan-add': {
+            const target = b.dataset.target, kind = b.dataset.kind;
+            const base = 'characters.' + sel.characters + '.materialPlan.' + target + (kind === 'group' ? '.mats' : '');
+            let arr = getPath(base);
+            if (!Array.isArray(arr)){ setPath(base, []); arr = getPath(base); }
+            arr.push({ mat:'', qty:'' });
+            markDirty(); render(); break;
+        }
+        case act === 'plan-del': {
+            const target = b.dataset.target, kind = b.dataset.kind;
+            const base = 'characters.' + sel.characters + '.materialPlan.' + target + (kind === 'group' ? '.mats' : '');
+            const arr = getPath(base);
+            if (arr && idx !== null){ arr.splice(idx, 1); markDirty(); render(); }
+            break;
+        }
 
         case act === 'add-char': (DOC.characters = DOC.characters || []).push(newCharacter()); sel.characters = DOC.characters.length - 1; markDirty(); render(); break;
         case act === 'dup-char': {
