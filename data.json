@@ -1859,7 +1859,363 @@
       }
     }
   ],
-  "materialsList": [],
+  "materialsList": [
+    {
+      "name": "Bifurcated Skeleton",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110303.CqJM_gmJ_NrTVP.webp",
+      "area": "Stage 10-13 Hard (20 stamina); Stage 4-20 Hard (18 stamina)"
+    },
+    {
+      "name": "Biting Box",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110103.oOmv7XUc_Z1rMlJ7.webp",
+      "area": "Stage 7-26 Hard (20 stamina); Stage 5-19 Hard (18 stamina)"
+    },
+    {
+      "name": "Blazing Key",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620105.D99rlkUZ_ZSsPg.webp",
+      "area": "Tactical Telegram"
+    },
+    {
+      "name": "Bogeyman",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110104.lctGTSje_1bfcJU.webp",
+      "area": "7TH-26 Mirror and Curtains Hard"
+    },
+    {
+      "name": "Brief Cacophony",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120012.oTDfEzFB_Zp0PFe.webp",
+      "area": "Craft in the Wilderness; Pawnshop; Fragment Shop: Oneiric"
+    },
+    {
+      "name": "Cicada Wings",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110602.CDgc2-Dj_Z2w7Dzk.webp",
+      "area": "2ND-9 Pearl and Bullet Hole; 4TH-6 The Forest Express Hard; 5TH-14 Chain of Peace; 6TH-4 Secession Building Hard"
+    },
+    {
+      "name": "Clawed Pendulum",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111002.CTb1LutB_Z1i4RCF.webp",
+      "area": "Stage 11-5 Hard (25 stamina)"
+    },
+    {
+      "name": "Emerald Slate",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110904.DCxQlAJc_Z1LdsqL.webp",
+      "area": "Craft in the Wilderness; Pawnshop"
+    },
+    {
+      "name": "Esoteric Bones",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110302.CZKrIVUN_1Ob8Ks.webp",
+      "area": "1ST-11 Charge Baby, Charge! Hard; 2ND-14 Puppet; 2ND-4 Antidote Hard; 2ND-10 The Chew-Chew Potion Hard"
+    },
+    {
+      "name": "Fox Tail",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110802.B8nDqZap_z7Xem.webp",
+      "area": "2ND-8 Popular Literature; 7TH-5 Four Cross-Checks; 7TH-6 Pride and Prejudice Hard; 8TH-11 Sao Paulo Bossa Nova"
+    },
+    {
+      "name": "Fruit of Good and Evil",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111004.B6Nn8UO-_1FwgGH.webp",
+      "area": "Craft in the Wilderness"
+    },
+    {
+      "name": "Glowing Mothwing",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110604.4jx2FW7j_1NrRyp.webp",
+      "area": "9TH-15 Aleph Hard"
+    },
+    {
+      "name": "Goldbell Spirit Bottle",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110804.CrKuj-Fj_1E9Csn.webp",
+      "area": "Craft in the Wilderness; Pawnshop"
+    },
+    {
+      "name": "Golden Beetle",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111012.Bhp9Gijg_Z1Vz5Y1.webp",
+      "area": "Stage 10-2 Hard (20 stamina); Stage 3-15 (14 stamina)"
+    },
+    {
+      "name": "Golden Compass",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111013.Bmk9-54R_2ijGLp.webp",
+      "area": "Exquisite Insight Casket; Craft in the Wilderness; Pawnshop"
+    },
+    {
+      "name": "Golden Fleece",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111006.DKpjD1Ik_Z2g6EAU.webp",
+      "area": "Mystical Insight Casket; Craft in the Wilderness"
+    },
+    {
+      "name": "Golden Grass Incense",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110803.DC2xseGz_Z26Ns9q.webp",
+      "area": "Stage 4-4 (16 stamina); Stage 8-18 Hard (20 stamina)"
+    },
+    {
+      "name": "Goose Neck",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110703.CcUwkzJW_2b25tC.webp",
+      "area": "Stage 10-22 Hard (20 stamina); Stage 5-4 Hard (18 stamina)"
+    },
+    {
+      "name": "Hoarse Echo",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120004.DmnP5mIp_Z188Exk.webp",
+      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric"
+    },
+    {
+      "name": "Holy Silver",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110403.BcrzH_gp_1gLgRQ.webp",
+      "area": "Stage 10-9 Hard (20 stamina); Stage 6-14 Hard (18 stamina)"
+    },
+    {
+      "name": "Hypocritical Murmur",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120003.10It926B_8wrCX.webp",
+      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric"
+    },
+    {
+      "name": "Incorrupt Monkeypaw",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110204.B7GEkPem_WSyn0.webp",
+      "area": "8TH-17 The Black Lamb Hard"
+    },
+    {
+      "name": "Interlaced Shudder",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120002.BT7viV8C_1nx38d.webp",
+      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric"
+    },
+    {
+      "name": "Jeweled Egg",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111103.C4_qgc1P_1GrOrB.webp",
+      "area": "2ND-14 Puppet Hard"
+    },
+    {
+      "name": "Key of Thought",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620103.DSBATW3o_235Nip.webp",
+      "area": "Brainwave Shop"
+    },
+    {
+      "name": "Liquefied Terror",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110102.RAjyjrxN_2q1kTK.webp",
+      "area": "1ST-14 The Eye of the Storm Hard; 2ND-13 Documentary Hard; 3RD-6 Black Sheep Wall; 3RD-6 Black Sheep Wall Hard"
+    },
+    {
+      "name": "Luminite Ore",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110902.CTyosLY4_ZP7aiT.webp",
+      "area": "2ND-1 Courtesy; 9TH-3 The Place That Time Forgot; 9TH-1 Prologue Hard; 10TH-21 The Way I Came"
+    },
+    {
+      "name": "Magnesia Crystal",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110201.PRgK-xJO_2lcAYh.webp",
+      "area": "1ST-15 Underground Labyrinth; 2ND-4 Antidote; 2ND-9 Pearl and Bullet Hole Hard; 3RD-13 A Yard Hard"
+    },
+    {
+      "name": "Milled Magnesia",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110202.DSOEUkFR_1UDCrv.webp",
+      "area": "1ST-12 Appetizers Hard; 2ND-10 The Chew-Chew Potion Hard; 2ND-13 Documentary Hard; 3RD-8 Scattered Pamphlets"
+    },
+    {
+      "name": "Mistilteinn",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111005.BNEhYfFs_1T92z0.webp",
+      "area": "Craft in the Wilderness"
+    },
+    {
+      "name": "Moment of Dissonance",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120011.BdPQ34BQ_1Cyuvf.webp",
+      "area": "Fragment Shop: Oneiric"
+    },
+    {
+      "name": "Murmur of Insanity",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110504.rPKRJZGo_Z2o155M.webp",
+      "area": "3RD-13 A Yard Hard"
+    },
+    {
+      "name": "Overgrown Key",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620104.GiF9cOby_4O3UD.webp",
+      "area": "Tactical Telegram"
+    },
+    {
+      "name": "Page of Beastly Thirst",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115041.C0mwR5Ch_1LzRkc.webp",
+      "area": "Bottle of Pages; BW-1 Brutes Wilds I; BW-2 Brutes Wilds II"
+    },
+    {
+      "name": "Page of Mineral Wealth",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115011.DqXWQNAw_Z1kcU5L.webp",
+      "area": "Bottle of Pages; ME-1 Mountain Echoes I; ME-2 Mountain Echoes II"
+    },
+    {
+      "name": "Page of Plantal Vimen",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115031.xTI7jiQ7_Z2oCJpd.webp",
+      "area": "Bottle of Pages; SS-1 Sylvanus Shape I; SS-2 Sylvanus Shape II"
+    },
+    {
+      "name": "Page of Starlit Ascent",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115021.BATUgiff_1t97DS.webp",
+      "area": "Bottle of Pages; SL-1 Starfall Locale I; SL-2 Starfall Locale II"
+    },
+    {
+      "name": "Perpetual Cog",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110702.CcUeP04__6ryi.webp",
+      "area": "2ND-10 The Chew-Chew Potion; 4TH-18 Road of a Puppy Hard; 5TH-9 Silent Meeting; 6TH-24 E lucevan le stelle"
+    },
+    {
+      "name": "Platinum Ouija",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111003.DXN-nYNI_18d6tz.webp",
+      "area": "Craft in the Wilderness; Pawnshop"
+    },
+    {
+      "name": "Prophetic Bird",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110503.ThAAzHPA_ZKlrIS.webp",
+      "area": "Stage 9-8 Hard (20 stamina); Stage 2-6 Hard (18 stamina)"
+    },
+    {
+      "name": "Red Lacquer Slab",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110903.BavSaxQx_ZYQGtY.webp",
+      "area": "Stage 9-1 Hard (20 stamina)"
+    },
+    {
+      "name": "Rheingold",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111008.DyWoNAQL_xDAWN.webp",
+      "area": "Mystical Insight Casket; Craft in the Wilderness"
+    },
+    {
+      "name": "Rhizobox Rabbit",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111104.xda2BQov_TFnU5.webp",
+      "area": "Craft in the Wilderness; Pawnshop"
+    },
+    {
+      "name": "Rough Silver Ingot",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110402.C8Fa9CT3_ZUFkjA.webp",
+      "area": "1ST-8 Druvis III Hard; 2ND-13 Documentary; 2ND-4 Antidote Hard; 2ND-5 City’s Gastrosis Hard"
+    },
+    {
+      "name": "Salted Mandrake",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110203.maNrBGp5_Z1dE3Gv.webp",
+      "area": "Stage 3-13 Hard (18 stamina)"
+    },
+    {
+      "name": "Scroll of Beastly Thirst",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115042.Dcfok-1I_ysmC4.webp",
+      "area": "Scroll Container; BW-3 Brutes Wilds III; BW-4 Brutes Wilds IV"
+    },
+    {
+      "name": "Scroll of Mineral Wealth",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115012.COIp0kqQ_Z2490HV.webp",
+      "area": "Scroll Container; ME-3 Mountain Echoes III; ME-4 Mountain Echoes IV"
+    },
+    {
+      "name": "Scroll of Plantal Vimen",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115032.Ks4xpa96_1HhokS.webp",
+      "area": "Scroll Container; SS-3 Sylvanus Shape III; SS-4 Sylvanus Shape IV"
+    },
+    {
+      "name": "Scroll of Starlit Ascent",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115022.96MvNTpd_Z253zx0.webp",
+      "area": "Scroll Container; SL-3 Starfall Locale III; SL-4 Starfall Locale IV"
+    },
+    {
+      "name": "Seed of Inspiration",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620101.D7bDnAAU_LdiWt.webp",
+      "area": "Brainwave Shop; Pawnshop"
+    },
+    {
+      "name": "Serpent Scepter",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111007.DSN-9mLK_Z1R8qXV.webp",
+      "area": "Mystical Insight Casket; Craft in the Wilderness"
+    },
+    {
+      "name": "Sharp Needle",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111102.BFtEnRA6_Z1eGKGM.webp",
+      "area": "1ST-14 The Eye of the Storm"
+    },
+    {
+      "name": "Sharpodonty",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/3.CEGqvaGJ_Z2va7oK.webp",
+      "area": "Resource - Mintage Aesthetics; Pawnshop"
+    },
+    {
+      "name": "Shattered Bones",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110301.C3yBIk5b_Z2mc5lX.webp",
+      "area": "1ST-6 The Rosa Killer Hard; 2ND-3 Green Oranges; 2ND-8 Popular Literature Hard; 3RD-7 Scottish Hard"
+    },
+    {
+      "name": "Silver Bullet",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110404.DxK770Mu_Z1UMVgA.webp",
+      "area": "5TH-19 The Upstream Boat Hard"
+    },
+    {
+      "name": "Silver Ore",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110401.Dls2jiUS_1dImCm.webp",
+      "area": "1ST-5 Sharpodonty and Black Wine Hard; 2ND-3 Green Oranges Hard; 2ND-5 City’s Gastrosis; 3RD-3 Stalkee"
+    },
+    {
+      "name": "Sinuous Howl",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120001.BTVohzOj_Z1xUb99.webp",
+      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric"
+    },
+    {
+      "name": "Solidus",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111001.BoBvLp5D_Z1rnQ5l.webp",
+      "area": "1ST-15 Underground Labyrinth Hard; 2ND-12 About the New Era; 3RD-7 Scottish; 3RD-5 A Deep Sleep Hard"
+    },
+    {
+      "name": "Sonorous Knell",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120013.COOHMXUM_I1WfY.webp",
+      "area": "Craft in the Wilderness; Pawnshop; Fragment Shop: Oneiric"
+    },
+    {
+      "name": "Spell of Banishing",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110501.D-UFAd7c_1Bz9j3.webp",
+      "area": "1ST-16 Heaven Apostles; 1ST-4 Chicago Rescue Hard; 2ND-6 The End of Immortal Hard; 3RD-9 George the Oak"
+    },
+    {
+      "name": "Spell of Fortune",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110502.Cq0iBra1_Z1itUJg.webp",
+      "area": "1ST-7 Scorched Woods Hard; 2ND-5 City’s Gastrosis Hard; 2ND-9 Pearl and Bullet Hole Hard; 2ND-11 Polypotion Hard"
+    },
+    {
+      "name": "Sprout of Fantasy",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620102._C-uOI6Q_Z1K3Itk.webp",
+      "area": "Brainwave Shop; Pawnshop"
+    },
+    {
+      "name": "Tome of Beastly Thirst",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115043.quXDcizi_ZlnbzG.webp",
+      "area": "BW-5 Brutes Wilds V; BW-6 Brutes Wilds VI"
+    },
+    {
+      "name": "Tome of Mineral Wealth",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115013.BGOsPLOe_ZPtiSX.webp",
+      "area": "ME-5 Mountain Echoes V; ME-6 Mountain Echoes VI"
+    },
+    {
+      "name": "Tome of Plantal Vimen",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115033.CmE2o9hi_ZKxeit.webp",
+      "area": "SS-5 Sylvanus Shape V; SS-6 Sylvanus Shape VI"
+    },
+    {
+      "name": "Tome of Starlit Ascent",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115023.l-cpou47_Z2uYoBv.webp",
+      "area": "SL-5 Starfall Locale V; SL-6 Starfall Locale VI"
+    },
+    {
+      "name": "Trembling Tooth",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110101.Dq2fL0-7_24xApC.webp",
+      "area": "1ST-1 Wretched Brats Hard; 2ND-6 The End of Immortal; 2ND-12 About the New Era Hard; 6TH-6 Yes, Prime Minister Hard"
+    },
+    {
+      "name": "Walking Terror",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111009.GA_7xmiZ_Z245p0F.webp",
+      "area": "Craft in the Wilderness"
+    },
+    {
+      "name": "Watch Core",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110704.BXKRwSGo_1TEsYR.webp",
+      "area": "10TH-22 By Their Untainted Blood Hard"
+    },
+    {
+      "name": "Winged Key",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110603.Db7Lfi8t_2saGXl.webp",
+      "area": "Stage 9-15 Hard (20 stamina)"
+    },
+    {
+      "name": "Wyrmling Skeleton",
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110304.DaCwFw4L_BjVzg.webp",
+      "area": "6TH-14 Fitcher’s Bird Hard"
+    }
+  ],
   "teamTierData": [
     {
       "tier": "T0",
