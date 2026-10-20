@@ -3,3 +3,6 @@ data.backup.json
 
 # One-time Supabase reseed statement (duplicates data.json content)
 reseed-supabase.sql
+
+# Regenerable scrape cache written by tools/import.js --scrape
+tools/raw.json

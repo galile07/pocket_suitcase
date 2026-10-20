@@ -201,8 +201,11 @@ function capturePageText(src){
 async function loadFromApi(){
     // 1. Cloud database from config.js (works on GitHub Pages)
     // 2. Local server endpoints (works during local development)
+    // ?prefer=local forces the local server first — use it to publish a
+    // data.json merge (e.g. the importer) that is newer than the cloud row.
+    const preferLocal = new URLSearchParams(location.search).get('prefer') === 'local';
     const sources = [];
-    if (CLOUD_READY){
+    if (CLOUD_READY && !preferLocal){
         sources.push({ cloud:true, id:PSStore.label(), load:() => PSStore.load() });
     }
     for (const endpoint of API_ENDPOINTS){
@@ -211,6 +214,9 @@ async function loadFromApi(){
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return res.json();
         }});
+    }
+    if (CLOUD_READY && preferLocal){
+        sources.push({ cloud:true, id:PSStore.label(), load:() => PSStore.load() });
     }
     for (const src of sources){
         try {

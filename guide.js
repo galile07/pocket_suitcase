@@ -43,10 +43,12 @@
             // 1. Cloud database from config.js (works on GitHub Pages)
             // 2. Same-origin API (works when served by server.js)
             // 3. Absolute localhost (works from file:// or another port)
+            const preferLocal = new URLSearchParams(location.search).get('prefer') === 'local';
             const sources = [];
-            if (window.PSStore && PSStore.isConfigured()) {
-                sources.push({ name: PSStore.label(), get: () => PSStore.load() });
-            }
+            const cloudSource = (window.PSStore && PSStore.isConfigured())
+                ? { name: PSStore.label(), get: () => PSStore.load() }
+                : null;
+            if (cloudSource && !preferLocal) sources.push(cloudSource);
             const httpGet = endpoint => async () => {
                 const res = await fetch(endpoint, { cache: 'no-store' });
                 if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -56,6 +58,7 @@
                 { name: '/api/data', get: httpGet('/api/data') },
                 { name: 'http://localhost:3000/api/data', get: httpGet('http://localhost:3000/api/data') }
             );
+            if (cloudSource && preferLocal) sources.push(cloudSource);
             for (const source of sources) {
                 try {
                     const data = await source.get();
