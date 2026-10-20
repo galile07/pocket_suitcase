@@ -134,6 +134,22 @@
             if (fresh) { authHeader = 'Bearer ' + fresh; res = await doFetch(); }
         }
         if (!res.ok) throw new Error('Supabase save failed (HTTP ' + res.status + ') ' + (await res.text()));
+        // return=representation → verify the row was actually written (RLS can
+        // silently reject an upsert and return an empty array with 200/201).
+        let written = null;
+        try {
+            const rows = await res.json();
+            if (Array.isArray(rows) && rows.length) written = rows[0].content || null;
+        } catch (e) {}
+        if (!written) {
+            // Fall back to a read-back to confirm persistence.
+            try {
+                const check = await sbLoad();
+                if (!check) throw new Error('save reported success but the row is empty on read-back');
+            } catch (e) {
+                throw new Error('Save did not persist — the database rejected the write (' + e.message + '). Check your Row Level Security policies allow the logged-in user to insert/update.');
+            }
+        }
         return true;
     }
 

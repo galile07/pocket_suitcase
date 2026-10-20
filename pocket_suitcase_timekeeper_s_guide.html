@@ -1310,7 +1310,7 @@
 
             let euphHtml;
             const euphPaths = Array.isArray(c.euphoriaPaths) ? c.euphoriaPaths : (c.euphoria ? [{
-                type: c.euphoria.tag || '', tag: c.euphoria.tag || '', suffix: c.euphoria.suffix || '', image: c.euphoria.image || '',
+                type: c.euphoria.tag || '', tag: c.euphoria.tag || '', name: c.euphoria.name || '', suffix: c.euphoria.suffix || '', releaseDate: c.euphoria.releaseDate || '', image: c.euphoria.image || '',
                 rank1: c.euphoria.rank1 || '', rank2: c.euphoria.rank2 || '', rank3: c.euphoria.rank3 || '', rank4: c.euphoria.rank4 || ''
             }] : []);
             if (c.hasEuphoria && euphPaths.length) {
@@ -1323,7 +1323,11 @@
                     const sufLbl = e.suffix || '';
                     return `<div class="p-4 rounded-xl bg-parchment-800 text-parchment-50 space-y-3">
                         <div class="flex flex-wrap items-center justify-between gap-3">
-                            <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold">Euphoria ${tagLbl}${sufLbl ? ' • ' + sufLbl : ''}</span>
+                            <div class="min-w-0">
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold">Euphoria ${tagLbl}${sufLbl ? ' • ' + sufLbl : ''}</span>
+                                ${e.name ? `<p class="font-serif font-bold text-base leading-tight mt-0.5">${e.name}</p>` : ''}
+                                ${e.releaseDate ? `<p class="text-[10px] font-mono text-parchment-300 mt-0.5">CN release: ${e.releaseDate}</p>` : ''}
+                            </div>
                             ${e.image ? `<img src="${e.image}" alt="" class="h-14 rounded-lg object-contain border border-parchment-600" onerror="this.remove()">` : ''}
                         </div>
                         ${ranks || '<p class="text-xs text-parchment-200 italic">Euphoria available — rank details not written yet.</p>'}
@@ -1361,7 +1365,7 @@
                             ${(c.suffix || []).map(s => `<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-parchment-200 text-parchment-800">${s}</span>`).join('')}
                             ${c.hasEuphoria && charEuphTag(c) ? `<span class="px-2 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-xs font-bold">Euphoria ${charEuphTag(c)}</span>` : ''}
                         </div>
-                        <p class="text-xs text-parchment-700 mt-0.5">${c.rarity}★ Arcanist${c.dmgType ? ' • ' + c.dmgType : ''}${charTagNames(c).length ? ' • ' + charTagNames(c).slice(0, 3).join(' / ') : ''}</p>
+                        <p class="text-xs text-parchment-700 mt-0.5">${c.rarity}★ Arcanist${c.dmgType ? ' • ' + c.dmgType : ''}${charTagNames(c).length ? ' • ' + charTagNames(c).slice(0, 3).join(' / ') : ''}${c.releaseDate ? ' • CN release: ' + c.releaseDate : ''}</p>
                     </div>
                 </div>
 
