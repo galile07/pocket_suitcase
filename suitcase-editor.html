@@ -1216,7 +1216,7 @@ function ensureCharShape(c){
         np.tag = np.type;
         return np;
     });
-    c.hasEuphoria = c.euphoriaPaths.length > 0;
+    if (c.hasEuphoria == null) c.hasEuphoria = c.euphoriaPaths.length > 0;
     return c;
 }
 function clone(o){ return JSON.parse(JSON.stringify(o)); }
@@ -1245,8 +1245,10 @@ document.addEventListener('input', e => {
     }
 });
 document.addEventListener('change', e => {
-    const el = e.target;
+    let el = e.target;
     if (!DOC || !el.dataset) return;
+    if (el.tagName === 'LABEL'){ const inp = el.querySelector('input,select,textarea'); if (inp && inp.dataset && inp.dataset.path){ el = inp; } }
+    if (el.closest){ const cand = el.closest('[data-path]'); if (cand && cand !== el && cand.dataset && cand.dataset.path){ el = cand; } }
     if (el.dataset.act === 'raw-select'){ window._rawKey = el.value; render(); return; }
     if (el.dataset.path){
         let v = el.type === 'checkbox' ? el.checked : (el.value === '' ? '' : el.value);
