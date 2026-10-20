@@ -2,44 +2,44 @@
   "materialNodes": [
     {
       "name": "Keys of Thought & Sprouts",
+      "rate": "4 Weekly Trance (Cap 8)",
       "tier": "Euphoria (T5)",
       "stage": "Reveries Trance",
-      "rate": "4 Weekly Trance (Cap 8)",
       "usage": "Euphoria Unlock & Epiphany I–IV"
     },
     {
       "name": "Golden Beetle & Caskets",
+      "rate": "28% Drop + T3 Sub-mats",
       "tier": "Orange (T5)",
       "stage": "Ch. 8-18 Hard",
-      "rate": "28% Drop + T3 Sub-mats",
       "usage": "3.x Insight III & Res 13–15"
     },
     {
       "name": "Biting Box",
+      "rate": "36% Drop + Sharpodonty",
       "tier": "Purple (T4)",
       "stage": "Ch. 4-21 Hard",
-      "rate": "36% Drop + Sharpodonty",
       "usage": "Star / Spirit Insight III"
     },
     {
       "name": "Salted Mandrake",
+      "rate": "34% Drop + Liquefied Terror",
       "tier": "Purple (T4)",
       "stage": "Ch. 3-13 Hard",
-      "rate": "34% Drop + Liquefied Terror",
       "usage": "Plant / Beast Insight III"
     },
     {
       "name": "Prophetic Bird",
+      "rate": "38% Drop + Esoteric Bones",
       "tier": "Purple (T4)",
       "stage": "Ch. 7-19 Hard",
-      "rate": "38% Drop + Esoteric Bones",
       "usage": "Intellect / Mineral Insight III"
     },
     {
       "name": "Clawed Pendulum",
+      "rate": "39% Drop + Trembling Tooth",
       "tier": "Purple (T4)",
       "stage": "Ch. 6-14 Hard",
-      "rate": "39% Drop + Trembling Tooth",
       "usage": "Resonance 10–15 Polarization"
     }
   ],
@@ -47,139 +47,154 @@
     {
       "id": "operatic",
       "name": "Operatic Reflection",
-      "element": "Beast / Burn / Glow",
-      "bonus": "Amplifies Lingering Glow & Burn detonation DMG by +35% and inflicts Halo stacks."
+      "bonus": "Amplifies Lingering Glow & Burn detonation DMG by +35% and inflicts Halo stacks.",
+      "element": "Beast / Burn / Glow"
     },
     {
       "id": "star_misfortune",
       "name": "Star of Misfortune",
-      "element": "Star / Impromptu / Crit",
-      "bonus": "Boosts Impromptu Inspiration & Conduit Crit DMG while generating +2 Eureka per round."
+      "bonus": "Boosts Impromptu Inspiration & Conduit Crit DMG while generating +2 Eureka per round.",
+      "element": "Star / Impromptu / Crit"
     },
     {
       "id": "mountain_ghost",
       "name": "Mountain Ghost",
-      "element": "Mineral / Bloodtithe",
-      "bonus": "Converts allied HP drain into thicker Bloodtithe Pool charges and grants teamwide Leech."
+      "bonus": "Converts allied HP drain into thicker Bloodtithe Pool charges and grants teamwide Leech.",
+      "element": "Mineral / Bloodtithe"
     },
     {
       "id": "ashen_beast",
       "name": "Ashen Beast",
-      "element": "Intellect / Dynamo",
-      "bonus": "Accelerates Pulsing Electric Field to Level 3 and triggers chain electromagnetic follow-ups."
+      "bonus": "Accelerates Pulsing Electric Field to Level 3 and triggers chain electromagnetic follow-ups.",
+      "element": "Intellect / Dynamo"
     },
     {
       "id": "primitive_urge",
       "name": "Primitive Urge",
-      "element": "Plant / Universal",
-      "bonus": "Provides teamwide cleanse, Genesis DMG amplification, and +1 Moxie to Slot 1 Carry."
+      "bonus": "Provides teamwide cleanse, Genesis DMG amplification, and +1 Moxie to Slot 1 Carry.",
+      "element": "Plant / Universal"
     }
   ],
   "characters": [
     {
       "id": "beryl",
       "name": "Beryl",
-      "dmgType": "",
-      "afflatus": "Intellect",
-      "rarity": 6,
-      "image": "images/chars/beryl.webp",
-      "tier": "T0",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "Refracted Prism (6★)",
-      "altPsychube": "Advancing Footsteps (6★)",
       "tags": [
         {
           "name": "Lingering Glow"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/beryl.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Intellect",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Refracted Prism (6★)",
+      "altPsychube": "Advancing Footsteps (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
-      }
+      },
+      "releaseDate": "",
+      "euphoriaPaths": [
+        {
+          "type": "E1",
+          "tag": "E1",
+          "name": "A moment of shimmering fate",
+          "suffix": "DPS",
+          "releaseDate": "2026-09-24",
+          "image": "https://www.reverse1999-simulator.com/infos/euphoria/beryl_1.webp",
+          "rank1": "[Nothing Unexpected]'s [Vision] stacks granted are additionally increased by 100% of the original base amount, and grants [Foresight] for 2 rounds.",
+          "rank2": "[Clairvoyant Prism] gains new effects:\n[Emanation of Blue]: Consumes 3 stacks of [Vision]; when [Destined Doom] is cast this round, deals additional Mental DMG equal to 35% of the original base Mental DMG, up to 1/2/3 times at Incantation rank 1/2/3; and at the end of the round, self Moxie +1.\n[Emanation of Purple]: Extends [Foresight]'s duration by 1/1/2 round(s); consumes 3 stacks of [Vision]; when [Destined Doom] is cast this round, for every point of [Lingering Glow], deals additional Mental DMG equal to 100% of the original additional Mental DMG per point of [Lingering Glow], up to 1/2/3 times at Incantation rank 1/2/3, and at the end of the round, self Moxie +1.\n[Emanation of Green]: Consumes 3 stacks of [Vision]; when [Destined Doom] is cast this round at rank 1/2/3, deals additional Mental DMG equal to 150% of the original additional Mental DMG at rank 1/2/3, up to 1/2/3 times at Incantation rank 1/2/3, and at the end of the round, self Moxie +1.",
+          "rank3": "[A Shimmering Night]'s Mental DMG dealt is increased, equal to 100% of the base Mental DMG, and gains a new effect: this attack is affected by 100% Incantation Might; when attacking, for every point of [Lingering Glow], deals an additional 2% Mental DMG; after attacking, self gains 10 stacks of [Vision].\n[Prism Mirror] gains a new effect: When entering battle, self gains 10 stacks of [Vision].",
+          "rank4": "[Destined Doom]'s Mental DMG dealt is increased, equal to 20% of the base Mental DMG; for every stack of [Vision] held, this attack's ATK is increased by 0.2%, counting up to 20 stacks."
+        }
+      ]
     },
     {
       "id": "brume",
       "name": "Brume",
-      "dmgType": "",
-      "afflatus": "Beast",
-      "rarity": 6,
-      "image": "images/chars/brume.webp",
-      "tier": "T0",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "Surge of the Dynamo (6★)",
-      "altPsychube": "Outside the City (6★)",
       "tags": [
         {
           "name": "Dynamo"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/brume.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Beast",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Surge of the Dynamo (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -187,53 +202,53 @@
     {
       "id": "charon",
       "name": "Charon",
-      "dmgType": "",
-      "afflatus": "Spirit",
-      "rarity": 6,
-      "image": "images/chars/charon.webp",
-      "tier": "T0",
-      "suffix": [
-        "Support"
-      ],
-      "psychube": "Ferryman's Lantern (6★)",
-      "altPsychube": "Cracks in the Shell (6★)",
       "tags": [
         {
           "name": "Dynamo"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/charon.webp",
+      "rarity": 6,
+      "suffix": [
+        "Support"
+      ],
+      "dmgType": "",
+      "afflatus": "Spirit",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Ferryman's Lantern (6★)",
+      "altPsychube": "Cracks in the Shell (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -241,53 +256,53 @@
     {
       "id": "lorentz",
       "name": "Lorentz Butterfly",
-      "dmgType": "",
-      "afflatus": "Star",
-      "rarity": 6,
-      "image": "images/chars/lorentz.webp",
-      "tier": "T0",
-      "suffix": [
-        "Support"
-      ],
-      "psychube": "Butterfly Effect (6★)",
-      "altPsychube": "The Third Commitment (6★)",
       "tags": [
         {
           "name": "Lingering Glow"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/lorentz.webp",
+      "rarity": 6,
+      "suffix": [
+        "Support"
+      ],
+      "dmgType": "",
+      "afflatus": "Star",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Butterfly Effect (6★)",
+      "altPsychube": "The Third Commitment (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -295,53 +310,53 @@
     {
       "id": "rhiannon",
       "name": "Rhiannon",
-      "dmgType": "",
-      "afflatus": "Star",
-      "rarity": 6,
-      "image": "images/chars/rhiannon.webp",
-      "tier": "T0",
-      "suffix": [
-        "Support"
-      ],
-      "psychube": "Celestial Cadence (6★)",
-      "altPsychube": "Balance, Please (6★)",
       "tags": [
         {
           "name": "Conduit"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/rhiannon.webp",
+      "rarity": 6,
+      "suffix": [
+        "Support"
+      ],
+      "dmgType": "",
+      "afflatus": "Star",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Celestial Cadence (6★)",
+      "altPsychube": "Balance, Please (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -349,53 +364,53 @@
     {
       "id": "flutterpage",
       "name": "Flutterpage",
-      "dmgType": "",
-      "afflatus": "Star",
-      "rarity": 6,
-      "image": "images/chars/flutterpage.webp",
-      "tier": "T0",
-      "suffix": [
-        "Support"
-      ],
-      "psychube": "Cracks in the Shell (6★)",
-      "altPsychube": "Long Night Talk (6★)",
       "tags": [
         {
           "name": "Extra Action / Universal"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/flutterpage.webp",
+      "rarity": 6,
+      "suffix": [
+        "Support"
+      ],
+      "dmgType": "",
+      "afflatus": "Star",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Cracks in the Shell (6★)",
+      "altPsychube": "Long Night Talk (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -403,53 +418,53 @@
     {
       "id": "enigma",
       "name": "Enigma",
-      "dmgType": "",
-      "afflatus": "Intellect",
-      "rarity": 6,
-      "image": "images/chars/enigma.webp",
-      "tier": "T0",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Bastion of Logic (6★)",
-      "altPsychube": "Dawn Is Coming (6★)",
       "tags": [
         {
           "name": "Dynamo"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/enigma.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Intellect",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Bastion of Logic (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -457,53 +472,53 @@
     {
       "id": "marsha",
       "name": "Marsha",
-      "dmgType": "",
-      "afflatus": "Beast",
-      "rarity": 6,
-      "image": "images/chars/marsha.webp",
-      "tier": "T0",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Hearthfire's Embrace (6★)",
-      "altPsychube": "Beyond Wonderland (6★)",
       "tags": [
         {
           "name": "Lingering Glow"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/marsha.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Beast",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Hearthfire's Embrace (6★)",
+      "altPsychube": "Beyond Wonderland (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -511,53 +526,53 @@
     {
       "id": "thetwins",
       "name": "The Twins",
-      "dmgType": "",
-      "afflatus": "Star",
-      "rarity": 6,
-      "image": "images/chars/thetwins.webp",
-      "tier": "T0",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "Mirrored Echoes (6★)",
-      "altPsychube": "Outside the City (6★)",
       "tags": [
         {
           "name": "Conduit"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/thetwins.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Star",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Mirrored Echoes (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -565,53 +580,53 @@
     {
       "id": "isolde",
       "name": "Isolde",
-      "dmgType": "",
-      "afflatus": "Spirit",
-      "rarity": 6,
-      "image": "images/chars/isolde.webp",
-      "tier": "T0",
-      "suffix": [
-        "Sub-DPS"
-      ],
-      "psychube": "Knock on the Door (6★)",
-      "altPsychube": "Refracted Prism (6★)",
       "tags": [
         {
           "name": "Lingering Glow"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T0",
+      "bound": [],
+      "image": "images/chars/isolde.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sub-DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Spirit",
       "euphoria": {
-        "image": "",
         "tag": "E1",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Knock on the Door (6★)",
+      "altPsychube": "Refracted Prism (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -619,53 +634,53 @@
     {
       "id": "igor",
       "name": "Igor",
-      "dmgType": "",
-      "afflatus": "Beast",
-      "rarity": 6,
-      "image": "images/chars/igor.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "Iron Salute (6★)",
-      "altPsychube": "The Third Commitment (6★)",
       "tags": [
         {
           "name": "Ultimate/Bullet"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/igor.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Beast",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Iron Salute (6★)",
+      "altPsychube": "The Third Commitment (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -673,53 +688,53 @@
     {
       "id": "nautika",
       "name": "Nautika",
-      "dmgType": "",
-      "afflatus": "Mineral",
-      "rarity": 6,
-      "image": "images/chars/nautika.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "Abyssal Tide (6★)",
-      "altPsychube": "Outside the City (6★)",
       "tags": [
         {
           "name": "Bloodtithe"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/nautika.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Mineral",
       "euphoria": {
-        "image": "",
         "tag": "E1",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Abyssal Tide (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -727,53 +742,53 @@
     {
       "id": "semmelweis",
       "name": "Semmelweis",
-      "dmgType": "",
-      "afflatus": "Mineral",
-      "rarity": 6,
-      "image": "images/chars/semmelweis.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Support"
-      ],
-      "psychube": "The Third Commitment (6★)",
-      "altPsychube": "Brave New World (6★)",
       "tags": [
         {
           "name": "Bloodtithe"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/semmelweis.webp",
+      "rarity": 6,
+      "suffix": [
+        "Support"
+      ],
+      "dmgType": "",
+      "afflatus": "Mineral",
       "euphoria": {
-        "image": "",
         "tag": "E1",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "The Third Commitment (6★)",
+      "altPsychube": "Brave New World (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -781,53 +796,53 @@
     {
       "id": "barcarola",
       "name": "Barcarola",
-      "dmgType": "",
-      "afflatus": "Star",
-      "rarity": 6,
-      "image": "images/chars/barcarola.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "Gondola Serenade (6★)",
-      "altPsychube": "Long Night Talk (6★)",
       "tags": [
         {
           "name": "Impromptu"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/barcarola.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Star",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Gondola Serenade (6★)",
+      "altPsychube": "Long Night Talk (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -835,53 +850,53 @@
     {
       "id": "paperheron",
       "name": "Paper Heron",
-      "dmgType": "",
-      "afflatus": "Intellect",
-      "rarity": 6,
-      "image": "images/chars/paperheron.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sub-DPS"
-      ],
-      "psychube": "Origami Flight (6★)",
-      "altPsychube": "Cracks in the Shell (6★)",
       "tags": [
         {
           "name": "Impromptu"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/paperheron.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sub-DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Intellect",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Origami Flight (6★)",
+      "altPsychube": "Cracks in the Shell (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -889,53 +904,53 @@
     {
       "id": "ulrich",
       "name": "Ulrich",
-      "dmgType": "",
-      "afflatus": "Intellect",
-      "rarity": 6,
-      "image": "images/chars/ulrich.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sub-DPS"
-      ],
-      "psychube": "Surge of the Dynamo (6★)",
-      "altPsychube": "Balance, Please (6★)",
       "tags": [
         {
           "name": "Dynamo"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/ulrich.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sub-DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Intellect",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Surge of the Dynamo (6★)",
+      "altPsychube": "Balance, Please (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -943,53 +958,53 @@
     {
       "id": "kiperina",
       "name": "Kiperina",
-      "dmgType": "",
-      "afflatus": "Star",
-      "rarity": 6,
-      "image": "images/chars/kiperina.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Dawn Is Coming (6★)",
-      "altPsychube": "That Inquisitive Dear (6★)",
       "tags": [
         {
           "name": "Impromptu"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/kiperina.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Star",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Dawn Is Coming (6★)",
+      "altPsychube": "That Inquisitive Dear (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -997,53 +1012,53 @@
     {
       "id": "rubuska",
       "name": "Rubuska",
-      "dmgType": "",
-      "afflatus": "Beast",
-      "rarity": 6,
-      "image": "images/chars/rubuska.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Crimson Chalice (6★)",
-      "altPsychube": "Dawn Is Coming (6★)",
       "tags": [
         {
           "name": "Bloodtithe"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/rubuska.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Beast",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Crimson Chalice (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1051,53 +1066,53 @@
     {
       "id": "everecho",
       "name": "Everecho",
-      "dmgType": "",
-      "afflatus": "Spirit",
-      "rarity": 6,
-      "image": "images/chars/everecho.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Resonant Bell (6★)",
-      "altPsychube": "Dawn Is Coming (6★)",
       "tags": [
         {
           "name": "Conduit"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/everecho.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Spirit",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Resonant Bell (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1105,53 +1120,53 @@
     {
       "id": "cornerstone",
       "name": "Cornerstone",
-      "dmgType": "",
-      "afflatus": "Mineral",
-      "rarity": 6,
-      "image": "images/chars/cornerstone.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Bastion of Logic (6★)",
-      "altPsychube": "Beyond Wonderland (6★)",
       "tags": [
         {
           "name": "Dynamo"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/cornerstone.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Mineral",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Bastion of Logic (6★)",
+      "altPsychube": "Beyond Wonderland (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1159,53 +1174,53 @@
     {
       "id": "hedone",
       "name": "Hedone",
-      "dmgType": "",
-      "afflatus": "Mineral",
-      "rarity": 6,
-      "image": "images/chars/hedone.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sub-DPS"
-      ],
-      "psychube": "Golden Nectar (6★)",
-      "altPsychube": "Cracks in the Shell (6★)",
       "tags": [
         {
           "name": "Conduit"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/hedone.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sub-DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Mineral",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Golden Nectar (6★)",
+      "altPsychube": "Cracks in the Shell (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1213,53 +1228,53 @@
     {
       "id": "coppelia",
       "name": "Coppélia",
-      "dmgType": "",
-      "afflatus": "Mineral",
-      "rarity": 6,
-      "image": "images/chars/coppelia.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sub-DPS"
-      ],
-      "psychube": "Clockwork Waltz (6★)",
-      "altPsychube": "Outside the City (6★)",
       "tags": [
         {
           "name": "Conduit"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/coppelia.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sub-DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Mineral",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Clockwork Waltz (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1267,53 +1282,53 @@
     {
       "id": "fatutu",
       "name": "Fatutu",
-      "dmgType": "",
-      "afflatus": "Mineral",
-      "rarity": 6,
-      "image": "images/chars/fatutu.webp",
-      "tier": "T0.5",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Shells of the Atoll (6★)",
-      "altPsychube": "Dawn Is Coming (6★)",
       "tags": [
         {
           "name": "Extra Action / Universal"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T0.5",
+      "bound": [],
+      "image": "images/chars/fatutu.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Mineral",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Shells of the Atoll (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1321,53 +1336,53 @@
     {
       "id": "recoleta",
       "name": "Recoleta",
-      "dmgType": "",
-      "afflatus": "Mineral",
-      "rarity": 6,
-      "image": "images/chars/recoleta.webp",
-      "tier": "T1",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "Final Manuscript (6★)",
-      "altPsychube": "Luxurious Leisure (6★)",
       "tags": [
         {
           "name": "Ultimate/Bullet"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/recoleta.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Mineral",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Final Manuscript (6★)",
+      "altPsychube": "Luxurious Leisure (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1375,53 +1390,53 @@
     {
       "id": "lucy",
       "name": "Lucy",
-      "dmgType": "",
-      "afflatus": "Intellect",
-      "rarity": 6,
-      "image": "images/chars/lucy.webp",
-      "tier": "T1",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "Advancing Footsteps (6★)",
-      "altPsychube": "Surge of the Dynamo (6★)",
       "tags": [
         {
           "name": "Dynamo"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/lucy.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Intellect",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Advancing Footsteps (6★)",
+      "altPsychube": "Surge of the Dynamo (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1429,53 +1444,53 @@
     {
       "id": "windsong",
       "name": "Windsong",
-      "dmgType": "",
-      "afflatus": "Star",
-      "rarity": 6,
-      "image": "images/chars/windsong.webp",
-      "tier": "T1",
-      "suffix": [
-        "DPS"
-      ],
-      "psychube": "For Rehabilitation (6★)",
-      "altPsychube": "Outside the City (6★)",
       "tags": [
         {
           "name": "Extra Action / Universal"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/windsong.webp",
+      "rarity": 6,
+      "suffix": [
+        "DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Star",
       "euphoria": {
-        "image": "",
         "tag": "E1",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "For Rehabilitation (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1483,53 +1498,53 @@
     {
       "id": "anjonala",
       "name": "Anjo Nala",
-      "dmgType": "",
-      "afflatus": "Beast",
-      "rarity": 6,
-      "image": "images/chars/anjonala.webp",
-      "tier": "T1",
-      "suffix": [
-        "Sub-DPS"
-      ],
-      "psychube": "Crimson Contract (6★)",
-      "altPsychube": "Outside the City (6★)",
       "tags": [
         {
           "name": "Extra Action / Universal"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/anjonala.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sub-DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Beast",
       "euphoria": {
-        "image": "",
         "tag": "E1",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Crimson Contract (6★)",
+      "altPsychube": "Outside the City (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1537,53 +1552,53 @@
     {
       "id": "lopera",
       "name": "Lopera",
-      "dmgType": "",
-      "afflatus": "Beast",
-      "rarity": 6,
-      "image": "images/chars/lopera.webp",
-      "tier": "T1",
-      "suffix": [
-        "Support"
-      ],
-      "psychube": "The Third Commitment (6★)",
-      "altPsychube": "Cracks in the Shell (6★)",
       "tags": [
         {
           "name": "Ultimate/Bullet"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/lopera.webp",
+      "rarity": 6,
+      "suffix": [
+        "Support"
+      ],
+      "dmgType": "",
+      "afflatus": "Beast",
       "euphoria": {
-        "image": "",
         "tag": "E1",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "The Third Commitment (6★)",
+      "altPsychube": "Cracks in the Shell (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1591,53 +1606,53 @@
     {
       "id": "moldir",
       "name": "Moldir",
-      "dmgType": "",
-      "afflatus": "Mineral",
-      "rarity": 6,
-      "image": "images/chars/moldir.webp",
-      "tier": "T1",
-      "suffix": [
-        "Sub-DPS"
-      ],
-      "psychube": "Iron Salute (6★)",
-      "altPsychube": "Brave New World (6★)",
       "tags": [
         {
           "name": "Ultimate/Bullet"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/moldir.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sub-DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Mineral",
       "euphoria": {
-        "image": "",
         "tag": "E1",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Iron Salute (6★)",
+      "altPsychube": "Brave New World (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1645,53 +1660,53 @@
     {
       "id": "sentinel",
       "name": "Sentinel",
-      "dmgType": "",
-      "afflatus": "Beast",
-      "rarity": 6,
-      "image": "images/chars/sentinel.webp",
-      "tier": "T1",
-      "suffix": [
-        "Sub-DPS"
-      ],
-      "psychube": "Abyssal Tide (6★)",
-      "altPsychube": "The Third Commitment (6★)",
       "tags": [
         {
           "name": "Bloodtithe"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/sentinel.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sub-DPS"
+      ],
+      "dmgType": "",
+      "afflatus": "Beast",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Abyssal Tide (6★)",
+      "altPsychube": "The Third Commitment (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1699,53 +1714,53 @@
     {
       "id": "narcissus",
       "name": "Narcissus",
-      "dmgType": "",
-      "afflatus": "Plant",
-      "rarity": 6,
-      "image": "images/chars/narcissus.webp",
-      "tier": "T1",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Mirrored Pool (6★)",
-      "altPsychube": "Dawn Is Coming (6★)",
       "tags": [
         {
           "name": "Ultimate/Bullet"
         }
       ],
-      "hasEuphoria": false,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/narcissus.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Plant",
       "euphoria": {
-        "image": "",
         "tag": "",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Mirrored Pool (6★)",
+      "altPsychube": "Dawn Is Coming (6★)",
+      "hasEuphoria": false,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1753,53 +1768,53 @@
     {
       "id": "vila",
       "name": "Vila",
-      "dmgType": "",
-      "afflatus": "Plant",
-      "rarity": 6,
-      "image": "images/chars/vila.webp",
-      "tier": "T1",
-      "suffix": [
-        "Sustain"
-      ],
-      "psychube": "Dawn Is Coming (6★)",
-      "altPsychube": "That Inquisitive Dear (6★)",
       "tags": [
         {
           "name": "Extra Action / Universal"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/vila.webp",
+      "rarity": 6,
+      "suffix": [
+        "Sustain"
+      ],
+      "dmgType": "",
+      "afflatus": "Plant",
       "euphoria": {
-        "image": "",
         "tag": "E1",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Dawn Is Coming (6★)",
+      "altPsychube": "That Inquisitive Dear (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1807,53 +1822,53 @@
     {
       "id": "matilda",
       "name": "Matilda",
-      "dmgType": "",
-      "afflatus": "Star",
-      "rarity": 5,
-      "image": "images/chars/matilda.webp",
-      "tier": "T1",
-      "suffix": [
-        "Support"
-      ],
-      "psychube": "Gondola Serenade (6★)",
-      "altPsychube": "The Third Commitment (6★)",
       "tags": [
         {
           "name": "Impromptu"
         }
       ],
-      "hasEuphoria": true,
+      "tier": "T1",
+      "bound": [],
+      "image": "images/chars/matilda.webp",
+      "rarity": 5,
+      "suffix": [
+        "Support"
+      ],
+      "dmgType": "",
+      "afflatus": "Star",
       "euphoria": {
-        "image": "",
         "tag": "E2",
-        "suffix": "",
+        "image": "",
         "rank1": "",
         "rank2": "",
         "rank3": "",
-        "rank4": ""
+        "rank4": "",
+        "suffix": ""
       },
-      "bound": [],
+      "psychube": "Gondola Serenade (6★)",
+      "altPsychube": "The Third Commitment (6★)",
+      "hasEuphoria": true,
       "materialPlan": {
+        "resL5": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL10": {
+          "mats": [],
+          "sharpodonty": ""
+        },
+        "resL15": {
+          "mats": [],
+          "sharpodonty": ""
+        },
         "currency": {
           "dust": "",
           "sharpodonty": ""
         },
         "insights": [],
-        "resL5": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL10": {
-          "sharpodonty": "",
-          "mats": []
-        },
-        "resL15": {
-          "sharpodonty": "",
-          "mats": []
-        },
         "resPattern": {
-          "sharpodonty": "",
-          "mats": []
+          "mats": [],
+          "sharpodonty": ""
         },
         "euphoriaMats": []
       }
@@ -1861,445 +1876,445 @@
   ],
   "materialsList": [
     {
+      "area": "Stage 10-13 Hard (20 stamina); Stage 4-20 Hard (18 stamina)",
       "name": "Bifurcated Skeleton",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110303.CqJM_gmJ_NrTVP.webp",
-      "area": "Stage 10-13 Hard (20 stamina); Stage 4-20 Hard (18 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110303.CqJM_gmJ_NrTVP.webp"
     },
     {
+      "area": "Stage 7-26 Hard (20 stamina); Stage 5-19 Hard (18 stamina)",
       "name": "Biting Box",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110103.oOmv7XUc_Z1rMlJ7.webp",
-      "area": "Stage 7-26 Hard (20 stamina); Stage 5-19 Hard (18 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110103.oOmv7XUc_Z1rMlJ7.webp"
     },
     {
+      "area": "Tactical Telegram",
       "name": "Blazing Key",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/620105.D99rlkUZ_ZSsPg.webp",
-      "area": "Tactical Telegram"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620105.D99rlkUZ_ZSsPg.webp"
     },
     {
+      "area": "7TH-26 Mirror and Curtains Hard",
       "name": "Bogeyman",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110104.lctGTSje_1bfcJU.webp",
-      "area": "7TH-26 Mirror and Curtains Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110104.lctGTSje_1bfcJU.webp"
     },
     {
+      "area": "Craft in the Wilderness; Pawnshop; Fragment Shop: Oneiric",
       "name": "Brief Cacophony",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/120012.oTDfEzFB_Zp0PFe.webp",
-      "area": "Craft in the Wilderness; Pawnshop; Fragment Shop: Oneiric"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120012.oTDfEzFB_Zp0PFe.webp"
     },
     {
+      "area": "2ND-9 Pearl and Bullet Hole; 4TH-6 The Forest Express Hard; 5TH-14 Chain of Peace; 6TH-4 Secession Building Hard",
       "name": "Cicada Wings",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110602.CDgc2-Dj_Z2w7Dzk.webp",
-      "area": "2ND-9 Pearl and Bullet Hole; 4TH-6 The Forest Express Hard; 5TH-14 Chain of Peace; 6TH-4 Secession Building Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110602.CDgc2-Dj_Z2w7Dzk.webp"
     },
     {
+      "area": "Stage 11-5 Hard (25 stamina)",
       "name": "Clawed Pendulum",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111002.CTb1LutB_Z1i4RCF.webp",
-      "area": "Stage 11-5 Hard (25 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111002.CTb1LutB_Z1i4RCF.webp"
     },
     {
+      "area": "Craft in the Wilderness; Pawnshop",
       "name": "Emerald Slate",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110904.DCxQlAJc_Z1LdsqL.webp",
-      "area": "Craft in the Wilderness; Pawnshop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110904.DCxQlAJc_Z1LdsqL.webp"
     },
     {
+      "area": "1ST-11 Charge Baby, Charge! Hard; 2ND-14 Puppet; 2ND-4 Antidote Hard; 2ND-10 The Chew-Chew Potion Hard",
       "name": "Esoteric Bones",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110302.CZKrIVUN_1Ob8Ks.webp",
-      "area": "1ST-11 Charge Baby, Charge! Hard; 2ND-14 Puppet; 2ND-4 Antidote Hard; 2ND-10 The Chew-Chew Potion Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110302.CZKrIVUN_1Ob8Ks.webp"
     },
     {
+      "area": "2ND-8 Popular Literature; 7TH-5 Four Cross-Checks; 7TH-6 Pride and Prejudice Hard; 8TH-11 Sao Paulo Bossa Nova",
       "name": "Fox Tail",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110802.B8nDqZap_z7Xem.webp",
-      "area": "2ND-8 Popular Literature; 7TH-5 Four Cross-Checks; 7TH-6 Pride and Prejudice Hard; 8TH-11 Sao Paulo Bossa Nova"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110802.B8nDqZap_z7Xem.webp"
     },
     {
+      "area": "Craft in the Wilderness",
       "name": "Fruit of Good and Evil",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111004.B6Nn8UO-_1FwgGH.webp",
-      "area": "Craft in the Wilderness"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111004.B6Nn8UO-_1FwgGH.webp"
     },
     {
+      "area": "9TH-15 Aleph Hard",
       "name": "Glowing Mothwing",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110604.4jx2FW7j_1NrRyp.webp",
-      "area": "9TH-15 Aleph Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110604.4jx2FW7j_1NrRyp.webp"
     },
     {
+      "area": "Craft in the Wilderness; Pawnshop",
       "name": "Goldbell Spirit Bottle",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110804.CrKuj-Fj_1E9Csn.webp",
-      "area": "Craft in the Wilderness; Pawnshop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110804.CrKuj-Fj_1E9Csn.webp"
     },
     {
+      "area": "Stage 10-2 Hard (20 stamina); Stage 3-15 (14 stamina)",
       "name": "Golden Beetle",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111012.Bhp9Gijg_Z1Vz5Y1.webp",
-      "area": "Stage 10-2 Hard (20 stamina); Stage 3-15 (14 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111012.Bhp9Gijg_Z1Vz5Y1.webp"
     },
     {
+      "area": "Exquisite Insight Casket; Craft in the Wilderness; Pawnshop",
       "name": "Golden Compass",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111013.Bmk9-54R_2ijGLp.webp",
-      "area": "Exquisite Insight Casket; Craft in the Wilderness; Pawnshop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111013.Bmk9-54R_2ijGLp.webp"
     },
     {
+      "area": "Mystical Insight Casket; Craft in the Wilderness",
       "name": "Golden Fleece",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111006.DKpjD1Ik_Z2g6EAU.webp",
-      "area": "Mystical Insight Casket; Craft in the Wilderness"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111006.DKpjD1Ik_Z2g6EAU.webp"
     },
     {
+      "area": "Stage 4-4 (16 stamina); Stage 8-18 Hard (20 stamina)",
       "name": "Golden Grass Incense",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110803.DC2xseGz_Z26Ns9q.webp",
-      "area": "Stage 4-4 (16 stamina); Stage 8-18 Hard (20 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110803.DC2xseGz_Z26Ns9q.webp"
     },
     {
+      "area": "Stage 10-22 Hard (20 stamina); Stage 5-4 Hard (18 stamina)",
       "name": "Goose Neck",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110703.CcUwkzJW_2b25tC.webp",
-      "area": "Stage 10-22 Hard (20 stamina); Stage 5-4 Hard (18 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110703.CcUwkzJW_2b25tC.webp"
     },
     {
+      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric",
       "name": "Hoarse Echo",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/120004.DmnP5mIp_Z188Exk.webp",
-      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120004.DmnP5mIp_Z188Exk.webp"
     },
     {
+      "area": "Stage 10-9 Hard (20 stamina); Stage 6-14 Hard (18 stamina)",
       "name": "Holy Silver",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110403.BcrzH_gp_1gLgRQ.webp",
-      "area": "Stage 10-9 Hard (20 stamina); Stage 6-14 Hard (18 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110403.BcrzH_gp_1gLgRQ.webp"
     },
     {
+      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric",
       "name": "Hypocritical Murmur",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/120003.10It926B_8wrCX.webp",
-      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120003.10It926B_8wrCX.webp"
     },
     {
+      "area": "8TH-17 The Black Lamb Hard",
       "name": "Incorrupt Monkeypaw",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110204.B7GEkPem_WSyn0.webp",
-      "area": "8TH-17 The Black Lamb Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110204.B7GEkPem_WSyn0.webp"
     },
     {
+      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric",
       "name": "Interlaced Shudder",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/120002.BT7viV8C_1nx38d.webp",
-      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120002.BT7viV8C_1nx38d.webp"
     },
     {
+      "area": "2ND-14 Puppet Hard",
       "name": "Jeweled Egg",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111103.C4_qgc1P_1GrOrB.webp",
-      "area": "2ND-14 Puppet Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111103.C4_qgc1P_1GrOrB.webp"
     },
     {
+      "area": "Brainwave Shop",
       "name": "Key of Thought",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/620103.DSBATW3o_235Nip.webp",
-      "area": "Brainwave Shop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620103.DSBATW3o_235Nip.webp"
     },
     {
+      "area": "1ST-14 The Eye of the Storm Hard; 2ND-13 Documentary Hard; 3RD-6 Black Sheep Wall; 3RD-6 Black Sheep Wall Hard",
       "name": "Liquefied Terror",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110102.RAjyjrxN_2q1kTK.webp",
-      "area": "1ST-14 The Eye of the Storm Hard; 2ND-13 Documentary Hard; 3RD-6 Black Sheep Wall; 3RD-6 Black Sheep Wall Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110102.RAjyjrxN_2q1kTK.webp"
     },
     {
+      "area": "2ND-1 Courtesy; 9TH-3 The Place That Time Forgot; 9TH-1 Prologue Hard; 10TH-21 The Way I Came",
       "name": "Luminite Ore",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110902.CTyosLY4_ZP7aiT.webp",
-      "area": "2ND-1 Courtesy; 9TH-3 The Place That Time Forgot; 9TH-1 Prologue Hard; 10TH-21 The Way I Came"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110902.CTyosLY4_ZP7aiT.webp"
     },
     {
+      "area": "1ST-15 Underground Labyrinth; 2ND-4 Antidote; 2ND-9 Pearl and Bullet Hole Hard; 3RD-13 A Yard Hard",
       "name": "Magnesia Crystal",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110201.PRgK-xJO_2lcAYh.webp",
-      "area": "1ST-15 Underground Labyrinth; 2ND-4 Antidote; 2ND-9 Pearl and Bullet Hole Hard; 3RD-13 A Yard Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110201.PRgK-xJO_2lcAYh.webp"
     },
     {
+      "area": "1ST-12 Appetizers Hard; 2ND-10 The Chew-Chew Potion Hard; 2ND-13 Documentary Hard; 3RD-8 Scattered Pamphlets",
       "name": "Milled Magnesia",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110202.DSOEUkFR_1UDCrv.webp",
-      "area": "1ST-12 Appetizers Hard; 2ND-10 The Chew-Chew Potion Hard; 2ND-13 Documentary Hard; 3RD-8 Scattered Pamphlets"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110202.DSOEUkFR_1UDCrv.webp"
     },
     {
+      "area": "Craft in the Wilderness",
       "name": "Mistilteinn",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111005.BNEhYfFs_1T92z0.webp",
-      "area": "Craft in the Wilderness"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111005.BNEhYfFs_1T92z0.webp"
     },
     {
+      "area": "Fragment Shop: Oneiric",
       "name": "Moment of Dissonance",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/120011.BdPQ34BQ_1Cyuvf.webp",
-      "area": "Fragment Shop: Oneiric"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120011.BdPQ34BQ_1Cyuvf.webp"
     },
     {
+      "area": "3RD-13 A Yard Hard",
       "name": "Murmur of Insanity",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110504.rPKRJZGo_Z2o155M.webp",
-      "area": "3RD-13 A Yard Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110504.rPKRJZGo_Z2o155M.webp"
     },
     {
+      "area": "Tactical Telegram",
       "name": "Overgrown Key",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/620104.GiF9cOby_4O3UD.webp",
-      "area": "Tactical Telegram"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620104.GiF9cOby_4O3UD.webp"
     },
     {
+      "area": "Bottle of Pages; BW-1 Brutes Wilds I; BW-2 Brutes Wilds II",
       "name": "Page of Beastly Thirst",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115041.C0mwR5Ch_1LzRkc.webp",
-      "area": "Bottle of Pages; BW-1 Brutes Wilds I; BW-2 Brutes Wilds II"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115041.C0mwR5Ch_1LzRkc.webp"
     },
     {
+      "area": "Bottle of Pages; ME-1 Mountain Echoes I; ME-2 Mountain Echoes II",
       "name": "Page of Mineral Wealth",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115011.DqXWQNAw_Z1kcU5L.webp",
-      "area": "Bottle of Pages; ME-1 Mountain Echoes I; ME-2 Mountain Echoes II"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115011.DqXWQNAw_Z1kcU5L.webp"
     },
     {
+      "area": "Bottle of Pages; SS-1 Sylvanus Shape I; SS-2 Sylvanus Shape II",
       "name": "Page of Plantal Vimen",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115031.xTI7jiQ7_Z2oCJpd.webp",
-      "area": "Bottle of Pages; SS-1 Sylvanus Shape I; SS-2 Sylvanus Shape II"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115031.xTI7jiQ7_Z2oCJpd.webp"
     },
     {
+      "area": "Bottle of Pages; SL-1 Starfall Locale I; SL-2 Starfall Locale II",
       "name": "Page of Starlit Ascent",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115021.BATUgiff_1t97DS.webp",
-      "area": "Bottle of Pages; SL-1 Starfall Locale I; SL-2 Starfall Locale II"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115021.BATUgiff_1t97DS.webp"
     },
     {
+      "area": "2ND-10 The Chew-Chew Potion; 4TH-18 Road of a Puppy Hard; 5TH-9 Silent Meeting; 6TH-24 E lucevan le stelle",
       "name": "Perpetual Cog",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110702.CcUeP04__6ryi.webp",
-      "area": "2ND-10 The Chew-Chew Potion; 4TH-18 Road of a Puppy Hard; 5TH-9 Silent Meeting; 6TH-24 E lucevan le stelle"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110702.CcUeP04__6ryi.webp"
     },
     {
+      "area": "Craft in the Wilderness; Pawnshop",
       "name": "Platinum Ouija",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111003.DXN-nYNI_18d6tz.webp",
-      "area": "Craft in the Wilderness; Pawnshop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111003.DXN-nYNI_18d6tz.webp"
     },
     {
+      "area": "Stage 9-8 Hard (20 stamina); Stage 2-6 Hard (18 stamina)",
       "name": "Prophetic Bird",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110503.ThAAzHPA_ZKlrIS.webp",
-      "area": "Stage 9-8 Hard (20 stamina); Stage 2-6 Hard (18 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110503.ThAAzHPA_ZKlrIS.webp"
     },
     {
+      "area": "Stage 9-1 Hard (20 stamina)",
       "name": "Red Lacquer Slab",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110903.BavSaxQx_ZYQGtY.webp",
-      "area": "Stage 9-1 Hard (20 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110903.BavSaxQx_ZYQGtY.webp"
     },
     {
+      "area": "Mystical Insight Casket; Craft in the Wilderness",
       "name": "Rheingold",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111008.DyWoNAQL_xDAWN.webp",
-      "area": "Mystical Insight Casket; Craft in the Wilderness"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111008.DyWoNAQL_xDAWN.webp"
     },
     {
+      "area": "Craft in the Wilderness; Pawnshop",
       "name": "Rhizobox Rabbit",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111104.xda2BQov_TFnU5.webp",
-      "area": "Craft in the Wilderness; Pawnshop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111104.xda2BQov_TFnU5.webp"
     },
     {
+      "area": "1ST-8 Druvis III Hard; 2ND-13 Documentary; 2ND-4 Antidote Hard; 2ND-5 City’s Gastrosis Hard",
       "name": "Rough Silver Ingot",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110402.C8Fa9CT3_ZUFkjA.webp",
-      "area": "1ST-8 Druvis III Hard; 2ND-13 Documentary; 2ND-4 Antidote Hard; 2ND-5 City’s Gastrosis Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110402.C8Fa9CT3_ZUFkjA.webp"
     },
     {
+      "area": "Stage 3-13 Hard (18 stamina)",
       "name": "Salted Mandrake",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110203.maNrBGp5_Z1dE3Gv.webp",
-      "area": "Stage 3-13 Hard (18 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110203.maNrBGp5_Z1dE3Gv.webp"
     },
     {
+      "area": "Scroll Container; BW-3 Brutes Wilds III; BW-4 Brutes Wilds IV",
       "name": "Scroll of Beastly Thirst",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115042.Dcfok-1I_ysmC4.webp",
-      "area": "Scroll Container; BW-3 Brutes Wilds III; BW-4 Brutes Wilds IV"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115042.Dcfok-1I_ysmC4.webp"
     },
     {
+      "area": "Scroll Container; ME-3 Mountain Echoes III; ME-4 Mountain Echoes IV",
       "name": "Scroll of Mineral Wealth",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115012.COIp0kqQ_Z2490HV.webp",
-      "area": "Scroll Container; ME-3 Mountain Echoes III; ME-4 Mountain Echoes IV"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115012.COIp0kqQ_Z2490HV.webp"
     },
     {
+      "area": "Scroll Container; SS-3 Sylvanus Shape III; SS-4 Sylvanus Shape IV",
       "name": "Scroll of Plantal Vimen",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115032.Ks4xpa96_1HhokS.webp",
-      "area": "Scroll Container; SS-3 Sylvanus Shape III; SS-4 Sylvanus Shape IV"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115032.Ks4xpa96_1HhokS.webp"
     },
     {
+      "area": "Scroll Container; SL-3 Starfall Locale III; SL-4 Starfall Locale IV",
       "name": "Scroll of Starlit Ascent",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115022.96MvNTpd_Z253zx0.webp",
-      "area": "Scroll Container; SL-3 Starfall Locale III; SL-4 Starfall Locale IV"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115022.96MvNTpd_Z253zx0.webp"
     },
     {
+      "area": "Brainwave Shop; Pawnshop",
       "name": "Seed of Inspiration",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/620101.D7bDnAAU_LdiWt.webp",
-      "area": "Brainwave Shop; Pawnshop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620101.D7bDnAAU_LdiWt.webp"
     },
     {
+      "area": "Mystical Insight Casket; Craft in the Wilderness",
       "name": "Serpent Scepter",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111007.DSN-9mLK_Z1R8qXV.webp",
-      "area": "Mystical Insight Casket; Craft in the Wilderness"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111007.DSN-9mLK_Z1R8qXV.webp"
     },
     {
+      "area": "1ST-14 The Eye of the Storm",
       "name": "Sharp Needle",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111102.BFtEnRA6_Z1eGKGM.webp",
-      "area": "1ST-14 The Eye of the Storm"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111102.BFtEnRA6_Z1eGKGM.webp"
     },
     {
+      "area": "Resource - Mintage Aesthetics; Pawnshop",
       "name": "Sharpodonty",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/3.CEGqvaGJ_Z2va7oK.webp",
-      "area": "Resource - Mintage Aesthetics; Pawnshop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/3.CEGqvaGJ_Z2va7oK.webp"
     },
     {
+      "area": "1ST-6 The Rosa Killer Hard; 2ND-3 Green Oranges; 2ND-8 Popular Literature Hard; 3RD-7 Scottish Hard",
       "name": "Shattered Bones",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110301.C3yBIk5b_Z2mc5lX.webp",
-      "area": "1ST-6 The Rosa Killer Hard; 2ND-3 Green Oranges; 2ND-8 Popular Literature Hard; 3RD-7 Scottish Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110301.C3yBIk5b_Z2mc5lX.webp"
     },
     {
+      "area": "5TH-19 The Upstream Boat Hard",
       "name": "Silver Bullet",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110404.DxK770Mu_Z1UMVgA.webp",
-      "area": "5TH-19 The Upstream Boat Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110404.DxK770Mu_Z1UMVgA.webp"
     },
     {
+      "area": "1ST-5 Sharpodonty and Black Wine Hard; 2ND-3 Green Oranges Hard; 2ND-5 City’s Gastrosis; 3RD-3 Stalkee",
       "name": "Silver Ore",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110401.Dls2jiUS_1dImCm.webp",
-      "area": "1ST-5 Sharpodonty and Black Wine Hard; 2ND-3 Green Oranges Hard; 2ND-5 City’s Gastrosis; 3RD-3 Stalkee"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110401.Dls2jiUS_1dImCm.webp"
     },
     {
+      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric",
       "name": "Sinuous Howl",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/120001.BTVohzOj_Z1xUb99.webp",
-      "area": "Crystal Casket; Pawnshop; Fragment Shop: Oneiric"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120001.BTVohzOj_Z1xUb99.webp"
     },
     {
+      "area": "1ST-15 Underground Labyrinth Hard; 2ND-12 About the New Era; 3RD-7 Scottish; 3RD-5 A Deep Sleep Hard",
       "name": "Solidus",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111001.BoBvLp5D_Z1rnQ5l.webp",
-      "area": "1ST-15 Underground Labyrinth Hard; 2ND-12 About the New Era; 3RD-7 Scottish; 3RD-5 A Deep Sleep Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111001.BoBvLp5D_Z1rnQ5l.webp"
     },
     {
+      "area": "Craft in the Wilderness; Pawnshop; Fragment Shop: Oneiric",
       "name": "Sonorous Knell",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/120013.COOHMXUM_I1WfY.webp",
-      "area": "Craft in the Wilderness; Pawnshop; Fragment Shop: Oneiric"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/120013.COOHMXUM_I1WfY.webp"
     },
     {
+      "area": "1ST-16 Heaven Apostles; 1ST-4 Chicago Rescue Hard; 2ND-6 The End of Immortal Hard; 3RD-9 George the Oak",
       "name": "Spell of Banishing",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110501.D-UFAd7c_1Bz9j3.webp",
-      "area": "1ST-16 Heaven Apostles; 1ST-4 Chicago Rescue Hard; 2ND-6 The End of Immortal Hard; 3RD-9 George the Oak"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110501.D-UFAd7c_1Bz9j3.webp"
     },
     {
+      "area": "1ST-7 Scorched Woods Hard; 2ND-5 City’s Gastrosis Hard; 2ND-9 Pearl and Bullet Hole Hard; 2ND-11 Polypotion Hard",
       "name": "Spell of Fortune",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110502.Cq0iBra1_Z1itUJg.webp",
-      "area": "1ST-7 Scorched Woods Hard; 2ND-5 City’s Gastrosis Hard; 2ND-9 Pearl and Bullet Hole Hard; 2ND-11 Polypotion Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110502.Cq0iBra1_Z1itUJg.webp"
     },
     {
+      "area": "Brainwave Shop; Pawnshop",
       "name": "Sprout of Fantasy",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/620102._C-uOI6Q_Z1K3Itk.webp",
-      "area": "Brainwave Shop; Pawnshop"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/620102._C-uOI6Q_Z1K3Itk.webp"
     },
     {
+      "area": "BW-5 Brutes Wilds V; BW-6 Brutes Wilds VI",
       "name": "Tome of Beastly Thirst",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115043.quXDcizi_ZlnbzG.webp",
-      "area": "BW-5 Brutes Wilds V; BW-6 Brutes Wilds VI"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115043.quXDcizi_ZlnbzG.webp"
     },
     {
+      "area": "ME-5 Mountain Echoes V; ME-6 Mountain Echoes VI",
       "name": "Tome of Mineral Wealth",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115013.BGOsPLOe_ZPtiSX.webp",
-      "area": "ME-5 Mountain Echoes V; ME-6 Mountain Echoes VI"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115013.BGOsPLOe_ZPtiSX.webp"
     },
     {
+      "area": "SS-5 Sylvanus Shape V; SS-6 Sylvanus Shape VI",
       "name": "Tome of Plantal Vimen",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115033.CmE2o9hi_ZKxeit.webp",
-      "area": "SS-5 Sylvanus Shape V; SS-6 Sylvanus Shape VI"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115033.CmE2o9hi_ZKxeit.webp"
     },
     {
+      "area": "SL-5 Starfall Locale V; SL-6 Starfall Locale VI",
       "name": "Tome of Starlit Ascent",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/115023.l-cpou47_Z2uYoBv.webp",
-      "area": "SL-5 Starfall Locale V; SL-6 Starfall Locale VI"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/115023.l-cpou47_Z2uYoBv.webp"
     },
     {
+      "area": "1ST-1 Wretched Brats Hard; 2ND-6 The End of Immortal; 2ND-12 About the New Era Hard; 6TH-6 Yes, Prime Minister Hard",
       "name": "Trembling Tooth",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110101.Dq2fL0-7_24xApC.webp",
-      "area": "1ST-1 Wretched Brats Hard; 2ND-6 The End of Immortal; 2ND-12 About the New Era Hard; 6TH-6 Yes, Prime Minister Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110101.Dq2fL0-7_24xApC.webp"
     },
     {
+      "area": "Craft in the Wilderness",
       "name": "Walking Terror",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/111009.GA_7xmiZ_Z245p0F.webp",
-      "area": "Craft in the Wilderness"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/111009.GA_7xmiZ_Z245p0F.webp"
     },
     {
+      "area": "10TH-22 By Their Untainted Blood Hard",
       "name": "Watch Core",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110704.BXKRwSGo_1TEsYR.webp",
-      "area": "10TH-22 By Their Untainted Blood Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110704.BXKRwSGo_1TEsYR.webp"
     },
     {
+      "area": "Stage 9-15 Hard (20 stamina)",
       "name": "Winged Key",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110603.Db7Lfi8t_2saGXl.webp",
-      "area": "Stage 9-15 Hard (20 stamina)"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110603.Db7Lfi8t_2saGXl.webp"
     },
     {
+      "area": "6TH-14 Fitcher’s Bird Hard",
       "name": "Wyrmling Skeleton",
-      "image": "https://reverse1999-gnomon.pages.dev/_astro/110304.DaCwFw4L_BjVzg.webp",
-      "area": "6TH-14 Fitcher’s Bird Hard"
+      "image": "https://reverse1999-gnomon.pages.dev/_astro/110304.DaCwFw4L_BjVzg.webp"
     }
   ],
   "teamTierData": [
     {
-      "tier": "T0",
       "name": "Lingering Glow Prismatic Engine",
-      "archetype": "Lingering Glow",
-      "manifest": "Operatic Reflection",
+      "tier": "T0",
       "members": [
         "Beryl",
         "Lorentz Butterfly",
         "Isolde",
         "Marsha"
       ],
-      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 10/10",
-      "rotation": "Marsha and Isolde [E1] rapidly stack Burn & Lingering Glow on all enemies. Lorentz Butterfly rewrites Beryl's incantations to Rank 2/3 and raises the Glow cap, allowing Beryl to detonate multi-million prismatic beams."
+      "manifest": "Operatic Reflection",
+      "rotation": "Marsha and Isolde [E1] rapidly stack Burn & Lingering Glow on all enemies. Lorentz Butterfly rewrites Beryl's incantations to Rank 2/3 and raises the Glow cap, allowing Beryl to detonate multi-million prismatic beams.",
+      "archetype": "Lingering Glow",
+      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 10/10"
     },
     {
-      "tier": "T0",
       "name": "Dynamo Electric Array ('Dynamo Wheelchair')",
-      "archetype": "Dynamo",
-      "manifest": "Ashen Beast",
+      "tier": "T0",
       "members": [
         "Brume",
         "Charon",
         "Ulrich",
         "Enigma"
       ],
-      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 10/10",
-      "rotation": "Charon & Enigma accelerate the Pulsing Electric Field straight to Level 3 while granting +1 AP and card shuffles. Ulrich's turrets and Brume's electromagnetic sweeps trigger automatically every turn."
+      "manifest": "Ashen Beast",
+      "rotation": "Charon & Enigma accelerate the Pulsing Electric Field straight to Level 3 while granting +1 AP and card shuffles. Ulrich's turrets and Brume's electromagnetic sweeps trigger automatically every turn.",
+      "archetype": "Dynamo",
+      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 10/10"
     },
     {
-      "tier": "T0",
       "name": "Conduit Resonance Core",
-      "archetype": "Conduit",
-      "manifest": "Star of Misfortune",
+      "tier": "T0",
       "members": [
         "The Twins",
         "Hedone",
         "Rhiannon",
         "Everecho"
       ],
-      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 9.8/10",
-      "rotation": "Hedone and Everecho link enemies and allies into a Conduit network. Rhiannon grants The Twins an Extra Turn burst window, causing every single-target strike to echo twice across linked bosses."
+      "manifest": "Star of Misfortune",
+      "rotation": "Hedone and Everecho link enemies and allies into a Conduit network. Rhiannon grants The Twins an Extra Turn burst window, causing every single-target strike to echo twice across linked bosses.",
+      "archetype": "Conduit",
+      "modeRating": "Hadal Reveries: 10/10 • Mane's SSS+: 9.8/10"
     },
     {
-      "tier": "T0.5",
       "name": "Bloodtithe Crimson Domain",
-      "archetype": "Bloodtithe",
-      "manifest": "Mountain Ghost",
+      "tier": "T0.5",
       "members": [
         "Nautika",
         "Semmelweis",
         "Sentinel",
         "Rubuska"
       ],
-      "modeRating": "Hadal Reveries: 9.8/10 • Mane's SSS+: 9.5/10",
-      "rotation": "Place Rubuska in Slot 4. Semmelweis [E1] opens the Blood Domain to drain allied HP into the Bloodtithe Pool while Sentinel fires counter-volleys, setting up Nautika [E1] for massive HP-scaling finishers."
+      "manifest": "Mountain Ghost",
+      "rotation": "Place Rubuska in Slot 4. Semmelweis [E1] opens the Blood Domain to drain allied HP into the Bloodtithe Pool while Sentinel fires counter-volleys, setting up Nautika [E1] for massive HP-scaling finishers.",
+      "archetype": "Bloodtithe",
+      "modeRating": "Hadal Reveries: 9.8/10 • Mane's SSS+: 9.5/10"
     },
     {
-      "tier": "T0.5",
       "name": "Impromptu Inspiration Quartet",
-      "archetype": "Impromptu",
-      "manifest": "Star of Misfortune",
+      "tier": "T0.5",
       "members": [
         "Barcarola",
         "Paper Heron",
         "Matilda",
         "Kiperina"
       ],
-      "modeRating": "Hadal Reveries: 9.5/10 • Mane's SSS+: 9.5/10",
-      "rotation": "Paper Heron deploys her Eureka Array while Kiperina shields the crew. Matilda [E2] guarantees every end-of-round Impromptu musical barrage conducted by Barcarola critically strikes."
+      "manifest": "Star of Misfortune",
+      "rotation": "Paper Heron deploys her Eureka Array while Kiperina shields the crew. Matilda [E2] guarantees every end-of-round Impromptu musical barrage conducted by Barcarola critically strikes.",
+      "archetype": "Impromptu",
+      "modeRating": "Hadal Reveries: 9.5/10 • Mane's SSS+: 9.5/10"
     },
     {
-      "tier": "T1",
       "name": "Bullet & Ultimate Artillery",
-      "archetype": "Ultimate/Bullet",
-      "manifest": "Primitive Urge",
+      "tier": "T1",
       "members": [
         "Igor",
         "Moldir",
         "Lopera",
         "Narcissus"
       ],
-      "modeRating": "Hadal Reveries: 9.2/10 • Mane's SSS+: 9.4/10",
-      "rotation": "Lopera [E1] maintains permanent Crucible Bullets while Moldir [E1] and Narcissus feed endless Moxie and Ultimate Might into Igor's zero-AP artillery Ultimates."
+      "manifest": "Primitive Urge",
+      "rotation": "Lopera [E1] maintains permanent Crucible Bullets while Moldir [E1] and Narcissus feed endless Moxie and Ultimate Might into Igor's zero-AP artillery Ultimates.",
+      "archetype": "Ultimate/Bullet",
+      "modeRating": "Hadal Reveries: 9.2/10 • Mane's SSS+: 9.4/10"
     }
   ],
   "pullBanners": [
@@ -2307,127 +2322,127 @@
       "patch": "Version 3.8 Featured Rate-Up",
       "title": "Everecho (6★ Spirit) & Cornerstone",
       "rating": "CORE CONDUIT SUSTAIN — HIGH VALUE",
-      "ratingColor": "bg-amber-800 text-parchment-50",
+      "verdict": "If you run The Twins or Coppélia, Everecho is the dedicated Slot-4 sustainer that completes the T0 Conduit Core. Safe to stop at Portray 0 (P0).",
       "unitFocus": "Everecho (Conduit Healer/Buffer) • P0 Complete",
-      "verdict": "If you run The Twins or Coppélia, Everecho is the dedicated Slot-4 sustainer that completes the T0 Conduit Core. Safe to stop at Portray 0 (P0)."
+      "ratingColor": "bg-amber-800 text-parchment-50"
     },
     {
       "patch": "Version 3.9 Upcoming Debut (Foresight)",
       "title": "Hedone (6★ Mineral) & Narcissus (6★ Plant)",
       "rating": "META DEFINING ENABLERS",
-      "ratingColor": "bg-parchment-800 text-amber-300",
+      "verdict": "Hedone solves single-target boss encounters for Conduit teams by inflicting artificial Conduit echo nodes. Narcissus is the premier healer/buffer for Igor and Recoleta Ultimate teams.",
       "unitFocus": "Hedone (Conduit Sub-DPS) & Narcissus (Ultimate Sustain)",
-      "verdict": "Hedone solves single-target boss encounters for Conduit teams by inflicting artificial Conduit echo nodes. Narcissus is the premier healer/buffer for Igor and Recoleta Ultimate teams."
+      "ratingColor": "bg-parchment-800 text-amber-300"
     },
     {
       "patch": "High-Priority Reruns & True Limited Targets",
       "title": "Beryl • Brume • Lorentz Butterfly • Charon • Rhiannon",
       "rating": "T0 ENGINE ANCHORS — MUST PULL",
-      "ratingColor": "bg-amber-700 text-parchment-50",
+      "verdict": "New and returning Timekeepers should prioritize assembling either the Lingering Glow engine (Beryl + Lorentz Butterfly + Marsha) or the Dynamo Wheelchair (Brume + Charon + Enigma).",
       "unitFocus": "Lingering Glow & Dynamo Core Pieces",
-      "verdict": "New and returning Timekeepers should prioritize assembling either the Lingering Glow engine (Beryl + Lorentz Butterfly + Marsha) or the Dynamo Wheelchair (Brume + Charon + Enigma)."
+      "ratingColor": "bg-amber-700 text-parchment-50"
     },
     {
       "patch": "Ripples on the Water (Euphoria Custom Banner)",
       "title": "Isolde [E1] • Semmelweis [E1] • Nautika [E1] • Lopera [E1]",
       "rating": "100% GUARANTEED FIRST 6★ ON RIPPLES",
-      "ratingColor": "bg-parchment-700 text-parchment-50",
+      "verdict": "Unlike dual 'Yearning of the Water' banners (which should be avoided), the Euphoria 'Ripples on the Water' banner guarantees your selected 6★ on the first 6★ pull! Pick Isolde (for Glow) or Semmelweis (for Bloodtithe).",
       "unitFocus": "Select 1 Euphoria-Eligible Veteran",
-      "verdict": "Unlike dual 'Yearning of the Water' banners (which should be avoided), the Euphoria 'Ripples on the Water' banner guarantees your selected 6★ on the first 6★ pull! Pick Isolde (for Glow) or Semmelweis (for Bloodtithe)."
+      "ratingColor": "bg-parchment-700 text-parchment-50"
     }
   ],
   "walkthroughData": {
-    "reveries": {
-      "title": "Reveries in the Rain — Permanent Endgame (Hadal & Wailing Whirl)",
-      "reward": "Keys of Thought, Sprouts of Fantasy, Seeds of Inspiration & Clear Drops",
-      "tips": [
-        "Depths of Myth spans Euphotic (10m–100m), Mesopelagic (110m–200m), Bathypelagic (210m–300m), Abyssal (310m–400m), Hadal (410m–500m), and Wailing Whirl (600m–1000m).",
-        "Transition Zones require 3 to 4 fully built, non-overlapping teams! Level your Myth Manifests in 'Isle of Echoes' to Level 30 before attempting 400m+.",
-        "Never let your weekly Trance cap hit 8/8! Every Monday at 05:00 server time you receive +4 Trance to sweep for Euphoria materials."
-      ],
-      "bosses": [
-        {
-          "stage": "Hadal Zone 450m–500m & Wailing Whirl",
-          "boss": "The Abyssal Leviathan & Multi-Phase Arbiters",
-          "recommended": "Team 1: Lingering Glow (Beryl) • Team 2: Dynamo (Brume) • Team 3: Conduit or Bloodtithe",
-          "mechanic": "High-depth bosses gain 'Abyssal Hardening' against off-archetype chip damage. Pair your Myth Manifest's active skill with your Carry's burst turn to break their poise gauge."
-        },
-        {
-          "stage": "Vibrations of Volatility (Bi-Weekly / Seasonal Scoring)",
-          "boss": "3-Team Locked Boss Gauntlet",
-          "recommended": "Lock 12 Distinct Arcanists + 3 Myth Manifests",
-          "mechanic": "Equipment (Psychubes) and characters are locked per stage. Spread your 3 strongest sustains (Marsha, Enigma, Everecho/Rubuska) across the 3 nodes."
-        }
-      ]
-    },
-    "manes": {
-      "title": "Mane's Bulletin — SSS+ Boss Raids (30-Turn Endurance)",
-      "reward": "Gluttony (6★ Psychube Amplifier), Crystal Caskets, Sonorous Knells & Polarizers",
-      "tips": [
-        "With 3.x powerhouses, hitting 1,500,000+ (Red SSS+) takes only 12–15 turns if you match the boss's favored mechanic.",
-        "Save burst Ultimates and Rhiannon Extra Turns for the phase-break stun window when the boss takes +50% amplified damage.",
-        "Always buy the monthly Gluttony and Crystal Casket from the Mane's Bulletin exchange first."
-      ],
-      "bosses": [
-        {
-          "stage": "SSS+ Raid Boss I",
-          "boss": "Refracted Sun-Eater (Spirit Boss)",
-          "recommended": "Lingering Glow Engine (Beryl, Lorentz Butterfly, Isolde E1, Marsha)",
-          "mechanic": "Absorbs direct Physical hits, but takes +120% increased damage from Lingering Glow and Halo detonations. Beryl melts each health bar in 2 turns."
-        },
-        {
-          "stage": "SSS+ Raid Boss II",
-          "boss": "Overloaded Automaton Core (Star Boss)",
-          "recommended": "Dynamo Wheelchair (Brume, Charon, Ulrich, Enigma) or Bloodtithe",
-          "mechanic": "Discharges paralyzing static every 3 rounds. Enigma's Bastion cleanses the paralysis while Brume & Ulrich siphon its charge to stay at Electric Field Lv. 3."
-        }
-      ]
-    },
     "dusk": {
-      "title": "A Series of Dusks — Roguelike Expansion",
-      "reward": "Free 6★/5★ Garments, Wilderness Monuments, Gluttony & Clear Drops",
       "tips": [
         "Choose the 'Harmonic Catalyst' or 'Catalyst of Artefacts' horn at the start of high-difficulty Delirium runs.",
         "Collect 'Acoustica' relics for your main carry—Acoustica artefacts grant special rule-breaking passives to specific 6★ Arcanists.",
         "If you lack a 3.x unit, use the 'Assist Recruitment' nodes on Floor 1 to borrow a max-portray Beryl or Brume!"
       ],
+      "title": "A Series of Dusks — Roguelike Expansion",
       "bosses": [
         {
-          "stage": "Delirium 20 Final Ending",
           "boss": "The Sovereign of Dusks",
-          "recommended": "Dynamo or Lingering Glow + Medication/Dagger Artefact Synergies",
-          "mechanic": "Strips buffs from Slot 1 at the start of Phase 2. Place your primary carry in Slot 2 or carry a 'Silver Pendant' artefact for permanent Immunity."
+          "stage": "Delirium 20 Final Ending",
+          "mechanic": "Strips buffs from Slot 1 at the start of Phase 2. Place your primary carry in Slot 2 or carry a 'Silver Pendant' artefact for permanent Immunity.",
+          "recommended": "Dynamo or Lingering Glow + Medication/Dagger Artefact Synergies"
         },
         {
-          "stage": "Hidden Boss Route",
           "boss": "Echo of the First Storm",
-          "recommended": "Bloodtithe (Nautika E1 + Semmelweis E1) + Vitality Relics",
-          "mechanic": "Scales damage with your max HP artefacts; Bloodtithe teams reach 40,000+ HP in Dusk runs and one-shot the boss."
+          "stage": "Hidden Boss Route",
+          "mechanic": "Scales damage with your max HP artefacts; Bloodtithe teams reach 40,000+ HP in Dusk runs and one-shot the boss.",
+          "recommended": "Bloodtithe (Nautika E1 + Semmelweis E1) + Vitality Relics"
         }
-      ]
+      ],
+      "reward": "Free 6★/5★ Garments, Wilderness Monuments, Gluttony & Clear Drops"
     },
     "limbo": {
-      "title": "Artificial Somnambulism / Lucidscape (Bi-Weekly Clear Drops)",
-      "reward": "600+ Clear Drops & Oneiric Fluid every 1st and 16th of the month",
       "tips": [
         "Use the Express Clear feature to skip straight to the final stages if you 3-starred the previous cycle.",
         "Clear within 12 rounds on both halves for full stars; AoE engines like Dynamo (Brume/Lucy) and Conduit (The Twins) clear most waves in 2–3 rounds.",
         "Spend your Oneiric Fluid in the Somnambulism shop on Sinister Shadows and Thoughts in Entirety."
       ],
+      "title": "Artificial Somnambulism / Lucidscape (Bi-Weekly Clear Drops)",
       "bosses": [
         {
-          "stage": "Final Stage — Upper Half",
           "boss": "Dual Elite Afflatus Vanguard",
-          "recommended": "Conduit Core (The Twins, Coppélia, Hedone, Everecho)",
-          "mechanic": "Two linked bosses revive each other unless defeated on the same round. Conduit splash damage guarantees both HP bars drop simultaneously."
+          "stage": "Final Stage — Upper Half",
+          "mechanic": "Two linked bosses revive each other unless defeated on the same round. Conduit splash damage guarantees both HP bars drop simultaneously.",
+          "recommended": "Conduit Core (The Twins, Coppélia, Hedone, Everecho)"
         },
         {
-          "stage": "Final Stage — Lower Half",
           "boss": "Fortified Crimson Colossus",
-          "recommended": "Lingering Glow (Beryl) or Impromptu Quartet (Barcarola)",
-          "mechanic": "High Reality DEF shield; bypass with Mental/Genesis damage or multi-hit Impromptu Inspiration barrages."
+          "stage": "Final Stage — Lower Half",
+          "mechanic": "High Reality DEF shield; bypass with Mental/Genesis damage or multi-hit Impromptu Inspiration barrages.",
+          "recommended": "Lingering Glow (Beryl) or Impromptu Quartet (Barcarola)"
         }
-      ]
+      ],
+      "reward": "600+ Clear Drops & Oneiric Fluid every 1st and 16th of the month"
+    },
+    "manes": {
+      "tips": [
+        "With 3.x powerhouses, hitting 1,500,000+ (Red SSS+) takes only 12–15 turns if you match the boss's favored mechanic.",
+        "Save burst Ultimates and Rhiannon Extra Turns for the phase-break stun window when the boss takes +50% amplified damage.",
+        "Always buy the monthly Gluttony and Crystal Casket from the Mane's Bulletin exchange first."
+      ],
+      "title": "Mane's Bulletin — SSS+ Boss Raids (30-Turn Endurance)",
+      "bosses": [
+        {
+          "boss": "Refracted Sun-Eater (Spirit Boss)",
+          "stage": "SSS+ Raid Boss I",
+          "mechanic": "Absorbs direct Physical hits, but takes +120% increased damage from Lingering Glow and Halo detonations. Beryl melts each health bar in 2 turns.",
+          "recommended": "Lingering Glow Engine (Beryl, Lorentz Butterfly, Isolde E1, Marsha)"
+        },
+        {
+          "boss": "Overloaded Automaton Core (Star Boss)",
+          "stage": "SSS+ Raid Boss II",
+          "mechanic": "Discharges paralyzing static every 3 rounds. Enigma's Bastion cleanses the paralysis while Brume & Ulrich siphon its charge to stay at Electric Field Lv. 3.",
+          "recommended": "Dynamo Wheelchair (Brume, Charon, Ulrich, Enigma) or Bloodtithe"
+        }
+      ],
+      "reward": "Gluttony (6★ Psychube Amplifier), Crystal Caskets, Sonorous Knells & Polarizers"
+    },
+    "reveries": {
+      "tips": [
+        "Depths of Myth spans Euphotic (10m–100m), Mesopelagic (110m–200m), Bathypelagic (210m–300m), Abyssal (310m–400m), Hadal (410m–500m), and Wailing Whirl (600m–1000m).",
+        "Transition Zones require 3 to 4 fully built, non-overlapping teams! Level your Myth Manifests in 'Isle of Echoes' to Level 30 before attempting 400m+.",
+        "Never let your weekly Trance cap hit 8/8! Every Monday at 05:00 server time you receive +4 Trance to sweep for Euphoria materials."
+      ],
+      "title": "Reveries in the Rain — Permanent Endgame (Hadal & Wailing Whirl)",
+      "bosses": [
+        {
+          "boss": "The Abyssal Leviathan & Multi-Phase Arbiters",
+          "stage": "Hadal Zone 450m–500m & Wailing Whirl",
+          "mechanic": "High-depth bosses gain 'Abyssal Hardening' against off-archetype chip damage. Pair your Myth Manifest's active skill with your Carry's burst turn to break their poise gauge.",
+          "recommended": "Team 1: Lingering Glow (Beryl) • Team 2: Dynamo (Brume) • Team 3: Conduit or Bloodtithe"
+        },
+        {
+          "boss": "3-Team Locked Boss Gauntlet",
+          "stage": "Vibrations of Volatility (Bi-Weekly / Seasonal Scoring)",
+          "mechanic": "Equipment (Psychubes) and characters are locked per stage. Spread your 3 strongest sustains (Marsha, Enigma, Everecho/Rubuska) across the 3 nodes.",
+          "recommended": "Lock 12 Distinct Arcanists + 3 Myth Manifests"
+        }
+      ],
+      "reward": "Keys of Thought, Sprouts of Fantasy, Seeds of Inspiration & Clear Drops"
     }
   },
   "homePatchNewCharIds": [
@@ -2448,8 +2463,8 @@
     {
       "code": "RAID I • SPIRIT AFFLATUS",
       "name": "Refracted Sun-Eater",
-      "favoredEngine": "Lingering Glow & Burn Detonation",
       "weakness": "Takes +120% amplified damage from Lingering Glow beams and loses 15% Mental DEF per Halo stack.",
+      "favoredEngine": "Lingering Glow & Burn Detonation",
       "dangerMechanic": "Solar Carapace absorbs direct Physical chip hits until broken by 5+ stacks of Burn or Lingering Glow.",
       "recommendedIds": [
         "beryl",
@@ -2461,8 +2476,8 @@
     {
       "code": "RAID II • STAR AFFLATUS",
       "name": "Overloaded Automaton Core",
-      "favoredEngine": "Dynamo Electric Array & Conduit",
       "weakness": "Pulsing Electric Field Lv. 3 siphons the boss's static barrier and stuns its auxiliary turrets for 2 rounds.",
+      "favoredEngine": "Dynamo Electric Array & Conduit",
       "dangerMechanic": "Inflicts AoE Paralyzing Static every 3 turns; bring a cleanser or Bastion shielder to negate control.",
       "recommendedIds": [
         "brume",
@@ -2474,8 +2489,8 @@
     {
       "code": "RAID III • MINERAL AFFLATUS",
       "name": "The Crimson Sovereign",
-      "favoredEngine": "Bloodtithe Domain & Conduit Splash",
       "weakness": "Entering the phase-break window multiplies HP-sacrifice Bloodtithe finishers and Conduit echo splashes by 1.8x.",
+      "favoredEngine": "Bloodtithe Domain & Conduit Splash",
       "dangerMechanic": "Applies Bleed & Max HP corrosion to Slot 1; counter with Slot-4 Rubuska or Everecho's teamwide link heal.",
       "recommendedIds": [
         "nautika",
@@ -2487,7 +2502,7 @@
   ],
   "pageText": {
     "title": "POCKET SUITCASE | Ver 3.8–3.9 Timekeeper's Companion & Guide",
-    "heroHeading": "Welcome to <span class=\"text-parchment-200 underline decoration-parchment-400 decoration-2 underline-offset-4\">POCKET SUITCASE</span>",
-    "heroQuote": "\"Welcome to POCKET SUITCASE, a website buit to guide fellow timekeepers by helping them to build/suggests characters and team, preparing them from early to late game contents.\""
+    "heroQuote": "\"Welcome to POCKET SUITCASE, a website buit to guide fellow timekeepers by helping them to build/suggests characters and team, preparing them from early to late game contents.\"",
+    "heroHeading": "Welcome to <span class=\"text-parchment-200 underline decoration-parchment-400 decoration-2 underline-offset-4\">POCKET SUITCASE</span>"
   }
 }

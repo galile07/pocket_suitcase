@@ -113,7 +113,7 @@
         if (!Array.isArray(rows) || rows.length === 0 || !rows[0].content) return null;
         return rows[0].content;
     }
-    async function sbSave(data) {
+    async function sbSave(data, opts) {
         // With auth enabled, saves must carry the logged-in user's token —
         // the database's RLS policies reject the plain anon key.
         let authHeader = null;
@@ -122,10 +122,11 @@
             if (!token) throw new Error('Not logged in — sign in to the editor first');
             authHeader = 'Bearer ' + token;
         }
+        const keepalive = !!(opts && opts.keepalive);
         const doFetch = () => {
             const headers = sbHeaders({ 'Prefer': 'resolution=merge-duplicates,return=representation' });
             if (authHeader) headers.Authorization = authHeader;
-            return fetch(sbBase(), { method: 'POST', headers: headers, body: JSON.stringify({ id: C.supabase.rowId, content: data }) });
+            return fetch(sbBase(), { method: 'POST', headers: headers, body: JSON.stringify({ id: C.supabase.rowId, content: data }), keepalive: keepalive });
         };
         let res = await doFetch();
         if (res.status === 401 && authEnabled()) {
@@ -172,8 +173,8 @@
         const out = await res.json();
         return out && out.record ? out.record : null;
     }
-    async function jbSave(data) {
-        const res = await fetch(jbBase(), { method: 'PUT', headers: jbHeaders(), body: JSON.stringify(data) });
+    async function jbSave(data, opts) {
+        const res = await fetch(jbBase(), { method: 'PUT', headers: jbHeaders(), body: JSON.stringify(data), keepalive: !!(opts && opts.keepalive) });
         if (!res.ok) throw new Error('JSONBin save failed (HTTP ' + res.status + ') ' + (await res.text()));
         return true;
     }
@@ -186,9 +187,9 @@
             if (!isConfigured()) return Promise.resolve(null);
             return C.provider === 'supabase' ? sbLoad() : jbLoad();
         },
-        save: function (data) {
+        save: function (data, opts) {
             if (!isConfigured()) return Promise.reject(new Error('No cloud database configured in config.js'));
-            return C.provider === 'supabase' ? sbSave(data) : jbSave(data);
+            return C.provider === 'supabase' ? sbSave(data, opts) : jbSave(data, opts);
         }
     };
 

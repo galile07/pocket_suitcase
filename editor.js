@@ -87,10 +87,48 @@ function markDirty(){
     b.classList.remove('hidden');
     clearTimeout(markDirty._t);
     markDirty._t = setTimeout(persist, 600);
+    scheduleAutoSave();
 }
 function persist(){
-    try { localStorage.setItem('ps-editor-session', JSON.stringify({ raw:RAW, doc:DOC, page:PAGE, pt:PT, present:PRESENT, file:FILENAME })); }
+    try { localStorage.setItem('ps-editor-session', JSON.stringify({ raw:RAW, doc:DOC, page:PAGE, pt:PT, present:PRESENT, file:FILENAME, api:API_MODE, dirty:DIRTY, changes:CHANGES })); }
     catch(e){ /* storage full */ }
+}
+
+/* ============================================================
+   AUTO-SAVE — edits are written back to the cloud + local
+   server 1.5s after you stop typing, and flushed again when
+   the tab is hidden or closed, so data never resets on refresh.
+   ============================================================ */
+function scheduleAutoSave(){
+    clearTimeout(scheduleAutoSave._t);
+    scheduleAutoSave._t = setTimeout(autoSave, 1500);
+}
+async function autoSave(){
+    if (!API_MODE || !DIRTY) return;
+    await saveToApi({ silent:true });
+}
+function flushSave(){
+    if (!API_MODE || !DIRTY) return;
+    clearTimeout(scheduleAutoSave._t);
+    clearTimeout(markDirty._t);
+    persist();
+    const payload = Object.assign({}, DOC, { pageText: PAGE });
+    const body = JSON.stringify(payload);
+    if (navigator.sendBeacon){
+        for (const ep of API_ENDPOINTS){
+            try { if (navigator.sendBeacon(ep, new Blob([body], { type:'application/json' }))) break; } catch(e){}
+        }
+    }
+    if (CLOUD_READY){
+        try { PSStore.save(payload, { keepalive:true }); } catch(e){}
+    }
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flushSave(); });
+window.addEventListener('pagehide', flushSave);
+function saveToast(msg, silent){
+    if (!silent){ toast(msg); return; }
+    const now = Date.now();
+    if (!saveToast._last || now - saveToast._last > 8000){ saveToast._last = now; toast(msg); }
 }
 
 /* ============================================================
@@ -213,7 +251,16 @@ async function loadFromApi(){
     }
     return false;
 }
-async function saveToApi(){
+function saveToApi(opts){
+    // Serialize saves so a manual save and an auto-save can't race each other.
+    const run = () => doSaveToApi(opts);
+    const p = (saveToApi._p || Promise.resolve()).then(run, run);
+    saveToApi._p = p.catch(function(){});
+    return saveToApi._p;
+}
+async function doSaveToApi(opts){
+    const silent = !!(opts && opts.silent);
+    const stamp = CHANGES;
     const payload = Object.assign({}, DOC, { pageText: PAGE });
     const problems = [];
     let cloudSaved = false, localSaved = false;
@@ -243,21 +290,28 @@ async function saveToApi(){
     }
 
     if (CLOUD_READY && !cloudSaved){
-        toast('Cloud save FAILED — ' + (problems[0] || 'unknown error') + (localSaved ? ' (local data.json saved)' : ''));
+        saveToast('Cloud save FAILED — ' + (problems[0] || 'unknown error') + (localSaved ? ' (local data.json saved)' : ''), silent);
         return false;
     }
-    DIRTY = false; CHANGES = 0;
-    $('#dirty-badge').classList.add('hidden');
+    if (CHANGES !== stamp){
+        // Edits arrived while the save was in flight — keep the badge and
+        // schedule another auto-save so nothing typed in between is lost.
+        scheduleAutoSave();
+    } else {
+        DIRTY = false; CHANGES = 0;
+        $('#dirty-badge').classList.add('hidden');
+    }
     persist();
-    if (cloudSaved){
-        toast('Saved to ' + PSStore.label() + (localSaved ? ' + local data.json' : '') + ' — refresh the guide to see changes');
-        return true;
+    if (!silent){
+        if (cloudSaved){
+            toast('Saved to ' + PSStore.label() + (localSaved ? ' + local data.json' : '') + ' — refresh the guide to see changes');
+        } else if (localSaved){
+            toast('Saved to data.json — refresh the guide to see changes');
+        }
     }
-    if (localSaved){
-        toast('Saved to data.json — refresh the guide to see changes');
-        return true;
-    }
-    toast('Could not reach any data source — check config.js or start "node server.js"');
+    if (cloudSaved) return true;
+    if (localSaved) return true;
+    saveToast('Could not reach any data source — check config.js or start "node server.js"', silent);
     return false;
 }
 async function openFile(){
@@ -1399,26 +1453,56 @@ $('#btn-logout').addEventListener('click', () => {
         try { authed = await PSAuth.restore(); } catch (e){ authed = false; }
         if (!authed){ showLogin(); return; }
     }
+    // Capture the previous session BEFORE loadFromApi() overwrites it.
+    let prior = null;
+    try { prior = JSON.parse(localStorage.getItem('ps-editor-session') || 'null'); } catch (e){}
     // 1. Prefer live data (cloud database from config.js, then local server)
     const apiOk = await loadFromApi();
     if (apiOk){
+        // 1b. Recover edits that never reached a data source (save failed or
+        //     the tab closed before the auto-save fired).
+        if (prior && prior.doc && prior.dirty === true){
+            const restore = confirm('You have unsaved changes from your last visit that were not saved to the database. Restore them?');
+            if (restore){
+                DOC = prior.doc;
+                PAGE = prior.page || PAGE;
+                PRESENT = prior.present || PRESENT;
+                PT = { title:{ok:true,value:PAGE.title}, heroHeading:{ok:true,value:PAGE.heroHeading}, heroQuote:{ok:true,value:PAGE.heroQuote} };
+                DIRTY = true; CHANGES = prior.changes || 1;
+                const b = $('#dirty-badge');
+                b.textContent = CHANGES + ' unsaved';
+                b.classList.remove('hidden');
+                $('#restore-banner').classList.remove('hidden');
+                persist();
+                render();
+                scheduleAutoSave();
+            }
+        }
         renderNav();
         lucide.createIcons();
         return;
     }
     // 2. Fall back to a restored browser session (offline editing)
     let restored = false;
-    try {
-        const s = JSON.parse(localStorage.getItem('ps-editor-session') || 'null');
-        if (s && s.raw){
-            RAW = s.raw; DOC = s.doc || {}; PAGE = s.page || PAGE; PT = s.pt || {}; PRESENT = s.present || [];
-            FILENAME = s.file || '';
-            API_MODE = false;
-            restored = true;
+    if (prior && (prior.raw || prior.doc)){
+        RAW = prior.raw || null;
+        DOC = prior.doc || {};
+        PAGE = prior.page || PAGE; PT = prior.pt || {}; PRESENT = prior.present || [];
+        FILENAME = prior.file || '';
+        API_MODE = prior.raw ? false : (prior.api !== false);
+        DIRTY = prior.dirty === true; CHANGES = DIRTY ? (prior.changes || 1) : 0;
+        restored = true;
+        if (DIRTY){
+            const b = $('#dirty-badge');
+            b.textContent = CHANGES + ' unsaved';
+            b.classList.remove('hidden');
+            $('#file-status').textContent = (FILENAME || 'session') + ' · restored (unsaved changes pending — auto-save will retry)';
+        } else {
             $('#file-status').textContent = (FILENAME || 'session') + ' · restored (unsaved)';
-            $('#restore-banner').classList.remove('hidden');
         }
-    } catch (e){}
+        $('#restore-banner').classList.remove('hidden');
+        if (DIRTY) scheduleAutoSave();
+    }
     if (!restored){
         // keep section renderers safe to explore before a file is loaded
         for (const k of VARS) if (DOC[k] === undefined) DOC[k] = (k === 'walkthroughData' ? {} : []);

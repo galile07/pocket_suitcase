@@ -20,7 +20,8 @@ Static web app (Reverse: 1999 game companion) with a zero-dependency local dev s
 ## Data flow
 
 - Editor loads: cloud (`PSStore.load()`) first, then `GET /api/data` endpoints as fallback.
-- Editor saves: cloud save then `POST /api/data` (server keeps `data.backup.json`).
+- Editor saves automatically 1.5s after the last edit (cloud save then `POST /api/data`; server keeps `data.backup.json`) and flushes on tab hide/close via `sendBeacon`/`keepalive` fetch. The Save button still works for manual saves.
+- If a save never reached any data source, the localStorage session (`ps-editor-session`, `dirty: true`) is offered for restore on next boot.
 - Guide reads `GET /api/data` on every page load (served with `Cache-Control: no-store`).
 - Editor also writes a localStorage session (`ps-editor-session`) as offline restore.
 
