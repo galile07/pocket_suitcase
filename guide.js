@@ -420,7 +420,10 @@
                 const activeTier = c.tier;
                 const tierColor = activeTier === 'T0' ? 'bg-amber-800 text-parchment-50 border-amber-500' :
                                   activeTier === 'T0.5' ? 'bg-parchment-800 text-parchment-50 border-parchment-500' :
-                                  'bg-parchment-600 text-parchment-50 border-parchment-400';
+                                  activeTier === 'T1' ? 'bg-parchment-700 text-parchment-50 border-parchment-500' :
+                                  activeTier === 'T2' ? 'bg-parchment-600 text-parchment-50 border-parchment-400' :
+                                  activeTier === 'F' ? 'bg-red-900 text-parchment-50 border-red-700' :
+                                  'bg-parchment-500 text-parchment-50 border-parchment-400';
                 return `
                     <div id="char-card-${c.id}" onclick="openCharModal('${c.id}')" class="bg-parchment-50 hover:bg-parchment-100 rounded-2xl p-5 suitcase-border cursor-pointer transition-all flex flex-col justify-between group">
                         <div class="flex gap-4">

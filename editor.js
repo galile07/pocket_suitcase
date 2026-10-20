@@ -20,7 +20,7 @@ const sel = { characters:0, teams:0, banners:0, manifests:0, nodes:0, bosses:0, 
 let wfMode = 'reveries';
 
 const AFFLATUS = ['Star','Plant','Mineral','Beast','Spirit','Intellect'];
-const TIERS = ['T0','T0.5','T1','T2'];
+const TIERS = ['T0','T0.5','T1','T2','T3','T4','T5','F'];
 const ARCHETYPES = ['Lingering Glow','Dynamo','Conduit','Bloodtithe','Impromptu','Ultimate/Bullet','Extra Action / Universal']; // team tierlist section only
 const SUFFIXES = ['DPS','Support','Sustain','Sub-DPS'];
 const DMG_TYPES = ['Mental','Reality'];
