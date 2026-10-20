@@ -190,6 +190,7 @@ const TIERS = ['T0','T0.5','T1','T2'];
 const ARCHETYPES = ['Lingering Glow','Dynamo','Conduit','Bloodtithe','Impromptu','Ultimate/Bullet','Extra Action / Universal']; // team tierlist section only
 const SUFFIXES = ['DPS','Support','Sustain','Sub-DPS'];
 const DMG_TYPES = ['Mental','Reality'];
+const EUPH_TYPES = ['E1','E2'];
 const TAGS = ['General','Dynamo','Ritual','Follow Up','Poison','Lingering Glow','Bloodtithe','Rank Up','Inspiration','Conduit','Bullet','Shift','Full Pursuit','Counter Assassination','Negative Status','Burn','Halo','Counter','Eureka','HP Sacrifice','All Rounder'];
 const TAG_REL = {
     'burn': ['Lingering Glow'],
@@ -541,7 +542,17 @@ function validate(){
         if (!AFFLATUS.includes(c.afflatus)) warns.push(`${c.name || c.id}: afflatus "${c.afflatus}" is not a standard value.`);
         if (c.dmgType && !DMG_TYPES.includes(c.dmgType)) warns.push(`${c.name || c.id}: damage type "${c.dmgType}" is not Mental/Reality.`);
         (c.suffix || []).forEach(s => { if (!SUFFIXES.includes(s)) warns.push(`${c.name || c.id}: suffix "${s}" is not one of ${SUFFIXES.join('/')}.`); });
-        if (c.hasEuphoria && !((c.euphoria && c.euphoria.tag) || '')) warns.push(`${c.name || c.id}: Euphoria on but euphoria tag is empty.`);
+        if (c.hasEuphoria && ((c.euphoriaPaths && c.euphoriaPaths.length) ? false : true)){
+            // check legacy
+            if (!((c.euphoria && c.euphoria.tag) || '')) warns.push(`${c.name || c.id}: Euphoria on but euphoria tag is empty.`);
+        }
+        if (c.hasEuphoria && Array.isArray(c.euphoriaPaths)){
+            if (!c.euphoriaPaths.length) warns.push(`${c.name || c.id}: Euphoria on but no euphoria paths added.`);
+            c.euphoriaPaths.forEach((ep, ei) => {
+                if (!ep.type && !ep.tag) warns.push(`${c.name || c.id}: Euphoria path ${ei+1} missing type/tag (E1/E2).`);
+                if (!EUPH_TYPES.includes(ep.type || ep.tag)) warns.push(`${c.name || c.id}: Euphoria path ${ei+1} should be E1 or E2.`);
+            });
+        }
         if (!c.tier) warns.push(`${c.name || c.id}: no tier.`);
     });
     chars.forEach(c => {
@@ -715,17 +726,30 @@ const SECTIONS = {
             </div>`;
 
             const euphOn = !!getPath(p + '.hasEuphoria');
-            const ep = p + '.euphoria';
+            const paths = getPath(p + '.euphoriaPaths') || [];
+            const euphPathCard = (epath, i) => {
+                const ep = p + '.euphoriaPaths.' + i;
+                return `<div class="border border-parchment-300 rounded-xl p-4 space-y-3 bg-parchment-100/60">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-[11px] font-mono font-bold uppercase tracking-widest text-parchment-600">Euphoria Path ${i + 1}</span>
+                        <button type="button" class="btn btn-red !py-1 !px-2" data-act="euph-del" data-idx="${i}"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+                    </div>
+                    ${grid(
+                        fSelect('Type (E1/E2)', ep + '.type', EUPH_TYPES) +
+                        fSelect('Suffix', ep + '.suffix', ['', ...SUFFIXES]) +
+                        fInput('Euphoria Tag', ep + '.tag', { ph:'E1' }) +
+                        fInput('Image (URL)', ep + '.image', { wide:true, ph:'https://…' }) +
+                        (epath.image ? `<div class="sm:col-span-2"><img src="${esc(epath.image)}" alt="" class="h-16 rounded-lg border border-parchment-300 bg-parchment-100 object-contain" onerror="this.style.display='none'"></div>` : '')
+                    )}
+                    ${grid(fArea('Rank 1', ep + '.rank1', { rows:2 }) + fArea('Rank 2', ep + '.rank2', { rows:2 }) + fArea('Rank 3', ep + '.rank3', { rows:2 }) + fArea('Rank 4', ep + '.rank4', { rows:2 }))}
+                </div>`;
+            };
             const euphCard = `<div class="card p-5 space-y-3.5">${sub('Euphoria')}
                 ${fCheck('Euphoria available', p + '.hasEuphoria')}
-                ${euphOn ? `<div class="grid sm:grid-cols-2 gap-4">
-                    ${fInput('Euphoria Image (URL)', ep + '.image', { wide:true, ph:'https://…' })}
-                    ${fInput('Euphoria Tag', ep + '.tag', { ph:'E1' })}
-                    ${fInput('Euphoria Suffix', ep + '.suffix', { ph:'e.g. Euphoria DPS' })}
-                    ${fArea('Rank 1', ep + '.rank1', { wide:false, rows:2, ph:'What this rank unlocks…' })}
-                    ${fArea('Rank 2', ep + '.rank2', { wide:false, rows:2 })}
-                    ${fArea('Rank 3', ep + '.rank3', { wide:false, rows:2 })}
-                    ${fArea('Rank 4', ep + '.rank4', { wide:false, rows:2 })}
+                ${euphOn ? `<div class="space-y-3">
+                    ${paths.length ? paths.map(euphPathCard).join('') : '<p class="text-xs text-parchment-500 italic">No euphoria paths yet — add E1 or E2.</p>'}
+                    <button type="button" class="btn btn-ghost" data-act="euph-add"><i data-lucide="plus" class="w-4 h-4"></i> Add Euphoria Path (E1/E2)</button>
+                    <p class="text-[11px] text-parchment-600">Some characters have both E1 and E2 with different roles/suffixes. The public guide shows all added paths.</p>
                 </div>` : `<div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-parchment-600">Euphoria is <b>off</b> — the public site shows <span class="font-mono text-parchment-800">"no euphoria. stay tuned."</span> for this character.</div>`}
             </div>`;
 
@@ -1151,7 +1175,7 @@ function newCharacter(){
 function ensureCharShape(c){
     const d = {
         dmgType:'', image:'', suffix:[], tags:[], bound:[], hasEuphoria:false,
-        euphoria:{ image:'', tag:'', suffix:'', rank1:'', rank2:'', rank3:'', rank4:'' },
+        euphoriaPaths:[],
         materialPlan:{
             currency:{ dust:'', sharpodonty:'' }, insights:[],
             resL5:{ sharpodonty:'', mats:[] }, resL10:{ sharpodonty:'', mats:[] },
@@ -1166,6 +1190,33 @@ function ensureCharShape(c){
         }
     }
     ['suffix','tags','bound'].forEach(k => { if (!Array.isArray(c[k])) c[k] = []; });
+    // migrate old single euphoria object
+    if (!Array.isArray(c.euphoriaPaths)){
+        if (c.euphoria && typeof c.euphoria === 'object' && (c.euphoria.tag || c.euphoria.rank1 || c.euphoria.rank2 || c.euphoria.rank3 || c.euphoria.rank4)){
+            c.euphoriaPaths = [{
+                type: c.euphoria.tag || 'E1',
+                tag: c.euphoria.tag || 'E1',
+                suffix: c.euphoria.suffix || '',
+                image: c.euphoria.image || '',
+                rank1: c.euphoria.rank1 || '',
+                rank2: c.euphoria.rank2 || '',
+                rank3: c.euphoria.rank3 || '',
+                rank4: c.euphoria.rank4 || ''
+            }];
+        } else {
+            c.euphoriaPaths = [];
+        }
+    }
+    if (c.hasEuphoria == null) c.hasEuphoria = c.euphoriaPaths.length > 0;
+    if (!Array.isArray(c.euphoriaPaths)) c.euphoriaPaths = [];
+    // normalize paths
+    c.euphoriaPaths = c.euphoriaPaths.map(p => {
+        const np = { type:'E1', tag:'E1', suffix:'', image:'', rank1:'', rank2:'', rank3:'', rank4:'', ...(p||{}) };
+        if (!EUPH_TYPES.includes(np.type)) np.type = np.tag && EUPH_TYPES.includes(np.tag) ? np.tag : 'E1';
+        np.tag = np.type;
+        return np;
+    });
+    c.hasEuphoria = c.euphoriaPaths.length > 0;
     return c;
 }
 function clone(o){ return JSON.parse(JSON.stringify(o)); }
@@ -1182,21 +1233,33 @@ document.addEventListener('input', e => {
         markDirty();
         return;
     }
-    if (!el.dataset.path) return;
-    let v;
-    if (el.type === 'checkbox') v = el.checked;
-    else if (el.dataset.kind === 'lines') v = el.value.split('\n');
-    else if (el.dataset.num) v = el.value === '' ? '' : Number(el.value);
-    else v = el.value;
-    setPath(el.dataset.path, v);
-    markDirty();
-    if (el.type === 'checkbox' && /hasEuphoria$/.test(el.dataset.path)){ render(); return; }
-    refreshList();
+    if (el.dataset.path){
+        let v = el.value;
+        if (el.dataset.num !== undefined && v !== '') v = isNaN(Number(v)) ? v : Number(v);
+        setPath(el.dataset.path, v);
+        if (typeof el.dataset.path === 'string' && el.dataset.path.includes('euphoriaPaths') && el.dataset.path.endsWith('.type')){
+            const p = el.dataset.path.replace(/\.type$/, '');
+            setPath(p + '.tag', v);
+        }
+        markDirty();
+    }
 });
 document.addEventListener('change', e => {
     const el = e.target;
     if (!DOC || !el.dataset) return;
-    if (el.dataset.act === 'raw-select'){ window._rawKey = el.value; render(); }
+    if (el.dataset.act === 'raw-select'){ window._rawKey = el.value; render(); return; }
+    if (el.dataset.path){
+        let v = el.type === 'checkbox' ? el.checked : (el.value === '' ? '' : el.value);
+        if (el.dataset.num !== undefined && v !== '') v = isNaN(Number(v)) ? v : Number(v);
+        setPath(el.dataset.path, v);
+        if (typeof el.dataset.path === 'string' && el.dataset.path.includes('euphoriaPaths') && el.dataset.path.endsWith('.type')){
+            const p = el.dataset.path.replace(/\.type$/, '');
+            setPath(p + '.tag', v);
+            markDirty(); render();
+            return;
+        }
+        markDirty(); render();
+    }
 });
 
 document.addEventListener('click', async e => {
@@ -1284,6 +1347,19 @@ document.addEventListener('click', async e => {
         case act === 'bound-del': {
             const arr = getPath('characters.' + sel.characters + '.bound');
             if (arr && idx !== null){ arr.splice(idx, 1); markDirty(); render(); }
+            break;
+        }
+
+        case act === 'euph-add': {
+            const arr = getPath('characters.' + sel.characters + '.euphoriaPaths');
+            if (!Array.isArray(arr)){ setPath('characters.' + sel.characters + '.euphoriaPaths', []); }
+            arr.push({ type:'E1', tag:'E1', suffix:'', image:'', rank1:'', rank2:'', rank3:'', rank4:'' });
+            getPath('characters.' + sel.characters).hasEuphoria = true;
+            markDirty(); render(); break;
+        }
+        case act === 'euph-del': {
+            const arr = getPath('characters.' + sel.characters + '.euphoriaPaths');
+            if (arr && idx !== null){ arr.splice(idx, 1); getPath('characters.' + sel.characters).hasEuphoria = arr.length > 0; markDirty(); render(); }
             break;
         }
 

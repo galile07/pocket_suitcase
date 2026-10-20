@@ -1195,7 +1195,12 @@
             }
             return out;
         }
-        function charEuphTag(c) { return c && c.hasEuphoria && c.euphoria ? (c.euphoria.tag || '') : ''; }
+        function charEuphTag(c) { 
+            if (!c || !c.hasEuphoria) return ''; 
+            if (Array.isArray(c.euphoriaPaths) && c.euphoriaPaths.length) return c.euphoriaPaths[0].type || c.euphoriaPaths[0].tag || '';
+            if (c.euphoria) return c.euphoria.tag || '';
+            return ''; 
+        }
         function tagStarsHtml(t) {
             const r = t.rating || 0;
             if (!r) return '';
@@ -1242,7 +1247,7 @@
                                     <div>
                                         <div class="flex flex-wrap items-center gap-1.5">
                                             <h3 class="font-serif font-bold text-lg text-parchment-900 group-hover:text-parchment-700 transition">${c.name}</h3>
-                                            ${c.hasEuphoria && includeEuphoria && charEuphTag(c) ? `<span class="px-1.5 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px] font-bold">Euphoria ${charEuphTag(c)}</span>` : ''}
+                                            ${c.hasEuphoria && includeEuphoria ? `<span class="px-1.5 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px] font-bold">Euphoria ${(Array.isArray(c.euphoriaPaths)&&c.euphoriaPaths[0]&&(c.euphoriaPaths[0].type||c.euphoriaPaths[0].tag))||(c.euphoria&&c.euphoria.tag)||''}</span>` : ''}
                                         </div>
                                         <div class="flex flex-wrap items-center gap-1.5 mt-1">
                                             <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
@@ -1304,20 +1309,27 @@
                 </div>` : '';
 
             let euphHtml;
-            if (c.hasEuphoria) {
-                const e = c.euphoria || {};
-                const ranks = [1,2,3,4].map(n => {
-                    const v = e['rank' + n];
-                    return v ? `<div class="text-xs"><span class="text-amber-300 font-mono font-bold text-[10px] uppercase tracking-wider">Rank ${n}</span><p class="text-parchment-100 leading-relaxed mt-0.5">${v}</p></div>` : '';
-                }).filter(Boolean).join('');
-                euphHtml = `
-                <div class="p-4 rounded-xl bg-parchment-800 text-parchment-50 space-y-3">
-                    <div class="flex flex-wrap items-center justify-between gap-3">
-                        <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold">Euphoria Kit${e.tag ? ' • ' + e.tag : ''}${e.suffix ? ' • ' + e.suffix : ''}</span>
-                        ${e.image ? `<img src="${e.image}" alt="" class="h-14 rounded-lg object-contain border border-parchment-600" onerror="this.remove()">` : ''}
-                    </div>
-                    ${ranks || '<p class="text-xs text-parchment-200 italic">Euphoria available — rank details not written yet.</p>'}
-                </div>`;
+            const euphPaths = Array.isArray(c.euphoriaPaths) ? c.euphoriaPaths : (c.euphoria ? [{
+                type: c.euphoria.tag || '', tag: c.euphoria.tag || '', suffix: c.euphoria.suffix || '', image: c.euphoria.image || '',
+                rank1: c.euphoria.rank1 || '', rank2: c.euphoria.rank2 || '', rank3: c.euphoria.rank3 || '', rank4: c.euphoria.rank4 || ''
+            }] : []);
+            if (c.hasEuphoria && euphPaths.length) {
+                const cards = euphPaths.map(e => {
+                    const ranks = [1,2,3,4].map(n => {
+                        const v = e['rank' + n];
+                        return v ? `<div class="text-xs"><span class="text-amber-300 font-mono font-bold text-[10px] uppercase tracking-wider">Rank ${n}</span><p class="text-parchment-100 leading-relaxed mt-0.5">${v}</p></div>` : '';
+                    }).filter(Boolean).join('');
+                    const tagLbl = e.type || e.tag || '';
+                    const sufLbl = e.suffix || '';
+                    return `<div class="p-4 rounded-xl bg-parchment-800 text-parchment-50 space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 font-bold">Euphoria ${tagLbl}${sufLbl ? ' • ' + sufLbl : ''}</span>
+                            ${e.image ? `<img src="${e.image}" alt="" class="h-14 rounded-lg object-contain border border-parchment-600" onerror="this.remove()">` : ''}
+                        </div>
+                        ${ranks || '<p class="text-xs text-parchment-200 italic">Euphoria available — rank details not written yet.</p>'}
+                    </div>`;
+                }).join('');
+                euphHtml = `<div class="space-y-3">${cards}</div>`;
             } else {
                 euphHtml = `
                 <div class="p-4 rounded-xl bg-parchment-100 border border-parchment-300 text-center">
