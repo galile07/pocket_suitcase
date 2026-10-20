@@ -1351,15 +1351,17 @@ document.addEventListener('click', async e => {
         }
 
         case act === 'euph-add': {
-            const arr = getPath('characters.' + sel.characters + '.euphoriaPaths');
-            if (!Array.isArray(arr)){ setPath('characters.' + sel.characters + '.euphoriaPaths', []); }
-            arr.push({ type:'E1', tag:'E1', suffix:'', image:'', rank1:'', rank2:'', rank3:'', rank4:'' });
-            getPath('characters.' + sel.characters).hasEuphoria = true;
+            const c = getPath('characters.' + sel.characters);
+            if (!c) break;
+            if (!Array.isArray(c.euphoriaPaths)) c.euphoriaPaths = [];
+            c.euphoriaPaths.push({ type:'E1', tag:'E1', suffix:'', image:'', rank1:'', rank2:'', rank3:'', rank4:'' });
+            c.hasEuphoria = true;
             markDirty(); render(); break;
         }
         case act === 'euph-del': {
-            const arr = getPath('characters.' + sel.characters + '.euphoriaPaths');
-            if (arr && idx !== null){ arr.splice(idx, 1); getPath('characters.' + sel.characters).hasEuphoria = arr.length > 0; markDirty(); render(); }
+            const c = getPath('characters.' + sel.characters);
+            const arr = c && c.euphoriaPaths;
+            if (arr && idx !== null){ arr.splice(idx, 1); if (c) c.hasEuphoria = arr.length > 0; markDirty(); render(); }
             break;
         }
 
