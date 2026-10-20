@@ -622,6 +622,13 @@ const SECTIONS = {
 
             const euphOn = !!getPath(p + '.hasEuphoria');
             const paths = getPath(p + '.euphoriaPaths') || [];
+            const mp = p + '.materialPlan';
+            const planRows = (base, list, target, kind) => (list || []).map((r, i) => `
+                <div class="flex gap-2 items-center">
+                    <input data-path="${base}.${i}.mat" list="mat-list" value="${esc(r.mat || '')}" class="inp flex-1" placeholder="Material">
+                    <input data-path="${base}.${i}.qty" value="${esc(r.qty || '')}" class="inp !w-24" placeholder="Qty">
+                    <button type="button" class="btn btn-red" data-act="plan-del" data-target="${target}" data-kind="${kind}" data-idx="${i}"><i data-lucide="x" class="w-4 h-4"></i></button>
+                </div>`).join('') || '<p class="text-xs text-parchment-500 italic">No materials listed.</p>';
             const euphPathCard = (epath, i) => {
                 const ep = p + '.euphoriaPaths.' + i;
                 return `<div class="border border-parchment-300 rounded-xl p-4 space-y-3 bg-parchment-100/60">
@@ -639,6 +646,11 @@ const SECTIONS = {
                         (epath.image ? `<div class="sm:col-span-2"><img src="${esc(epath.image)}" alt="" class="h-16 rounded-lg border border-parchment-300 bg-parchment-100 object-contain" onerror="this.style.display='none'"></div>` : '')
                     )}
                     ${grid(fArea('Rank 1', ep + '.rank1', { rows:2 }) + fArea('Rank 2', ep + '.rank2', { rows:2 }) + fArea('Rank 3', ep + '.rank3', { rows:2 }) + fArea('Rank 4', ep + '.rank4', { rows:2 }))}
+                    <div class="space-y-2">
+                        <span class="lbl !mb-0">Euphoria Materials</span>
+                        ${planRows(ep + '.materials', getPath(ep + '.materials') || [], 'euphoria:' + i, 'list')}
+                        <button type="button" class="btn btn-ghost" data-act="plan-add" data-target="euphoria:${i}" data-kind="list"><i data-lucide="plus" class="w-4 h-4"></i> Add material</button>
+                    </div>
                 </div>`;
             };
             const euphCard = `<div class="card p-5 space-y-3.5">${sub('Euphoria')}
@@ -670,13 +682,6 @@ const SECTIONS = {
                 ${bound.length < 3 ? `<button type="button" class="btn btn-ghost" data-act="bound-add"><i data-lucide="plus" class="w-4 h-4"></i> Add bound unit (${bound.length}/3)</button>` : '<p class="text-[11px] text-parchment-500 italic">Maximum 3 bound units.</p>'}
             </div>`;
 
-            const mp = p + '.materialPlan';
-            const planRows = (base, list, target, kind) => (list || []).map((r, i) => `
-                <div class="flex gap-2 items-center">
-                    <input data-path="${base}.${i}.mat" list="mat-list" value="${esc(r.mat || '')}" class="inp flex-1" placeholder="Material">
-                    <input data-path="${base}.${i}.qty" value="${esc(r.qty || '')}" class="inp !w-24" placeholder="Qty">
-                    <button type="button" class="btn btn-red" data-act="plan-del" data-target="${target}" data-kind="${kind}" data-idx="${i}"><i data-lucide="x" class="w-4 h-4"></i></button>
-                </div>`).join('') || '<p class="text-xs text-parchment-500 italic">No materials listed.</p>';
             const resBlock = (label, target) => `<div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300 space-y-2.5">
                 <div class="flex items-center justify-between gap-3">
                     <span class="lbl !mb-0">${label}</span>
@@ -699,9 +704,6 @@ const SECTIONS = {
                 ${resBlock('Resonance L10', 'resL10')}
                 ${resBlock('Resonance L15', 'resL15')}
                 ${resBlock('Resonance Pattern', 'resPattern')}
-                ${euphOn ? `<div>${sub('Euphoria Materials')}
-                    ${planRows(mp + '.euphoriaMats', getPath(mp + '.euphoriaMats') || [], 'euphoriaMats', 'list')}
-                    <button type="button" class="btn btn-ghost mt-2" data-act="plan-add" data-target="euphoriaMats" data-kind="list"><i data-lucide="plus" class="w-4 h-4"></i> Add material</button></div>` : ''}
             </div>`;
 
             return `<div class="space-y-5">${infoCard}${tagsCard}${euphCard}${boundCard}${planCard}</div>`;
@@ -1064,8 +1066,7 @@ function newCharacter(){
             resL5: { sharpodonty:'', mats:[] },
             resL10: { sharpodonty:'', mats:[] },
             resL15: { sharpodonty:'', mats:[] },
-            resPattern: { sharpodonty:'', mats:[] },
-            euphoriaMats: []
+            resPattern: { sharpodonty:'', mats:[] }
         }
     };
 }
@@ -1076,8 +1077,7 @@ function ensureCharShape(c){
         materialPlan:{
             currency:{ dust:'', sharpodonty:'' }, insights:[],
             resL5:{ sharpodonty:'', mats:[] }, resL10:{ sharpodonty:'', mats:[] },
-            resL15:{ sharpodonty:'', mats:[] }, resPattern:{ sharpodonty:'', mats:[] },
-            euphoriaMats:[]
+            resL15:{ sharpodonty:'', mats:[] }, resPattern:{ sharpodonty:'', mats:[] }
         }
     };
     for (const k in d){
@@ -1088,6 +1088,14 @@ function ensureCharShape(c){
     }
     ['suffix','tags','bound'].forEach(k => { if (!Array.isArray(c[k])) c[k] = []; });
     if (!Array.isArray(c.euphoriaPaths)) c.euphoriaPaths = [];
+    // migrate legacy materialPlan.euphoriaMats onto the first euphoria path
+    if (c.materialPlan && Array.isArray(c.materialPlan.euphoriaMats)) {
+        if (c.materialPlan.euphoriaMats.length) {
+            if (!c.euphoriaPaths.length) c.euphoriaPaths = [{ type:'E1', tag:'E1', materials: c.materialPlan.euphoriaMats }];
+            else if (!Array.isArray(c.euphoriaPaths[0].materials)) c.euphoriaPaths[0].materials = c.materialPlan.euphoriaMats;
+        }
+        delete c.materialPlan.euphoriaMats;
+    }
     if (c.euphoriaPaths.length === 0 && c.euphoria && typeof c.euphoria === 'object') {
         if (c.euphoria.tag || c.euphoria.name || c.euphoria.rank1 || c.euphoria.rank2 || c.euphoria.rank3 || c.euphoria.rank4 || c.euphoria.releaseDate || c.euphoria.image || c.euphoria.suffix) {
             c.euphoriaPaths = [{
@@ -1100,13 +1108,14 @@ function ensureCharShape(c){
                 rank1: c.euphoria.rank1 || '',
                 rank2: c.euphoria.rank2 || '',
                 rank3: c.euphoria.rank3 || '',
-                rank4: c.euphoria.rank4 || ''
+                rank4: c.euphoria.rank4 || '',
+                materials: []
             }];
         }
     }
     if (!Array.isArray(c.euphoriaPaths)) c.euphoriaPaths = [];
     var paths = c.euphoriaPaths.map(function(p){
-        var np = { type:'E1', tag:'E1', name:'', suffix:'', releaseDate:'', image:'', rank1:'', rank2:'', rank3:'', rank4:'' };
+        var np = { type:'E1', tag:'E1', name:'', suffix:'', releaseDate:'', image:'', rank1:'', rank2:'', rank3:'', rank4:'', materials:[] };
         if(p && typeof p === 'object'){
             for(var k in p){ if(Object.prototype.hasOwnProperty.call(p,k)) np[k] = p[k]; }
         }
@@ -1114,6 +1123,7 @@ function ensureCharShape(c){
             np.type = (np.tag && ['E1','E2'].indexOf(np.tag) !== -1) ? np.tag : 'E1';
         }
         np.tag = np.type;
+        if (!Array.isArray(np.materials)) np.materials = [];
         return np;
     });
     c.euphoriaPaths = paths;
@@ -1274,7 +1284,9 @@ document.addEventListener('click', async e => {
 
         case act === 'plan-add': {
             const target = b.dataset.target, kind = b.dataset.kind;
-            const base = 'characters.' + sel.characters + '.materialPlan.' + target + (kind === 'group' ? '.mats' : '');
+            const base = (target && target.startsWith('euphoria:')
+                ? 'characters.' + sel.characters + '.euphoriaPaths.' + target.slice('euphoria:'.length) + '.materials'
+                : 'characters.' + sel.characters + '.materialPlan.' + target + (kind === 'group' ? '.mats' : ''));
             let arr = getPath(base);
             if (!Array.isArray(arr)){ setPath(base, []); arr = getPath(base); }
             arr.push({ mat:'', qty:'' });
@@ -1282,7 +1294,9 @@ document.addEventListener('click', async e => {
         }
         case act === 'plan-del': {
             const target = b.dataset.target, kind = b.dataset.kind;
-            const base = 'characters.' + sel.characters + '.materialPlan.' + target + (kind === 'group' ? '.mats' : '');
+            const base = (target && target.startsWith('euphoria:')
+                ? 'characters.' + sel.characters + '.euphoriaPaths.' + target.slice('euphoria:'.length) + '.materials'
+                : 'characters.' + sel.characters + '.materialPlan.' + target + (kind === 'group' ? '.mats' : ''));
             const arr = getPath(base);
             if (arr && idx !== null){ arr.splice(idx, 1); markDirty(); render(); }
             break;

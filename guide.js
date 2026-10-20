@@ -477,8 +477,7 @@
             const hasRes = k => mp[k] && (mp[k].sharpodonty || (mp[k].mats || []).length);
             const hasPlan = !!((mp.currency && (mp.currency.dust || mp.currency.sharpodonty)) ||
                 (mp.insights && mp.insights.length) ||
-                resKeys.some(([k]) => hasRes(k)) ||
-                (c.hasEuphoria && (mp.euphoriaMats || []).length));
+                resKeys.some(([k]) => hasRes(k)));
             const planBlock = hasPlan ? `
                 <div class="p-4 rounded-xl bg-parchment-800 text-parchment-50 space-y-3">
                     <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 block font-bold">Material Plan</span>
@@ -489,7 +488,6 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         ${(mp.insights && mp.insights.length) ? `<div><span class="text-[10px] font-mono uppercase tracking-wider text-amber-300 font-bold block mb-1">Insight Materials</span>${planRowsHtml(mp.insights)}</div>` : ''}
                         ${resKeys.map(([k, label]) => hasRes(k) ? `<div><span class="text-[10px] font-mono uppercase tracking-wider text-amber-300 font-bold block mb-1">${label}${mp[k].sharpodonty ? ' • ' + mp[k].sharpodonty + ' Sharpodonty' : ''}</span>${planRowsHtml(mp[k].mats)}</div>` : '').join('')}
-                        ${(c.hasEuphoria && (mp.euphoriaMats || []).length) ? `<div><span class="text-[10px] font-mono uppercase tracking-wider text-amber-300 font-bold block mb-1">Euphoria Materials</span>${planRowsHtml(mp.euphoriaMats)}</div>` : ''}
                     </div>
                 </div>` : '';
 
@@ -506,6 +504,7 @@
                     }).filter(Boolean).join('');
                     const tagLbl = e.type || e.tag || '';
                     const sufLbl = e.suffix || '';
+                    const euphMats = Array.isArray(e.materials) ? e.materials.filter(m => m && m.mat) : [];
                     return `<div class="p-4 rounded-xl bg-parchment-800 text-parchment-50 space-y-3">
                         <div class="flex flex-wrap items-center justify-between gap-3">
                             <div class="min-w-0">
@@ -516,6 +515,7 @@
                             ${e.image ? `<img src="${e.image}" alt="" class="h-14 rounded-lg object-contain border border-parchment-600" onerror="this.remove()">` : ''}
                         </div>
                         ${ranks || '<p class="text-xs text-parchment-200 italic">Euphoria available — rank details not written yet.</p>'}
+                        ${euphMats.length ? `<div><span class="text-[10px] font-mono uppercase tracking-wider text-amber-300 font-bold block mb-1">Materials</span>${planRowsHtml(euphMats)}</div>` : ''}
                     </div>`;
                 }).join('');
                 euphHtml = `<div class="space-y-3">${cards}</div>`;

@@ -17,23 +17,29 @@
  *  D. Assets  - character icons from the Fandom wiki:
  *                File:{Name}_Icon_Large.png (228x524) or File:{Name}_Icon.png (168x168)
  *                stored as a remote wiki CDN URL in `image` (see --wikicons)
+ *  E. Growth  - https://www.reverse1999-simulator.com growth-cost webpack modules:
+ *                insight / resonance / resonance-pattern / euphoria materials
+ *                and Dust + Sharpodonty totals (see --materials)
  *
  * Merge policy: never overwrite a non-empty existing value in data.json;
  * append new characters; fill empty fields only.
- * Exception: --wikicons intentionally rewrites every `image` to the wiki URL.
+ * Exceptions: --wikicons rewrites every `image` to the wiki URL;
+ *             --materials rewrites materialPlan + euphoria path materials.
  *
  * Usage:
  *   node tools/import.js --scrape      # fetch roster+details+fandom -> tools/raw.json
  *   node tools/import.js --merge       # merge tools/raw.json into data.json
  *   node tools/import.js --wikicons    # set image = Fandom wiki icon URL
+ *   node tools/import.js --materials   # fill growth materials from the simulator
  *   node tools/import.js --images      # download simulator portraits into images/chars
- *   node tools/import.js --all         # scrape -> merge -> images
+ *   node tools/import.js --all         # scrape -> merge -> wikicons -> materials
  *   node tools/import.js --only beryl  # restrict scrape to a slug (debug)
  */
 
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const vm = require('vm');
 
 const ROOT = path.join(__dirname, '..');
 const DATA_PATH = path.join(ROOT, 'data.json');
@@ -305,7 +311,6 @@ function emptyMaterialPlan() {
     resL10: { mats: [], sharpodonty: '' },
     resL15: { mats: [], sharpodonty: '' },
     resPattern: { mats: [], sharpodonty: '' },
-    euphoriaMats: [],
   };
 }
 
@@ -360,6 +365,7 @@ async function scrapeAll(onlySlug) {
               rank2: desc(1),
               rank3: desc(2),
               rank4: desc(3),
+              materials: [],
             };
           });
         }
@@ -602,6 +608,233 @@ async function doWikicons(onlySlug) {
 }
 
 // ---------------------------------------------------------------------------
+// Growth materials (insight / resonance / resonance pattern / euphoria)
+// ---------------------------------------------------------------------------
+//
+// The simulator exposes growth costs as webpack modules on its chunks:
+//   15021 (chunk 5021) export `A`  -> material master list
+//   4216  (chunk 1226) export `Q`  -> insight materials per character
+//   28628 (chunk 1226) export `u`  -> resonance materials per character
+//   3971  (chunk 1226) export `M`  -> resonance-pattern materials per character
+//   72631 (chunk 2631) export `T`  -> euphoria unlock/upgrade materials
+// Material references use numeric ids ({ "<materialId>": <qty> }).
+// 1001 = Dust, 1002 = Sharpodonty (base currencies).
+
+const MATERIAL_CHUNKS = {
+  meta: '5021-9db59e6bf8c93aaf',
+  growthA: '1226-c3057d517612f69a', // insight (4216) + resonance (28628) + pattern (3971)
+  euphoria: '2631-3615f14a07a5e968', // euphoria (72631)
+};
+
+// Extract a webpack module body `modId:(e,t,a)=>{...}` with balanced braces.
+function webpackModule(js, modId) {
+  const i = js.indexOf(modId + ':(');
+  if (i === -1) return null;
+  const start = js.indexOf('{', js.indexOf('=>', i));
+  let depth = 0, inStr = false, esc = false, q = '';
+  for (let k = start; k < js.length; k++) {
+    const c = js[k];
+    if (inStr) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === q) inStr = false; continue; }
+    if (c === '"' || c === "'" || c === '`') { inStr = true; q = c; }
+    else if (c === '{') depth++;
+    else if (c === '}') { depth--; if (depth === 0) return js.slice(start, k + 1); }
+  }
+  return null;
+}
+
+// Largest JS array literal in a module body, evaluated safely.
+function moduleArray(body) {
+  if (!body) return null;
+  let best = null;
+  for (let s = 0; s < body.length; s++) {
+    if (body[s] !== '[') continue;
+    let depth = 0, inStr = false, esc = false, q = '';
+    for (let k = s; k < body.length; k++) {
+      const c = body[k];
+      if (inStr) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === q) inStr = false; continue; }
+      if (c === '"' || c === "'" || c === '`') { inStr = true; q = c; }
+      else if (c === '[') depth++;
+      else if (c === ']') {
+        depth--;
+        if (depth === 0) {
+          try {
+            const a = vm.runInNewContext('(' + body.slice(s, k + 1) + ')', {}, { timeout: 2000 });
+            if (Array.isArray(a) && (!best || a.length > best.length)) best = a;
+          } catch (e) { /* not this one */ }
+          break;
+        }
+      }
+    }
+  }
+  return best;
+}
+
+// Any JS object literal in a module body (used for the shared insight cost table).
+function moduleObject(body) {
+  if (!body) return null;
+  const s = body.indexOf('{', body.indexOf('=>'));
+  const start = body.indexOf('{', s + 1);
+  if (start === -1) return null;
+  let depth = 0, inStr = false, esc = false, q = '';
+  for (let k = start; k < body.length; k++) {
+    const c = body[k];
+    if (inStr) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === q) inStr = false; continue; }
+    if (c === '"' || c === "'" || c === '`') { inStr = true; q = c; }
+    else if (c === '{') depth++;
+    else if (c === '}') {
+      depth--;
+      if (depth === 0) {
+        try { return vm.runInNewContext('(' + body.slice(start, k + 1) + ')', {}, { timeout: 2000 }); }
+        catch (e) { return null; }
+      }
+    }
+  }
+  return null;
+}
+
+async function loadMaterialTables() {
+  const base = 'https://www.reverse1999-simulator.com/_next/static/chunks/';
+  const [jsMeta, jsGrowth, jsEuph] = await Promise.all([
+    fetchText(base + MATERIAL_CHUNKS.meta + '.js'),
+    fetchText(base + MATERIAL_CHUNKS.growthA + '.js'),
+    fetchText(base + MATERIAL_CHUNKS.euphoria + '.js'),
+  ]);
+  const metaList = moduleArray(webpackModule(jsMeta, 15021)) || [];
+  const metaById = {};
+  for (const x of metaList) metaById[x.id] = x;
+
+  const insightArr = moduleArray(webpackModule(jsGrowth, 4216)) || [];
+  const resonanceArr = moduleArray(webpackModule(jsGrowth, 28628)) || [];
+  const patternArr = moduleArray(webpackModule(jsGrowth, 3971)) || [];
+  const euphoriaArr = moduleArray(webpackModule(jsEuph, 72631)) || [];
+
+  const byChar = arr => {
+    const m = {};
+    for (const x of arr) m[x.character_id] = x;
+    return m;
+  };
+  console.error(`materials: meta=${metaList.length} insight=${insightArr.length} resonance=${resonanceArr.length} pattern=${patternArr.length} euphoria=${euphoriaArr.length}`);
+  return {
+    metaById,
+    insight: byChar(insightArr),
+    resonance: byChar(resonanceArr),
+    pattern: byChar(patternArr),
+    euphoria: byChar(euphoriaArr),
+  };
+}
+
+// Sum {id:qty} maps into a single {id:qty} map.
+function sumMatMaps(...maps) {
+  const out = {};
+  for (const m of maps) {
+    if (!m) continue;
+    for (const [k, v] of Object.entries(m)) out[k] = (out[k] || 0) + v;
+  }
+  return out;
+}
+
+// Convert a {id:qty} map into the project's [ {mat, qty} ] list,
+// pulling human-readable names from the material master list.
+function matList(matMap, metaById, skipIds = [1001, 1002]) {
+  return Object.entries(matMap || {})
+    .filter(([id]) => !skipIds.includes(Number(id)))
+    .map(([id, qty]) => {
+      const meta = metaById[Number(id)];
+      return { mat: meta ? (meta.engName || meta.name) : ('#' + id), qty: String(qty) };
+    });
+}
+
+// Cumulative insight cost: levels 1..3 (chains removed, matches in-game totals).
+function insightTotals(tbl) {
+  const c = tbl && tbl.insight;
+  if (!Array.isArray(c)) return {};
+  return sumMatMaps(...c.map(l => l.materials));
+}
+
+// Cumulative resonance cost up to and including `level`.
+function resonanceTotals(tbl, level) {
+  const c = tbl && tbl.resonance;
+  if (!Array.isArray(c)) return {};
+  return sumMatMaps(...c.filter(r => r.level <= level).map(r => r.materials));
+}
+
+// Combined cost of every resonance pattern for this character.
+function patternTotals(tbl) {
+  const c = tbl && tbl.pattern;
+  if (!Array.isArray(c)) return {};
+  return sumMatMaps(...c.map(p => p.materials));
+}
+
+async function doMaterials(onlySlug) {
+  const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
+  const rawArr = JSON.parse(fs.readFileSync(RAW_PATH, 'utf8'));
+  const simIdById = {};
+  const simIdByName = {};
+  for (const r of rawArr) {
+    if (r.simulatorId) {
+      simIdById[r.id] = r.simulatorId;
+      if (r.name) simIdByName[r.name.toLowerCase()] = r.simulatorId;
+    }
+  }
+
+  const T = await loadMaterialTables();
+  const metaById = T.metaById;
+
+  let filled = 0, noRes = 0, noInsight = 0, noEuph = 0;
+  for (const c of data.characters || []) {
+    if (onlySlug && c.id !== onlySlug) continue;
+    const simId = simIdById[c.id] || simIdByName[(c.name || '').toLowerCase()];
+    const mp = c.materialPlan || (c.materialPlan = emptyMaterialPlan());
+    // legacy: euphoria materials now live on each euphoria path
+    if (mp.euphoriaMats !== undefined) delete mp.euphoriaMats;
+    if (!simId) { console.error(`  ! ${c.id}: no simulatorId`); continue; }
+
+    // currency totals (Dust = 1001, Sharpodonty = 1002) from all sources
+    const insTot = insightTotals(T.insight[simId]);
+    const res5 = resonanceTotals(T.resonance[simId], 5);
+    const res10 = resonanceTotals(T.resonance[simId], 10);
+    const res15 = resonanceTotals(T.resonance[simId], 15);
+    const patTot = patternTotals(T.pattern[simId]);
+
+    mp.insights = matList(insTot, metaById);
+    mp.resL5 = { mats: matList(res5, metaById), sharpodonty: (res5[1002] ? String(res5[1002]) : '') };
+    mp.resL10 = { mats: matList(res10, metaById), sharpodonty: (res10[1002] ? String(res10[1002]) : '') };
+    mp.resL15 = { mats: matList(res15, metaById), sharpodonty: (res15[1002] ? String(res15[1002]) : '') };
+    mp.resPattern = { mats: matList(patTot, metaById), sharpodonty: (patTot[1002] ? String(patTot[1002]) : '') };
+
+    // currency: dust/sharpodonty totals across all growth paths
+    const dust = sumMatMaps(insTot, res15, patTot);
+    mp.currency = {
+      dust: dust[1001] ? String(dust[1001]) : '',
+      sharpodonty: dust[1002] ? String(dust[1002]) : '',
+    };
+
+    // euphoria materials -> per path: that path's unlock cost + shared upgrade cost
+    const euph = T.euphoria[simId];
+    const paths = Array.isArray(c.euphoriaPaths) ? c.euphoriaPaths : [];
+    if (paths.length && euph) {
+      const upgrade = sumMatMaps(...(euph.upgrade || []).map(u => u.materials));
+      paths.forEach((p, idx) => {
+        const unlockRow = (euph.euphoria || []).find(e => e.level === idx + 1);
+        const unlock = unlockRow ? unlockRow.materials : {};
+        p.materials = matList(sumMatMaps(unlock, upgrade), metaById);
+      });
+    } else {
+      for (const p of paths) if (!p.materials) p.materials = [];
+      if (paths.length) noEuph++;
+    }
+
+    if (mp.insights.length) filled++; else noInsight++;
+    if (!mp.resL15.mats.length) noRes++;
+    console.error(`  + ${c.id} insight=${mp.insights.length} res15=${mp.resL15.mats.length} pattern=${mp.resPattern.mats.length} euph=${paths.length ? (paths[0].materials || []).length : 0}`);
+    await sleep(10);
+  }
+
+  fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2) + '\n');
+  console.log(`materials: ${filled} with insight, ${noInsight} insight-less, ${noRes} resonance-less, ${noEuph} euphoria paths without table`);
+}
+
+// ---------------------------------------------------------------------------
 // CLI
 // ---------------------------------------------------------------------------
 
@@ -617,13 +850,15 @@ async function main() {
     await scrapeAll(only);
     doMerge();
     await doWikicons(only);
+    await doMaterials(only);
   } else {
     if (has('--scrape')) await scrapeAll(only);
     if (has('--merge')) doMerge();
     if (has('--wikicons')) await doWikicons(only);
+    if (has('--materials')) await doMaterials(only);
     if (has('--images')) await doImages();
-    if (!has('--scrape') && !has('--merge') && !has('--wikicons') && !has('--images')) {
-      console.log('usage: node tools/import.js [--scrape] [--merge] [--wikicons] [--images] [--all] [--only slug]');
+    if (!has('--scrape') && !has('--merge') && !has('--wikicons') && !has('--materials') && !has('--images')) {
+      console.log('usage: node tools/import.js [--scrape] [--merge] [--wikicons] [--materials] [--images] [--all] [--only slug]');
     }
   }
 }
