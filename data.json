@@ -86,7 +86,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/beryl.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/f/fd/Beryl_Icon_Large.png/revision/latest?cb=20260113162510",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -155,7 +155,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/brume.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/89/Brume_Icon_Large.png/revision/latest?cb=20260113162514",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -198,7 +198,8 @@
         },
         "euphoriaMats": []
       },
-      "releaseDate": "2025-11-20"
+      "releaseDate": "2025-11-20",
+      "euphoriaPaths": []
     },
     {
       "id": "charon",
@@ -210,7 +211,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/charon.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c1/Charon_Icon_Large.png/revision/latest?cb=20250626140046",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -265,7 +266,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/lorentz.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/7/78/Lorentz_Butterfly_Icon_Large.png/revision/latest?cb=20260330194625",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -320,7 +321,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/rhiannon.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/8f/Rhiannon_Icon_Large.png/revision/latest?cb=20260530114208",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -375,7 +376,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/flutterpage.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0c/Flutterpage_Icon_Large.png/revision/latest?cb=20250330172350",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -430,7 +431,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/enigma.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/5d/Enigma_Icon_Large.png/revision/latest?cb=20260530114218",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -485,7 +486,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/marsha.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/84/Marsha_Icon_Large.png/revision/latest?cb=20260122093510",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -540,7 +541,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/thetwins.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/dc/The_Twins_Icon_Large.png/revision/latest?cb=20260726015314",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -595,7 +596,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "images/chars/isolde.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/a/a3/Isolde_Icon_Large.png/revision/latest?cb=20240304061831",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -664,7 +665,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/igor.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0e/Igor_Icon_Large.png/revision/latest?cb=20260122093508",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -719,7 +720,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/nautika.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/6e/Nautika_Icon_Large.png/revision/latest?cb=20250516051626",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -788,7 +789,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/semmelweis.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/41/Semmelweis_Icon_Large.png/revision/latest?cb=20241021014959",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -857,7 +858,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/barcarola.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/2c/Barcarola_Icon_Large.png/revision/latest?cb=20250330172333",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -912,7 +913,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/paperheron.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c5/Paper_Heron_Icon_Large.png/revision/latest?cb=20260122053841",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -967,7 +968,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/ulrich.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/b6/Ulrich_Icon_Large.png/revision/latest?cb=20250516051620",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -1022,7 +1023,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/kiperina.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0e/Kiperina_Icon_Large.png/revision/latest?cb=20250516051632",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -1077,7 +1078,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/rubuska.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/8a/Rubuska_Icon_Large.png/revision/latest?cb=20251212042008",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -1132,7 +1133,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/everecho.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0d/Everecho_Icon_Large.png/revision/latest?cb=20260704212701",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -1187,7 +1188,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/cornerstone.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/7/7f/Cornerstone_Icon_Large.png/revision/latest?cb=20260704212658",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -1242,7 +1243,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/hedone.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/a/a4/Hedone_Icon.png/revision/latest?cb=20260902022809",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -1297,7 +1298,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/coppelia.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/36/Copp%C3%A9lia_Icon_Large.png/revision/latest?cb=20260530114213",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -1352,7 +1353,7 @@
       ],
       "tier": "T0.5",
       "bound": [],
-      "image": "images/chars/fatutu.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/dc/Fatutu_Icon_Large.png/revision/latest?cb=20250330172327",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -1407,7 +1408,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/recoleta.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/b6/Recoleta_Icon_Large.png/revision/latest?cb=20250411000621",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -1476,7 +1477,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/lucy.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0d/Lucy_Icon_Large.png/revision/latest?cb=20250509180354",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -1545,7 +1546,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/windsong.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/3e/Windsong_Icon_Large.png/revision/latest?cb=20250330172434",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -1614,7 +1615,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/anjonala.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/f/ff/Anjo_Nala_Icon_Large.png/revision/latest?cb=20241006214859",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -1683,7 +1684,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/lopera.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0d/Lopera_Icon_Large.png/revision/latest?cb=20250507021013",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -1752,7 +1753,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/moldir.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/4b/Moldir_Icon_Large.png/revision/latest?cb=20250516051624",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -1821,7 +1822,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/sentinel.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/bb/Sentinel_Icon_Large.png/revision/latest?cb=20250626140048",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -1876,7 +1877,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/narcissus.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c5/Narcissus_Icon.png/revision/latest?cb=20260831005031",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -1931,7 +1932,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/vila.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/d1/Vila_Icon_Large.png/revision/latest?cb=20250330172423",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -2000,7 +2001,7 @@
       ],
       "tier": "T1",
       "bound": [],
-      "image": "images/chars/matilda.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/db/Matilda_Icon_Large.png/revision/latest?cb=20240704094256",
       "rarity": 5,
       "suffix": [
         "Support"
@@ -2081,7 +2082,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ms-radio.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/5d/Ms._Radio_Icon_Large.png/revision/latest?cb=20241217101718",
       "rarity": 2,
       "suffix": [
         "DPS"
@@ -2133,7 +2134,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/door.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/9/94/Door_Icon_Large.png/revision/latest?cb=20241217095214",
       "rarity": 2,
       "suffix": [
         "Support"
@@ -2189,7 +2190,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/the-fool.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/b6/The_Fool_Icon_Large.png/revision/latest?cb=20241217140910",
       "rarity": 3,
       "suffix": [],
       "dmgType": "Mental",
@@ -2243,7 +2244,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/la-source.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0f/La_Source_Icon_Large.png/revision/latest?cb=20241217122649",
       "rarity": 3,
       "suffix": [],
       "dmgType": "Mental",
@@ -2297,7 +2298,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/alien-t.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/1/13/AliEn_T_Icon_Large.png/revision/latest?cb=20241217143948",
       "rarity": 3,
       "suffix": [
         "DPS"
@@ -2349,7 +2350,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/leilani.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c3/Leilani_Icon_Large.png/revision/latest?cb=20241217153642",
       "rarity": 3,
       "suffix": [
         "Support",
@@ -2412,7 +2413,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/john-titor.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/de/John_Titor_Icon_Large.png/revision/latest?cb=20241217130851",
       "rarity": 3,
       "suffix": [],
       "dmgType": "Reality",
@@ -2466,7 +2467,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/twins-sleep.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/a/ad/Twins_Sleep_Icon_Large.png/revision/latest?cb=20241217162519",
       "rarity": 3,
       "suffix": [
         "Support"
@@ -2522,7 +2523,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/bette.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/cb/Bette_Icon_Large.png/revision/latest?cb=20250702162123",
       "rarity": 3,
       "suffix": [
         "Support"
@@ -2574,7 +2575,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/darley-clatter.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/59/Darley_Clatter_Icon_Large.png/revision/latest?cb=20250702162122",
       "rarity": 3,
       "suffix": [
         "Support"
@@ -2626,7 +2627,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/onion.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/2f/ONiON_Icon_Large.png/revision/latest?cb=20250702162121",
       "rarity": 3,
       "suffix": [
         "DPS"
@@ -2685,7 +2686,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/sputnik.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/b8/Sputnik_Icon_Large.png/revision/latest?cb=20250702162119",
       "rarity": 3,
       "suffix": [],
       "dmgType": "Mental",
@@ -2742,7 +2743,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/pioneer.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/20/Pioneer_Icon_Large.png/revision/latest?cb=20240703004959",
       "rarity": 3,
       "suffix": [
         "Support"
@@ -2794,7 +2795,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/nick-bottom.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/d3/Nick_Bottom_Icon_Large.png/revision/latest?cb=20250701080532",
       "rarity": 4,
       "suffix": [
         "Support"
@@ -2850,7 +2851,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/eagle.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/2d/Eagle_Icon_Large.png/revision/latest?cb=20250629090759",
       "rarity": 4,
       "suffix": [
         "DPS"
@@ -2906,7 +2907,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/winter.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c3/%D0%97%D0%B8%D0%BC%D0%B0_Icon_Large.png/revision/latest?cb=20240625231929",
       "rarity": 4,
       "suffix": [
         "Support"
@@ -2965,7 +2966,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/bunny-bunny.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/1/19/Bunny_Bunny_Icon_Large.png/revision/latest?cb=20250701080535",
       "rarity": 4,
       "suffix": [],
       "dmgType": "Reality",
@@ -3019,7 +3020,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/pavia.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/7/76/Pavia_Icon_Large.png/revision/latest?cb=20240625233429",
       "rarity": 4,
       "suffix": [
         "DPS"
@@ -3075,7 +3076,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/oliver-fog.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/bb/Oliver_Fog_Icon_Large.png/revision/latest?cb=20240625033906",
       "rarity": 4,
       "suffix": [
         "Support"
@@ -3127,7 +3128,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/mondlicht.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/e/e5/Mondlicht_Icon_Large.png/revision/latest?cb=20240625030954",
       "rarity": 4,
       "suffix": [
         "DPS"
@@ -3183,7 +3184,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/apple.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/64/APPLe_Icon_Large.png/revision/latest?cb=20260117022625",
       "rarity": 4,
       "suffix": [
         "DPS"
@@ -3235,7 +3236,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/cristallo.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/62/Cristallo_Icon_Large.png/revision/latest?cb=20240627021509",
       "rarity": 4,
       "suffix": [
         "Support"
@@ -3291,7 +3292,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/rabies.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/a/a9/Rabies_Icon_Large.png/revision/latest?cb=20240625032637",
       "rarity": 4,
       "suffix": [
         "DPS"
@@ -3350,7 +3351,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ms-moissan.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/31/Ms._Moissan_Icon_Large.png/revision/latest?cb=20240620032015",
       "rarity": 4,
       "suffix": [],
       "dmgType": "Reality",
@@ -3404,7 +3405,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/mesmer-jr.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/7/70/Mesmer_Jr._Icon_Large.png/revision/latest?cb=20240625011938",
       "rarity": 4,
       "suffix": [
         "DPS"
@@ -3460,7 +3461,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/erick.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/22/Erick_Icon_Large.png/revision/latest?cb=20250619040141",
       "rarity": 4,
       "suffix": [
         "DPS"
@@ -3512,7 +3513,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/poltergeist.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/80/Poltergeist_Icon_Large.png/revision/latest?cb=20250629090802",
       "rarity": 4,
       "suffix": [
         "Support"
@@ -3571,7 +3572,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/white-rum.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/46/White_Rum_Icon_Large.png/revision/latest?cb=20250516034630",
       "rarity": 4,
       "suffix": [
         "DPS"
@@ -3630,7 +3631,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ttt.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/2c/TTT_Icon_Large.png/revision/latest?cb=20250629090800",
       "rarity": 4,
       "suffix": [],
       "dmgType": "Mental",
@@ -3680,7 +3681,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/reed.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/a/ac/Reed_Icon_Large.png/revision/latest?cb=20260122053838",
       "rarity": 4,
       "suffix": [
         "Support"
@@ -3730,9 +3731,9 @@
       "id": "lady-by-the-lake",
       "name": "Lady by the Lake",
       "tags": [],
-      "tier": "",
+      "tier": "T2",
       "bound": [],
-      "image": "images/chars/lady-by-the-lake.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/56/Lady_by_the_Lake_Icon_Large.png/revision/latest?cb=20260530114210",
       "rarity": 4,
       "suffix": [
         "DPS",
@@ -3785,7 +3786,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/nora.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/d2/NORA_Icon_Large.png/revision/latest?cb=20260809030811",
       "rarity": 4,
       "suffix": [
         "Support",
@@ -3845,7 +3846,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/glyndwr.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c7/Glynd%C5%B5r_Icon.png/revision/latest?cb=20260927102547",
       "rarity": 4,
       "suffix": [
         "DPS",
@@ -3902,7 +3903,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/sonetto.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/d9/Sonetto_Icon_Large.png/revision/latest?cb=20250805225553",
       "rarity": 5,
       "suffix": [
         "DPS",
@@ -3962,7 +3963,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/x.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/5c/X_Icon_Large.png/revision/latest?cb=20240224043716",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4018,7 +4019,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/sweetheart.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0a/Sweetheart_Icon_Large.png/revision/latest?cb=20240626232118",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4077,7 +4078,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/baby-blue.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/03/Baby_Blue_Icon_Large.png/revision/latest?cb=20240614064800",
       "rarity": 5,
       "suffix": [],
       "dmgType": "Mental",
@@ -4131,7 +4132,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/charlie.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/f/f5/Charlie_Icon_Large.png/revision/latest?cb=20231217050422",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4193,7 +4194,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/bkornblume.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/9/9b/Bkornblume_Icon_Large.png/revision/latest?cb=20240628005019",
       "rarity": 5,
       "suffix": [],
       "dmgType": "Reality",
@@ -4260,7 +4261,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/dikke.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/66/Dikke_Icon_Large.png/revision/latest?cb=20250604200701",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4319,7 +4320,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/balloon-party.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/5e/Balloon_Party_Icon_Large.png/revision/latest?cb=20240620030244",
       "rarity": 5,
       "suffix": [],
       "dmgType": "Reality",
@@ -4369,7 +4370,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/necrologist.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/42/Necrologist_Icon_Large.png/revision/latest?cb=20250421011216",
       "rarity": 5,
       "suffix": [
         "Support",
@@ -4426,7 +4427,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/satsuki.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/a/a0/Satsuki_Icon_Large.png/revision/latest?cb=20250604200659",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4485,7 +4486,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/tennant.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/bb/Tennant_Icon_Large.png/revision/latest?cb=20250604200657",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4554,7 +4555,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/click.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/8c/Click_Icon_Large.png/revision/latest?cb=20240616164538",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4616,7 +4617,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/diggers.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/66/Diggers_Icon_Large.png/revision/latest?cb=20250428110443",
       "rarity": 5,
       "suffix": [],
       "dmgType": "Mental",
@@ -4670,7 +4671,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/blonney.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/30/Blonney_Icon_Large.png/revision/latest?cb=20250403132232",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4729,7 +4730,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/horropedia.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/1/10/Horropedia_Icon_Large.png/revision/latest?cb=20240620013436",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4788,7 +4789,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/kanjira.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/1/18/Kanjira_Icon_Large.png/revision/latest?cb=20240123211315",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -4840,7 +4841,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/desert-flannel.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/6a/Desert_Flannel_Icon_Large.png/revision/latest?cb=20250501000058",
       "rarity": 5,
       "suffix": [
         "Support",
@@ -4897,7 +4898,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ulu.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/31/Ulu_Icon_Large.png/revision/latest?cb=20250501000101",
       "rarity": 5,
       "suffix": [
         "Support",
@@ -4957,7 +4958,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/yenisei.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/55/Yenisei_Icon_Large.png/revision/latest?cb=20250501000055",
       "rarity": 5,
       "suffix": [
         "Support"
@@ -5016,7 +5017,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/avgust.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/84/Avgust_Icon_Large.png/revision/latest?cb=20250330172449",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -5068,7 +5069,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/lorelei.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/87/Lorelei_Icon_Large.png/revision/latest?cb=20240614065054",
       "rarity": 5,
       "suffix": [
         "Support",
@@ -5128,7 +5129,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/barbara.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/4d/Barbara_Icon_Large.png/revision/latest?cb=20250407153839",
       "rarity": 5,
       "suffix": [
         "Support"
@@ -5187,7 +5188,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/mr-duncan.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/3f/Mr._Duncan_Icon_Large.png/revision/latest?cb=20250516034622",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -5246,7 +5247,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/brimley.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/6c/Brimley_Icon_Large.png/revision/latest?cb=20250330172341",
       "rarity": 5,
       "suffix": [
         "Support"
@@ -5305,7 +5306,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/loggerhead.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/be/Loggerhead_Icon_Large.png/revision/latest?cb=20250418230846",
       "rarity": 5,
       "suffix": [
         "Support"
@@ -5364,7 +5365,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/name-day.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/7/7c/Name_Day_Icon_Large.png/revision/latest?cb=20250516051629",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -5420,7 +5421,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/alexios.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/7/72/Alexios_Icon_Large.png/revision/latest?cb=20250812124924",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -5476,7 +5477,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/buddy-fairchild.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0d/Buddy_Fairchild_Icon_Large.png/revision/latest?cb=20250516051617",
       "rarity": 5,
       "suffix": [
         "DPS"
@@ -5535,7 +5536,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/silverwing-eagle.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/9/91/Silverwing_Eagle_Icon_Large.png/revision/latest?cb=20260530114441",
       "rarity": 5,
       "suffix": [
         "DPS",
@@ -5592,7 +5593,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/druvis-iii.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/43/Druvis_III_Icon_Large.png/revision/latest?cb=20240705052046",
       "rarity": 6,
       "suffix": [
         "DPS",
@@ -5674,7 +5675,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/lilya.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/29/Lilya_Icon_Large.png/revision/latest?cb=20240626013811",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -5751,7 +5752,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/a-knight.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c0/A_Knight_Icon_Large.png/revision/latest?cb=20250419101100",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -5823,7 +5824,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/sotheby.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/63/Sotheby_Icon_Large.png/revision/latest?cb=20240108033016",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -5888,7 +5889,7 @@
       "tags": [],
       "tier": "",
       "bound": [],
-      "image": "images/chars/regulus.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/29/Regulus_Icon_Large.png/revision/latest?cb=20231103221745",
       "rarity": 6,
       "suffix": [
         "DPS",
@@ -5970,7 +5971,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/centurion.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c1/Centurion_Icon_Large.png/revision/latest?cb=20240625024818",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -6051,7 +6052,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/an-an-lee.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/1/10/An-an_Lee_Icon_Large.png/revision/latest?cb=20231205122210",
       "rarity": 6,
       "suffix": [
         "Support",
@@ -6139,7 +6140,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/medicine-pocket.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/0/0c/Medicine_Pocket_Icon_Large.png/revision/latest?cb=20250419120221",
       "rarity": 6,
       "suffix": [],
       "dmgType": "Mental",
@@ -6206,7 +6207,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/eternity.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/7/70/Eternity_Icon_Large.png/revision/latest?cb=20231205170959",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -6293,7 +6294,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ms-newbabel.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/4e/Ms._NewBabel_Icon_Large.png/revision/latest?cb=20250420001346",
       "rarity": 6,
       "suffix": [],
       "dmgType": "Reality",
@@ -6363,7 +6364,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/voyager.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/37/Voyager_Icon_Large.png/revision/latest?cb=20240620005520",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -6432,7 +6433,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/melania.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/df/Melania_Icon_Large.png/revision/latest?cb=20231109155248",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -6501,7 +6502,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/pickles.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/48/Pickles_Icon_Large.png/revision/latest?cb=20250410065934",
       "rarity": 6,
       "suffix": [
         "DPS",
@@ -6577,7 +6578,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/tooth-fairy.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/d6/Tooth_Fairy_Icon_Large.png/revision/latest?cb=20231217054644",
       "rarity": 6,
       "suffix": [],
       "dmgType": "Mental",
@@ -6644,7 +6645,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/changeling.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/b6/Jessica_Icon_Large.png/revision/latest?cb=20250403132235",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -6728,7 +6729,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/black-dwarf.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c5/Kaalaa_Baunaa_Icon_Large.png/revision/latest?cb=20240123211313",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -6800,7 +6801,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/shamane.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/8/88/Shamane_Icon_Large.png/revision/latest?cb=20240123211325",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -6869,7 +6870,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/37.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/5e/37_Icon_Large.png/revision/latest?cb=20240229154608",
       "rarity": 6,
       "suffix": [
         "DPS",
@@ -6942,7 +6943,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/6.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c6/6_Icon_Large.png/revision/latest?cb=20240229154604",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -7014,7 +7015,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/spathodea.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/57/Spathodea_Icon_Large.png/revision/latest?cb=20250501000116",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -7086,7 +7087,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ezra-theodore.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/cd/Ezra_Icon_Large.png/revision/latest?cb=20240703053109",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -7170,7 +7171,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/jiu-niangzi.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/f/f2/Jiu_Niangzi_Icon_Large.png/revision/latest?cb=20240616031910",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -7239,7 +7240,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/getian.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/f/f7/Getian_Icon_Large.png/revision/latest?cb=20240627001450",
       "rarity": 6,
       "suffix": [
         "Support",
@@ -7309,7 +7310,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/marcus.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/e/e4/Marcus_Icon_Large.png/revision/latest?cb=20240321192256",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -7381,7 +7382,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/kakania.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/1/16/Kakania_Icon_Large.png/revision/latest?cb=20240614064929",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -7437,7 +7438,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/mercuria.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/1/18/Mercuria_Icon_Large.png/revision/latest?cb=20241117094934",
       "rarity": 6,
       "suffix": [
         "Support",
@@ -7510,7 +7511,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/joe.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/21/J_Icon_Large.png/revision/latest?cb=20250507050610",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -7582,7 +7583,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/tuesday.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/f/f9/Tuesday_Icon_Large.png/revision/latest?cb=20241225222801",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -7651,7 +7652,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/argus.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c8/Argus_Icon_Large.png/revision/latest?cb=20250407153642",
       "rarity": 6,
       "suffix": [
         "DPS",
@@ -7724,7 +7725,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/willow.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/38/Willow_Icon_Large.png/revision/latest?cb=20250330172401",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -7796,7 +7797,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/liang.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/e/ec/Liang_Yue_Icon_Large.png/revision/latest?cb=20250411020051",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -7868,7 +7869,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/noire.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/b/b6/Noire_Icon_Large.png/revision/latest?cb=20250411004646",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -7940,7 +7941,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/aleph.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/d/d4/Aleph_Icon_Large.png/revision/latest?cb=20250411001029",
       "rarity": 6,
       "suffix": [
         "Support"
@@ -7999,7 +8000,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/hissabeth.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/7/78/Hissabeth_Icon_Large.png/revision/latest?cb=20250516051636",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -8071,7 +8072,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ezio-auditore.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/f/fa/Ezio_Auditore_Icon_Large.png/revision/latest?cb=20250808060112",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -8127,7 +8128,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/kassandra.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/4/4c/Kassandra_Icon_Large.png/revision/latest?cb=20250812090210",
       "rarity": 6,
       "suffix": [
         "DPS",
@@ -8187,7 +8188,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/corvus.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/2/24/Corvus_Icon_Large.png/revision/latest?cb=20251212035538",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -8243,7 +8244,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/cheng-heguang.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/35/Cheng_Heguang_Icon_Large.png/revision/latest?cb=20260423144225",
       "rarity": 6,
       "suffix": [
         "DPS",
@@ -8303,7 +8304,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ramona.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/f/f4/Ramona_Icon_Large.png/revision/latest?cb=20260410015230",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -8359,7 +8360,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/ms-stranger.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/3/32/Ms._Stranger_Icon_Large.png/revision/latest?cb=20260530114443",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -8415,7 +8416,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/huntsworn-lilya.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/6/64/Huntsworn_Lilya_Icon.png/revision/latest?cb=20260927102224",
       "rarity": 6,
       "suffix": [
         "DPS"
@@ -8471,7 +8472,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "images/chars/drake.webp",
+      "image": "https://static.wikia.nocookie.net/reverse1999/images/5/58/Drake_Icon.png/revision/latest?cb=20261009205529",
       "rarity": 6,
       "suffix": [
         "Support",

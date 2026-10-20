@@ -14,17 +14,19 @@
  *                portraits/euphorias/effects/imageSourceUrl (EN translations)
  *  C. Fandom  - https://reverse1999.fandom.com/api.php (ArcanistInfo wikitext)
  *                release (CN/Global dates), tags, attribute, damage
- *  D. Assets  - portrait  https://www.reverse1999-simulator.com/characters/{r}stars[_list]/{slug}.webp
- *                downloaded to images/chars/{id}.webp
- *                (euphoria images stay as remote simulator URLs)
+ *  D. Assets  - character icons from the Fandom wiki:
+ *                File:{Name}_Icon_Large.png (228x524) or File:{Name}_Icon.png (168x168)
+ *                stored as a remote wiki CDN URL in `image` (see --wikicons)
  *
  * Merge policy: never overwrite a non-empty existing value in data.json;
  * append new characters; fill empty fields only.
+ * Exception: --wikicons intentionally rewrites every `image` to the wiki URL.
  *
  * Usage:
  *   node tools/import.js --scrape      # fetch roster+details+fandom -> tools/raw.json
  *   node tools/import.js --merge       # merge tools/raw.json into data.json
- *   node tools/import.js --images      # download portraits+euphoria images
+ *   node tools/import.js --wikicons    # set image = Fandom wiki icon URL
+ *   node tools/import.js --images      # download simulator portraits into images/chars
  *   node tools/import.js --all         # scrape -> merge -> images
  *   node tools/import.js --only beryl  # restrict scrape to a slug (debug)
  */
@@ -280,7 +282,7 @@ function emptyChar(slug, name) {
     tags: [],
     tier: '',
     bound: [],
-    image: `images/chars/${slug}.webp`,
+    image: '',
     rarity: 0,
     suffix: [],
     dmgType: '',
@@ -449,7 +451,6 @@ function buildNewChar(raw) {
   c.afflatus = raw.afflatus || '';
   c.dmgType = raw.dmgType || '';
   c.releaseDate = raw.releaseDate || '';
-  c.image = `images/chars/${raw.id}.webp`;
   const { suffix, tags } = splitFandomTags(raw);
   c.suffix = suffix;
   c.tags = tags;
@@ -547,6 +548,60 @@ async function doImages() {
 }
 
 // ---------------------------------------------------------------------------
+// Fandom wiki character icons  (-> image field, remote URL)
+// ---------------------------------------------------------------------------
+
+// Some display names differ from the wiki page/file base name.
+const WIKI_NAME_OVERRIDES = {
+  'Glyndŵr': 'Glyndŵr',
+};
+
+async function fandomImageInfo(title) {
+  const url = 'https://reverse1999.fandom.com/api.php?action=query&titles=' +
+    encodeURIComponent(title) + '&prop=imageinfo&iiprop=url|size|mime&format=json&origin=*';
+  const j = await fetchJson(url);
+  const pages = j && j.query && j.query.pages;
+  if (!pages) return null;
+  const key = Object.keys(pages)[0];
+  const ii = pages[key] && pages[key].imageinfo;
+  return ii && ii[0] ? ii[0] : null;
+}
+
+async function wikiIcon(name) {
+  const base = WIKI_NAME_OVERRIDES[name] || name;
+  const candidates = [`File:${base}_Icon_Large.png`, `File:${base}_Icon.png`];
+  for (const title of candidates) {
+    try {
+      const ii = await fandomImageInfo(title);
+      if (ii && ii.url) return { url: ii.url, width: ii.width, height: ii.height, kind: title.includes('Large') ? 'large' : 'small' };
+    } catch (e) { /* try next */ }
+    await sleep(50);
+  }
+  return null;
+}
+
+async function doWikicons(onlySlug) {
+  const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
+  const chars = data.characters || [];
+  let large = 0, small = 0, miss = 0;
+  for (const c of chars) {
+    if (onlySlug && c.id !== onlySlug) continue;
+    const icon = await wikiIcon(c.name);
+    if (icon) {
+      c.image = icon.url;
+      if (icon.kind === 'large') large++; else small++;
+      console.error(`  + ${c.id} (${c.name}) <- ${icon.kind} ${icon.width}x${icon.height}`);
+    } else {
+      miss++;
+      console.error(`  ! ${c.id} (${c.name}): no wiki icon`);
+    }
+    await sleep(60);
+  }
+  fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2) + '\n');
+  console.log(`wikicons: ${large} large, ${small} small, ${miss} missing (total ${chars.length})`);
+}
+
+// ---------------------------------------------------------------------------
 // CLI
 // ---------------------------------------------------------------------------
 
@@ -561,13 +616,14 @@ async function main() {
   if (has('--all')) {
     await scrapeAll(only);
     doMerge();
-    await doImages();
+    await doWikicons(only);
   } else {
     if (has('--scrape')) await scrapeAll(only);
     if (has('--merge')) doMerge();
+    if (has('--wikicons')) await doWikicons(only);
     if (has('--images')) await doImages();
-    if (!has('--scrape') && !has('--merge') && !has('--images')) {
-      console.log('usage: node tools/import.js [--scrape] [--merge] [--images] [--all] [--only slug]');
+    if (!has('--scrape') && !has('--merge') && !has('--wikicons') && !has('--images')) {
+      console.log('usage: node tools/import.js [--scrape] [--merge] [--wikicons] [--images] [--all] [--only slug]');
     }
   }
 }
