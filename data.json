@@ -81,7 +81,16 @@
       "name": "Beryl",
       "tags": [
         {
-          "name": "Lingering Glow"
+          "name": "Lingering Glow",
+          "rating": 5
+        },
+        {
+          "name": "Follow Up",
+          "rating": 5
+        },
+        {
+          "name": "Halo",
+          "rating": 5
         }
       ],
       "tier": "T0",
@@ -433,7 +442,7 @@
       "euphoriaPaths": [
         {
           "type": "E1",
-          "tag": "E1",
+          "tag": "Lingering Glow",
           "name": "A moment of shimmering fate",
           "suffix": "DPS",
           "releaseDate": "2026-09-24",
@@ -33200,7 +33209,7 @@
   ],
   "teamTierData": [
     {
-      "name": "Lingering Glow Prismatic Engine",
+      "name": "Shine bright like a diamond",
       "tier": "T0",
       "members": [
         "Beryl",

@@ -382,9 +382,46 @@
         }
         function charEuphTag(c) { 
             if (!c || !c.hasEuphoria) return ''; 
-            if (Array.isArray(c.euphoriaPaths) && c.euphoriaPaths.length) return c.euphoriaPaths[0].type || c.euphoriaPaths[0].tag || '';
+            if (Array.isArray(c.euphoriaPaths) && c.euphoriaPaths.length) {
+                const active = activeEuphPath(c);
+                if (active) return active.type || active.tag || '';
+                return c.euphoriaPaths[0].type || c.euphoriaPaths[0].tag || '';
+            }
             if (c.euphoria) return c.euphoria.tag || '';
             return ''; 
+        }
+        function latestEuphPath(c) {
+            const paths = (c && Array.isArray(c.euphoriaPaths)) ? c.euphoriaPaths : [];
+            if (!paths.length) return null;
+            const ts = p => { const v = Date.parse(p && p.releaseDate); return isNaN(v) ? -Infinity : v; };
+            return paths.slice().sort((a, b) => ts(b) - ts(a))[0] || null;
+        }
+        const euphoriaUserState = {}; // charId -> path object | 'off' ; unset = auto (latest path)
+        function activeEuphPath(c) {
+            if (!c || !c.hasEuphoria) return null;
+            const paths = Array.isArray(c.euphoriaPaths) ? c.euphoriaPaths : [];
+            if (!paths.length) return null;
+            const st = euphoriaUserState[c.id];
+            if (st === 'off') return null;
+            if (st && paths.indexOf(st) !== -1) return st;
+            return latestEuphPath(c); // auto-activate most recent path
+        }
+        function cycleEuphoria(id) {
+            const c = characters.find(x => x.id === id);
+            if (!c || !c.hasEuphoria) return;
+            const paths = Array.isArray(c.euphoriaPaths) ? c.euphoriaPaths : [];
+            if (!paths.length) return;
+            const latest = latestEuphPath(c);
+            const order = [latest, ...paths.filter(p => p !== latest), 'off'];
+            const cur = (id in euphoriaUserState) ? euphoriaUserState[id] : latest;
+            const i = order.indexOf(cur);
+            euphoriaUserState[id] = order[(i + 1) % order.length];
+            renderCharacters();
+        }
+        function effectiveTier(c) {
+            const path = activeEuphPath(c);
+            if (path && path.tier) return path.tier;
+            return (c && c.tier) || '';
         }
         function tagStarsHtml(t) {
             const r = t.rating || 0;
@@ -417,7 +454,8 @@
             }
 
             grid.innerHTML = filtered.map(c => {
-                const activeTier = c.tier;
+                const activePath = includeEuphoria ? activeEuphPath(c) : null;
+                const activeTier = includeEuphoria ? effectiveTier(c) : (c.tier || '');
                 const tierColor = activeTier === 'T0' ? 'bg-amber-800 text-parchment-50 border-amber-500' :
                                   activeTier === 'T0.5' ? 'bg-parchment-800 text-parchment-50 border-parchment-500' :
                                   activeTier === 'T1' ? 'bg-parchment-700 text-parchment-50 border-parchment-500' :
@@ -435,7 +473,7 @@
                                     <div>
                                         <div class="flex flex-wrap items-center gap-1.5">
                                             <h3 class="font-serif font-bold text-lg text-parchment-900 group-hover:text-parchment-700 transition">${c.name}</h3>
-                                            ${c.hasEuphoria && includeEuphoria ? `<span class="px-1.5 py-0.5 rounded bg-amber-800 text-parchment-50 font-mono text-[10px] font-bold">Euphoria ${(Array.isArray(c.euphoriaPaths)&&c.euphoriaPaths[0]&&(c.euphoriaPaths[0].type||c.euphoriaPaths[0].tag))||(c.euphoria&&c.euphoria.tag)||''}</span>` : ''}
+                                            ${c.hasEuphoria && includeEuphoria ? `<span onclick="event.stopPropagation(); cycleEuphoria('${c.id}')" title="Click to cycle euphoria path" class="px-1.5 py-0.5 rounded font-mono text-[10px] font-bold cursor-pointer ${activePath ? 'bg-amber-800 text-parchment-50' : 'bg-parchment-300 text-parchment-600'}">Euphoria ${activePath ? (activePath.type || activePath.tag || '') : 'Off'}</span>` : ''}
                                         </div>
                                         <div class="flex flex-wrap items-center gap-1.5 mt-1">
                                             <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
@@ -543,7 +581,7 @@
                 <div class="flex flex-wrap items-center gap-3 border-b border-parchment-300 pb-4 mb-4">
                     <div class="w-14 h-14 rounded-2xl bg-parchment-800 text-parchment-50 flex flex-col items-center justify-center font-serif font-bold border border-parchment-500">
                         <span class="text-[10px] font-mono uppercase opacity-75">Tier</span>
-                        <span class="text-lg leading-none">${c.tier}</span>
+                        <span class="text-lg leading-none">${effectiveTier(c)}</span>
                     </div>
                     ${c.image ? `<img src="${c.image}" alt="" class="w-14 h-14 rounded-2xl object-cover border border-parchment-500 bg-parchment-100 shrink-0" onerror="this.remove()">` : ''}
                     <div class="flex-1 min-w-0">

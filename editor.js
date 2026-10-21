@@ -638,6 +638,7 @@ const SECTIONS = {
                     </div>
                     ${grid(
                         fSelect('Type (E1/E2)', ep + '.type', EUPH_TYPES) +
+                        fSelect('Tier', ep + '.tier', TIERS, { blank: '— inherit base tier —' }) +
                         fSelect('Suffix', ep + '.suffix', ['', ...SUFFIXES]) +
                         fSelect('Euphoria Tag', ep + '.tag', TAGS, { blank:'— choose a tag —' }) +
                         fInput('Euphoria Name', ep + '.name', { ph:'e.g. Verdant Reverie' }) +
@@ -1115,14 +1116,14 @@ function ensureCharShape(c){
     }
     if (!Array.isArray(c.euphoriaPaths)) c.euphoriaPaths = [];
     var paths = c.euphoriaPaths.map(function(p){
-        var np = { type:'E1', tag:'E1', name:'', suffix:'', releaseDate:'', image:'', rank1:'', rank2:'', rank3:'', rank4:'', materials:[] };
+        var np = { type:'E1', tag:'E1', tier:'', name:'', suffix:'', releaseDate:'', image:'', rank1:'', rank2:'', rank3:'', rank4:'', materials:[] };
         if(p && typeof p === 'object'){
             for(var k in p){ if(Object.prototype.hasOwnProperty.call(p,k)) np[k] = p[k]; }
         }
-        if(['E1','E2'].indexOf(np.type) === -1){
-            np.type = (np.tag && ['E1','E2'].indexOf(np.tag) !== -1) ? np.tag : 'E1';
-        }
-        np.tag = np.type;
+        if(!np.type) np.type = 'E1';
+        if (np.tag == null) np.tag = '';
+        if (np.tag === np.type && ['E1','E2'].indexOf(np.tag) !== -1) np.tag = '';
+        if (np.tier == null) np.tier = '';
         if (!Array.isArray(np.materials)) np.materials = [];
         return np;
     });
@@ -1272,7 +1273,7 @@ document.addEventListener('click', async e => {
             const nextType = c.euphoriaPaths.length ? (c.euphoriaPaths.some(x => x.type === 'E1') ? 'E2' : 'E1') : 'E1';
             const name = prompt('Euphoria name (optional):', 'Name of this Euphoria');
             if (name === null) break;
-            c.euphoriaPaths.push({ type: nextType, tag: nextType, name: name.trim(), suffix: '', releaseDate: '', image: '', rank1:'', rank2:'', rank3:'', rank4:'' });            c.hasEuphoria = true;
+            c.euphoriaPaths.push({ type: nextType, tag: nextType, tier:'', name: name.trim(), suffix: '', releaseDate: '', image: '', rank1:'', rank2:'', rank3:'', rank4:'' });            c.hasEuphoria = true;
             markDirty(); render(); break;
         }
         case act === 'euph-del': {
