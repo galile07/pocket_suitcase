@@ -1,0 +1,857 @@
+[
+  {
+    "slug": "6",
+    "main": "In Their Figures",
+    "alt": "Melodies Old and New",
+    "unknown": []
+  },
+  {
+    "slug": "37",
+    "main": "On the Hand of Time",
+    "alt": "Falling for a Sweet Phenomenon",
+    "unknown": []
+  },
+  {
+    "slug": "a-knight",
+    "main": "Hopscotch",
+    "alt": "",
+    "unknown": [
+      "Never-Ending Qu0026A"
+    ]
+  },
+  {
+    "slug": "aleph",
+    "main": "Mental Cage",
+    "alt": "Long Night Talk",
+    "unknown": []
+  },
+  {
+    "slug": "alexios",
+    "main": "Brave New World",
+    "alt": "Hopscotch",
+    "unknown": [
+      "never-ending-q-and-a"
+    ]
+  },
+  {
+    "slug": "alien-t",
+    "main": "Her Second Life",
+    "alt": "The Fighter's Best Wishes",
+    "unknown": []
+  },
+  {
+    "slug": "an-an-lee",
+    "main": "Your Friendly Exorcist",
+    "alt": "Long Night Talk",
+    "unknown": []
+  },
+  {
+    "slug": "anjo-nala",
+    "main": "Transcendent Love",
+    "alt": "On the Hand of Time",
+    "unknown": []
+  },
+  {
+    "slug": "apple",
+    "main": "Her Second Life",
+    "alt": "Belt It Out",
+    "unknown": []
+  },
+  {
+    "slug": "argus",
+    "main": "Stray Off the Path",
+    "alt": "Outside the City",
+    "unknown": []
+  },
+  {
+    "slug": "avgust",
+    "main": "Your Friendly Exorcist",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "baby-blue",
+    "main": "Belt It Out",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "balloon-party",
+    "main": "Take the Hard Journey",
+    "alt": "Melodies Old and New",
+    "unknown": []
+  },
+  {
+    "slug": "barbara",
+    "main": "Beyond Wonderland",
+    "alt": "The Fighter's Best Wishes",
+    "unknown": []
+  },
+  {
+    "slug": "barcarola",
+    "main": "Addio Coda",
+    "alt": "Belt It Out",
+    "unknown": []
+  },
+  {
+    "slug": "beryl",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "bette",
+    "main": "Off the Scene",
+    "alt": "Dawn Is Coming",
+    "unknown": []
+  },
+  {
+    "slug": "bkornblume",
+    "main": "Luxurious Leisure",
+    "alt": "Brave New World",
+    "unknown": []
+  },
+  {
+    "slug": "blonney",
+    "main": "For Rehabilitation",
+    "alt": "Spinning Yarns",
+    "unknown": []
+  },
+  {
+    "slug": "brimley",
+    "main": "Long Night Talk",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "brume",
+    "main": "On the Hand of Time",
+    "alt": "Her Willful Leap",
+    "unknown": []
+  },
+  {
+    "slug": "buddy-fairchild",
+    "main": "Another Story",
+    "alt": "Substitutes and Simulacra",
+    "unknown": []
+  },
+  {
+    "slug": "bunny-bunny",
+    "main": "Her Second Life",
+    "alt": "Blasphemer of Night",
+    "unknown": []
+  },
+  {
+    "slug": "centurion",
+    "main": "The Final Roll",
+    "alt": "Hopscotch",
+    "unknown": []
+  },
+  {
+    "slug": "charlie",
+    "main": "Hopscotch",
+    "alt": "Brave New World",
+    "unknown": []
+  },
+  {
+    "slug": "charon",
+    "main": "Buds Yet to Bloom",
+    "alt": "On the Hand of Time",
+    "unknown": []
+  },
+  {
+    "slug": "cheng-heguang",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "click",
+    "main": "Balance, Please",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "coppelia",
+    "main": "The Silent Anthem",
+    "alt": "Long Night Talk",
+    "unknown": []
+  },
+  {
+    "slug": "cornerstone",
+    "main": "Where Light and Shadows Rest",
+    "alt": "The Final Roll",
+    "unknown": []
+  },
+  {
+    "slug": "corvus",
+    "main": "On the Hand of Time",
+    "alt": "Bitter March of the Living",
+    "unknown": [
+      "never-ending-q-and-a"
+    ]
+  },
+  {
+    "slug": "cristallo",
+    "main": "Her Second Life",
+    "alt": "Take the Hard Journey",
+    "unknown": []
+  },
+  {
+    "slug": "darley-clatter",
+    "main": "Her Second Life",
+    "alt": "Family Mentor",
+    "unknown": []
+  },
+  {
+    "slug": "desert-flannel",
+    "main": "Outside the City",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "diggers",
+    "main": "Luxurious Leisure",
+    "alt": "Blasphemer of Night",
+    "unknown": []
+  },
+  {
+    "slug": "dikke",
+    "main": "Take the Hard Journey",
+    "alt": "That Inquisitive Dear",
+    "unknown": []
+  },
+  {
+    "slug": "door",
+    "main": "Balance, Please",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "druvis-iii",
+    "main": "Her Second Life",
+    "alt": "Blasphemer of Night",
+    "unknown": []
+  },
+  {
+    "slug": "eagle",
+    "main": "Luxurious Leisure",
+    "alt": "Thunderous Applause",
+    "unknown": []
+  },
+  {
+    "slug": "enigma",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "erick",
+    "main": "For Rehabilitation",
+    "alt": "Luxurious Leisure",
+    "unknown": []
+  },
+  {
+    "slug": "eternity",
+    "main": "Into the Gentle Current",
+    "alt": "Beyond Wonderland",
+    "unknown": []
+  },
+  {
+    "slug": "everecho",
+    "main": "A Dream Beyond Light",
+    "alt": "The Wandering Improviser",
+    "unknown": []
+  },
+  {
+    "slug": "ezio-auditore",
+    "main": "As the Bell Tolls",
+    "alt": "Outside the City",
+    "unknown": []
+  },
+  {
+    "slug": "ezra-theodore",
+    "main": "The Third Commitment",
+    "alt": "Beyond Wonderland",
+    "unknown": []
+  },
+  {
+    "slug": "fatutu",
+    "main": "Cracks in the Shell",
+    "alt": "The Wandering Improviser",
+    "unknown": []
+  },
+  {
+    "slug": "flutterpage",
+    "main": "Addio Coda",
+    "alt": "Aurora After Winter",
+    "unknown": []
+  },
+  {
+    "slug": "getian",
+    "main": "The Third Commitment",
+    "alt": "",
+    "unknown": [
+      "The Wind’s Listener",
+      "Never-Ending Qu0026A"
+    ]
+  },
+  {
+    "slug": "glyndwr",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "hedone",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "hissabeth",
+    "main": "Never-Ending Q&A",
+    "alt": "Luxurious Leisure",
+    "unknown": []
+  },
+  {
+    "slug": "horropedia",
+    "main": "Hopscotch",
+    "alt": "Brave New World",
+    "unknown": []
+  },
+  {
+    "slug": "huntsworn-lilya",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "igor",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "isolde",
+    "main": "Knock on the Door",
+    "alt": "Blasphemer of Night",
+    "unknown": []
+  },
+  {
+    "slug": "j",
+    "main": "The Unbearable Lightness",
+    "alt": "Family Mentor",
+    "unknown": []
+  },
+  {
+    "slug": "jessica",
+    "main": "Falling for a Sweet Phenomenon",
+    "alt": "Blasphemer of Night",
+    "unknown": []
+  },
+  {
+    "slug": "jiu-niangzi",
+    "main": "Outside the City",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "john-titor",
+    "main": "Her Second Life",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "kaalaa-baunaa",
+    "main": "Luxurious Leisure",
+    "alt": "Brave New World",
+    "unknown": []
+  },
+  {
+    "slug": "kakania",
+    "main": "The Fighter's Best Wishes",
+    "alt": "Beyond Wonderland",
+    "unknown": []
+  },
+  {
+    "slug": "kanjira",
+    "main": "Blasphemer of Night",
+    "alt": "Dust on the Roadside",
+    "unknown": []
+  },
+  {
+    "slug": "kassandra",
+    "main": "An Epic's End",
+    "alt": "Luxurious Leisure",
+    "unknown": []
+  },
+  {
+    "slug": "kiperina",
+    "main": "Aurora After Winter",
+    "alt": "Long Night Talk",
+    "unknown": []
+  },
+  {
+    "slug": "la-source",
+    "main": "That Inquisitive Dear",
+    "alt": "Dawn Is Coming",
+    "unknown": []
+  },
+  {
+    "slug": "leilani",
+    "main": "Offbeat Strides",
+    "alt": "Family Mentor",
+    "unknown": []
+  },
+  {
+    "slug": "liang-yue",
+    "main": "Stray Off the Path",
+    "alt": "Outside the City",
+    "unknown": []
+  },
+  {
+    "slug": "lilya",
+    "main": "For Rehabilitation",
+    "alt": "Outside the City",
+    "unknown": []
+  },
+  {
+    "slug": "loggerhead",
+    "main": "Blasphemer of Night",
+    "alt": "Your Friendly Exorcist",
+    "unknown": []
+  },
+  {
+    "slug": "lopera",
+    "main": "The Third Commitment",
+    "alt": "Stray Off the Path",
+    "unknown": []
+  },
+  {
+    "slug": "lorelei",
+    "main": "Brave New World",
+    "alt": "Another Story",
+    "unknown": []
+  },
+  {
+    "slug": "lorentz-butterfly",
+    "main": "The Fluttering Moment",
+    "alt": "Singleness of Heart",
+    "unknown": []
+  },
+  {
+    "slug": "lucy",
+    "main": "Steps Forward",
+    "alt": "Knock on the Door",
+    "unknown": []
+  },
+  {
+    "slug": "marcus",
+    "main": "Another Story",
+    "alt": "Blasphemer of Night",
+    "unknown": [
+      "never-ending-q-and-a"
+    ]
+  },
+  {
+    "slug": "marsha",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "matilda",
+    "main": "Belt It Out",
+    "alt": "Addio Coda",
+    "unknown": []
+  },
+  {
+    "slug": "medicine-pocket",
+    "main": "Cracks in the Shell",
+    "alt": "Beyond Wonderland",
+    "unknown": []
+  },
+  {
+    "slug": "melania",
+    "main": "One with the Flow",
+    "alt": "Offbeat Strides",
+    "unknown": []
+  },
+  {
+    "slug": "mercuria",
+    "main": "One with the Flow",
+    "alt": "Melodies Old and New",
+    "unknown": []
+  },
+  {
+    "slug": "mesmer-jr",
+    "main": "Balance, Please",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "moldir",
+    "main": "Family Mentor",
+    "alt": "Brave New World",
+    "unknown": [
+      "never-ending-q-and-a"
+    ]
+  },
+  {
+    "slug": "mondlicht",
+    "main": "Luxurious Leisure",
+    "alt": "Brave New World",
+    "unknown": []
+  },
+  {
+    "slug": "mr-duncan",
+    "main": "Outside the City",
+    "alt": "Family Mentor",
+    "unknown": []
+  },
+  {
+    "slug": "ms-moissan",
+    "main": "Long Night Talk",
+    "alt": "Luxurious Leisure",
+    "unknown": []
+  },
+  {
+    "slug": "ms-newbabel",
+    "main": "Off the Scene",
+    "alt": "Approaching Rain",
+    "unknown": []
+  },
+  {
+    "slug": "ms-radio",
+    "main": "Balance, Please",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "ms-stranger",
+    "main": "Long Night Talk",
+    "alt": "Until I Am Me",
+    "unknown": [
+      "Never-Ending Qu0026A"
+    ]
+  },
+  {
+    "slug": "name-day",
+    "main": "Melodies Old and New",
+    "alt": "Off the Scene",
+    "unknown": []
+  },
+  {
+    "slug": "narcissus",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "nautika",
+    "main": "Embrace the Past",
+    "alt": "Beyond Wonderland",
+    "unknown": []
+  },
+  {
+    "slug": "necrologist",
+    "main": "Her Second Life",
+    "alt": "Offbeat Strides",
+    "unknown": []
+  },
+  {
+    "slug": "nick-bottom",
+    "main": "Dawn Is Coming",
+    "alt": "Family Mentor",
+    "unknown": []
+  },
+  {
+    "slug": "noire",
+    "main": "Rehearsal of Dreams",
+    "alt": "Another Story",
+    "unknown": []
+  },
+  {
+    "slug": "nora",
+    "main": "The Fluttering Moment",
+    "alt": "Your Friendly Exorcist",
+    "unknown": []
+  },
+  {
+    "slug": "oliver-fog",
+    "main": "Luxurious Leisure",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "onion",
+    "main": "His Bounden Duty",
+    "alt": "The Final Roll",
+    "unknown": []
+  },
+  {
+    "slug": "paper-heron",
+    "main": "",
+    "alt": "Addio Coda",
+    "unknown": [
+      "Wayfarer of the Tao"
+    ]
+  },
+  {
+    "slug": "pavia",
+    "main": "Luxurious Leisure",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "pickles",
+    "main": "Faded Epitaphs",
+    "alt": "The Wandering Improviser",
+    "unknown": []
+  },
+  {
+    "slug": "pioneer",
+    "main": "The Fighter's Best Wishes",
+    "alt": "A Free Heart",
+    "unknown": []
+  },
+  {
+    "slug": "poltergeist",
+    "main": "The Fighter's Best Wishes",
+    "alt": "Approaching Rain",
+    "unknown": []
+  },
+  {
+    "slug": "rabies",
+    "main": "His Bounden Duty",
+    "alt": "Blasphemer of Night",
+    "unknown": []
+  },
+  {
+    "slug": "ramona",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "recoleta",
+    "main": "The Final Roll",
+    "alt": "Rehearsal of Dreams",
+    "unknown": []
+  },
+  {
+    "slug": "reed",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "regulus",
+    "main": "Aurora After Winter",
+    "alt": "Belt It Out",
+    "unknown": []
+  },
+  {
+    "slug": "rhiannon",
+    "main": "The Soft Rain of Yesterday",
+    "alt": "Family Mentor",
+    "unknown": []
+  },
+  {
+    "slug": "rubuska",
+    "main": "The Wandering Improviser",
+    "alt": "Melodies Old and New",
+    "unknown": []
+  },
+  {
+    "slug": "satsuki",
+    "main": "Luxurious Leisure",
+    "alt": "Thunderous Applause",
+    "unknown": []
+  },
+  {
+    "slug": "semmelweis",
+    "main": "The Third Commitment",
+    "alt": "Into the Gentle Current",
+    "unknown": []
+  },
+  {
+    "slug": "sentinel",
+    "main": "Homecoming Lament",
+    "alt": "Into the Gentle Current",
+    "unknown": []
+  },
+  {
+    "slug": "shamane",
+    "main": "The Carat of a Heart",
+    "alt": "Brave New World",
+    "unknown": [
+      "never-ending-q-and-a"
+    ]
+  },
+  {
+    "slug": "silverwing-eagle",
+    "main": "Outside the City",
+    "alt": "On the Hand of Time",
+    "unknown": []
+  },
+  {
+    "slug": "sonetto",
+    "main": "Brave New World",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "sotheby",
+    "main": "That Inquisitive Dear",
+    "alt": "Her Mournful Face",
+    "unknown": []
+  },
+  {
+    "slug": "spathodea",
+    "main": "Long Night Talk",
+    "alt": "Luxurious Leisure",
+    "unknown": []
+  },
+  {
+    "slug": "sputnik",
+    "main": "His Bounden Duty",
+    "alt": "Luxurious Leisure",
+    "unknown": []
+  },
+  {
+    "slug": "sweetheart",
+    "main": "Luxurious Leisure",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "tennant",
+    "main": "Luxurious Leisure",
+    "alt": "Long Night Talk",
+    "unknown": []
+  },
+  {
+    "slug": "the-fool",
+    "main": "The Fighter's Best Wishes",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "the-twins",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "tooth-fairy",
+    "main": "Beyond Wonderland",
+    "alt": "That Inquisitive Dear",
+    "unknown": []
+  },
+  {
+    "slug": "ttt",
+    "main": "Her Second Life",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "tuesday",
+    "main": "And the Maid Says",
+    "alt": "One with the Flow",
+    "unknown": [
+      "never-ending-q-and-a"
+    ]
+  },
+  {
+    "slug": "twins-sleep",
+    "main": "Balance, Please",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "ulrich",
+    "main": "On the Hand of Time",
+    "alt": "A Tingle of a Thought",
+    "unknown": []
+  },
+  {
+    "slug": "ulu",
+    "main": "That Inquisitive Dear",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "vila",
+    "main": "Dawn Is Coming",
+    "alt": "That Inquisitive Dear",
+    "unknown": []
+  },
+  {
+    "slug": "voyager",
+    "main": "Aurora After Winter",
+    "alt": "Belt It Out",
+    "unknown": []
+  },
+  {
+    "slug": "white-rum",
+    "main": "Balance, Please",
+    "alt": "His Bounden Duty",
+    "unknown": []
+  },
+  {
+    "slug": "willow",
+    "main": "Offbeat Strides",
+    "alt": "Her Mournful Face",
+    "unknown": []
+  },
+  {
+    "slug": "windsong",
+    "main": "On the Hand of Time",
+    "alt": "Another Story",
+    "unknown": []
+  },
+  {
+    "slug": "winter",
+    "main": "His Bounden Duty",
+    "alt": "Her Second Life",
+    "unknown": []
+  },
+  {
+    "slug": "x",
+    "main": "Balance, Please",
+    "alt": "Brave New World",
+    "unknown": []
+  },
+  {
+    "slug": "yenisei",
+    "main": "Beyond Wonderland",
+    "alt": "Melodies Old and New",
+    "unknown": []
+  },
+  {
+    "slug": "thetwins",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "paperheron",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "lady-by-the-lake",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  },
+  {
+    "slug": "drake",
+    "main": "",
+    "alt": "",
+    "unknown": []
+  }
+]

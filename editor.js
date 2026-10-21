@@ -1,7 +1,7 @@
 /* ============================================================
    STATE
    ============================================================ */
-const VARS = ['materialNodes','mythManifests','characters','materialsList','teamTierData','pullBanners','walkthroughData','homePatchNewCharIds','homePatchEuphoriaIds','homeManesBulletinBosses'];
+const VARS = ['materialNodes','mythManifests','characters','materialsList','psychubes','teamTierData','pullBanners','walkthroughData','homePatchNewCharIds','homePatchEuphoriaIds','homeManesBulletinBosses'];
 const API_ENDPOINTS = ['/api/data', 'http://localhost:3000/api/data'];
 const CLOUD_READY = !!(window.PSStore && PSStore.isConfigured());
 
@@ -16,7 +16,7 @@ let DIRTY = false, CHANGES = 0;
 let SECTION = 'characters';
 let Q = '';
 let API_MODE = false;     // true = loaded from server API; false = opened local HTML file
-const sel = { characters:0, teams:0, banners:0, manifests:0, nodes:0, bosses:0, wfboss:0, materials:0 };
+const sel = { characters:0, teams:0, banners:0, manifests:0, nodes:0, bosses:0, wfboss:0, materials:0, psychubes:0 };
 let wfMode = 'reveries';
 
 const AFFLATUS = ['Star','Plant','Mineral','Beast','Spirit','Intellect'];
@@ -63,7 +63,7 @@ function setPath(p, v){
     o[parts[parts.length - 1]] = v;
 }
 function clampSel(){
-    const lens = { characters:'characters', teams:'teamTierData', banners:'pullBanners', manifests:'mythManifests', nodes:'materialNodes', bosses:'homeManesBulletinBosses', materials:'materialsList' };
+    const lens = { characters:'characters', teams:'teamTierData', banners:'pullBanners', manifests:'mythManifests', nodes:'materialNodes', bosses:'homeManesBulletinBosses', materials:'materialsList', psychubes:'psychubes' };
     for (const k in lens){
         const len = (DOC[lens[k]] || []).length;
         if (len === 0) sel[k] = 0;
@@ -595,8 +595,8 @@ const SECTIONS = {
                     fInput('Release Date (CN)', p + '.releaseDate', { ph:'YYYY-MM-DD' }) +
                     fInput('Image Portray (URL)', p + '.image', { wide:true, ph:'https://…' }) +
                     (imgVal ? `<div class="sm:col-span-2"><img src="${esc(imgVal)}" alt="" class="h-24 rounded-xl border border-parchment-300 bg-parchment-100 object-contain" onerror="this.style.display='none'"></div>` : '') +
-                    fInput('Psychube (main)', p + '.psychube', { ph:'Refracted Prism (6★)' }) +
-                    fInput('Psychube (alt)', p + '.altPsychube')
+                    fSelect('Psychube (main)', p + '.psychube', (DOC.psychubes || []).map(y => y.name), { blank:'— none —' }) +
+                    fSelect('Psychube (alt)', p + '.altPsychube', (DOC.psychubes || []).map(y => y.name), { blank:'— none —' })
                 )}
                 <div><label class="lbl">Suffix (pick one or more)</label>
                     <div class="flex flex-wrap gap-2">${SUFFIXES.map(s => `<button type="button" class="chip ${(getPath(p + '.suffix') || []).includes(s) ? 'on' : ''}" data-chip="${s}" data-chippath="${p}.suffix">${s}</button>`).join('')}</div></div>
@@ -741,6 +741,52 @@ const SECTIONS = {
                 fArea('Where to get it the most', p + '.area', { rows:2, ph:'e.g. A Heavy Blow — Stage 3 (best drop rate)' }) +
                 `<div class="sm:col-span-2 text-[11px] text-parchment-600">Used by the Material Plan inputs in <b>Characters → Material Plan</b> (type-ahead suggests the name). Keep names unique for clean suggestions.</div>`
             )}</div>`;
+        }
+    },
+
+    psychubes: {
+        label:'Psychubes', icon:'disc-3', sub:'Psychube Catalog', title:'Psychube Database',
+        controls(){
+            return `<button class="btn btn-dark" data-act="add-psy"><i data-lucide="plus" class="w-4 h-4"></i> New Psychube</button>
+                <button class="btn btn-ghost" data-act="dup-psy"><i data-lucide="copy" class="w-4 h-4"></i> Duplicate</button>
+                <button class="btn btn-red" data-act="del-psy"><i data-lucide="trash-2" class="w-4 h-4"></i></button>`;
+        },
+        list(){
+            const arr = DOC.psychubes || [];
+            return arr.map((y, i) => `<button class="list-item ${i === sel.psychubes ? 'on' : ''}" data-act="sel-psy" data-idx="${i}">
+                <div class="flex items-center justify-between gap-2"><span class="font-bold truncate">${esc(y.name)}</span><span class="chip !py-0.5 !text-[10px] !cursor-default">${esc(String(y.rarity || ''))}★</span></div>
+                <div class="sub text-[11px] opacity-80 mt-0.5 truncate">${esc(y.label || '')}</div>
+            </button>`).join('') || '<p class="text-xs text-parchment-500 italic p-2">No psychubes yet.</p>';
+        },
+        form(){
+            clampSel();
+            const arr = DOC.psychubes || [];
+            if (!arr.length) return '<div class="card p-6 text-sm text-parchment-600">No psychubes yet — click <b>New Psychube</b>. Character <b>Psychube (main/alt)</b> dropdowns pull from this list.</div>';
+            const p = 'psychubes.' + sel.psychubes;
+            const img = arr[sel.psychubes].image || '';
+            return `<div class="card p-5 space-y-4">${grid(
+                fInput('Name', p + '.name', { wide:true, ph:'e.g. Refracted Prism' }) +
+                fSelect('Rarity', p + '.rarity', ['6','5','4','3','2']) +
+                fInput('Label / Role', p + '.label', { ph:'e.g. ATK DPS' }) +
+                fInput('Image (URL)', p + '.image', { wide:true, ph:'https://…' }) +
+                (img ? `<div class="sm:col-span-2"><img src="${esc(img)}" alt="" class="h-20 rounded-xl border border-parchment-300 bg-parchment-100 object-contain" onerror="this.style.display='none'"></div>` : '')
+            )}
+            <div class="border-t border-parchment-200 pt-3">
+                <span class="lbl !mb-2">Level 1 / Max Stats</span>
+                ${grid(
+                    fInput('ATK (1)', p + '.atk1', { ph:'54' }) + fInput('ATK (Max)', p + '.atkMax', { ph:'360' }) +
+                    fInput('HP (1)', p + '.hp1', { ph:'450' }) + fInput('HP (Max)', p + '.hpMax', { ph:'3000' }) +
+                    fInput('Real DEF (1)', p + '.rdef1', { ph:'24' }) + fInput('Real DEF (Max)', p + '.rdefMax', { ph:'160' }) +
+                    fInput('Mental DEF (1)', p + '.mdef1', { ph:'24' }) + fInput('Mental DEF (Max)', p + '.mdefMax', { ph:'160' }) +
+                    fInput('Sub Stat', p + '.statName', { ph:'e.g. ATK' }) +
+                    fInput('Sub Stat (1)', p + '.stat1', { ph:'4%' }) + fInput('Sub Stat (Max)', p + '.statMax', { ph:'10%' })
+                )}
+            </div>
+            <div class="border-t border-parchment-200 pt-3 space-y-3">
+                <span class="lbl !mb-0">Amplification (Amp 1–5)</span>
+                ${[1,2,3,4,5].map(n => fArea('Amp ' + n, p + '.amp' + n, { rows:2 })).join('')}
+            </div>
+            </div>`;
         }
     },
 
@@ -1005,7 +1051,7 @@ const SECTIONS = {
 /* ============================================================
    RENDER
    ============================================================ */
-const ORDER = ['characters','materials','teams','banners','walkthrough','home','manifests','nodes','text','raw'];
+const ORDER = ['characters','psychubes','materials','teams','banners','walkthrough','home','manifests','nodes','text','raw'];
 
 function renderNav(){
     $('#nav').innerHTML = ORDER.map(k => {
@@ -1076,7 +1122,7 @@ function newCharacter(){
 function ensureCharShape(c){
     const d = {
         dmgType:'', image:'', releaseDate:'', suffix:[], tags:[], bound:[], hasEuphoria:false,
-        euphoriaPaths:[],
+        euphoriaPaths:[], psychube:'', altPsychube:'',
         materialPlan:{
             currency:{ dust:'', sharpodonty:'' }, insights:[],
             resL5:{ sharpodonty:'', mats:[] }, resL10:{ sharpodonty:'', mats:[] },
@@ -1322,6 +1368,11 @@ document.addEventListener('click', async e => {
             if (!confirm(`Delete "${arr[sel.characters].name}"?`)) break;
             arr.splice(sel.characters, 1); markDirty(); render(); break;
         }
+
+        case act === 'sel-psy': sel.psychubes = idx; render(); break;
+        case act === 'add-psy': (DOC.psychubes = DOC.psychubes || []).push({ name:'New Psychube', rarity:'6', label:'', image:'', atk1:'', atkMax:'', hp1:'', hpMax:'', rdef1:'', rdefMax:'', mdef1:'', mdefMax:'', statName:'', stat1:'', statMax:'', amp1:'', amp2:'', amp3:'', amp4:'', amp5:'' }); sel.psychubes = DOC.psychubes.length - 1; markDirty(); render(); break;
+        case act === 'dup-psy': { const arr = DOC.psychubes; if (!arr.length) break; const y = clone(arr[sel.psychubes]); y.name += ' (copy)'; arr.splice(sel.psychubes + 1, 0, y); sel.psychubes++; markDirty(); render(); break; }
+        case act === 'del-psy': { const arr = DOC.psychubes; if (!arr.length) break; if (!confirm(`Delete "${arr[sel.psychubes].name}"?`)) break; arr.splice(sel.psychubes, 1); markDirty(); render(); break; }
 
         case act === 'add-team': (DOC.teamTierData = DOC.teamTierData || []).push({ tier:'T1', name:'New Team', archetype:'Lingering Glow', manifest:'', members:['','','',''], modeRating:'', rotation:'' }); sel.teams = DOC.teamTierData.length - 1; markDirty(); render(); break;
         case act === 'dup-team': { const arr = DOC.teamTierData; if (!arr.length) break; const t = clone(arr[sel.teams]); t.name += ' (copy)'; arr.splice(sel.teams + 1, 0, t); sel.teams++; markDirty(); render(); break; }
