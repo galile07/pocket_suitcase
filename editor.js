@@ -574,6 +574,21 @@ function sectionHead(title, sub, controls){
         <div class="flex flex-wrap items-center gap-2">${controls || ''}</div></div>`;
 }
 
+/* Collapsible card state for the Characters form (session-only UI state).
+   Euphoria and Material Plan start collapsed — they are the tallest. */
+const COLLAPSED = { info:false, tags:false, euph:true, bound:false, plan:true };
+function collHead(key, title){
+    const open = !COLLAPSED[key];
+    return `<button type="button" data-act="coll-toggle" data-key="${key}" class="flex items-center gap-2 w-full text-left cursor-pointer select-none">
+        <i data-lucide="${open ? 'chevron-down' : 'chevron-right'}" class="w-4 h-4 shrink-0 text-parchment-500"></i>
+        <p class="text-[11px] font-mono font-bold uppercase tracking-widest text-parchment-600">${esc(title)}</p>
+    </button>`;
+}
+function collCard(key, title, body, space){
+    if (COLLAPSED[key]) return `<div class="card p-5">${collHead(key, title)}</div>`;
+    return `<div class="card p-5 ${space || 'space-y-4'}">${collHead(key, title)}${body}</div>`;
+}
+
 /* ============================================================
    SECTIONS
    ============================================================ */
@@ -613,7 +628,7 @@ const SECTIONS = {
             const sub = t => `<p class="text-[11px] font-mono font-bold uppercase tracking-widest text-parchment-600 mb-2.5">${t}</p>`;
 
             const imgVal = getPath(p + '.image') || '';
-            const infoCard = `<div class="card p-5 space-y-4">${sub('Character Info')}
+            const infoCard = collCard('info', 'Character Info', `
                 ${grid(
                     fInput('Display Name', p + '.name') +
                     fInput('ID (slug)', p + '.id', { ph:'beryl' }) +
@@ -629,7 +644,7 @@ const SECTIONS = {
                 )}
                 <div><label class="lbl">Suffix (pick one or more)</label>
                     <div class="flex flex-wrap gap-2">${SUFFIXES.map(s => `<button type="button" class="chip ${(getPath(p + '.suffix') || []).includes(s) ? 'on' : ''}" data-chip="${s}" data-chippath="${p}.suffix">${s}</button>`).join('')}</div></div>
-            </div>`;
+            `);
 
             const tags = getPath(p + '.tags') || [];
             const tagRows = tags.map((t, i) => `
@@ -640,7 +655,7 @@ const SECTIONS = {
                     <button type="button" data-act="tag-del" data-idx="${i}" class="ml-auto text-parchment-500 hover:text-red-600 cursor-pointer text-xs">✕</button>
                 </div>`).join('') || '<p class="text-xs text-parchment-500 italic">No tags yet — pick them below.</p>';
             const rel = relativeTags(tags);
-            const tagsCard = `<div class="card p-5 space-y-3.5">${sub('Tags')}
+            const tagsCard = collCard('tags', 'Tags', `
                 <div class="flex flex-wrap gap-2">${tagRows}</div>
                 <div class="flex flex-wrap gap-2 items-center">
                     <select id="tag-picker" class="inp !w-auto min-w-[11rem]">${TAGS.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join('')}</select>
@@ -648,7 +663,7 @@ const SECTIONS = {
                 </div>
                 <div><label class="lbl">Relative tags (auto)</label>
                     <div class="flex flex-wrap gap-2">${rel.map(n => `<span class="chip !cursor-default !bg-amber-50 !border-amber-300 !text-amber-800">${esc(n)}</span>`).join('') || '<span class="text-xs text-parchment-500 italic">Derived from your picks — e.g. Burn adds Lingering Glow, Counter adds Follow Up, All Rounder adds everything.</span>'}</div></div>
-            </div>`;
+            `, 'space-y-3.5');
 
             const euphOn = !!getPath(p + '.hasEuphoria');
             const paths = getPath(p + '.euphoriaPaths') || [];
@@ -684,14 +699,14 @@ const SECTIONS = {
                     </div>
                 </div>`;
             };
-            const euphCard = `<div class="card p-5 space-y-3.5">${sub('Euphoria')}
+            const euphCard = collCard('euph', 'Euphoria', `
                 ${fCheck('Euphoria available', p + '.hasEuphoria')}
                 ${euphOn ? `<div class="space-y-3">
                     ${paths.length ? paths.map(euphPathCard).join('') : '<p class="text-xs text-parchment-500 italic">No euphoria paths yet — add E1 or E2.</p>'}
                     <button type="button" class="btn btn-ghost" data-act="euph-add"><i data-lucide="plus" class="w-4 h-4"></i> Add Euphoria Path (E1/E2)</button>
                     <p class="text-[11px] text-parchment-600">Some characters have both E1 and E2 with different roles/suffixes. The public guide shows all added paths.</p>
                 </div>` : `<div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-parchment-600">Euphoria is <b>off</b> — the public site shows <span class="font-mono text-parchment-800">"no euphoria. stay tuned."</span> for this character.</div>`}
-            </div>`;
+            `, 'space-y-3.5');
 
             const bound = getPath(p + '.bound') || [];
             const boundRows = bound.map((b, i) => {
@@ -708,10 +723,10 @@ const SECTIONS = {
                     <button type="button" class="btn btn-red" data-act="bound-del" data-idx="${i}"><i data-lucide="x" class="w-4 h-4"></i></button>
                 </div>`;
             }).join('') || '<p class="text-xs text-parchment-500 italic">No bound units — add up to 3 partners this unit relies on.</p>';
-            const boundCard = `<div class="card p-5 space-y-3.5">${sub('Bound')}
+            const boundCard = collCard('bound', 'Bound', `
                 ${boundRows}
                 ${bound.length < 3 ? `<button type="button" class="btn btn-ghost" data-act="bound-add"><i data-lucide="plus" class="w-4 h-4"></i> Add bound unit (${bound.length}/3)</button>` : '<p class="text-[11px] text-parchment-500 italic">Maximum 3 bound units.</p>'}
-            </div>`;
+            `, 'space-y-3.5');
 
             const resBlock = (label, target) => `<div class="p-3.5 rounded-xl bg-parchment-100 border border-parchment-300 space-y-2.5">
                 <div class="flex items-center justify-between gap-3">
@@ -722,7 +737,7 @@ const SECTIONS = {
                 ${planRows(mp + '.' + target + '.mats', getPath(mp + '.' + target + '.mats') || [], target, 'group')}
                 <button type="button" class="btn btn-ghost" data-act="plan-add" data-target="${target}" data-kind="group"><i data-lucide="plus" class="w-4 h-4"></i> Add material</button>
             </div>`;
-            const planCard = `<div class="card p-5 space-y-4">${sub('Material Plan')}
+            const planCard = collCard('plan', 'Material Plan', `
                 <div>${sub('Currency')}
                     <div class="grid sm:grid-cols-2 gap-4">
                         ${fInput('Dust', mp + '.currency.dust', { ph:'0' })}
@@ -735,7 +750,7 @@ const SECTIONS = {
                 ${resBlock('Resonance L10', 'resL10')}
                 ${resBlock('Resonance L15', 'resL15')}
                 ${resBlock('Resonance Pattern', 'resPattern')}
-            </div>`;
+            `);
 
             return `<div class="space-y-5">${infoCard}${tagsCard}${euphCard}${boundCard}${planCard}</div>`;
         }
@@ -1333,6 +1348,12 @@ document.addEventListener('click', async e => {
                 t.rating = (t.rating === n ? 0 : n);
                 markDirty(); render();
             }
+            break;
+        }
+
+        case act === 'coll-toggle': {
+            const key = b.dataset.key;
+            if (key in COLLAPSED){ COLLAPSED[key] = !COLLAPSED[key]; render(); }
             break;
         }
 
