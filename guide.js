@@ -173,7 +173,8 @@
             // 1. Render New Debut Characters
             const newCharsGrid = document.getElementById('home-new-chars-grid');
             if (newCharsGrid) {
-                const newChars = homePatchNewCharIds.map(id => characters.find(c => c.id === id)).filter(Boolean);
+                const newChars = homePatchNewCharIds.map(id => characters.find(c => c.id === id)).filter(Boolean)
+                    .sort((a, b) => (a.name || '').localeCompare(b.name || ''));
                 newCharsGrid.innerHTML = newChars.map(c => `
                     <div onclick="inspectCharacterFromHome('${c.id}')" class="bg-parchment-100 hover:bg-parchment-200/80 rounded-2xl p-5 border border-parchment-300 shadow-xs cursor-pointer transition-all flex flex-col justify-between group">
                         <div>
@@ -199,7 +200,8 @@
             // 2. Render New Euphoria Characters Added This Patch
             const euphGrid = document.getElementById('home-euphoria-chars-grid');
             if (euphGrid) {
-                const euphChars = homePatchEuphoriaIds.map(id => characters.find(c => c.id === id)).filter(Boolean);
+                const euphChars = homePatchEuphoriaIds.map(id => characters.find(c => c.id === id)).filter(Boolean)
+                    .sort((a, b) => (a.name || '').localeCompare(b.name || ''));
                 euphGrid.innerHTML = euphChars.map(c => `
                     <div onclick="inspectCharacterFromHome('${c.id}')" class="bg-parchment-100 hover:bg-parchment-200/80 rounded-2xl p-5 border border-parchment-300 shadow-xs cursor-pointer transition-all flex flex-col justify-between group">
                         <div>
@@ -724,7 +726,7 @@
 
             // Roster Picker
             const rosterGrid = document.getElementById('builder-roster-grid');
-            rosterGrid.innerHTML = characters.map(c => {
+            rosterGrid.innerHTML = characters.slice().sort((a, b) => (a.name || '').localeCompare(b.name || '')).map(c => {
                 const inTeam = builderSlots.includes(c.id);
                 return `
                     <div onclick="assignCharToSlot('${c.id}')" class="p-2.5 rounded-xl border ${inTeam ? 'bg-parchment-200 border-parchment-700' : 'bg-parchment-100/80 hover:bg-parchment-200/70 border-parchment-300'} cursor-pointer transition">

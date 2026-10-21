@@ -614,6 +614,7 @@ const SECTIONS = {
             const q = Q.trim().toLowerCase();
             return arr.map((c, i) => ({ c, i }))
                 .filter(({ c }) => !q || ((c.name || '') + ' ' + (c.id || '') + ' ' + (c.suffix || []).join(' ') + ' ' + (c.tags || []).map(t => t.name).join(' ')).toLowerCase().includes(q))
+                .sort((a, b) => (a.c.name || '').localeCompare(b.c.name || ''))
                 .map(({ c, i }) => `<button class="list-item ${i === sel.characters ? 'on' : ''}" data-act="sel-char" data-idx="${i}">
                     <div class="flex items-center justify-between gap-2"><span class="font-bold">${esc(c.name)}</span>${badgeTier(c.tier)}</div>
                     <div class="sub text-[11px] opacity-80 mt-0.5">${esc(c.afflatus)} · ${esc((c.suffix || []).join(' / ') || '—')}${c.hasEuphoria ? ' · ' + esc((c.euphoria && c.euphoria.tag) || 'Euphoria') : ''}</div>
@@ -716,7 +717,7 @@ const SECTIONS = {
                 return `<div class="flex gap-2 items-end">
                     <div class="flex-1 min-w-0"><label class="lbl">Character</label>
                         <select data-path="${bp}.id" class="inp"><option value="">— choose —</option>
-                            ${arr.map((cc, ci) => ci === sel.characters ? '' : `<option value="${esc(cc.id)}" ${b.id === cc.id ? 'selected' : ''}>${esc(cc.name)}</option>`).join('')}
+                            ${arr.map((cc, ci) => ({ cc, ci })).filter(({ ci }) => ci !== sel.characters).sort((a, b) => (a.cc.name || '').localeCompare(b.cc.name || '')).map(({ cc }) => `<option value="${esc(cc.id)}" ${b.id === cc.id ? 'selected' : ''}>${esc(cc.name)}</option>`).join('')}
                         </select></div>
                     <div class="flex-1 min-w-0"><label class="lbl">Tag Amp</label>
                         <select data-path="${bp}.tagAmp" class="inp"><option value="">— choose —</option>${ampOpts}</select></div>
