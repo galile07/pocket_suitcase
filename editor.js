@@ -382,7 +382,8 @@ function buildOutput(){
 }
 async function saveFile(){
     if (API_MODE){
-        if (!DIRTY){ toast('Nothing to save'); return; }
+        // Explicit Save always publishes (even when nothing was edited this
+        // session) — this is how ?prefer=local pushes data.json to the cloud.
         await saveToApi();
         return;
     }
