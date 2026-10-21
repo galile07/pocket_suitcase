@@ -1252,7 +1252,11 @@ document.addEventListener('change', e => {
             return;
         }
         const bm = typeof el.dataset.path === 'string' && el.dataset.path.match(/^characters\.([^.]+)\.bound\.(\d+)\.(id|tagAmp)$/);
-        if (bm) mirrorBounds(bm[1]);
+        if (bm){
+            // data-paths use the character's array index — resolve the real id.
+            const owner = getPath('characters.' + bm[1]);
+            if (owner && owner.id) mirrorBounds(owner.id);
+        }
         markDirty(); render();
     }
 });

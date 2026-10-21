@@ -94,7 +94,12 @@
         }
       ],
       "tier": "T0.5",
-      "bound": [],
+      "bound": [
+        {
+          "id": "matilda",
+          "tagAmp": "Lingering Glow"
+        }
+      ],
       "image": "https://static.wikia.nocookie.net/reverse1999/images/f/fd/Beryl_Icon_Large.png/revision/latest?cb=20260113162510",
       "rarity": 6,
       "suffix": [
@@ -4504,7 +4509,7 @@
           "rating": 5
         }
       ],
-      "tier": "T0.5",
+      "tier": "T3",
       "bound": [
         {
           "id": "nautika",
@@ -4837,15 +4842,17 @@
       },
       "euphoriaPaths": [
         {
-          "tag": "E1",
-          "name": "The Red from a Thousand Moons",
           "type": "E1",
+          "tag": "Bloodtithe",
+          "tier": "T0.5",
+          "name": "The Red from a Thousand Moons",
+          "suffix": "",
+          "releaseDate": "",
           "image": "https://www.reverse1999-simulator.com/infos/character_skills/28-euphoria-308801.webp",
           "rank1": "Whenever an ally loses HP, accumulates points of [Bloodtithe].\nWhen entering battle, gain Max HP +50% and grant (Semmelweis's Max HP x10%) Max HP to other allies.",
           "rank2": "[Effective Means] Enhancement: DMG dealt by allies under the [Fresh Blood] status is additionally increased by 10% and the duration of the granted statuses is increased to 3 rounds.\n[Fresh Blood]'s effect changed to: When taking an action, lose 10% of current HP. Critical Rate +20%. Critical DMG +20%.",
           "rank3": "For every 8 [Bloodtithe] points gained by the team, gain Moxie +1 for self.\n[Truth Revealed] deals (30% of own Max HP instead of ATK) Reality DMG plus 100% Reality DMG and grants [Bloodtithe] points +2.",
           "rank4": "[Blood Domain] Additional Effects: All allies' Healing Taken +10%. For every 10% missing Max HP on allies, they gain an additional Healing Taken +4% (up to 32%).\nWhen under [Blood Domain], if max [Bloodtithe] reaches 50/70, after an ally takes an action, they lose 5% of current HP and gain Extra Action DMG Dealt +15%/30%. If the ally has [Fresh Blood], they gain an additional Extra Action DMG Dealt +10%/20%.",
-          "suffix": "",
           "materials": [
             {
               "mat": "Fruit of Good and Evil",
@@ -4895,8 +4902,7 @@
               "mat": "Seed of Insight",
               "qty": "2511"
             }
-          ],
-          "releaseDate": ""
+          ]
         }
       ]
     },
@@ -11903,11 +11909,17 @@
       "name": "Matilda",
       "tags": [
         {
-          "name": "Impromptu"
+          "name": "Impromptu",
+          "rating": 5
         }
       ],
-      "tier": "T0.5",
-      "bound": [],
+      "tier": "T5",
+      "bound": [
+        {
+          "id": "beryl",
+          "tagAmp": "Lingering Glow"
+        }
+      ],
       "image": "https://static.wikia.nocookie.net/reverse1999/images/d/db/Matilda_Icon_Large.png/revision/latest?cb=20240704094256",
       "rarity": 5,
       "suffix": [
@@ -11953,15 +11965,17 @@
       },
       "euphoriaPaths": [
         {
-          "tag": "E1",
-          "name": "A Crystal-Clear Tomorrow",
           "type": "E1",
+          "tag": "Inspiration",
+          "tier": "T3",
+          "name": "A Crystal-Clear Tomorrow",
+          "suffix": "Support",
+          "releaseDate": "",
           "image": "https://www.reverse1999-simulator.com/infos/character_skills/102-euphoria-304101.webp",
           "rank1": "Gain Max Eureka +5. At the start of the round, gain Eureka +4. Whenever an ally consumes Eureka, accumulate points of [Inspiration]. When entering battle, accumulate 3 points of [Inspiration].\nAfter casting [Work of Genius] or [Attention Everyone], consume 2 Eureka to grant Critical Rate +15% to [Impromptu Incantation] for the round. If [Impromptu Incantation] has at least 5 points of [Inspiration], [Impromptu Incantation] gains an additional Critical DMG +20%.",
           "rank2": "After casting [Work of Genius] or [Attention Everyone] and consuming Eureka, if [Impromptu Incantation] has at least 10 points of Inspiration, [Impromptu Incantation] gains an additional Critical DMG +30%.",
           "rank3": "After casting [Instant of Prediction], grants 8 points of [Inspiration] and an additional Critical Rate +15% to [Impromptu Incantation] for the round. If [Impromptu Incantation] has at least 10 points of [Inspiration], [Impromptu Incantation] gains an additional Critical DMG +50%.",
           "rank4": "After casting [Instant of Prediction], if [Impromptu Incantation] has at least 10 points of Inspiration, [Impromptu Incantation] is always a critical hit.",
-          "suffix": "",
           "materials": [
             {
               "mat": "Fruit of Good and Evil",
@@ -11999,19 +12013,20 @@
               "mat": "Seed of Insight",
               "qty": "1286"
             }
-          ],
-          "releaseDate": ""
+          ]
         },
         {
-          "tag": "E2",
-          "name": "A Dazzling Road to Victory",
           "type": "E2",
+          "tag": "Lingering Glow",
+          "tier": "T0.5",
+          "name": "A Dazzling Road to Victory",
+          "suffix": "Support",
+          "releaseDate": "",
           "image": "https://www.reverse1999-simulator.com/infos/euphoria/matilda_2.webp",
           "rank1": "[The Proud Star]'s Insight I gains a new effect: Whenever an enemy is inflicted with [Burn] or [Ring of Light], accumulates [Lingering Glow]; before attacking, Matilda inflicts 3 stacks of [Ring of Light] on the target.",
           "rank2": "[The Proud Star]'s Insight III gains a new effect: If Beryl is present in the team, after Beryl actively casts [Blaze Through the Lens], Matilda additionally casts a rank 1 [Work of Genius].\n[Work of Genius]'s effect is enhanced: Deals additional Mental DMG equal to 200% of the base Mental DMG; if the target's [Ring of Light] reaches 5/10/20/30 stacks, increases all allies' Critical Rate by 25%/50%/75%/100% for 3 rounds.",
           "rank3": "[The Proud Star]'s Insight III gains a new effect: If Beryl is present in the team, after Beryl actively casts [Nothing Unexpected], Matilda additionally casts a rank 1 [Attention Everyone].\n[Attention Everyone]'s effect is enhanced: Deals additional Mental DMG equal to 200% of the base Mental DMG; if the primary target's [Ring of Light] reaches 5/10/20/30 stacks, increases self ATK by 15%/25%/50%/80% for 3 rounds.",
           "rank4": "[The Proud Star]'s Insight III gains a new effect: If Beryl is present in the team, after Beryl actively casts [A Shimmering Night], Matilda additionally casts [Instant of Prediction].\n[Instant of Prediction]'s effect is enhanced: Deals additional Mental DMG equal to 200% of the base Mental DMG; after attacking, inflicts [Deflection] on the target for 3 rounds.",
-          "suffix": "",
           "materials": [
             {
               "mat": "Fruit of Good and Evil",
@@ -12053,8 +12068,7 @@
               "mat": "Seed of Insight",
               "qty": "1286"
             }
-          ],
-          "releaseDate": ""
+          ]
         }
       ]
     },
