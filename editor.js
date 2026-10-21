@@ -558,7 +558,7 @@ function badgeTier(t){
 
 const SECTIONS = {
     characters: {
-        label:'Characters', icon:'users', sub:'Ver 3.8 / 3.9 Arcanist Registry', title:'Character Database',
+        label:'Characters', icon:'users',     get sub(){ return 'Ver ' + (PAGE.patchVersion || '—') + ' Arcanist Registry'; }, title:'Character Database',
         controls(){
             return `<input data-search="1" value="${esc(Q)}" placeholder="Search name / tag / suffix…" class="inp !w-52">
                 <button class="btn btn-dark" data-act="add-char"><i data-lucide="plus" class="w-4 h-4"></i> New</button>

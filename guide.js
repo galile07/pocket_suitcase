@@ -90,8 +90,9 @@
             if (h && pageText.heroHeading) h.innerHTML = pageText.heroHeading;
             const q = document.getElementById('hero-quote');
             if (q && pageText.heroQuote) q.textContent = pageText.heroQuote;
-            const ver = document.getElementById('tierlist-version');
-            if (ver && pageText.patchVersion) ver.textContent = pageText.patchVersion;
+            const pv = pageText.patchVersion || '4.0';
+            document.querySelectorAll('.js-patch').forEach(el => { el.textContent = pv; });
+            document.querySelectorAll('.js-patch-major').forEach(el => { el.textContent = pv.split('.')[0]; });
         }
 
         window.addEventListener('DOMContentLoaded', async () => {

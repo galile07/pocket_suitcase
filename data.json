@@ -33534,8 +33534,9 @@
     }
   ],
   "pageText": {
-    "title": "POCKET SUITCASE | Ver 3.8–3.9 Timekeeper's Companion & Guide",
+    "title": "POCKET SUITCASE | Ver 4.0 Timekeeper's Companion & Guide",
     "heroQuote": "\"Welcome to POCKET SUITCASE, a website buit to guide fellow timekeepers by helping them to build/suggests characters and team, preparing them from early to late game contents.\"",
-    "heroHeading": "Welcome to <span class=\"text-parchment-200 underline decoration-parchment-400 decoration-2 underline-offset-4\">POCKET SUITCASE</span>"
+    "heroHeading": "Welcome to <span class=\"text-parchment-200 underline decoration-parchment-400 decoration-2 underline-offset-4\">POCKET SUITCASE</span>",
+    "patchVersion": "4.0"
   }
 }
