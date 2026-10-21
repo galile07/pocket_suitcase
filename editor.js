@@ -62,6 +62,34 @@ function setPath(p, v){
     for (let i = 0; i < parts.length - 1; i++) o = o[parts[i]];
     o[parts[parts.length - 1]] = v;
 }
+// Bound pairs are symmetric: whenever A lists B as a bound partner, B gets a
+// reverse entry with the same tagAmp (and stale reverse entries are removed).
+function mirrorBounds(charId){
+    const chars = DOC && DOC.characters;
+    if (!chars) return;
+    const me = chars.find(c => c && c.id === charId);
+    if (!me) return;
+    if (!Array.isArray(me.bound)) me.bound = [];
+    const want = new Map();
+    me.bound.forEach(b => { if (b && b.id && b.id !== charId) want.set(b.id, b.tagAmp || ''); });
+    chars.forEach(other => {
+        if (!other || other.id === charId || !Array.isArray(other.bound)) return;
+        for (let i = other.bound.length - 1; i >= 0; i--){
+            const b = other.bound[i];
+            if (b && b.id === charId && !want.has(other.id)) other.bound.splice(i, 1);
+        }
+        if (!want.has(other.id)) return;
+        const tagAmp = want.get(other.id);
+        const rev = other.bound.find(b => b && b.id === charId);
+        if (rev){
+            rev.tagAmp = tagAmp;
+        } else if (other.bound.length < 3){
+            other.bound.push({ id: charId, tagAmp: tagAmp });
+        } else {
+            toast('Bound link to ' + (other.name || other.id) + ' not mirrored — that unit already has 3 partners');
+        }
+    });
+}
 function clampSel(){
     const lens = { characters:'characters', teams:'teamTierData', banners:'pullBanners', manifests:'mythManifests', nodes:'materialNodes', bosses:'homeManesBulletinBosses', materials:'materialsList', psychubes:'psychubes' };
     for (const k in lens){
@@ -1223,6 +1251,8 @@ document.addEventListener('change', e => {
             markDirty(); render();
             return;
         }
+        const bm = typeof el.dataset.path === 'string' && el.dataset.path.match(/^characters\.([^.]+)\.bound\.(\d+)\.(id|tagAmp)$/);
+        if (bm) mirrorBounds(bm[1]);
         markDirty(); render();
     }
 });
@@ -1310,8 +1340,13 @@ document.addEventListener('click', async e => {
             markDirty(); render(); break;
         }
         case act === 'bound-del': {
-            const arr = getPath('characters.' + sel.characters + '.bound');
-            if (arr && idx !== null){ arr.splice(idx, 1); markDirty(); render(); }
+            const c = getPath('characters.' + sel.characters);
+            const arr = c && c.bound;
+            if (arr && idx !== null && idx !== undefined && idx >= 0 && idx < arr.length){
+                arr.splice(idx, 1);
+                if (c.id) mirrorBounds(c.id);
+                markDirty(); render();
+            }
             break;
         }
 
