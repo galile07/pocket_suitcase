@@ -8,7 +8,7 @@ const CLOUD_READY = !!(window.PSStore && PSStore.isConfigured());
 let RAW = null;           // original file text (baseline) — file mode only
 let PRESENT = [];         // vars actually found/loaded
 let DOC = {};             // editable data
-let PAGE = { title:'', heroHeading:'', heroQuote:'' };
+let PAGE = { title:'', heroHeading:'', heroQuote:'', patchVersion:'' };
 let PT = {};              // captured page-text segments (file mode)
 let HANDLE = null;        // FileSystemFileHandle (when available)
 let FILENAME = '';
@@ -193,6 +193,7 @@ function capturePageText(src){
     PAGE.title      = PT.title.ok ? PT.title.value : '';
     PAGE.heroHeading= PT.heroHeading.ok ? PT.heroHeading.value : '';
     PAGE.heroQuote  = PT.heroQuote.ok ? PT.heroQuote.value : '';
+    PT.patchVersion = { ok:true, value: PAGE.patchVersion || '' };
 }
 
 /* ============================================================
@@ -230,12 +231,12 @@ async function loadFromApi(){
                     if (data[k] !== undefined){ DOC[k] = data[k]; PRESENT.push(k); }
                     else DOC[k] = (k === 'walkthroughData' ? {} : []);
                 }
-                PAGE = data.pageText || { title:'', heroHeading:'', heroQuote:'' };
+                PAGE = Object.assign({ title:'', heroHeading:'', heroQuote:'', patchVersion:'' }, data.pageText || {});
             } else {
                 for (const k of VARS) DOC[k] = (k === 'walkthroughData' ? {} : []);
-                PAGE = { title:'', heroHeading:'', heroQuote:'' };
+                PAGE = { title:'', heroHeading:'', heroQuote:'', patchVersion:'' };
             }
-            PT = { title:{ok:true,value:PAGE.title}, heroHeading:{ok:true,value:PAGE.heroHeading}, heroQuote:{ok:true,value:PAGE.heroQuote} };
+            PT = { title:{ok:true,value:PAGE.title}, heroHeading:{ok:true,value:PAGE.heroHeading}, heroQuote:{ok:true,value:PAGE.heroQuote}, patchVersion:{ok:true,value:PAGE.patchVersion||''} };
             RAW = null;
             HANDLE = null;
             FILENAME = src.cloud ? src.id : 'data.json (server)';
@@ -957,16 +958,17 @@ const SECTIONS = {
                 const seg = PT[key];
                 if (!seg || !seg.ok) return `<div class="sm:col-span-2"><label class="lbl">${esc(label)}</label>
                     <textarea class="inp" rows="3" disabled placeholder="Element not found in file"></textarea></div>`;
-                if (key === 'title') return `<div class="sm:col-span-2"><label class="lbl">${esc(label)}</label>
-                    <input data-page="${key}" value="${esc(PAGE[key])}" class="inp"></div>`;
+                if (key === 'title' || key === 'patchVersion') return `<div class="sm:col-span-2"><label class="lbl">${esc(label)}</label>
+                    <input data-page="${key}" value="${esc(PAGE[key] || '')}" class="inp" placeholder="${esc(ph || '')}"></div>`;
                 const rows = key === 'heroQuote' ? 4 : 3;
                 return `<div class="sm:col-span-2"><label class="lbl">${esc(label)} ${key === 'heroHeading' ? '(HTML allowed)' : ''}</label>
-                    <textarea data-page="${key}" rows="${rows}" class="inp">${esc(PAGE[key])}</textarea></div>`;
+                    <textarea data-page="${key}" rows="${rows}" class="inp">${esc(PAGE[key] || '')}</textarea></div>`;
             };
             return `<div class="card p-5 space-y-4">${grid(
                 block('Document <title>', 'title') +
                 block('Hero Heading (HTML)', 'heroHeading') +
-                block('Hero Welcome Quote', 'heroQuote')
+                block('Hero Welcome Quote', 'heroQuote') +
+                block('Tierlist Patch Version', 'patchVersion', 'e.g. 4.0')
             )}
             <p class="text-xs text-parchment-600 italic border-t border-parchment-200 pt-3">Changes to these fields are written back into the HTML markup on save. Other headings and labels are also plain HTML — use the Raw JSON / a text editor for those.</p>
             </div>`;
@@ -1488,7 +1490,7 @@ $('#btn-logout').addEventListener('click', () => {
                 DOC = prior.doc;
                 PAGE = prior.page || PAGE;
                 PRESENT = prior.present || PRESENT;
-                PT = { title:{ok:true,value:PAGE.title}, heroHeading:{ok:true,value:PAGE.heroHeading}, heroQuote:{ok:true,value:PAGE.heroQuote} };
+                PT = { title:{ok:true,value:PAGE.title}, heroHeading:{ok:true,value:PAGE.heroHeading}, heroQuote:{ok:true,value:PAGE.heroQuote}, patchVersion:{ok:true,value:PAGE.patchVersion||''} };
                 DIRTY = true; CHANGES = prior.changes || 1;
                 const b = $('#dirty-badge');
                 b.textContent = CHANGES + ' unsaved';

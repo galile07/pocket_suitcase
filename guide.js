@@ -29,9 +29,8 @@
         let homePatchNewCharIds = [];
         let homePatchEuphoriaIds = [];
         let homeManesBulletinBosses = [];
-        let pageText = { title: '', heroHeading: '', heroQuote: '' };
+        let pageText = { title: '', heroHeading: '', heroQuote: '', patchVersion: '' };
 
-        let currentCharFilters = { afflatus: 'all', role: 'all', tier: 'all' };
         let activeBuilderSlot = 0;
         let builderSlots = ["beryl", "lorentz", "isolde", "marsha"];
         let selectedManifest = "operatic";
@@ -91,6 +90,8 @@
             if (h && pageText.heroHeading) h.innerHTML = pageText.heroHeading;
             const q = document.getElementById('hero-quote');
             if (q && pageText.heroQuote) q.textContent = pageText.heroQuote;
+            const ver = document.getElementById('tierlist-version');
+            if (ver && pageText.patchVersion) ver.textContent = pageText.patchVersion;
         }
 
         window.addEventListener('DOMContentLoaded', async () => {
@@ -150,15 +151,6 @@
         // HOME: NEW CHARACTERS, NEW EUPHORIA & MANE'S BULLETIN BOSSES
         // ==========================================
         function inspectCharacterFromHome(charId) {
-            // Reset filters so the selected character is visible in the Character Tierlist tab
-            currentCharFilters = { afflatus: 'all', role: 'all', tier: 'all' };
-            const searchEl = document.getElementById('char-search');
-            if (searchEl) searchEl.value = '';
-            const tierSel = document.getElementById('tier-select');
-            if (tierSel) tierSel.value = 'all';
-            const roleSel = document.getElementById('role-select');
-            if (roleSel) roleSel.value = 'all';
-
             switchTab('char-tierlist');
             renderCharacters();
             openCharModal(charId);
@@ -329,21 +321,8 @@
         }
 
         // ==========================================
-        // CHARACTER TIERLIST & EUPHORIA TOGGLE
+        // CHARACTER TIERLIST
         // ==========================================
-        function setCharFilter(type, value) {
-            currentCharFilters[type] = value;
-            if (type === 'afflatus') {
-                document.querySelectorAll('.aff-btn').forEach(btn => {
-                    if (btn.getAttribute('data-aff') === value) {
-                        btn.className = "aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-800 text-parchment-50 cursor-pointer";
-                    } else {
-                        btn.className = "aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer";
-                    }
-                });
-            }
-            renderCharacters();
-        }
 
         function getAfflatusBadge(aff) {
             const map = {
@@ -434,33 +413,15 @@
         }
 
         function renderCharacters() {
-            const search = (document.getElementById('char-search')?.value || '').toLowerCase();
-            const includeEuphoria = document.getElementById('euphoria-toggle')?.checked ?? true;
             const grid = document.getElementById('char-grid');
-
-            const filtered = characters.filter(c => {
-                const activeTier = c.tier;
-                const matchAff = currentCharFilters.afflatus === 'all' || c.afflatus === currentCharFilters.afflatus;
-                const matchRole = currentCharFilters.role === 'all' || (c.suffix || []).includes(currentCharFilters.role);
-                const matchTier = currentCharFilters.tier === 'all' || activeTier === currentCharFilters.tier;
-                const haystack = (c.name + ' ' + (c.dmgType || '') + ' ' + (c.suffix || []).join(' ') + ' ' + charTagNames(c).join(' ') + ' ' + (c.psychube || '')).toLowerCase();
-                const matchSearch = !search || haystack.includes(search);
-                return matchAff && matchRole && matchTier && matchSearch;
-            });
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full p-8 text-center bg-parchment-50 rounded-2xl suitcase-border text-sm text-parchment-700">No Arcanists match your current filters. Try resetting the Tier, Afflatus, or Role filter.</div>`;
-                return;
-            }
-
             const TIER_ORDER = ['T0','T0.5','T1','T2','T3','T4','T5','F'];
-            filtered.sort((a, b) => {
-                const ta = TIER_ORDER.indexOf(includeEuphoria ? effectiveTier(a) : (a.tier || ''));
-                const tb = TIER_ORDER.indexOf(includeEuphoria ? effectiveTier(b) : (b.tier || ''));
-                const ra = ta === -1 ? 99 : ta, rb = tb === -1 ? 99 : tb;
-                return ra !== rb ? ra - rb : (a.name || '').localeCompare(b.name || '');
-            });
-
+            const TIER_NAMES = { T0:'Apex Meta', 'T0.5':'Meta Core', T1:'Strong / Euphoria', T2:'Niche / Starter' };
+            const tierColorOf = t => t === 'T0' ? 'bg-amber-800 text-parchment-50 border-amber-500' :
+                                      t === 'T0.5' ? 'bg-parchment-800 text-parchment-50 border-parchment-500' :
+                                      t === 'T1' ? 'bg-parchment-700 text-parchment-50 border-parchment-500' :
+                                      t === 'T2' ? 'bg-parchment-600 text-parchment-50 border-parchment-400' :
+                                      t === 'F' ? 'bg-red-900 text-parchment-50 border-red-700' :
+                                      'bg-parchment-500 text-parchment-50 border-parchment-400';
             const RARITY_BG = {
                 6: 'linear-gradient(160deg, #fdba74, #ea580c)',
                 5: 'linear-gradient(160deg, #fde047, #ca8a04)',
@@ -469,28 +430,50 @@
                 2: 'linear-gradient(160deg, #86efac, #15803d)'
             };
 
-            grid.innerHTML = filtered.map(c => {
-                const activePath = includeEuphoria ? activeEuphPath(c) : null;
-                const activeTier = includeEuphoria ? effectiveTier(c) : (c.tier || '');
-                const tierColor = activeTier === 'T0' ? 'bg-amber-800 text-parchment-50 border-amber-500' :
-                                  activeTier === 'T0.5' ? 'bg-parchment-800 text-parchment-50 border-parchment-500' :
-                                  activeTier === 'T1' ? 'bg-parchment-700 text-parchment-50 border-parchment-500' :
-                                  activeTier === 'T2' ? 'bg-parchment-600 text-parchment-50 border-parchment-400' :
-                                  activeTier === 'F' ? 'bg-red-900 text-parchment-50 border-red-700' :
-                                  'bg-parchment-500 text-parchment-50 border-parchment-400';
+            const cardHtml = c => {
+                const activePath = activeEuphPath(c);
+                const activeTier = effectiveTier(c);
                 return `
                     <div id="char-card-${c.id}" onclick="openCharModal('${c.id}')" style="background:${RARITY_BG[c.rarity] || 'linear-gradient(160deg, #d6d3d1, #78716c)'}" class="relative aspect-[3/4] rounded-2xl overflow-hidden suitcase-border cursor-pointer group transition-transform hover:-translate-y-1">
                         ${c.image ? `<img src="${c.image}" alt="${c.name}" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top drop-shadow-lg group-hover:scale-105 transition-transform duration-300" onerror="this.remove()">` : `<div class="absolute inset-0 flex items-center justify-center font-serif font-bold text-5xl text-parchment-50/80">${c.name.charAt(0)}</div>`}
                         <div class="absolute top-2 right-2 flex flex-col items-end gap-1">
-                            <div class="w-10 h-10 rounded-lg ${tierColor} font-serif font-bold text-xs flex items-center justify-center border shadow-sm">${activeTier}</div>
-                            ${c.hasEuphoria && includeEuphoria ? `<span onclick="event.stopPropagation(); cycleEuphoria('${c.id}')" title="Click to cycle euphoria path" class="px-1.5 py-0.5 rounded font-mono text-[10px] font-bold cursor-pointer shadow-sm ${activePath ? 'bg-amber-800 text-parchment-50' : 'bg-parchment-100/90 text-parchment-600'}">${activePath ? (activePath.type || activePath.tag || '') : 'Off'}</span>` : ''}
+                            <div class="w-10 h-10 rounded-lg ${tierColorOf(activeTier)} font-serif font-bold text-xs flex items-center justify-center border shadow-sm">${activeTier}</div>
+                            ${c.hasEuphoria ? `<span onclick="event.stopPropagation(); cycleEuphoria('${c.id}')" title="Click to cycle euphoria path" class="px-1.5 py-0.5 rounded font-mono text-[10px] font-bold cursor-pointer shadow-sm ${activePath ? 'bg-amber-800 text-parchment-50' : 'bg-parchment-100/90 text-parchment-600'}">${activePath ? (activePath.type || activePath.tag || '') : 'Off'}</span>` : ''}
                         </div>
                         <div class="absolute inset-x-0 bottom-0 p-2 pt-8 bg-gradient-to-t from-black/75 via-black/40 to-transparent">
                             <h3 class="font-serif font-bold text-sm text-white text-center leading-tight drop-shadow">${c.name}</h3>
                         </div>
                     </div>
                 `;
-            }).join('');
+            };
+
+            const groups = {};
+            characters.forEach(c => {
+                const t = effectiveTier(c) || '?';
+                (groups[t] = groups[t] || []).push(c);
+            });
+            Object.values(groups).forEach(list => list.sort((a, b) => (a.name || '').localeCompare(b.name || '')));
+
+            const sectionHtml = (t, list) => `
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 border-b border-parchment-300 pb-2">
+                        <div class="w-10 h-10 rounded-xl ${tierColorOf(t)} font-serif font-bold text-xs flex items-center justify-center border shadow-sm">${t}</div>
+                        <h3 class="font-serif text-lg font-bold text-parchment-900">${t}${TIER_NAMES[t] ? ' — ' + TIER_NAMES[t] : ''}</h3>
+                        <span class="text-[11px] font-mono text-parchment-600">${list.length} arcanist${list.length === 1 ? '' : 's'}</span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                        ${list.map(cardHtml).join('')}
+                    </div>
+                </div>`;
+
+            const orderedTiers = [
+                ...TIER_ORDER.filter(t => groups[t] && groups[t].length),
+                ...Object.keys(groups).filter(t => TIER_ORDER.indexOf(t) === -1 && groups[t].length)
+            ];
+
+            grid.innerHTML = orderedTiers.length
+                ? orderedTiers.map(t => sectionHtml(t, groups[t])).join('')
+                : `<div class="p-8 text-center bg-parchment-50 rounded-2xl suitcase-border text-sm text-parchment-700">No Arcanists found.</div>`;
         }
 
         function openCharModal(charId) {

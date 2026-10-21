@@ -7345,7 +7345,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "https://static.wikia.nocookie.net/reverse1999/images/a/a4/Hedone_Icon.png/revision/latest?cb=20260902022809",
+      "image": "https://cdn.prydwen.gg/images/re1999/characters/hedone_card.webp",
       "rarity": 6,
       "suffix": [
         "Sub-DPS"
@@ -7680,7 +7680,8 @@
           ],
           "sharpodonty": "600000"
         }
-      }
+      },
+      "euphoriaPaths": []
     },
     {
       "id": "coppelia",
@@ -11159,7 +11160,7 @@
       ],
       "tier": "T0",
       "bound": [],
-      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c5/Narcissus_Icon.png/revision/latest?cb=20260831005031",
+      "image": "https://cdn.prydwen.gg/images/re1999/characters/narcissus_card.webp",
       "rarity": 6,
       "suffix": [
         "Sustain"
@@ -14401,7 +14402,7 @@
       ],
       "tier": "",
       "bound": [],
-      "image": "https://static.wikia.nocookie.net/reverse1999/images/c/c7/Glynd%C5%B5r_Icon.png/revision/latest?cb=20260927102547",
+      "image": "https://cdn.prydwen.gg/images/re1999/generic/1790561727161-fa910f68e6098cd100fac940534b214a.webp",
       "rarity": 4,
       "suffix": [
         "DPS",

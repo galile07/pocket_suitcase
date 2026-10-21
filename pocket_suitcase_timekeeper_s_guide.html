@@ -282,70 +282,13 @@
              3. CHARACTER TIERLISTS & BUILDS (WITH EUPHORIA TOGGLE)
              ========================================== -->
         <section id="tab-char-tierlist" class="tab-content hidden fade-in space-y-6">
-            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border space-y-4">
-                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                    <div>
-                        <span class="text-xs font-mono font-semibold uppercase tracking-widest text-parchment-600">Ver 3.8 / 3.9 Arcanist Registry</span>
-                        <h2 class="font-serif text-2xl font-bold text-parchment-900 mt-1">Character Tierlist & Euphoria Build Archive</h2>
-                        <p class="text-sm text-parchment-700 mt-1">Toggle Euphoria badges to declutter the roster, then inspect any Arcanist for tags, bound units and their full material plan.</p>
-                    </div>
-
-                    <div class="flex flex-wrap items-center gap-3">
-                        <!-- Euphoria Interactive Toggle -->
-                        <label class="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-parchment-100 border border-parchment-300 cursor-pointer select-none">
-                            <input type="checkbox" id="euphoria-toggle" checked onchange="renderCharacters()" class="w-4 h-4 accent-parchment-800 rounded cursor-pointer">
-                            <span class="text-xs font-bold text-parchment-900">Include Euphoria (Epiphany) Upgrades</span>
-                        </label>
-
-                        <!-- Search input -->
-                        <div class="relative w-full sm:w-60">
-                            <i data-lucide="search" class="w-4 h-4 text-parchment-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-                            <input id="char-search" oninput="renderCharacters()" type="text" placeholder="Search Beryl, Brume, Glow..." class="w-full pl-9 pr-4 py-2 bg-parchment-100 border border-parchment-300 rounded-xl text-xs text-parchment-900 placeholder-parchment-500 focus:outline-none focus:border-parchment-700">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Filters Row -->
-                <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-parchment-200">
-                    <div class="flex flex-wrap items-center gap-1.5" id="afflatus-filters">
-                        <span class="text-xs font-semibold text-parchment-700 mr-1">Afflatus:</span>
-                        <button onclick="setCharFilter('afflatus', 'all')" data-aff="all" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-800 text-parchment-50 cursor-pointer">All</button>
-                        <button onclick="setCharFilter('afflatus', 'Star')" data-aff="Star" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">✦ Star</button>
-                        <button onclick="setCharFilter('afflatus', 'Plant')" data-aff="Plant" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">☘ Plant</button>
-                        <button onclick="setCharFilter('afflatus', 'Mineral')" data-aff="Mineral" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">◆ Mineral</button>
-                        <button onclick="setCharFilter('afflatus', 'Beast')" data-aff="Beast" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">🐾 Beast</button>
-                        <button onclick="setCharFilter('afflatus', 'Spirit')" data-aff="Spirit" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">☾ Spirit</button>
-                        <button onclick="setCharFilter('afflatus', 'Intellect')" data-aff="Intellect" class="aff-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-parchment-200 text-parchment-800 hover:bg-parchment-300 cursor-pointer">✧ Intellect</button>
-                    </div>
-
-                    <div class="flex flex-wrap items-center gap-2">
-                        <span class="text-xs font-semibold text-parchment-700">Tier:</span>
-                        <select id="tier-select" onchange="setCharFilter('tier', this.value)" class="bg-parchment-100 border border-parchment-300 text-parchment-900 rounded-lg px-2.5 py-1.5 text-xs font-semibold focus:outline-none">
-                            <option value="all">All Tiers</option>
-                            <option value="T0">T0 (Apex Meta)</option>
-                            <option value="T0.5">T0.5 (Meta Core)</option>
-                            <option value="T1">T1 (Strong / Euphoria)</option>
-                            <option value="T2">T2 (Niche / Starter)</option>
-                            <option value="T3">T3</option>
-                            <option value="T4">T4</option>
-                            <option value="T5">T5</option>
-                            <option value="F">F</option>
-                        </select>
-
-                        <span class="text-xs font-semibold text-parchment-700 ml-1">Role:</span>
-                        <select id="role-select" onchange="setCharFilter('role', this.value)" class="bg-parchment-100 border border-parchment-300 text-parchment-900 rounded-lg px-2.5 py-1.5 text-xs font-semibold focus:outline-none">
-                            <option value="all">All Roles</option>
-                            <option value="DPS">DPS</option>
-                            <option value="Sub-DPS">Sub-DPS</option>
-                            <option value="Support">Support</option>
-                            <option value="Sustain">Sustain</option>
-                        </select>
-                    </div>
-                </div>
+            <div class="bg-parchment-50 p-6 rounded-2xl suitcase-border">
+                <h2 class="font-serif text-2xl font-bold text-parchment-900">Character Tierlist (as of patch <span id="tierlist-version">4.0</span>)</h2>
+                <p class="text-sm text-parchment-700 mt-1">All information comes from different sources and there may have been some mistakes. Take this with caution.</p>
             </div>
 
-            <!-- Character Grid -->
-            <div id="char-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+            <!-- Character Grid (grouped by tier) -->
+            <div id="char-grid" class="space-y-6">
                 <!-- Populated by JS -->
             </div>
         </section>
