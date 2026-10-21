@@ -453,6 +453,22 @@
                 return;
             }
 
+            const TIER_ORDER = ['T0','T0.5','T1','T2','T3','T4','T5','F'];
+            filtered.sort((a, b) => {
+                const ta = TIER_ORDER.indexOf(includeEuphoria ? effectiveTier(a) : (a.tier || ''));
+                const tb = TIER_ORDER.indexOf(includeEuphoria ? effectiveTier(b) : (b.tier || ''));
+                const ra = ta === -1 ? 99 : ta, rb = tb === -1 ? 99 : tb;
+                return ra !== rb ? ra - rb : (a.name || '').localeCompare(b.name || '');
+            });
+
+            const RARITY_BG = {
+                6: 'linear-gradient(160deg, #fdba74, #ea580c)',
+                5: 'linear-gradient(160deg, #fde047, #ca8a04)',
+                4: 'linear-gradient(160deg, #d8b4fe, #7e22ce)',
+                3: 'linear-gradient(160deg, #93c5fd, #1d4ed8)',
+                2: 'linear-gradient(160deg, #86efac, #15803d)'
+            };
+
             grid.innerHTML = filtered.map(c => {
                 const activePath = includeEuphoria ? activeEuphPath(c) : null;
                 const activeTier = includeEuphoria ? effectiveTier(c) : (c.tier || '');
@@ -463,44 +479,14 @@
                                   activeTier === 'F' ? 'bg-red-900 text-parchment-50 border-red-700' :
                                   'bg-parchment-500 text-parchment-50 border-parchment-400';
                 return `
-                    <div id="char-card-${c.id}" onclick="openCharModal('${c.id}')" class="bg-parchment-50 hover:bg-parchment-100 rounded-2xl p-5 suitcase-border cursor-pointer transition-all flex flex-col justify-between group">
-                        <div class="flex gap-4">
-                            <div class="w-20 h-24 sm:w-24 sm:h-28 rounded-xl bg-parchment-200 border border-parchment-300 shrink-0 overflow-hidden flex items-center justify-center font-serif font-bold text-2xl text-parchment-400">
-                                ${c.image ? `<img src="${c.image}" alt="${c.name}" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" onerror="this.remove()">` : c.name.charAt(0)}
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-start justify-between gap-2 mb-3">
-                                    <div>
-                                        <div class="flex flex-wrap items-center gap-1.5">
-                                            <h3 class="font-serif font-bold text-lg text-parchment-900 group-hover:text-parchment-700 transition">${c.name}</h3>
-                                            ${c.hasEuphoria && includeEuphoria ? `<span onclick="event.stopPropagation(); cycleEuphoria('${c.id}')" title="Click to cycle euphoria path" class="px-1.5 py-0.5 rounded font-mono text-[10px] font-bold cursor-pointer ${activePath ? 'bg-amber-800 text-parchment-50' : 'bg-parchment-300 text-parchment-600'}">Euphoria ${activePath ? (activePath.type || activePath.tag || '') : 'Off'}</span>` : ''}
-                                        </div>
-                                        <div class="flex flex-wrap items-center gap-1.5 mt-1">
-                                            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${getAfflatusBadge(c.afflatus)}">${c.afflatus}</span>
-                                            ${(c.suffix || []).map(s => `<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-parchment-200 text-parchment-800">${s}</span>`).join('')}
-                                        </div>
-                                    </div>
-                                    <div class="w-11 h-11 rounded-xl ${tierColor} font-serif font-bold text-xs flex items-center justify-center shrink-0 border shadow-xs">
-                                        ${activeTier}
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-wrap gap-1.5">${charTags(c).map(t => `<span class="px-2 py-0.5 rounded bg-parchment-200 border border-parchment-300 text-[10px] font-semibold text-parchment-800">${t.name}${tagStarsHtml(t)}</span>`).join('') || '<span class="text-[11px] text-parchment-600 italic">No tags yet</span>'}</div>
-                            </div>
+                    <div id="char-card-${c.id}" onclick="openCharModal('${c.id}')" style="background:${RARITY_BG[c.rarity] || 'linear-gradient(160deg, #d6d3d1, #78716c)'}" class="relative aspect-[3/4] rounded-2xl overflow-hidden suitcase-border cursor-pointer group transition-transform hover:-translate-y-1">
+                        ${c.image ? `<img src="${c.image}" alt="${c.name}" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top drop-shadow-lg group-hover:scale-105 transition-transform duration-300" onerror="this.remove()">` : `<div class="absolute inset-0 flex items-center justify-center font-serif font-bold text-5xl text-parchment-50/80">${c.name.charAt(0)}</div>`}
+                        <div class="absolute top-2 right-2 flex flex-col items-end gap-1">
+                            <div class="w-10 h-10 rounded-lg ${tierColor} font-serif font-bold text-xs flex items-center justify-center border shadow-sm">${activeTier}</div>
+                            ${c.hasEuphoria && includeEuphoria ? `<span onclick="event.stopPropagation(); cycleEuphoria('${c.id}')" title="Click to cycle euphoria path" class="px-1.5 py-0.5 rounded font-mono text-[10px] font-bold cursor-pointer shadow-sm ${activePath ? 'bg-amber-800 text-parchment-50' : 'bg-parchment-100/90 text-parchment-600'}">${activePath ? (activePath.type || activePath.tag || '') : 'Off'}</span>` : ''}
                         </div>
-
-                        <div class="pt-3 mt-4 border-t border-parchment-200 space-y-1.5 text-xs">
-                            <div class="flex items-center justify-between">
-                                <span class="text-parchment-600">Damage Type:</span>
-                                <span class="font-bold text-parchment-900">${c.dmgType || '—'}</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-parchment-600">BiS Psychube:</span>
-                                <span class="font-medium text-parchment-800">${c.psychube || '—'}</span>
-                            </div>
-                            <div class="pt-1.5 flex items-center justify-end text-[11px] font-semibold text-parchment-600 group-hover:text-parchment-900">
-                                <span>Inspect Build, Euphoria & Bound →</span>
-                            </div>
+                        <div class="absolute inset-x-0 bottom-0 p-2 pt-8 bg-gradient-to-t from-black/75 via-black/40 to-transparent">
+                            <h3 class="font-serif font-bold text-sm text-white text-center leading-tight drop-shadow">${c.name}</h3>
                         </div>
                     </div>
                 `;
